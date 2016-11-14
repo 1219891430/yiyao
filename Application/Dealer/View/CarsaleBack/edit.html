@@ -1,0 +1,255 @@
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>
+                <if condition="$aReturn.return_status eq 2 || $aReturn.return_status eq 1">
+                    修改
+                <elseif condition="$aReturn.return_status eq 3" />
+                    审核
+                </if>
+            车存退库</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>入库仓库：</td><td class="tl"><select disabled="disabled" name="depot_id" id="depot_id" class="w200 form-control">
+                    <volist name="depotList" id="dvo">
+                        <if condition="$aReturn['depot_id'] eq $dvo['repertory_id']">
+                            <option selected="selected" value="{$dvo.repertory_id}">{$dvo.repertory_name}</option>
+                        <else/>
+                            <option value="{$dvo.repertory_id}">{$dvo.repertory_name}</option>
+                        </if>
+                    </volist>
+                </select>
+                </td>
+                    <td class="tr">单据编号：</td><td><span class="f16 fb">{$aReturn['return_code']}</span></td>
+                </tr>
+                <tr>
+                    <td>业务员：</td>
+                    <td>
+                        <select disabled="disabled" id="apage_staff_id" name="staff_id" class="w200 form-control">
+                            <option value="0">选择业务员</option>
+                            <volist name="aStaff" id="avo">
+                                <if condition="$aReturn['staff_id'] eq $avo['staff_id']">
+                                    <option selected="selected" value="{$avo.staff_id}">{$avo.staff_name}</option>
+                                <else/>
+                                    <option value="{$avo.staff_id}">{$avo.staff_name}</option>
+                                </if>
+                            </volist>
+                        </select>
+                    </td>
+                    <td class="tr"></td>
+                    <td>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <table class="table list_table" id="goods_table">
+                <thead>
+                <tr>
+                    <td width="20%">商品条码</td>
+                    <td width="25%">商品名称</td>
+                    <td width="12%">单位</td>
+                    <td width="12%">车存数量</td>
+                    <td width="12%">退库数量</td>
+                    <td width="20%">备注</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="aReturnGoods" id="gvo">
+                    <tr class="tr_operate">
+                        <input type="hidden" class="goods_id" name="goods_id" value="{$gvo.goods_id}"><input type="hidden" class="cv_id" value="{$gvo.cv_id}" name="cv_id">
+                        <td class="sname td_del">
+                        <if condition="$aReturn.return_status eq 2">
+                            <a href='javascript:void(0)' class='goods_del'></a>
+                        </if>
+                        {$gvo.goods_code}
+                        </td>
+                        <td>{$gvo.goods_name}/{$gvo.goods_spec}</td>
+                        <td><select class="w50 goods_unit_select" <if condition="$aReturn.return_status eq 3">disabled
+                        </if>>
+                            <volist name="gvo.goods_unit" id="uvo">
+                                <if condition="$gvo['cv_id'] eq $uvo['cv_id']">
+                                    <option selected="selected" attr={$uvo['json']} value="{$uvo.cv_id}">{$uvo['goods_unit']}</option>
+                                <else/>
+                                    <option attr={$uvo['json']} value="{$uvo.cv_id}">{$uvo['goods_unit']}</option>
+                                </if>
+                            </volist>
+                        </select></td>
+                        <td><input class="w50 tr car_num" disabled="disabled" type="text" value="{$gvo.car_num}"></td>
+                        <td><input class="w50 tr return_num" value="{$gvo.goods_num|getGoodsNum}" <if condition="$aReturn.return_status eq 3">readonly="readonly"</if> type="text"></td>
+                        <td><input class="w100 tr return_remark" value="{$gvo.goods_remark}" type="text"></td></tr>
+                </volist>
+                <tr><td colspan='6'>&nbsp</td>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="6">商品备注：<input id="return_goods_remark" value="{$aReturn.return_remark}" type="text" class="w300"></td>
+                </tr>
+                </tfoot>
+            </table>
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="80px">制单人：</td><td class="tl">{$aReturn.staff_name}</td>
+                    <td class="tr">时间：</td><td><span>{$aReturn.time}</span></td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+        <input type="hidden" name="return_code" id="return_code" value="{$aReturn.return_code}">
+        <input type="hidden" name="return_id" id="return_id" value="{$aReturn.return_id}">
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+
+        <if condition="$aReturn.return_status eq 2">
+
+            <a id="create_form" class="btn btn-primary">
+                <span>修改</span>
+            </a>        
+
+        <elseif condition="$aReturn.return_status eq 3" />
+
+            <a id="return_pass" class="btn btn-primary">
+                <span>审核</span>
+            </a>
+
+        </if>
+
+    </div>
+    <script type="text/javascript">
+        returnGoodsUnit();
+        $("#apage_staff_id").change(function(){
+            var data={staff_id:$(this).val()}
+            CarReturnGoods("{:U('Home/CarportInfo/getCarportGoods')}",data)
+        })
+        $("#create_form").click(function(){
+            $("#submit_form").submit();
+        })
+        $("#submit_form").validate({
+            submitHandler:function(){
+                submitForm()
+            },
+            rules:{
+                depot_id:{
+                    valNeqZero:true
+                },
+                staff_id:{
+                    valNeqZero:true
+                }
+            },
+            messages:{
+                depot_id:{
+                    valNeqZero:"请选择仓库"
+                },
+                staff_id:{
+                    valNeqZero:"请选择业务员"
+                }
+            }
+        })
+        
+        function submitForm(){
+        	
+            if(!checkReturnGoodsGtZero())
+                return false;
+            else
+            {
+            	
+                var aGoodsData=returnTransferArr("#goods_table");
+                if(aGoodsData.length  == 2 || aGoodsData == '[]'){
+                    alert("产品不能清空！请返回重试...");
+                    return false;
+                }
+                var data={return_id:$("#return_id").val(),goods_info:aGoodsData,goods_remark:$("#return_goods_remark").val()}
+                
+                ajaxDataAUD("__URL__/editex",data,true)
+            }
+        }
+      //验证退货数量是否正确
+        function checkReturnGoodsGtZero()
+        {
+        	
+            var error=0;
+            var car_num=$("#goods_table .car_num");
+            var return_num=$("#goods_table .return_num");
+            var ts=false;
+            var msg="";
+            $.each(return_num,function(i){
+            	var dd=parseInt(car_num.eq(i).val());
+            	
+            	if(dd>0){
+            		
+            		if(parseInt(return_num.eq(i).val())<=parseInt(car_num.eq(i).val())&&parseInt(return_num.eq(i).val())>0){
+            			return_num.eq(i).removeClass("input-red");
+            		}else{
+            			ts=true;
+            			msg="退货数量有误，请核查修改后提交！(车存数量为0或负数时，退库数量必须为0；车存数量为正数时，退库数量不能大于车存数量)";
+                        return_num.eq(i).addClass("input-red");
+                        error++;
+                    }
+            	}else{
+            		
+            		if(parseInt(return_num.eq(i).val())==0){
+            			return_num.eq(i).removeClass("input-red");
+            		}else{
+            			ts=true;
+            			msg="退货数量有误，请核查修改后提交！(车存数量为0或负数时，退库数量必须为0；车存数量为正数时，退库数量不能大于车存数量)";
+                        return_num.eq(i).addClass("input-red");
+                        error++;
+                        
+                    }
+            	}
+                
+            })
+            
+            if(ts){
+            	alert(msg);
+            }
+            return error>0?false:true;//没通过：通过
+        }
+      
+        function submitFormReturnPass(){
+        	
+            if(!checkReturnGoodsGtZero())
+                return false;
+            else
+            {
+            	
+                var aGoodsData=returnTransferArr("#goods_table");
+                var data={return_id:$("#return_id").val(),goods_info:aGoodsData,goods_remark:$("#return_goods_remark").val()}
+                
+                ajaxDataAUD("__URL__/returnPass",data,true)
+            }
+        }
+        
+        
+        $("#return_pass").click(function(){
+        	
+        	submitFormReturnPass();
+            
+        })
+
+        $(".goods_del").click(function(){
+            $(this).parent().parent().remove();
+        })
+
+    </script>
+</div>

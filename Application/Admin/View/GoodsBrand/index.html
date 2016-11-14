@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+
+                </div>
+                    
+                        <div class="fr">
+                            <a class="btn btn-primary bg_3071a9" id="cre_brand" href="javascript:void(0)" role="button">创建</a>
+                        </div>
+                    
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td>品牌名称</td>
+                    
+                    <td width="30%">备注</td>
+                    <td width="120">logo</td>
+                    <td width="20%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                            <volist name="list" id="bvo">
+                                <tr>
+                                <td>{$bvo.brand_name}</td>
+                                <td>{$bvo.remark}</td>
+                                <td><img src="/Public/Uploads/brand/{$bvo.brand_logo}" width="80" height="80" /> </td>
+                                <td>
+                               
+                                	
+                                	<ul class="operate-menu li-width33">
+                                		
+                                <php>if(1==1 || $depot_id==0){</php>
+                                    <li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href brand_edit" href="javascript:void(0)">
+                                        <i class="icon-edit"></i>修改
+                                    </a></li>
+
+                                    <php>if($bvo["is_close"]==0){</php>
+						    				<li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href brand_offpass" href="javascript:void(0)">
+											<i class="icon-edit"></i>已审核
+											</a></li>
+						    		<php>}else{</php>
+						    				<li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href brand_pass" href="javascript:void(0)">
+											<i class="icon-edit"></i>审核</a></li>
+						    		<php>}</php>
+
+                                    <li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href brand_del" href="javascript:void(0)">
+                                        <i class="icon-remove-circle"></i>删除
+                                    </a></li>
+                                <php>}else{</php>
+                                	<php>if($bvo["is_close"]){</php>
+                                        <li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href" href="javascript:void(0)">
+										<i class="icon-edit"></i>未审核</a></li>
+                                    <php>}else{ </php>
+						       				<li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href" href="javascript:void(0)">
+											<i class="icon-edit"></i>已审核</a></li>
+                                        <li><a attr="{$bvo.brand_id}" class="collapsed collapse-menu icons-href brand_edit" href="javascript:void(0)">
+                                            <i class="icon-edit"></i>修改
+                                        </a></li>
+                                    <php>}</php>
+                                <php>}</php>
+                                </ul></td>
+                                </tr>
+                            </volist>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist))}
+            <!--表格查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 ">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#cre_brand").click(function(){
+    	
+        ajaxData("__URL__/add");
+    })
+    $("#cre_class").click(function(){
+        ajaxData("__URL__/classAdd");
+    })
+    
+    $(".brand_del").click(function(){
+        if(confirm("确定删除品牌"))
+        {
+        	var bid=$(this).attr("attr");
+
+        	var data={bid:bid};
+        	
+            $.post("__URL__/del",data,function(msg){
+     	 	
+     	 		if(msg.res==1){
+     	 			alert(msg.info);
+     	 			location.reload();
+     	 		}else{
+     	 			alert(msg.info);
+     	 		}
+     	 	 
+     	   },"json");
+        }
+
+    });
+    
+
+    
+    $(".brand_edit").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/edit",data)
+    })
+    
+    $(".brand_close").click(function(){
+            var data={bid:$(this).attr("attrid"),type:$(this).attr("attr")};
+            ajaxDataAUD("__URL__/close",data,true);
+    })
+    $(".class_edit").click(function(){
+        var data={bid:$(this).attr("attr")};
+        ajaxDataPara("__URL__/classEdit",data)
+    })
+    
+    
+    $(".brand_pass").click(function(){
+    	if(confirm("确定要通过审核吗")){
+    		var brand_id=$(this).attr("attr");
+    		var data={brand_id:brand_id};
+    		console.log(data);
+    		$.post("__URL__/setPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+    
+    $(".brand_offpass").click(function(){
+    	if(confirm("确定要设置成未审核状态吗")){
+    		var brand_id=$(this).attr("attr");
+    		var data={brand_id:brand_id};
+    		
+    		$.post("__URL__/setOffPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+    
+    
+    
+    $(".class_del").click(function(){
+        if(confirm("确定删除该类别"))
+        {
+            var data={cid:$(this).attr("attr")};
+            ajaxDataAUD("__URL__/classDel",data,true)
+        }
+    })
+    $(".class_close").click(function(){
+        var data={cid:$(this).attr("attrid"),type:$(this).attr("attr")};
+        ajaxDataAUD("__URL__/classClose",data,true);
+    })
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

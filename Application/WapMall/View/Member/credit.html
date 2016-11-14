@@ -1,0 +1,121 @@
+﻿<include file='Public:head'/>
+<body>
+    <!--子页顶部-->
+    <div class="zy-search zy-tit">
+        <div class="sch-w clearfix">
+            <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+            <div class="tit">
+                赊欠记录
+            </div>
+        </div>
+    </div>
+    <div class="credit-w" id="list">
+        <!--赊欠记录-->
+        <volist name="orderList" id="vo">
+            <ul>
+
+
+                <li>
+                    <p>赊欠金额</p>
+                    <p class="nam">{$_SESSION['cust_name']}</p>
+                    <p class="credit"><strong>{$vo['banlance_money']}</strong> 元</p>
+                </li>
+                <li class="info clearfix">
+                    <p><strong>订单金额(元)</strong>{$vo['order_total_money']}</p>
+                    <p><strong>业务员</strong>{$vo['staff_name']}</p>
+                    <p><strong>赊款订单时间</strong>{$vo['create_time']}</p>
+                </li>
+                <li class="menu"><a href="__URL__/carOrder?order={$vo['order_id']}">订单详情</a></li>
+                <li class="menu"><a href="__URL__/creditDetail?type={$vo['type']}&order_id={$vo['order_id']}">清欠明细</a></li>
+
+            </ul>
+        </volist>
+    </div>
+
+<div class="list-loading"><div class="loading_box"><!--已经到底部了--></div></div>
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+     
+
+
+    <script>
+    
+     $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+    
+    
+    	     $(".list-loading").hide();
+			function pullupRefresh(p) {
+				
+				$(".list-loading").show();
+				
+				var data={};
+				data.p=p;
+				
+				if(p>1){
+					$.get("__URL__/creditJson",data,function(data){
+						//alert(data);
+						var html="";
+					    for(var i=0;i<data.length;i++){
+					    	
+					    	html=html+"<ul>"+
+
+
+                				"<li>"+
+                    				"<p>赊欠金额</p>"+
+                    "<p class='nam'>{$_SESSION['cust_name']}</p>"+
+                    "<p class='credit'><strong>"+data[i]['banlance_money']+"</strong> 元</p>"+
+                "</li>"+
+                "<li class='info clearfix'>"+
+                    "<p><strong>订单金额(元)</strong>"+data[i]['order_total_money']+"</p>"+
+                    "<p><strong>业务员</strong>"+data[i]['staff_name']+"</p>"+
+                    "<p><strong>赊款订单时间</strong>"+data[i]['create_time']+"</p>"+
+                "</li>"+
+                "<li class='menu'><a href='__URL__/carOrder?order="+data[i]['order_id']+"'>订单详情</a></li>"+
+                "<li class='menu'><a href='__URL__/creditDetail?type="+data[i]['type']+"&order_id="+data[i]['order_id']+"'>清欠明细</a></li>"+
+
+            "</ul>";
+	
+					    	
+					    	
+					    }
+						
+						$("#list").append(html);
+						$(".list-loading").hide();
+						
+					},"json");
+				}
+				
+				
+			}
+    var p=0;
+    
+	$(window).scroll(function(){
+		
+		if ($(document).height() - $(this).scrollTop() - $(this).height()<170){
+		    		
+		    p++;
+		    
+		    pullupRefresh(p);
+		}
+		    	
+	});
+    
+        // 弹框
+        function toggleCard() {
+            $('.modal').slideToggle(300);
+        }
+        $('.sku-control-box,.btn-close').click(toggleCard);
+
+        $(".go-back").click(function () {
+            history.go(-1)
+        })
+    </script>
+
+</body>
+</html>

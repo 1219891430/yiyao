@@ -1,0 +1,136 @@
+<!--新建部门弹出层开始-->
+<div class="modal-content modal_750">
+    <form action="{:U('Admin/Depot/addDepot')}" method="post" id="submit_form">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title fb f16">创建仓库</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal-body modal_750">
+                <table class="table no_border">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td  align="right">仓库名称：</td><td><input name="repertory_name" id="repertory_name" type="text" value="{$repertory_name}" class="unit_name form-control w200"></td>
+                        <td  align="right">父级仓库：</td><td>
+						<select name="repertory_parent" id="repertory_parent" class="form-control w200">
+                            <if condition="$depotID eq 0"><option value="0">县级仓库</option></if>
+                            <volist name="depost_list" id="depost">
+                            <option value="{$depost.repertory_id}">{$depost.repertory_name}</option>
+                            </volist>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">库管负责人：</td>
+                        <td><input type="text" name="repertory_user" id="repertory_user" value="{$repertory_user}" class="form-control w200"></td>
+                        <td align="right">仓库电话：</td><td>
+                        <input type="text" name="repertory_tel" id="repertory_tel" value="{$repertory_tel}" class="form-control w200">
+                    </td>
+                    </tr>
+                    <tr>
+                        <td align="right">仓库地址：</td>
+                        <td colspan="3"><input type="text" name="repertory_address" id="repertory_address" value="{$repertory_address}" class="form-control w400"></td>
+                    </tr>
+                    <tr>
+                        <td>仓库说明：</td><td colspan="3"><textarea id="repertory_info" name="repertory_info" style="resize: none;width:90%;" rows="2" class="form-control w300">{$repertory_info}</textarea></td>
+                    </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+            <a id="submit_unit" class="btn btn-primary" >创建</a>
+        </div>
+    </form>
+    <script type="text/javascript">
+        $("#submit_form").validate({
+            rules:{
+                repertory_code:{
+                    required:true,
+                    maxlength:30,
+                    remote   : {
+                        url  : "{:U('Admin/Depot/checkDepotData')}",
+                        type : 'get',
+                        data : {
+                            repertory_id : function(){
+                                return 0;
+                            },
+                            col:function(){
+                                return 'repertory_code';
+                            },
+                            val:function(){
+                                return $('#repertory_code').val();
+                            }
+                        }
+                    }
+                },
+                repertory_name:{
+                    required:true,
+                    maxlength:30,
+                    remote   : {
+                        url  : "{:U('Admin/Depot/checkDepotData')}",
+                        type : 'get',
+                        data : {
+                            repertory_id : function(){
+                                return 0;
+                            },
+                            col:function(){
+                                return 'repertory_name';
+                            },
+                            val:function(){
+                                return $('#repertory_name').val();
+                            }
+                        }
+                    }
+                },
+                repertory_tel:{
+                    minlength:6,
+                    maxlength:12,
+                    number:true,
+                    required:true
+                },
+                repertory_address:{
+                    required:true,
+                    maxlength:100
+                },
+                repertory_info:{
+                    maxlength:100
+                }
+            },
+            messages: {
+                repertory_code: {
+                    required: "仓库编码不能为空",
+                    maxlength: "仓库编码最大为30位",
+                    remote:"仓库编码重复请重新输入"
+                },
+                repertory_name: {
+                    required: "仓库名称不能为空",
+                    maxlength: "仓库名称最大为15位",
+                    remote:"仓库名称重复请重新输入"
+                },
+                repertory_tel: {
+                    minlength: "请填写正确电话",
+                    maxlength: "请填写正确电话",
+                    number: "请填写正确电话",
+                    required: "电话不能为空"
+                },
+                repertory_address: {
+                    required: "请填写仓库地址",
+                    maxlength: "仓库地址最大为50位"
+                },
+                repertory_info: {
+                    maxlength: "仓库说明最大为50位"
+                }
+            }
+        });
+        $("#submit_unit").click(function(){
+            if ($('#submit_form').valid()) {
+                $('#submit_form').submit();
+            }
+        });
+
+    </script>
+</div>

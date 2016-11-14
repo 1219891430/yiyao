@@ -1,0 +1,3 @@
+<?php
+//000000086400a:4:{i:0;a:6:{s:8:"brand_id";s:1:"1";s:10:"brand_name";s:12:"自采蔬菜";s:10:"brand_logo";s:28:"2016-10-14/5800aa6eafc65.jpg";s:6:"remark";s:0:"";s:8:"is_close";s:1:"0";s:8:"depot_id";s:1:"0";}i:1;a:6:{s:8:"brand_id";s:1:"2";s:10:"brand_name";s:12:"自采水果";s:10:"brand_logo";s:0:"";s:6:"remark";s:0:"";s:8:"is_close";s:1:"0";s:8:"depot_id";s:1:"0";}i:2;a:6:{s:8:"brand_id";s:1:"3";s:10:"brand_name";s:6:"美的";s:10:"brand_logo";s:0:"";s:6:"remark";s:0:"";s:8:"is_close";s:1:"0";s:8:"depot_id";s:1:"0";}i:3;a:6:{s:8:"brand_id";s:1:"4";s:10:"brand_name";s:6:"格力";s:10:"brand_logo";s:0:"";s:6:"remark";s:0:"";s:8:"is_close";s:1:"0";s:8:"depot_id";s:1:"0";}}
+?>

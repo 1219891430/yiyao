@@ -1,0 +1,486 @@
+[ 2016-10-24T08:49:45+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/index.html
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2016-10-24T08:50:29+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270228459&gid=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0190s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0530s ]
+SQL: SELECT * FROM `zdb_goods_class`  [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0210s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 44 LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 44  [ RunTime:0.1500s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.1560s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.2480s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0290s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.0170s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.0420s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0080s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-24T08:50:31+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=01978&id=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 44 AND `goods_code` = '01978' LIMIT 1   [ RunTime:0.0120s ]
+
+[ 2016-10-24T08:50:41+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/add?r=1477270239890
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0330s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0590s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0180s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.0170s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0160s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0130s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0260s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.1650s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.1130s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.1140s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0150s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0570s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0280s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-24T08:50:47+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=%E5%9C%B0%E6%96%B9
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '地方' LIMIT 1   [ RunTime:0.0180s ]
+
+[ 2016-10-24T08:51:00+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=%E5%9C%B0%E6%96%B9%E5%8F%91%E5%8F%91%E5%8F%91
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0312s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '地方发发发' LIMIT 1   [ RunTime:0.0780s ]
+
+[ 2016-10-24T08:51:00+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=111
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '111' LIMIT 1   [ RunTime:0.0140s ]
+
+[ 2016-10-24T08:51:01+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=%E5%9C%B0%E6%96%B9%E5%8F%91%E5%8F%91%E5%8F%91
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0140s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '地方发发发' LIMIT 1   [ RunTime:0.0430s ]
+
+[ 2016-10-24T08:51:04+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=111
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.2022s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '111' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-10-24T08:51:05+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=111
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0588s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '111' LIMIT 1   [ RunTime:0.1010s ]
+
+[ 2016-10-24T08:51:05+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=111
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0220s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '111' LIMIT 1   [ RunTime:0.0540s ]
+
+[ 2016-10-24T08:51:08+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/add?r=1477270268029
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0420s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.0692s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0780s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0312s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.0490s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.0570s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.0522s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0624s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0468s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-24T08:51:12+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=5555
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '5555' LIMIT 1   [ RunTime:0.0080s ]
+
+[ 2016-10-24T08:51:50+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/index.html
+ERR: SQLSTATE[HY000] [2002] �������ӷ���һ��ʱ���û����ȷ�𸴻����ӵ�����û�з�Ӧ�����ӳ���ʧ�ܡ�
+
+
+[ 2016-10-24T08:52:11+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270297490&gid=32
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.003000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.003000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+
+[ 2016-10-24T08:52:11+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=5555
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-24T08:53:04+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270346417&gid=32
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.005000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+
+[ 2016-10-24T08:53:04+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=5555
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-24T08:53:15+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270394842&gid=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0624s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class`  [ RunTime:0.0468s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 44 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 44  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0216s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.0140s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-24T08:53:17+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=01978&id=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0312s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 44 AND `goods_code` = '01978' LIMIT 1   [ RunTime:0.0156s ]
+
+[ 2016-10-24T08:56:33+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270591583&gid=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_class`  [ RunTime:0.0130s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 44 LIMIT 1   [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 44  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0596s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0156s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.057600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.057600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-24T08:56:35+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/edit?r=1477270594551&gid=32
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class`  [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 32 LIMIT 1   [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 32  [ RunTime:0.0468s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.1716s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 1 )  [ RunTime:0.0692s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 13 )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 14 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 43 )  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 61 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 72 )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 86 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 93 )  [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 109 )  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 124 )  [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 136 )  [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: goods_unit_m D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Admin\3ca315f885590daa4c050fd18e5adfa9.php 第 114 行.
+NOTIC: [8] Undefined index: goods_unit_b D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Admin\3ca315f885590daa4c050fd18e5adfa9.php 第 124 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-24T08:56:37+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=2003000028
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '2003000028' LIMIT 1   [ RunTime:0.0156s ]
+
+[ 2016-10-24T08:56:40+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=2003000028
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '2003000028' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-10-24T08:56:46+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/barcode?code=200300002
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_code` = '200300002' LIMIT 1   [ RunTime:0.0040s ]
+
+[ 2016-10-24T11:49:00+08:00 ] 127.0.0.1 /index.php/Admin/DeliverBack/look?r=1477280940448&id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.005000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\nlh_zdb\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_car_return_stock` [ RunTime:0.0050s ]
+SQL: SELECT crs.*,di.repertory_name,au.true_name as staff_name FROM zdb_car_return_stock crs left join zdb_depot_info as di on crs.repertory_id = di.repertory_id left join zdb_admin_user as au on crs.staff_id = au.admin_id  WHERE `return_id` = '1' ORDER BY return_id desc LIMIT 1   [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `zdb_car_return_stock_goods` [ RunTime:0.0040s ]
+SQL: SELECT crsg.*,gi.goods_code FROM zdb_car_return_stock_goods crsg left join zdb_goods_info as gi on crsg.goods_id = gi.goods_id  WHERE `return_id` = '1' ORDER BY return_id desc  [ RunTime:0.0060s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

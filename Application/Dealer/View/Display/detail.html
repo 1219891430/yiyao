@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>抓单宝</title>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/imglist.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.lazyload.js"></script>
+    <style>
+        /* CSS Document */
+        * {
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-color:#fafafa;
+        }
+        .clearfix:after{ content:'\20'; display:block; overflow:hidden; height:0; clear:both;}
+        .photo-box {
+            float:left;
+            margin:15px;
+            position:relative;
+        }
+        .photo-container{position:relative;width: 1100px;margin: 0 auto;}
+        .photo-box .conten {
+            position: relative;
+            padding:10px;
+            background-color:#ffffff;
+            border:1px solid #eeeeee;
+            border-radius:3px;
+            box-shadow:1px 2px 4px #eee;
+        }
+        .photo-box .conten img {
+            width:400px;
+        }
+        .photo-nam,.photo-tim{position: absolute;color: #ffcc00;font-size: 16px; background: rgba(0, 0, 0, 0.2);padding: 2px 5px;border-radius: 3px;}
+        .photo-nam{left: 20px; top: 20px;}
+        .photo-tim{right: 20px; bottom: 20px;}
+    </style>
+
+</head>
+<body>
+<div class="photo-container clearfix" id="">
+    <volist name="list" id="list">
+	<div class="photo-box">
+    	<div class="conten">
+        	<img class="lazy" data-original="__PUBLIC__/Uploads/{$list.display_img}">
+            <p class="photo-nam">({$list.cust_name})({$list.staff_name})</p>
+            <p class="photo-tim">{$list.add_time|date="Y-m-d H:i:s",###}</p>
+        </div>
+    </div>
+    </volist>
+</div>
+<script>
+    try{
+        $("img.lazy").lazyload({effect: "fadeIn"});
+    }
+    catch(e){}
+</script>
+</body>
+</html>

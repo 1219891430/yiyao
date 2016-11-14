@@ -1,0 +1,371 @@
+/* CSS Document */
+/*首页*/
+.lunbo{
+	width:100%;
+	height:230px;
+}
+.shangpin{
+	float:left;
+	width:45%;
+	list-style-type:none;
+	margin:2%;
+	border-radius:5px;
+	background-color:#FFF;
+	font-family:"微软雅黑";
+	box-shadow: 2px 2px 1px #888888;
+	border-width:1px;
+	border-style:solid;
+	border-color:#CCC;
+}
+.shangpin img{
+	width:100%;
+	height:120px;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+}
+.title{
+	font-size:12px;
+	padding-left:10px;
+	padding-right:10px;
+	color:#999;
+}
+.jifenshu{
+	color:#C00;
+	font-size:14px;
+	margin:2px;
+}
+.jianshu{
+	color:#C00;
+	margin:1px;
+}
+.bootom{
+	font-size:12px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.bootom .bootomleft{
+	float:left;
+}
+.bootom .bootomright{
+	float:right;
+	line-height:14px;
+	padding-top:1px;
+}
+body{
+	background-color: #DAD6D6;
+	margin:0px;
+	padding:0px;
+}
+
+/*个人中心页*/
+header{	
+}
+article{
+}
+.circle{
+	border-radius:60px;
+	width:80px;
+	height:80px;
+	background-color:#FFF;
+	float:left;
+}
+.bg{
+	padding:30px;
+	width:100%;
+	background-image:url(../images/%E7%BB%84-4.png);
+	background-size:cover;
+	height:80px;
+}
+.info{
+	padding-top:10px;
+	float:left;
+	margin:10px;	
+}
+.bigFont{
+	font-size:20px;
+	color:#FFF;
+}
+.smallFont{
+	font-size:12px;
+	color:#FFF;
+}
+.info img{
+	width:12px;
+	height:12px;
+}
+.lis{
+	margin-top:10px;
+}
+.caidan{
+	width:100%;
+	height:50px;
+	border-top:solid #EEE 1px;
+	border-bottom:solid #DDD 1px;
+	background-color:#FFF;
+	
+}
+.caidan .icon{
+	float:left;
+	width:15px;
+	height:20px;
+	margin-top:15px;
+	margin-left:25px;
+	margin-right:15px;
+}
+.caidan span{
+	padding-top:15px;
+	font-family:"微软雅黑";
+	line-height:50px;
+	font-size:16px;
+	color:#333;
+	font:bold;
+}
+.jiantou{
+	margin-top:15px;
+	float:right;
+	width:10px;
+	height:20px;
+	margin-right:15px;
+}
+/*收货地址*/
+.shouhuodizhis{
+	background-color:#FFF;
+	height:380px;
+}
+.shouhuodizhi{
+	width:100%;
+	height:80px;
+	border-bottom:solid #ccc 1px;
+	padding-bottom:10px;
+	background-color:#FFF;
+}
+.xinxi{
+	float:left;
+	width:80%;
+	margin-left:15px;
+	padding-top:10px;
+}
+.xinxitop .xingming{
+	float:left;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+.xinxitop .tel{
+	float:right;
+}
+.xinxi .address{
+	margin-top:10px;
+	font-size:12px;
+	font-family:"微软雅黑";
+}
+.xzshbtn{
+	display:block;
+	width:96%;
+	height:40px;
+	background-color:#F60;
+	margin:auto;
+	border-radius:10px;
+	border:solid #F63 2px;
+	line-height:40px;
+	font-size:16px;
+	text-decoration:none;
+	font:"微软雅黑";
+	color:#FFF;
+	font-weight:bold;
+}
+.xzshbtn div{
+	width:200px;
+	margin:atuo;
+	padding:0 30%;
+}
+/*查看订单*/
+.dingdan{
+	width:100%;
+	height:100px;
+	background:#FFF;
+	border-bottom:#CCC solid 1px;
+	padding-bottom:5px;	
+}
+.dingdan .dingdantop{
+	height:70px;
+	border-bottom:#CCC solid 1px;
+}
+.dingdantop img{
+	margin:10px;
+	float:left;
+	width:70px;
+	height:50px;
+}
+.dingdantop .wenzi{
+	width:80px;
+	float:left;
+	font-size:10px;
+	line-height:20px;
+	font-family:"微软雅黑";
+	padding-top:12px;
+}
+.dingdantop .jifen{
+	width:40px;
+	float:right;
+	font-size:10px;
+	line-height:20px;
+	font-family:"微软雅黑";
+	padding-top:12px;
+	padding-right:30px;
+}
+.dingdanbuttom{
+	padding-right:10px;
+}
+.dingdanbuttom .kbn{
+	margin-top:5px;
+	margin-left:2px;
+	padding-top:5px;
+	padding-left:5px;
+	float:right;
+	width:45px;
+	border:#EEE solid 1px;
+	height:20px;
+	font-size:10px;
+}
+.dingdanbuttom .ywc{
+	color:#C00;
+	margin-top:5px;
+	padding-top:5px;
+	float:right;
+	width:45px;
+	height:20px;
+	font-size:10px;
+}
+/*新增收货地址*/
+
+.inputdiv{
+	margin:10px;
+	width:280px;
+	height:30px;
+	border:solid #DDD 1px;
+	background-color:#FFF;
+}
+.inputdiv input{
+	
+	width:180px;
+	height:28px;
+	border:hidden;
+}
+.inputdiv .lb{
+	margin-left:10px;
+	margin-top:5px;
+	margin-right:5px;
+	width:80px;
+	float:left;
+	font-family:"微软雅黑";
+	font-size:14px;
+}
+.inputdiv .lb span{
+	color:#C00;
+	margin-right:2px;
+}
+
+.inputli{
+	border-top:#EEE solid 1px;
+	border-bottom:#DDD solid 1px;
+	background-color:#FFF;
+}
+.formdiv{
+	height:400px;
+	background-color:#FFF;
+	margin-bottom:10px;
+}
+.wcbn{
+	display:block;
+	width:80px;
+	height:30px;
+	margin:auto;
+	border-radius:10px;
+	border:solid #F63 1px;
+	line-height:30px;
+	font-size:14px;
+	text-decoration:none;
+	font:"微软雅黑";
+	color:#F63;
+	font-weight:bold;
+	padding-left:40px;
+}
+/*商品详情页*/
+.detialmain{
+	width:100%;
+	height:320px;
+	border-bottom:solid #CCC 1px;
+}
+.detialmain img{
+	width:100%;
+	height:160px;
+}
+.detialmain .ming{
+	width:90%;
+	margin-left:10px;
+	margin-top:10px;
+	font-family:"微软雅黑";
+	font-size:16px;
+}
+.detialmain .jifen{
+	width:90%;
+	margin-left:20px;
+	margin-top:20px;
+	font-family:"微软雅黑";
+	font-size:14px;
+}
+.detialmain div span{
+	color:#c00;
+}
+.detial{
+	height:120px;
+	
+}
+.detial img{
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	margin-right:10px;
+	width:20px;
+	height:15px;	
+}
+.detial div{
+	float:left;
+	margin-top:7px;
+	width:100px;
+	color:#666;
+	font-size:12px;
+	line-height:20px;
+	font-family:"微软雅黑";	
+}
+.gmbtn{
+	display:block;
+	width:96%;
+	height:40px;
+	background-color:#090;
+	margin:2em auto;
+	border-radius:10px;
+	border:solid #090 2px;
+	line-height:40px;
+	font-size:16px;
+	text-decoration:none;
+	font:"微软雅黑";
+	color:#FFF;
+	font-weight:bold;
+}
+.gmbtn div{
+	width:200px;
+	margin:atuo;
+	padding:0 40%;
+}
+header{
+background: #CFC9C6;
+width: 100%;
+height: 60px;
+text-align: center;
+line-height: 60px;
+font-family: "微软雅黑";
+color: #FFF;
+font-weight: bold;
+font-size: 24px;
+}

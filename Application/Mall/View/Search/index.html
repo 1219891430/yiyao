@@ -1,0 +1,292 @@
+<include file='Public:head'/>
+<div class="red-line"></div>
+
+<!--产品列表页-->
+<div class="w sch-t-info clearfix">
+    <p class="fl">全部货源</p>
+    <p class="fr">共<span class="font-brand">{$count}</span>件{$urlParam['word']}相关产品</p>
+</div>
+<div class="list-class w">
+    <!--<div class="class-row clearfix">
+        <h3>价格</h3>
+        <div class="class-item">
+            <a href="#">0-99</a>
+            <a href="#">100-299</a>
+        </div>
+        <div class="class-btn hidden">
+            <a class="btn-whit" href="javascript:;">更多<i class="i-show"></i></a>
+        </div>
+    </div>-->
+    <!--<div class="class-row clearfix">
+        <h3>净含量</h3>
+        <div class="class-item">
+            <a href="#">1200ml</a>
+            <a href="#">1000ml</a>
+            <a href="#">800ml</a>
+            <a href="#">400ml</a>
+            <a href="#">200ml</a>
+            <a href="#">100ml</a>
+            <a href="#">50ml</a>
+            <a href="#">40ml</a>
+            <a href="#">30ml</a>
+            <a href="#">25ml</a>
+        </div>
+        <div class="class-btn">
+            <a class="btn-whit btnshow" href="javascript:;">更多 +</a>
+        </div>
+    </div>-->
+
+
+    <div class="class-row clearfix">
+
+
+            <h3>按分类</h3>
+            <div class="class-item">
+                <foreach name="cats" item="cat" key="id">
+
+                    <a class="cats <if condition='$urlParam["cat"] eq $id'> active </if>" attr="{$id}"  href="javascript:;">{$cat}</a>
+
+                </foreach>
+
+            </div>
+
+        <div class="class-btn hidden">
+            <a class="btn-whit" href="javascript:;">更多<i class="i-show"></i></a>
+        </div>
+    </div>
+
+
+
+    <div class="class-row clearfix">
+        <h3>按品牌</h3>
+        <div class="class-item">
+            <foreach name="brands" item="vb" key="id">
+                <a class="brand <if condition='$urlParam["brand"] eq $id'> active </if>"  attr="{$id}"  href="javascript:;">{$vb}</a>
+            </foreach>
+        </div>
+        <div class="class-btn hidden">
+            <a class="btn-whit" href="javascript:;">更多<i class="i-show"></i></a>
+        </div>
+    </div>
+
+</div>
+<!--排序-->
+<div class="btn-order w clearfix">
+    <form>
+        <a id="comp" <if condition="!isset($urlParam['order']) || $urlParam['order']=='comp'"> class="default-sort" <else /> class="sort-btn" </if> href="#">综合</a>
+
+        <a id="sales" <if condition="isset($urlParam['order']) && $urlParam['order']=='sales'"> class="default-sort" <else /> class="sort-btn" </if> href="#">销量
+        <if condition="session('search_order_sales'.$_SESSION['cust_id']) == 'desc'">
+        	&darr;
+        <else /> 
+            &uarr;
+        </if>
+        </a>
+
+        <a id="price" <if condition="isset($urlParam['order']) && $urlParam['order']=='price'"> class="default-sort" <else /> class="sort-btn" </if> href="#">价格
+        <if condition="session('search_order_price'.$_SESSION['cust_id']) == 'desc'">
+        	&darr;
+            <else /> 
+            &uarr;
+        </if>
+        </a>
+
+
+        <div class="sort-price">
+            <input type="text" id="sort_price_max" value="{$urlParam['price_max']}" placeholder="￥最高价">
+            --
+            <input type="text" id="sort_price_min" value="{$urlParam['price_min']}" placeholder="￥最低价">
+        </div>
+        <div class="sort-num">起定量<input type="text" value="{$urlParam['snum']}" id="snum">以下</div>
+        <a class="submit" id="sort_submit" href="javascript:;">确定</a>
+    </form>
+</div>
+<!--产品列表-->
+<div class="w clearfix goods-has">
+    <foreach name="goods" item="val">
+
+        <div class="item">
+            <a href="/index.php/Mall/Goods?goods_id={$val.goods_id}&org_id={$val.org_parent_id}">
+                <img class="lazy" data-original="{:C('GOODS_IMG')}{$val.main_img}">
+            </a>
+            <div class="price-w clearfix"><p class="price">￥<span>{:getPrice($val['goods_base_price'])}</span></p><!--<p class="font-gry">￥199</p>--></div>
+            <p class="tit"><a href="__MODULE__/goods?goods_id={$val.goods_id}&org_id={$val.org_parent_id}">{$val.goods_name}</a></p>
+            <p class="company">{$val.org_name}</p>
+            <div class="clearfix info">
+                <p class="fl"><i class="tag-ch"></i>{$val.reg_year}年</p>
+                <p class="font-gry">成交 {$val.sales}笔</p>
+            </div>
+        </div>
+
+    </foreach>
+
+</div>
+
+<!--page-->
+<!--分页查询开始-->
+{:W('Page/page',array("__URL__", $pnum, $pagelist, $urlParam))}
+<!--分页查询结束-->
+
+
+<include file='Public:foot'/>
+
+<script type="text/javascript">
+
+    // 品牌
+    $('.brand').click(function () {
+        var reg = /&brand=\d*$/g;
+
+        var h = "{$jump_url}";
+
+        if(reg.test(h)) {
+            h = h.replace(reg, '');
+        }
+
+        //h = h.replace(reg, '&brand=' + $(this).attr('attr'));
+
+        h += '&brand=' + $(this).attr('attr')
+
+        location.href= h;
+    })
+
+    // 品类
+    $('.cats').click(function () {
+        var reg =/&cat=\d*$/g;
+
+        var h = "{$jump_url}";
+
+        console.log(reg.test(h))
+
+        if(reg.test(h)) {
+            h = h.replace(reg, "");
+        }
+
+        console.log(h)
+
+        h += '&cat=' + $(this).attr('attr')
+
+        location.href= h;
+    })
+
+
+    // 默认排序
+    $("#comp").click(function () {
+        var h = "{$jump_url}";
+
+        var reg = /&order=\w*$/g;
+
+        h = h.replace(reg, '');
+
+        location.href= h;
+
+    });
+
+    // 销量排序
+    $("#sales").click(function () {
+        var reg = /&order=\w*$/g;
+
+        var h = "{$jump_url}";
+
+        //if(reg.test(h)) {
+            h = h.replace(reg, '');
+        //}
+        var sort="{$sort}";
+        if(sort=="desc"){
+        	sort="asc"
+        }else{
+        	sort="desc"
+        }
+        h += '&order=sales&sort='+sort;
+
+        location.href= h;
+
+    });
+
+    // 价格排序
+    $("#price").click(function () {
+        var reg = /&order=\w*$/g;
+
+        var h = "{$jump_url}";
+
+        //if(reg.test(h)) {
+            h = h.replace(reg, '');
+        //}
+        var sort="{$sort}";
+        if(sort=="desc"){
+        	sort="asc"
+        }else{
+        	sort="desc"
+        }
+        h += '&order=price&sort='+sort;
+
+        location.href= h;
+
+    });
+
+    $('#sort_submit').click(function () {
+        var h = "{$jump_url}";
+
+        var min_reg = /&price_min=\d*$/g;
+        var max_reg = /&price_max=\d*$/g;
+        var snum_reg = /&snum=\d*$/g;
+
+
+        h = h.replace(min_reg, '');
+        h = h.replace(max_reg, '');
+        h = h.replace(snum_reg, '');
+
+        // price_min
+
+        var price_min = $("#sort_price_min").val();
+        if (price_min.length > 0) {
+
+            h += "&price_min=" + price_min;
+        }
+
+        // price_max
+
+        var price_max = $("#sort_price_max").val();
+        if (price_max.length > 0) {
+
+            h += "&price_max=" + price_max;
+        }
+
+        // sale_num
+
+        var snum = $("#snum").val();
+        if (snum.length > 0) {
+
+            h += "&snum=" + $("#snum").val();
+        }
+
+
+        location.href= h;
+    });
+
+    $(document).ready(function(e){
+        //展开和隐藏
+        $(".btnshow").click(function(e){
+            $(".class-item").toggleClass("item-h");
+            var shw = $(this).text();
+            if(shw == "更多 +"){
+                $(this).text("收起 -");
+                $(this).css({"color":"#f85127","border-color":"#f85127"})
+            }else{
+                $(this).text("更多 +");
+                $(this).css({"color":"#666","border-color":"#eee"})
+            }
+        })
+    });
+    
+    $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+
+    
+</script>
+
+</body>
+</html>

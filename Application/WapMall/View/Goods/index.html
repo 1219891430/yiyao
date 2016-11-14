@@ -1,0 +1,272 @@
+﻿<include file="Public:head"/>
+<body>
+    <!--详情页-->
+        <!--子页顶部-->
+    <div class="zy-search zy-tit">
+        <div class="sch-w clearfix">
+            <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+            <div class="tit">
+                商品详情
+            </div>
+        </div>
+        <a class="top-user" href="{:U('WapMall/Member/index')}"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+    </div>
+    <div class="wrap bg-fff">
+        <!--商品详情-->
+        <div class="gd-detail">
+            <img class="lazy" data-original="{:C('GOODS_IMG')}{$goods_info.main_img}">
+            <div class="gd-tit">
+            {$goods_info.goods_name}{$goods_info.goods_spec}
+            </div>
+            <div class="detail-price clearfix">
+            	<volist name="goods_price" id="vo">
+            		<dl><dt>{$vo.goods_unit}</dt> <dd class="price">￥<span>{$vo.act_price}</span></dd></dl>
+            	</volist>
+            	
+                <!--<dl><dt>3-20个</dt><dd class="price">￥<span>69.00</span></dd></dl>
+                <dl><dt>20-100个</dt><dd class="price">￥<span>65.00</span></dd></dl>
+                <dl><dt>≥100个</dt><dd class="price">￥<span>50.00</span></dd></dl>-->
+            </div>
+        </div>
+    </div>
+    <div class="wrap bg-fff mts">
+        <div class="free-box">
+            <div class="tit-w">促销信息<i class="i-show-red"></i></div>
+        </div>
+    </div>
+    <div class="wrap bg-fff mts">
+        <div class="sku-control-box">
+            <div class="tit-w">选择规格、单位、数量<i class="i-show-red"></i></div>
+        </div>
+    </div>
+    <div class="wrap bg-fff mts">
+        <div class="describe-tit">图文详情</div>
+        <div class="describe-box">
+            {$goods_info.goods_desc}
+        </div>
+    </div>
+
+    <!--促销信息弹框-->
+    <div class="modal-free">
+        <div class="modal-detail">
+            <div class="modal-tit">促销信息</div>
+            <span class="btn-close2"></span>
+            <div class="modal-detail-con pbs">
+            	
+            	<volist name="acts" id="vo">
+            		
+            		<div class="free-detail clearfix">
+                    <h5>买{$vo.goods_unit}装优惠</h5>
+                    <div class="font-brand">
+                    	<php>if($vo['act_type']==0){</php>
+                    		<p>原价 {$vo.goods_base_price} 元, 现价{$vo.act_price} 元</p>
+                    	<php>}elseif($vo['act_type']==1){</php>
+                             <p>每购满 {$vo.act_money} 元减 {$vo.act_offer_money} 元</p> 
+                        <php>}elseif($vo['act_type']==2){</php>
+                        	  <p>每够满{$vo.goods_num}{$vo.goods_unit} 赠送 {$vo.song_goods_num}{$vo["song_goods"].goods_unit}{$vo["song_goods"].goods_name}</p>
+                        <php>}</php>
+                    </div>
+                	</div>
+            	</volist>
+                
+                
+            </div>
+        </div>
+    </div>
+    <!--选择规格弹框-->
+    <div class="modal">
+        <div class="modal-detail">
+            <div class="modal-detail-top"><img class="lazy" data-original="{:C('GOODS_IMG')}{$goods_info.main_img}"><span class="price">注：只可选择1种货品<!--￥<span>69.00</span></span>-<span class="price">￥<span>69.00</span>--></span></div>
+            <span class="btn-close"></span>
+            <div class="modal-detail-con">
+                <ul class="modal-detail-con-tit">
+                    <li>规格</li>
+                    <li>单位</li>
+                    <li>数量</li>
+                </ul>
+                <div class="modal-detail-con-check">
+                    <div class="check-color spec">
+                        
+                        <span class="hover">{$goods_info.goods_spec}</span>
+                        
+                    </div>
+                    <div class="check-num">
+                    	<volist name="goods_price" id="vo">
+                    		<div class="check-num-control">
+                            <div class="check-size">{$vo.goods_unit}</div>
+                            <div class="item-amount">
+                                <a  class="J_Minus minus jian" href="javascript:void(0)">-</a>
+                                <input class="text-amount J_ItemAmount number" type="test" autocomplete="off" data-max="365" value="0">
+                                <a  class="J_Plus plus jia" href="javascript:void(0)">+</a>
+                                <input type="hidden"  class="act_price" value="{$vo.act_price}" />
+                                <input type="hidden"  class="cv" value="{$vo.cv_id}" />
+                            </div>
+                            <p class="fontgry">￥{$vo.act_price}</p>
+                            <input value="{$vo.act_price}" disabled="disabled"/>
+                        	</div>
+                    		
+                    	</volist>
+                    </div>
+                </div>
+            </div>
+           <input type="hidden" id="cv"  value="0"/>
+           <input type="hidden" id="number" value="0"/>
+           
+            <p class="total">共<span class="fontbrand" id="number2">0</span>个&nbsp;&nbsp;<span class="fontbrand" id="total_money">￥0.00</span></p>
+            <div class="modal-detail-menu clearfix">
+                <a class="menu" id="addcar"  href="javascript:;">加入进货单</a>
+                <a class="menu menu-brand" id="dinggou" href="javascript:;">立即订购</a>
+            </div>
+        </div>
+    </div>
+
+
+    <footer>
+        <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+        <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+    </footer>
+
+    <!--底部悬浮按钮-->
+    <div class="foot-btn">
+        <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+        <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+        <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+    </div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+    <script>
+       $("img.lazy").lazyload({effect: "fadeIn"});
+        // 弹框
+        function toggleCard() {
+            $('.modal').slideToggle(300);
+        }
+        function toggleCardFree() {
+            $('.modal-free').slideToggle(300);
+        }
+        $('.sku-control-box,.btn-close').click(toggleCard);
+        $('.free-box,.btn-close2').click(toggleCardFree);
+        
+        $(".number").blur(function(){
+        	var numberObj=$(this).parent().find(".number");
+        	var number=numberObj.val();
+        	var priceObj=$(this).parent().find(".act_price");
+        	var price=priceObj.val();
+        	number=parseFloat(number);
+
+            if (number <= 0) {
+                number = 0;
+            }
+        	
+        	$(".number").val(0);
+        	numberObj.val(number);
+        	var total=number*price;
+        	total=total.toFixed(2);
+        	$("#total_money").text("￥"+total);
+        	$("#number2").text(number);
+        	
+        	var cvObj=$(this).parent().find(".cv");
+        	var cv=cvObj.val();
+        	
+        	$("#number").val(number);
+        	$("#cv").val(cv);
+        });
+        
+        $(".jia").click(function(){
+        	
+        	var numberObj=$(this).parent().find(".number");
+        	var number=numberObj.val();
+        	var priceObj=$(this).parent().find(".act_price");
+        	var price=priceObj.val();
+        	number=parseFloat(number);
+        	number+=1;
+        	$(".number").val(0);
+        	numberObj.val(number);
+        	var total=number*price;
+        	total=total.toFixed(2);
+        	$("#total_money").text("￥"+total);
+        	$("#number2").text(number);
+        	
+        	var cvObj=$(this).parent().find(".cv");
+        	var cv=cvObj.val();
+        	
+        	$("#number").val(number);
+        	$("#cv").val(cv);
+        });
+        $(".jian").click(function(){
+        	var numberObj=$(this).parent().find(".number");
+        	var number=numberObj.val();
+        	var priceObj=$(this).parent().find(".act_price");
+        	var price=priceObj.val();
+        	number=parseFloat(number);
+            number-=1;
+        	if(number<0){
+        		return false
+        	}
+        	$(".number").val(0);
+        	numberObj.val(number);
+        	var total=number*price;
+        	total=total.toFixed(2);
+        	$("#total_money").text("￥"+total);
+        	$("#number2").text(number);
+        	
+        	var cvObj=$(this).parent().find(".cv");
+        	var cv=cvObj.val();
+        	
+        	$("#number").val(number);
+        	$("#cv").val(cv);
+        });
+        
+        
+        
+        $(".go-back").click(function () {
+        	history.go(-1)
+    	})
+        $("#addcar").click(function(){
+        	
+        	var cust="<PHP>if($_SESSION['cust_id']){echo $_SESSION['cust_id'];}else{echo 0;}</php>";
+	    	if(cust==0){
+	    		location.href="/index.php/WapMall/Member/login";
+	    	}
+        	
+        	var number=$("#number").val();
+        	var cv=$("#cv").val();
+        	if(number==0){
+        		alert("参数不能为零");
+        		return;
+        	}
+        	var aurl="{:U('WapMall/Cart/add')}";
+			var reurl="{:U('WapMall/Cart/index')}";
+			//var reurl="";
+			
+		
+			addcar_wap(cv, number,{$_GET.org_id}, aurl);
+        });
+        $("#dinggou").click(function(){
+        	
+        	var cust="<PHP>if($_SESSION['cust_id']){echo $_SESSION['cust_id'];}else{echo 0;}</php>";
+	    	if(cust==0){
+	    		location.href="/index.php/WapMall/Member/login";
+	    	}
+        	
+        	var number=$("#number").val();
+        	var cv=$("#cv").val();
+        	if(number==0){
+        		alert("参数不能为零");
+        		return;
+        	}
+        	var aurl="{:U('WapMall/Cart/add')}";
+			var reurl="{:U('WapMall/Cart/index')}";
+			//var reurl="";
+			
+		
+			addcar_wap(cv, number,{$_GET.org_id}, aurl,reurl);
+        });
+    </script>
+
+</body>
+</html>

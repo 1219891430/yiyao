@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{-webkit-text-size-adjust:none;  padding:0px; margin:0px; font-size:22px;;font-family:YaHei,Helvetica,Tahoma,sans-serif; color:#999999; background:#f7f7f7;}
+div,p,a,table,td,textarea,form,input,img,ul,li,dl,dt,dd,h1,h2,h3,h4{margin:0;padding:0;font-size:100%;font-weight:normal;-webkit-tap-highlight-color:transparent}
+div{border-width:0px; padding:0px; margin:0px; text-align:left;}
+h1,h2,h3,h4,h5,h6,p{ margin:0px; padding:0px;}
+ul,ol,li,dl,dt,dd ,table,td,tr,th{border-width:0px; padding:0px; margin: 0px; list-style:none;}
+a{text-decoration:none;}
+
+.clear{ clear:both;}
+.clearfix:after {display:block;content:".";height:0;visibility:hidden;clear:both;font-size:0;line-height:0}
+.clearfix{*zoom:1}
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+.cleardiv {clear:both; font-size:0px; height:0; width:1px; visibility:hidden; overflow:hidden}
+.blank {height:10px; font-size:1px; clear:both; display:block; overflow:hidden;}
+.clear{ clear:both;}
+.main{ padding:10px; overflow:hidden; margin:0 auto;}
+
+
+
+
+.header{min-height:40px; padding:2px 0px;background:#3aad36;-webkit-box-shadow:0px 0px 5px #5c3210;-moz-box-shadow:0px 0px 5px #5c3210; border-width:1px; border-color:#3aad36; border-style:solid;}
+.header h1{color:#fff;text-shadow:1px 0px 0px #333; font-family:"ºÚÌå"; line-height:40px; font-size:22px; font-weight:normal; text-align:center;}
+.header h2{ width:37px; height:33px; position:absolute; right:70px; top:7px;  }
+.header_home{ width:50px; position:absolute; right:10px; top:10px; }
+.header_home2{ width:100%; height:26px;font-family:"ºÚÌå"; font-size:16px; line-height:26px; text-align: center; border:1px solid #fff; border-radius:5px; background:#f7f7f7; color:#333;}
+.header_back{ width:50px; position:absolute; left:10px; top:10px;}
+.header_back2{ width:100%; height:26px; font-family:"ºÚÌå"; font-size:16px; border:1px solid #fff; border-radius:5px; line-height:26px; background:#f7f7f7; text-align: center; color:#333;}
+
+
+.content{ width:100%;}
+/*--×¢²áµÇÂ¼Ò³--*/
+.loginDiv{margin:20px auto; height:36px;}
+.login_box{ width:48%; float:right; margin-top:20px; }
+.login_box2{ width:100%; height:36px;  border-radius:3px; background:#FF1E00; border:1px solid #bb6b16; text-align:center; line-height:36px;  font-size:22px; color:#fff;font-family:"ºÚÌå";}
+.registered_box{ width:48%; float:left; margin-right:10px; margin-top:20px;}
+.registered_box2{ width:100%; height:36px; border-radius:3px; background:#909072; border:1px solid #59594f; text-align:center; line-height:36px;  font-size:22px; color:#fff;font-family:"ºÚÌå";}
+.regRight1{ margin:20px auto 0; width:96%; background:#fcfcfc; border:1px solid #dfdfdf;}
+.regRight1_tit{ width:100%; height:47px; margin-bottom:15px;}
+.regRight1_tit ul{ width:101%; height:47px;}
+.regRight1_tit ul li{float:left; line-height:47px; text-align:center; font-size:18px;font-family:"Î¢ÈíÑÅºÚ" ,"Arial";color:#565656;}
+.regRight1_tit ul li a{color:#565656; display:block; cursor:pointer;}
+.licurrent{ width:50%; border-bottom:1px solid #ddd; border-left:1px solid #ddd;background:#ffd;}
+
+.regRight1 h6{ font-family:Microsoft yahei; font-size:22px; color:#333; font-weight:normal; padding-left:30px;}
+.regRight1 p{ line-height:50px; font-size:14px; }
+.regRight1 p span{ text-align:right; width:95px; padding-left:10px ;display:inline-block; }
+
+
+.user_main{ padding:15px;}
+.user_box{ border-radius:5px; border:1px solid #ccc; background:#fff; padding:10px;}
+.user_box p{ line-height:30px; padding:8px 0px; clear:both;}
+.user_box p img{ vertical-align:middle;}
+.user_box span{ float:left; width:100px;font-family:"ºÚÌå"; color:#333; font-size:16px; text-align:right;}
+.input_txt_box{  border-radius:3px; border:1px solid #b6b1b1; width:55%; background:#f7f7f7; box-shdow:4px  0px 5px #e4e0e0; line-height:25px; font-size:16px; }
+.input_yzm{ border-radius:3px; border:1px solid #b6b1b1; width:30%; background:#f7f7f7; box-shdow:4px  0px 5px #e4e0e0; line-height:25px; margin-right:10px;}
+.input_btn{border-radius:3px; border:1px solid #b6b1b1; width:130px; height:24px; background:#f7f7f7; box-shdow:4px  0px 5px #e4e0e0; line-height:24px; font-size:14px; color:#787878;}
+.select_add{ width:110px; margin-right:10px; font-size:16px; height:24px; line-height:24px; background:#f7f7f7;}
+.registered{width:70%;margin:20px auto;}
+.registered2{ width:100%; height:36px; border-radius:3px; background:#FF1E00; border:1px solid #bb6b16; text-align:center; line-height:36px; color:#fff;font-family:"ºÚÌå"; font-size:22px;}
+
+.btn6 { background: url(http://s1.mailicdn.com/mzone/images/Img_new/right_locaimg2.gif) no-repeat scroll 0 -142px; border:none; color: #F2FAFD; cursor: pointer;font-family: "Î¢ÈíÑÅºÚ"; font-size: 16px; height:34px;line-height: 34px; width: 112px;}
+
+
+/*--µ×²¿ÑùÊ½----------------*/
+.footer{ height:50px; border-top:1px solid #ddd;}
+.footer p{line-height:24px; color:#333; font-size:14px; text-align:center;}
+
+
+
+
+/*¸öÈËºóÌ¨css*/
+
+.user_detail{ padding: 15px 10px;}
+.user_maili_box{ border-radius:5px; border:1px solid #b6b1b1; background:#fff;  box-shadow:0px 1px #fff;}
+.user_maili_box h6{line-height:40px; text-align:center;font-family:"ºÚÌå"; font-size:18px; color:#222; font-weight:normal;}
+.user_maili_box p{  text-align:center; color:#f60;font-size:26px;   line-height:35px; clear:both;}
+.user_detail_head{ clear:both;}
+.user_detail_head_img{float:left;}
+.user_detail_head_txt{ float:left; padding-left:10px; width:60%;}
+.user_detail_head_txt .chose{ width:100px; height:24px; border:1px solid #F60; border-radius:5px; background:#f90; text-align:center;color:#fff; font-size:16px;font-family:"ºÚÌå";}
+.user_detail_head_txt p{font-family:"ºÚÌå"; font-size:14px; color:#999; line-height:25px; height:25px; }
+.user_detail_head_txt p span{ float:left; width:70px; text-align:right;}
+.user_detail_head_txt p b{ float:left; font-weight:normal;}
+.user_detail_head_txt p b.usertxt1{font-family:"ºÚÌå"; font-size:16px; color:#222;}
+.user_detail_head_txt p b.usertxt2{font-family:"Arial"; font-size:14px; color:#333;}
+.user_detail_head_txt p b.usertxt3{font-family:"Arial"; font-size:18px; color:#C33;font-weight:bold;}
+.user_detail_head_txt p b.usertxt4{font-family:"Arial"; font-size:18px; color:#206206;}
+.user_detail_box{ border-radius:5px; border:1px solid #b6b1b1;   }
+
+.userMenu{ width:100%;font-family:"ºÚÌå";}
+.userMenu .tit{ height:40px; line-height:40px; border-bottom:1px solid #ddd; color:#333; font-size:18px;}
+.userMenu ul{ width:100%;}
+.userMenu ul li{ float:left; padding:5px;}
+
+
+.phone_download{ width:100%; padding-bottom:25px; border-bottom:1px dashed #ccc; }
+.phone_download_intro{padding-bottom:10px; font-size:14px; color:red; font-weight:bold; line-height:26px; }
+
+.phone_downloat_intros{ position:relative; margin:12px 0px 18px 0px; font-size:14px; color:#333; padding:20px 8px 8px 8px; font-weight:bold; line-height:26px; border:1px solid #3aad36; background:#fff; border-radius:3px;}
+.android{ width:96%; float:left;}
+.phone_download p{ height:60px; line-height:60px; padding-left:30%;}
+.phone_download a{ display:block;}
+.android-brd{ width:100%; border:1px solid #3aad36; background:#d84040 url(images/android_img.png) no-repeat 8% 8px; color:#fff; border-radius:4px;font-size:18px;}
+.android-brd a{ color:#fff; height:60px; line-height:60px; text-align:center;}
+.iphone-brd{ width:100%; border:1px solid #86b2e9; background:#86b2e9 url(images/iphone_img.png) no-repeat 8% 8px; color:#333; border-radius:4px;font-size:18px;}
+.iphone-brd a{ color:#fff; height:60px; line-height:60px; padding-left:30%;}
+.phone_con{ width:100%;font-family:"ºÚÌå"; margin-top:20px;}
+.phone_con .tip{ color:#f60; height:40px; line-height:40px; padding-top:10px;}
+.phone_con .detail{ color:#666; line-height:26px; font-size:16px; border-bottom:1px solid #ccc; padding-bottom:10px;}
+
+.xiazaiBg{ width:100%; height:100%; position:absolute; left:0; top:0px; z-index:666; overflow:hidden;}
+	.tmH{position: relative; width:100%; height:100%; }
+	.jtzx{position:absolute; top:0px; right:20px; z-index:99;}
+	.heis{ position:absolute; width:100%; height:100%; background:#000;filter:alpha(opacity=60);  -moz-opacity:0.6; -khtml-opacity: 0.6; opacity: 0.6; z-index:-1;}
+.tishimsg{ position:absolute; top:100px; left:10px; z-index:99;}
+.ziT{ position:absolute; top:128px; left:29%; z-index:999;}
+.ziT p{ font-family:"Î¢ÈíÑÅºÚ"; font-size:14px; color:#000; max-width:90%; line-height:20px; }
+.ziT p span{ color:#f30;}
+
+
+
+
+
+/*ÂóÐ¡ÂóÏÂÔØcss*/
+
+/*.phone_download{ width:100%; border-bottom:1px dashed #ccc; padding-bottom:35px;}
+.android{ width:48%; float:left;}
+.iphone{ width:48%; float:right;}
+.phone_download p{ height:60px; line-height:60px; padding-left:30%;}
+.phone_download a{ display:block;}
+.android-brd{ width:100%; border:1px solid #e33b16; background:#ff6600 url(../images/android_img.png) no-repeat 8% 8px; color:#fff; border-radius:4px;}
+.android-brd a{ color:#fff; height:60px; line-height:60px; padding-left:30%;}
+.iphone-brd{ width:100%; border:1px solid #cbcbcb; background:#fff url(../images/iphone_img.png) no-repeat 8% 8px; color:#333; border-radius:4px;}
+.iphone-brd a{ color:#333; height:60px; line-height:60px; padding-left:30%;}
+
+
+.phone_con{ width:100%;font-family:"ºÚÌå"; margin-top:20px;}
+.phone_con .tip{ color:#f60; height:40px; line-height:40px; padding-top:10px;}
+
+.phone_con .detail{ color:#666; line-height:26px; font-size:16px; border-bottom:1px solid #ccc; padding-bottom:10px;}*/
+
+
+.wx_btn{background: #ff6600; border-radius: 3px; color: #ffffff;font-family: Î¢ÈíÑÅºÚ;font-size: 14px; float:left; height:22px; line-height:22px; width:35%; text-align:center; margin-right:10px;}

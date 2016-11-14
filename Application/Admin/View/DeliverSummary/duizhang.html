@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>北极光-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/jquery-ui.min.css" rel="stylesheet">
+    
+
+    <!--<link href="__PUBLIC__/css/manhuaDate.1.0.css" rel="stylesheet">-->
+    <style type="text/css">
+    .duizhangtitle{
+        font-size:20px;
+        padding-bottom:2px;
+    }
+    .duizhangtitle span{
+        margin-right:10px;
+        float:left;
+        
+    }
+    .inputremark{
+       width:700px;
+       
+    }
+    
+    .remark{
+       margin:30px 0;
+    }
+    .list_table{
+       border-top:solid 2px;
+       border-right:solid 2px;
+       border-bottom:solid 1px;
+       border-left:solid 1px;
+       
+    }
+    .list_table  td{
+        text-align:center;
+        border-left:solid 1px;
+        border-bottom:solid 1px;
+        vertical-align: middle;
+        
+    }
+    .duizhangfooter{
+       font-size:20px;
+    }
+    
+    .bn{
+      float:left;
+      margin-top: -10px;
+      margin-bottom:10px;
+      background-color: #FF0000;
+      color:#FFFFFF;
+    }
+    .bn:hover{
+      
+      background-color: #990000;
+      color:#FFFFFF;
+    }
+    .title{
+      text-align: center;
+      padding-top:50px;
+      font-size: 24px;
+    }
+    
+    .tishi{
+      font-size: 14px;
+      color:red;
+    }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--<script type="text/javascript" src="__PUBLIC__/js/bootstrap.min.js"></script>-->
+    <!--<script type="text/javascript" src="__PUBLIC__/js/manhuaDate.1.0.js"></script>-->
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<!--    <script type="text/javascript" src="__PUBLIC__/assets/js/switch/jquery-ui.min.js"></script>
+-->  <!--<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-slide.min.js"></script>
+  <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-timepicker-addon.js"></script>-->
+  
+  
+<!--  <link rel="stylesheet" type="text/css" href="__PUBLIC__/assets/css/jquery-ui.css" />
+-->  <script language="javascript" type="text/javascript" src="__PUBLIC__/assets/My97DatePicker/WdatePicker.js"></script>
+  <script type="text/javascript">
+//$(function(){
+//
+//  $('#end_date').datetimepicker({
+//      showSecond: true,
+//      dateFormat: 'yy-mm-dd',
+//      timeFormat: 'hh:mm:ss'
+//    });
+//});
+  </script> 
+  <style type="text/css"> 
+  /*.table thead tr th, .table tbody tr th, .table tfoot tr th, .table thead tr td, .table tbody tr td, .table tfoot tr td {  padding:0px; height:auto; vertical-align:middle; line-height:normal; }*/
+    </style>
+</head>
+<body>
+
+<div class="title"><span>{$staff_name}车销对账明细</span></div>
+<div class="main-container">
+    <div style="margin:100px;margin-bottom: 0px;margin-top: 50px;">
+            <!--右侧查询结束-->
+            <input type="hidden" id="staff_id" value="{$staff_id}"/>
+            <input type="hidden" id="date" value="{$date}"/>
+            <div class="duizhangtitle"><span>对账时间段：</span>  <span> {$start_date}--<input type="text" id="end_date" readonly="readonly" value='{$end_date}' onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" style="margin-top: -6px;  border-style:groove ; border-width:1px; background-color: #FFFFFF; cursor: pointer" /></span></div>
+            <a class="btn btn-default bn" href="#" id="find" role="button">更新数据</a>
+            <span class="tishi">（提示：对截止时间做更改后必须点击更新数据按钮对统计数据进行更新！）</span>
+            <!--表格查询开始-->
+            
+           
+            <table class="table list_table" id="tb">
+                <thead>
+                <tr>
+                    <td width="6%">品牌</td>
+                    <td width="8%">产品</td>
+                    <td width="5%">规格</td>
+                    <td width="7%">上次车存</td>
+                    <td width="6%">出库</td>
+                    <td width="5%">退库</td>
+                    <td width="5%">调出</td>
+                    <td width="5%">换回</td>
+                    
+                    <!--<td width="5%">预存款</td>-->
+                    <!--<td width="5%">陈列</td>-->
+                    <td width="5%">促销品</td> 
+                    <td width="5%">退货</td>
+                    
+                    <td width="5%">销售</td>
+                    <!--<td width="4%">价格</td>
+                    <td width="5%">数量</td>-->
+                    <td width="5%">小计(元)</td>
+                    <td width="7%">剩余车存</td>
+                </tr>
+                </thead>
+                <tbody>
+                   <php>$cc=1;</php>
+                <volist name="BrandData" id="voBrand">
+                    <tr>
+                  <td rowspan="<php>echo count($voBrand['data']);</php>" style="vertical-align: middle;">{$voBrand.brand_name}</td>
+                  
+                      <volist name="voBrand['data']" id="vo">
+                      	
+                      
+                    <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.goods_name}</td>
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.goods_spec}</td>
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.today_carport}</td>
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.CKNumber}<br/></td>
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.TKNumber}</td>
+                         <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.TCHNumber}</td>
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.HHHNumber}</td>
+                        
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.CXNumber}</td> 
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.THNumber}</td>
+                        
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.XSNumber}</td>
+                    
+                        <td data-c="{$cc}" style="vertical-align: middle;" >{$vo.xiaoji|sprintf='%.2f',###}</td>
+
+                  <php>   
+                  $a=0; 
+                  </php>
+                  
+                  
+                    <input 
+                          type="hidden" 
+                          class="goods"
+                          brand_id="{$voBrand.brand_id}"
+                          brand_name="{$voBrand.brand_name}"
+                          goods_id="{$vo.goods_id}"
+                          goods_name="{$vo.goods_name}"
+                          goods_spec="{$vo.goods_spec}"
+                          today_carport="{$vo.today_carport}"
+                          CKNumber="{$vo.CKNumber}"
+                          TKNumber="{$vo.TKNumber}"
+                          
+                          TCHNumber="{$vo.TCHNumber}"
+                          HHHNumber="{$vo.HHHNumber}"
+                          CXNumber="{$vo.CXNumber}"
+                          THNumber="{$vo.THNumber}"
+                          SSNumber="{$vo.SSNumber}"
+                          SSNumber_int="{$vo.SSNumber_int}"
+                          XSNumber="{$vo.XSNumber}"
+                           
+                          xiaoji="{$vo.xiaoji}"                  
+                    />
+                        
+                        <!--<td data-c="{$cc}" style="vertical-align: middle;"><php>echo number_format(($vv["singleprice"]),2,'.','');</php></td>
+                        <td data-c="{$cc}" style="vertical-align: middle;">{$vv.number}{$vv.unit_name}</td>
+                        <td data-c="{$cc}" style="vertical-align: middle;"><php>echo number_format(($vv["singleprice"]*$vv["number"]),2,'.','');</php></td>-->
+                        <php>if($a==0){</php>
+                          <td data-c="{$cc}" style="vertical-align: middle;" ">{$vo.SSNumber}</td>
+                        <php>}</php>
+                          
+                    </tr>
+                    <tr>
+                      <php>$a++;</php> 
+                       </volist>
+                       
+                       
+                      <php>
+                      if($cc==1){
+                          $cc=2;
+                        }else{
+                          $cc=1;
+                        }
+                    </php>    
+                
+                
+                 </tr>       
+             </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            
+    </div>
+    <div style="margin:0 100px;">
+            <!--右侧查询结束-->
+            <div class="duizhangtitle"><span>赊款统计</span></div>
+            <!--表格查询开始-->
+            <table class="table list_table bon">
+                <thead>
+                <tr>
+                  
+                   <td width="8%">商铺</td>
+                    <td width="8%">商铺老板</td>
+                    <td width="8%">总金额</td>
+                    <td width="8%">已付金额</td>
+                    <td width="10%">赊款金额</td>
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <php>$cc=1;</php>
+                <volist name="sheqianData" id="vo">
+                   <tr data-c="{$cc}">
+                  <input
+                   type="hidden" 
+                   class="sheqian"
+                   cust_name="{$vo.cust_name}"
+                   cust_contact="{$vo.cust_contact}"
+                   cust_id="{$vo.cust_id}"
+                   order_total_money="{$vo.total_money}"
+                   order_real_money="{$vo.real_money}"
+                   qiankuan="{$vo.qiankuan}"
+                   />
+                   <td>{$vo.cust_name}</td>
+                    <td>{$vo.cust_contact}</td>
+                    <td>{$vo.total_money}</td>
+                    <td>{$vo.real_money}</td>
+                    <td>{$vo.qiankuan}</td>
+                    
+                </tr>
+                 <php>
+           if($cc==1){
+              $cc=2;
+           }else{
+              $cc=1;
+           }
+           </php>    
+             </volist>
+                </tbody>
+                <tfoot>
+                
+                </tfoot>
+            </table>
+            
+            
+            
+            
+            
+
+            <div class="duizhangfooter">
+                订单总额：{$resSum.totalmoney|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                订单实收：{$resSum.realmoney|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                赊款金额：{$qianKuanMoney|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                退货退款：{$tui_total_money|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                业务员清欠金额：{$total_staff_qkmoney|number_format=###,2}
+                <br>
+                
+                内勤清欠金额：{$total_admin_qkmoney|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp; 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                欠款撤销金额：{$qiankuanChexiao|number_format=###,2}
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                调换货差价(<php>if($changeMoney>0){</php>收入<php>}else{</php>支出 <php>}</php>)：<php>$changeMoney1=abs($changeMoney);echo number_format($changeMoney1,2,'.','');</php>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               
+                <br>
+                对账金额：{$duizhangMoney|number_format=###,2}
+            </div>
+            
+            <input type="hidden" id="order_total_money" value="{$resSum.totalmoney|number_format=###,2}"/>
+            <input type="hidden" id="order_real_money" value="{$resSum.realmoney|number_format=###,2}"/>
+            <input type="hidden" id="qiankuan" value="{$qianKuanMoney|number_format=###,2}"/>
+            
+            <input type="hidden" id="tuihuotuikuan" value="{$tui_total_money|number_format=###,2}"/>
+                 <!-- 业务员清欠-->
+            <input type="hidden" id="qingqian" value="{$total_staff_qkmoney|number_format=###,2}"/>
+                <!-- 内勤清欠-->
+            <input type="hidden" id="inHouseTotal" value="{$total_admin_qkmoney|number_format=###,2}"/>
+
+            <input type="hidden" id="qiankuanChexiao" value="{$qiankuanChexiao|number_format=###,2}"/>
+            <input type="hidden" id="changeMoney" value="{$changeMoney|number_format=###,2}"/>
+            <div class="remark">备注：<input type="text" class="inputremark" id="inputremark"/></div>
+
+       <div class="modal-footer" style="margin-bottom:100px;">
+        
+       
+        <a id="close" class="btn">
+            <span>关闭</span>
+        </a>
+        <!--<a id="print" class="btn btn-primary">
+            <span>打印</span>
+        </a>
+        
+        <a id="export" class="btn btn-primary">
+            <span>导出</span>
+        </a>-->
+        
+        <php>if($isGuoQi==0){</php>
+        <a id="check" class="btn btn-primary">
+            <span>确认对账</span>
+        </a>
+        <php>}</php>
+       
+    
+      </div>
+    </div>
+
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_1050">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">  
+
+    $("#export").click(function(){
+    	 var staff_id=$("#staff_id").val();
+    	 location.href="__URL__/chexiaoduizhang/export/export/staff/"+staff_id;
+    });
+    
+    $("#print").click(function(){
+    	 var staff_id=$("#staff_id").val();
+    	 location.href="__URL__/chexiaoduizhang/print/print/staff/"+staff_id;
+    });
+
+    $("#check").click(function(){
+    	
+      //var end_date=$("#end_date").val();
+    	
+      var staff_id=$("#staff_id").val();
+      var end_date='{$end_date}';
+      var tuihuotuikuan=$("#tuihuotuikuan").val(); 
+      
+      var inHouseTotal=$("#inHouseTotal").val(); 
+      
+      var qiankuan=$("#qiankuan").val(); 
+      var qingqian=$("#qingqian").val(); 
+      var order_real_money=$("#order_real_money").val(); 
+      var order_total_money=$("#order_total_money").val();
+      
+      var qiankuanChexiao=$("#qiankuanChexiao").val();
+      var start_time_int="{$start_time_int}";
+      var changeMoney=$("#changeMoney").val();
+      
+      
+      
+      var goods=$(".goods");
+      
+      var goodsJson=new Array();
+      var i=0;
+      while(i<goods.length){
+        goodss=goods.eq(i);
+        goodsJson[i]={
+            "goods_id":goodss.attr("goods_id"),
+            "goods_name":goodss.attr("goods_name"),
+            "goods_spec":goodss.attr("goods_spec"),
+            "brand_id":goodss.attr("brand_id"),
+            "brand_name":goodss.attr("brand_name"),
+            "lastNumber":goodss.attr("today_carport"),
+            "CKNumber":goodss.attr("CKNumber"),
+            "TKNumber":goodss.attr("TKNumber"),
+            "TCHNumber":goodss.attr("TCHNumber"),
+            "HHHNumber":goodss.attr("HHHNumber"),
+           
+            "CXNumber":goodss.attr("CXNumber"),
+            "THNumber":goodss.attr("THNumber"),
+            "SSNumber":goodss.attr("SSNumber"),
+            "SSNumber_int":goodss.attr("SSNumber_int"),
+            "XSNumber":goodss.attr("XSNumber"),
+            
+            "xiaoji":goodss.attr("xiaoji")
+        };
+        i++;
+      }
+      
+        var sheqians=$(".sheqian");     
+      var sheqiansJson={}
+      var i=0
+      while(i<sheqians.length){
+        sheqianss=sheqians.eq(i);
+        sheqiansJson[i]={
+            "cust_name":sheqianss.attr("cust_name"),
+            "cust_contact":sheqianss.attr("cust_contact"),
+            "order_total_money":sheqianss.attr("order_total_money"),
+            "order_real_money":sheqianss.attr("order_real_money"),
+            "cust_id":sheqianss.attr("cust_id"),
+            "qiankuan":sheqianss.attr("qiankuan")
+        };
+        i++;
+      }
+
+	
+	  
+      var data={
+      	  "end_date":end_date,
+          "order_total_money":order_total_money,
+          "inHouseTotal":inHouseTotal,
+          
+          "order_real_money":order_real_money,
+          "changeMoney":changeMoney,
+          "start_time_int":start_time_int,
+          
+          "qingqian":qingqian,
+          "qiankuan":qiankuan,
+          
+          "tuihuotuikuan":tuihuotuikuan,
+          "remark":$("#inputremark").val(),
+          "staff_id":staff_id,
+          'qiankuanChexiao':qiankuanChexiao,
+          "date":end_date,
+          "goods":goodsJson,
+          "sheqians":sheqiansJson
+          
+         
+          
+      };
+      
+      
+      
+//       $.post("__URL__/setDuizhang",data,function(res){
+//    // //$.post("__URL__/test",data,function(res){
+//      
+//        if(res==1){
+//          alert("确认成功");
+//          window.opener=null;
+//          window.location.href="__URL__/index";
+//          //window.close();
+//        }else{
+//          alert("确认失败");
+//        }
+//       });
+
+      //确认对账按钮加遮罩层 kxf  2016-05-26
+      $.ajax({
+            url:"__URL__/setDuizhang",
+            type:"post",
+            data:data,
+            dataType:"text",
+            beforeSend:function(){
+                $(".await").show();
+            },
+            success:function(res){
+            	
+                if( res==1)
+                {
+                      alert("确认成功");
+                      window.opener=null;
+                      window.location.href="__URL__/index";
+                }else if(res==2){
+                	alert("请刷新本页面后再进行对账！");
+                    $(".await").hide();
+					//location.reload(true);
+                }else
+                {
+                    alert("确认失败");
+                    $(".await").hide();
+                }
+            }
+        })
+      
+      
+    });
+    $("#find").click(function(){
+      var end_date=$("#end_date").val();
+      var start_date='{$start_date}';
+      var end_date = Date.parse(end_date);
+      var start_date = Date.parse(start_date);
+      
+      var time = Date.parse(new Date());
+    time = time / 1000;
+      
+        end_date = end_date / 1000;
+        start_date = start_date / 1000;
+        if(end_date<start_date||end_date>time){
+          alert("请正确选择时间（不能晚于当前时间或早于上次对账时间）！");
+          return;
+        }
+    window.location.href="__URL__/duizhang/staff/{$staff_id}/end_date/"+end_date;
+    });
+    $("#close").click(function(){
+      window.opener=null;
+    //window.open('','_self');
+    window.location.href="__URL__/index";
+    });
+    $("[data-c='2']").css("background-color","#DDEEEE");
+    
+    
+    
+</script>
+
+</body>
+</html>

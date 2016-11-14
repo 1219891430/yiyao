@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>农乐汇-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+
+        <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+
+        <div class="row-fluid main-content">
+
+            <div class="sel-data mb20">
+                <div class="fl"></div>
+
+            </div>
+
+            <table id="treetable" class="table list_table treetable">
+                <thead>
+                <tr>
+                    <td width="3%">序号</td>
+                    <php>$w = 100</php>
+                    <for start="1" end="$cycle_times+1">
+                        <td width="{$w / ($cycle_times+1)}%"> D-{$i} <button type="button" class="btn btn-link btn_xs set_btn" data-index="{$i}" style="border: none">设定</button> </td>
+                    </for>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>
+                        合计
+                    </td>
+
+                    <foreach name="custs['count']" item="count">
+
+                        <td>{$count}</td>
+
+                    </foreach>
+                </tr>
+
+                <for start="0" end="$max">
+                    <tr>
+                        <td style="text-align: center">{$i+1}</td>
+                        <foreach name="custs['custs']" item="cust">
+
+                            <td>
+                                {$cust[$i]["cust_name"]} {$cust[$i]["contact"]} {$cust[$i]["telephone"]}
+                            </td>
+
+                        </foreach>
+
+
+                    </tr>
+                </for>
+                </tbody>
+            </table>
+
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            <!--{:W('Page/page',array("__URL__/cycle",$pnum,$pagelist,["staff_id"=>$staff_id]))}-->
+
+            <!--分页查询结束-->
+
+        </div>
+
+    </div>
+</div>
+
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+
+<div class="modal" id="settingModal" tabindex="-1" role="dialog"
+     aria-labelledby="settingModalLabel" aria-hidden="true">
+    <div id="setting_con" class="">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/goods.js?v=27"></script>
+<script type="text/javascript">
+    $(".set_btn").click(function () {
+        var data={index:$(this).data("index"),staff_id:{$staff_id}};
+
+        $.ajax({
+            url:"__URL__/setting"+"?r="+new Date().getTime(),
+            type:"get",
+            dataType:"html",
+            data:data,
+            beforeSend:function(){
+                /*$(".await").show();*/
+            },
+            success:function(data){
+                if(data.length!=0){
+                    $("#setting_con").empty().append(data);
+                    $("#settingModal").modal({backdrop:"static"});
+                }
+                /*$(".await").hide();*/
+            }
+        })
+        $("#settingModal").modal({backdrop:"static"});
+    })
+</script>
+
+</body>
+</html>

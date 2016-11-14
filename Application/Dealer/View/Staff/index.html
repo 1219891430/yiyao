@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    
+    	<div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+        <div class="row-fluid main-content">
+			<div class="sel-data mb20">
+                <div class="fl"></div>
+
+                <div class="fr"><a class="btn btn-primary bg_3071a9" href="#" id="cre_zc" role="button">添加</a></div>
+            </div>
+
+            <table class="table list_table">
+            <thead>
+            <tr>
+            <td width="10%">姓名</td>
+            <td width="10%">手机号</td>
+            <td width="7%">登录号</td>
+            <td width="7%">密码</td>
+            <td width="7%">职务</td>
+            <td width="7%">角色</td>
+            <td width="10%">归属部门</td>
+            <td width="5%">状态</td>
+            <td width="12%">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="staff" id="da">
+            <tr id="tr_{$da.staff_id}">
+            <td>{$da.staff_name}</td>
+            <td>{$da.mobile}</td>
+            <td>
+            <if condition="$da['login_user'] eq ''">-<else /> {$da.login_user}</if>
+            </td>
+            <td>
+            <if condition="session('is_admin') eq 1">
+                <a class="reset" attr="{$da.staff_id}" style="color: tomato">重置密码</a>
+            <else />
+                -
+            </if>
+            </td>
+            <td>
+            {$da.job_post}
+            </td>
+            
+            <td>
+            <if condition="$da.role_id eq 1">老板
+            <elseif condition="$da.role_id eq 2"/>
+            内勤
+            <elseif condition="$da.role_id eq 3"/>
+            业务员
+            <elseif condition="$da.role_id eq 4"/>
+            库管
+            <else/>
+            司机
+            </if>
+            </td>
+            <td>
+            {$da.dep_name}
+            </td>
+            <td id="tdc_{$da.staff_id}" class=' <if condition="$da.is_close eq 1">red<else/>green</if>'>
+            <if condition="$da.is_close eq 1">禁用<else/>正常</if>
+            </td>
+            <td>
+            <ul class="operate-menu li-width33">
+                <if condition="$da.is_admin neq 1">
+            <li><a class="collapsed collapse-menu icons-href staff_edit" attr="{$da.staff_id}" href="javascript:void(0)">
+            <i class="icon-edit"></i>修改
+            </a></li>
+                    </if>
+                <if condition="$da.staff_id neq $_SESSION['staff_id']">
+            <li style="display:<?php if($da['is_admin']==1) echo none; ?> ;"><a attr="{$da.staff_id}" class="collapsed collapse-menu icons-href staff_del" href="javascript:void(0)">
+            <i class="icon-remove-circle"></i>删除
+            </a></li>
+            <li style="display:<?php if($da['is_admin']==1) echo none; ?> ;">
+
+            <a class="collapsed collapse-menu icons-href staff_close" attr="{$da.staff_id}" href="javascript:void(0)"><i class="icon-remove-circle"></i>
+                <span id="close_{$da.staff_id}">
+                <if condition="$da.is_close eq 1">
+                    解封
+                <else/>
+                    禁用
+                </if>
+
+                </span>
+
+            </a>
+                </if>
+            </li>
+            </ul>
+            </td>
+            </tr>
+            </volist>
+            </tbody>
+            <tfoot></tfoot>
+            </table>
+
+    <!--表格查询结束-->
+    <!--分页查询开始-->
+    {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+
+    <!--分页查询结束-->
+
+		</div>
+
+    </div>
+</div>
+
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/goods.js?v=27"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+<script type="text/javascript">
+
+    $("#cre_zc").click(function(){
+        ajaxData("__URL__/add");
+    })
+
+    $(".staff_edit").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/edit",data);
+    })
+
+    $(".reset").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/resetPwd",data);
+    })
+
+    $(".staff_close").click(function(){
+        var id = $(this).attr("attr")
+
+        $.ajax({
+            type: "get",
+            url:"__URL__/close",
+            data:{
+                id:id
+            },
+            dataType: "json",
+            success: function (data) {
+                if (data === 0) {
+                    alert("操作失败");
+                } else if (data === 1) {
+                    $("#close_" + id).html('解封');
+                    $("#tdc_" + id).addClass("red").removeClass("green");
+                    $("#tdc_" + id).html("禁用");
+                } else {
+                    $("#close_" + id).html('禁用');
+                    $("#tdc_" + id).addClass("green").removeClass("red");
+                    $("#tdc_" + id).html("正常");
+                }
+            }
+        });
+    })
+
+    $(".staff_del").click(function(){
+        if(confirm("确定删除吗?"))
+        {
+            var data={id:$(this).attr("attr")};
+            ajaxDataAUD("__URL__/del",data, true);
+
+        }
+    })
+
+</script>
+
+</body>
+</html>

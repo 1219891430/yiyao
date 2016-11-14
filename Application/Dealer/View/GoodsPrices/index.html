@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<style>
+  li{
+  	list-style-type: none;
+  }
+	
+</style>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    
+    	<div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    
+    	<div class="row-fluid main-content">
+
+            <div class="sel-data mb20">
+            <div class="fl">
+            
+            <input class="w150 form-control" id="name" value="{$urlPara.name}" placeholder="商品名称"/>
+            	
+            <select id="brand_id" class="w150 form-control">
+            <option value="0">全部品牌</option>
+            <volist name="brand" id="bvo">
+            <option <if condition="$bvo['brand_id'] eq $urlPara['brand_id']">selected="selected"</if> value="{$bvo.brand_id}">{$bvo.brand_name}</option>
+            </volist>
+            </select>
+            <select id="class_id" class="w150 form-control">
+            <option value="0">全部类别</option>
+            <volist name="class" id="cvo">
+            <option <if condition="$cvo['class_id'] eq $urlPara['class_id']">selected="selected"</if> value="{$cvo.class_id}">{$cvo.class_name}</option>
+            </volist>
+            </select>
+            <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+            </div>
+            <div class="fr"></div>
+            </div>
+
+            <table class="table list_table" id="role_table">
+            <thead>
+            <tr><td width="25%">商品名称</td>
+            <td width="10%">包装单位</td>
+            <td width="10%">包装类型</td>
+            <td width="10%">商品进价</td>
+            <td width="10%">商品售价</td>
+            <td width="10%">操作</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="price" id="list">
+            <tr>
+            <td>
+            {$list.goods_name}/{$list.goods_spec}
+            </td>
+            <td>{$list.goods_unit}
+            <if condition="$list.unit_default eq 1">
+            <input type="radio" name="goods_unit_default_{$list.goods_id}" data-goods="{$list.goods_id}" data-unit="{$list.goods_unit_type}" checked onChange="setDefaultUnit(this)" />
+            <else />
+            <input type="radio" name="goods_unit_default_{$list.goods_id}" data-goods="{$list.goods_id}" data-unit="{$list.goods_unit_type}" onChange="setDefaultUnit(this)"  />
+            </if>
+            </td>
+            <td>
+            <if condition="$list.goods_unit_type eq 1">小包装
+            <elseif condition="$list.goods_unit_type eq 2"/>中包装
+            <elseif condition="$list.goods_unit_type eq 3"/>大包装
+            </if>
+            </td>
+            <td class="text-center">
+            	{$list.goods_jin_price}
+                <!--<input type="text" style="border-width:1px" class="base_price" attr="{$list.cv_id}" data-flag="1" name="jin_price" data-old="{$list.goods_jin_price}" onKeyUp="checkNum(this)" value="{$list.goods_jin_price}">-->
+            </td>
+            <td class="text-center">
+            	{$list.goods_base_price}
+                <!--<input type="text" style="border-width:1px" class="base_price" data-old="{$list.goods_base_price}" attr="{$list.cv_id}" data-flag="2" name="base_price" onKeyUp="checkNum(this)" value="{$list.goods_base_price}">-->
+            </td>
+            <td>
+            	<li><a attr="{$list.cv_id}" class="collapsed collapse-menu icons-href goods_set" href="javascript:void(0)">
+        			<i class="icon-remove-circle"></i>设置价格
+        		</a></li>
+            	
+            </td>
+            </tr>
+            </volist>
+            </tbody>
+            <tfoot></tfoot>
+            </table>
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+		</div>
+    
+	</div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 100px;" >
+    <div id="modal-con" class="modal-dialog modal_650">
+    </div>
+</div>
+<script type="text/javascript">
+
+
+    
+
+    $(".goods_set").click(function(){
+    	  var data={cv_id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/setPrice",data);
+    });
+
+    /*var old_price = 0;
+
+    $(".base_price").focus(function () {
+        old_price = $(this).val();
+    });*/
+
+
+    $(".base_price").blur(function () {
+        var id = $(this).attr("attr");
+        var price = $(this).val();
+        var flag = $(this).attr("data-flag");
+        var old_price = toDecimal2($(this).data("old"))
+
+        var obj = $(this);
+        $.ajax({
+            url: "__URL__/changePrice",
+            type: "post",
+            dataType: "json",
+            data: {
+                id: id,
+                price: price,
+                flag: flag
+            },
+            success: function (data) {
+                if (data.res == 1) {
+                    obj.val(data.info)
+                }
+                else {
+                    //alert(data.info);
+                    obj.val(old_price);
+                }
+
+            }
+        });
+    });
+
+    function toDecimal2(x) {
+        var f = parseFloat(x);
+        if (isNaN(f)) {
+            return false;
+        }
+        var f = Math.round(x*100)/100;
+        var s = f.toString();
+        var rs = s.indexOf('.');
+        if (rs < 0) {
+            rs = s.length;
+            s += '.';
+        }
+        while (s.length <= rs + 2) {
+            s += '0';
+        }
+        return s;
+    }
+
+
+
+
+        $("#find").click(function(){
+
+                var h = "__URL__?"
+
+                h += "brand_id=" + $("#brand_id").val();
+
+
+                h += "&class_id=" + $("#class_id").val();
+                h += "&name=" + $("#name").val();
+
+                location.href = h;
+        });
+
+
+        function checkNum(obj) {
+            //检查是否是非数字值
+            if (isNaN(obj.value)) {
+                obj.value = "";
+            }
+            if (obj != null) {
+                //检查小数点后是否对于两位
+                if (obj.value.toString().split(".").length > 1 && obj.value.toString().split(".")[1].length > 2) {
+                    alert("小数点后多于两位！");
+                    obj.value = "";
+                }
+            }
+        };
+
+
+function setDefaultUnit(obj)
+{
+	var gid = $(obj).attr('data-goods');
+	var uid = $(obj).attr('data-unit');
+	var isChecked = $(obj).prop('checked');
+
+	$.ajax({
+		url: "{:U('setDefaultUnit')}" + "?gid="+gid+"&uid="+uid+"&r=" + new Date().getTime(),
+		type: "post",
+		dataType: "json",
+		success: function(data){
+               // $('*[data-goods=gid]').attr('checked',false);
+                if(data.info=='ok'){
+                        obj.attr('checked',true);
+                }
+                else{
+                        alert('设置出错');
+                        location.reload(true);
+                }
+		        //
+		}
+	});
+
+}
+</script>
+
+</body>
+</html>

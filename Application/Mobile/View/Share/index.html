@@ -1,0 +1,117 @@
+﻿<!DOCTYPE >
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>抓单宝手机APP下载</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no"> 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon-precomposed" href="http://image.yihaodianimg.com/mobile-website/images/website/screenLogo.png">
+<link href="__PUBLIC__/share/css/css2.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="__PUBLIC__/share/js/jquery-1.7.2.min.js"></script>
+
+<script type="text/javascript">
+    window.onload = function () {
+        if (isWeiXin()) {
+            var p = document.getElementsByTagName('p');
+            p[0].innerHTML = window.navigator.userAgent;
+        }
+    }
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            document.getElementById('divSandglass').style.display = 'block';
+        } else {
+            document.getElementById('divSandglass').style.display = 'none';
+        }
+    }
+</script>
+
+</head>
+<body style="position: relative;">
+<div style="display: none;" class="xiazaiBg" id="divSandglass">
+	<div class="tmH">
+        <div class="jtzx"><img src="__PUBLIC__/share/img/qb1.png" style="max-height:95px;"></div>
+        <div class="tishimsg"><img src="__PUBLIC__/share/img/qb2.png" style="max-width:98%;"></div>
+        <div class="ziT"><p>如果您是通过<span>微信扫描</span>，请点击右上角，然后选择在<span>浏览器（或Safari）中打开</span>。</p></div>
+        <div class="heis"></div>
+    </div>
+</div>
+
+
+<!--header的开始-->
+<div class="header">
+	<section class="clearfix">
+       <h1>抓单宝下载</h1>
+      </section>
+</div>
+<!--header的结束//-->
+<!--content的开始-->
+<div class="content">
+<section class="clearfix">
+    <div class="user_detail">
+        <div class="user_detail_head">
+        	
+            <div class="user_detail_head_img"><a href="#"><img src="__PUBLIC__/share/img/logo.png" height="100" width="100"></a></div>
+    <div class="user_detail_head_txt">
+                <p><b class="usertxt3" style="font-size:22px; padding-top:10px;"></b></p>
+                <p style="font-size:16px; padding-top:20px;"></p>
+                
+            </div>
+        </div>
+        <div class="blank"></div>
+        <div class="blank"></div>
+        <div class="userMenu">
+        <!--<div class="phone_download_intro" style="background:url(images/xz_icos_06.png) no-repeat left 5px; padding-left:25px; height:40px; padding-top:2px; margin-bottom:10px;">温馨提示：如果您是通过微信扫描，请点击右上角，然后选择“在浏览器打开”。</div>-->
+        <div class="phone_downloat_intros">1. 如果您是通过<font style="color:#fd393f;">微信扫描</font>，<br>请点击右上角，然后选择<font style="color:#fd393f;">“在浏览器打开”</font>。
+            <div style="position:absolute; top:-20px; left:-1px;"><img src="__PUBLIC__/share/img/APPdownTs.png" height="42" width="80"></div>
+        </div>
+        	<div class="phone_download clearfix">
+            	<div class="android">
+                <div class="android-brd">
+					
+				</div>
+                <div class="android-brd" style="margin-top: 1em">
+				<a href="__PUBLIC__/share/zhuadanbao.apk" id="xiazai">抓单宝下载</a>
+				</div>
+
+                </div>
+                </div>
+            </div>
+            
+          <div class="phone_con">
+			  <p style="text-align:center; margin-top:15px;"><img src="__PUBLIC__/share/img/phone.png" width="255"></p>
+            </div>
+        	
+        </div>
+        
+        
+                
+    </div>
+    
+</section>
+</div>
+<!--content的结束//-->
+<div class=" blank"></div>
+
+
+
+
+</body></html>
+<script>
+$("#xiazai").click(function () {
+
+		$.ajax({
+	        url: "download.php",
+	        type: "get",
+	        dataType: "text",
+	        data:{id:1},
+	       
+	        success: function (data) {
+			//alert(data);
+	           
+	        }
+	    });
+		})
+</script>

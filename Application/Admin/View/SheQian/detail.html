@@ -1,0 +1,89 @@
+<div class="modal-content modal_850">
+<div class="modal-header">
+    <button type="button" class="close"
+            data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4 class="modal-title fb f16">
+        <span>查看车销单</span>
+    </h4>
+</div>
+    <div class="modal-body modal_850">
+        <table class="table no_border">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="80px">客户名称：</td><td class="tl">
+                {$aOrder.cust_name}
+            </td>
+                <td class="tr">单据编号：</td><td><span class="f16 fb">{$aOrder.order_code}</span></td>
+            </tr>
+            <tr>
+                <td>联系人：</td>
+                <td>
+                    {$aOrder.cust_contact}
+                </td>
+                <td class="tr">电话：</td>
+                <td>
+                    {$aOrder.cust_tel}
+                </td>
+            </tr>
+            <tr>
+                <td>地址：</td>
+                <td>
+                    {$aOrder.cust_address}
+                </td>
+                <td class="tr">创建时间：</td>
+                <td>{$aOrder.create_time|date="Y-m-d H:i:s",###}</td>
+            </tr>
+            <tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+        <table class="table list_table" id="goods_table">
+            <thead>
+            <tr>
+                <td width="20%">商品条码</td>
+                <td width="25%">商品名称</td>
+               
+                <td width="7%">单位</td>
+                <td width="7%">数量</td>
+                <td width="7%">单价</td>
+                <td width="6%">金额(￥)</td>
+              
+                
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="aGoods" id="gvo">
+                <tr>
+                    <td class="sname">{$gvo.cust_id}</td>
+                    <td>{$gvo.good_name}</td>
+                    <td>{$gvo.unit_name}</td>
+                    <td>{$gvo.number}</td>
+                    <td>{$gvo.singleprice}</td>
+                    <td class='tr tr_total'>{$gvo["number"]*$gvo["singleprice"]|sprintf='%.2f',###}</php></td>
+                    
+                </tr>
+            </volist>
+            <tr><td colspan='2'>&nbsp</td><td class="tr" id='num_total'></td><td></td><td class="tr" id='price_total'></td><td class="tl"></td></tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="6">价格备注：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;订单价格：{$aOrder.order_total_money},实收价格：{$aOrder.order_real_money|number_format=###,2}</td>
+            </tr>
+            <tr>
+            
+            
+                <td colspan="7">备注：<input id="apply_goods_remark" value="{$aOrder.order_remark}" type="text" class="w300"></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+<div class="modal-footer">
+    <a href="#" class="btn btn-default"
+       data-dismiss="modal">关闭
+    </a>
+</div>
+</div>

@@ -1,0 +1,228 @@
+<div class="modal-content modal_650">
+<!--编辑机构弹出层开始-->
+<form action="{:U('Home/Customer/editCustomer')}" name="edit_org_form" enctype="multipart/form-data"  id="edit_org_form" method="post">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title fb f16">编辑客户</h4>
+</div>
+<div class="modal-body modal_650">
+<table class="table no_border" id="customer_div">
+<thead></thead>
+    <tbody>
+    <tr>
+        <input type="hidden" name="cust_id" value="{$data.cust_id}">
+        <input type="hidden" name="name" value="{$cust_name}">
+        <input type="hidden" name="p" value="{$p}">
+        <input type="hidden" name="ddstaff_id" value="{$staff_id}">
+        <td class="title-error">客户编码：</td><td><input readonly="readonly"  name="cust_code" id="cust_code" value="{$data.cust_code}" type="text" class="unit_number form-control w200"></td>
+        <td class="title-error" align="right">店铺名称：</td><td><input  name="cust_name"  value="{$data.cust_name}" id="cust_name" type="text" class="unit_name form-control w200"></td>
+    </tr>
+    <tr>
+        <td>门头图片：</td><td><input  name="head_pic" id="head_pic"  type="file" value="{$data.head_pic}" class="unit_number w200"></td>
+        <td class="title-error" align="right">联系人：</td><td><input name="contact"  value="{$data.contact}" id="contact" type="text" class="unit_name form-control w200"></td>
+    </tr>
+    <tr>
+        <td class="title-error" align="right">
+            <input type="hidden" id="checkType" value="{$checkType}">
+            客户类型：</td><td><select name="cust_type" id="cust_type" class="form-control w200">
+        <option value="0">请选择客户类型</option>
+        <volist id="vo" name="dataList">
+            <option disabled="disabled">{$vo.name}</option>
+            <volist name="vo.info" id="voo">
+                <option value="{$voo.ct_id}" style="text-indent: 1em">{$voo.ct_name}</option>
+            </volist>
+        </volist>
+    </select></td>
+        <td align="right">营业面积：</td><td><input name="business_area"  value="{$data.business_area}" id="business_area" type="text" class="unit_name form-control w200"></td>
+    </tr>
+    <tr>
+        <td class="title-error" align="right">电话：</td><td><input name="telephone"  value="{$data.phone1}" id="telephone" type="text" class="unit_number form-control w200"></td>
+        <td align="right">电话2：</td><td><input name="telephone2" value="{$data.phone2}" id="telephone2" type="text" class="unit_number form-control w200"></td>
+    </tr>
+    <tr>
+        <td class="" align="right">qq：</td><td><input name="qq"  value="{$data.cust_qq}" id="qq" type="text" class="unit_number form-control w200"></td>
+        <td align="right">微信：</td><td><input name="weixin" value="{$data.cust_weixin}" id="weixin" type="text" class="unit_number form-control w200"></td>
+    </tr>
+    <tr>
+        <td class="" align="right">email：</td><td><input name="email"  value="{$data.cust_email}" id="email" type="text" class="unit_number form-control w200"></td>
+        <td align="right"></td><td></td>
+    </tr>
+    <tr>
+        <td class="title-error" align="right">所在地：</td><td colspan="3">
+        <select name="province" id="province" class="form-control w130"  ></select><select id="city" name="city" class="form-control w130"  ></select><select name="district" id="district" class="form-control w130"></select>
+    </td>
+    </tr>
+    <tr>
+        <td class="title-error" align="right">经纬度：</td><td colspan="3">
+        <input type="text" name="jwd" readonly="readonly" value="{$data.longitude},{$data.dimension}" class="w200 form-control jwd_val"/>&nbsp;&nbsp;&nbsp;&nbsp;<a id="jwd" href="javascript:void(0)" style="text-decoration: underline">点击获取经纬度</a>
+    </td>
+    </tr>
+    <tr>
+        <td class="title-error">地址：</td><td><input name="address"  value="{$data.address}" id="address" type="text" class="unit_name form-control w200"></td>
+        <td class="title-error">所属区域：</td>
+        <td>
+            <input type="hidden" id="check_salearea" value="{$data.salearea_id}">
+            <select  name="salearea_id" id="salearea_id" class="form-control w200">
+            <option value="0">请选择区域</option>
+            {$dis}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td align="right" class="title-error">业务员：</td>
+        <td colspan="3">
+            <input id="cust_staff" type="hidden" value="{$cust_staff}">
+            <ul class="staff-task" id="all_staff">
+                <volist name="list1" id="vo">
+                    <li><input name="staff_id[]" class="staff_check" type="checkbox" value="{$vo.staff_id}"/>{$vo.staff_name}</li>
+                </volist>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td align="right">银行户名：</td><td><input  name="bank_name" id="bank_name"  value="{$data.bank_name}"  type="text" class="unit_number form-control w200"></td>
+        <td align="right">开户行：</td><td><input  name="bank_type" id="bank_type" value="{$data.bank_type}"  type="text" class="unit_name form-control w200"></td>
+    </tr>
+    <tr>
+        <td align="right">账号：</td><td><input name="bank_account"  value="{$data.bank_account}" id="bank_account" type="text" class="unit_number form-control w200"></td>
+        <td align="right">税号：</td><td><input name="company_tax" id="company_tax" value="{$data.company_tax}"  type="text" class="unit_name form-control w200"></td>
+        <!--<td>是否经销商：</td>-->
+        <!--<td><select name="is_dealer" id="is_dealer"  value="{$data.is_dealer}"  class="form-control w130">-->
+            <!--<option value="0">不是</option>-->
+            <!--<option value="1">是</option>-->
+        <!--</select>-->
+        <!--</td>-->
+
+    </tr>
+    </tbody>
+<tfoot></tfoot>
+</table>
+</div>
+<div class="error">
+</div>
+
+<div class="modal-footer">
+<a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+    <a id="edit_org" class="btn btn-primary">修改</a>
+</div>
+</form>
+    <input type="hidden" id="is_close" value="{$data.is_close}">
+<!--弹出层结束-->
+<script type="text/javascript" src="__PUBLIC__/js/validate_form.js"></script>
+<script type="text/javascript">
+    checkboxSelected("#checkType","#cust_type option");
+    checkboxSelected("#check_salearea","#salearea_id option");
+    if($("#is_close").val()==1)
+    {
+        $("#edit_org,#customer_div input,#customer_div select").attr("disabled","disabled");
+    }
+    var arr=$("#cust_staff").val().split(",");
+    checkManyCheckbox(arr,"all_staff")
+    new PCAS("province","city","district","{$data['province']}","{$data['city']}","{$data['district']}");
+    //地图经纬度
+    $("#jwd").click(function(){
+        mapObj.clearMap();
+        var arr=$(".jwd_val").val().split(",");
+        $(".jwd_map").show();
+        $("#submit_unit,#close_customer").attr("disabled","disabled");
+        addMarker(arr[0],arr[1]);
+        $("#lngX").val(arr[0]);
+        $("#latY").val(arr[1]);
+    })
+    //判断销售区域是不是末级
+    $("#salearea_id").change(function(){
+        $.post("{:U('Home/Area/checkSubArea')}",{area_id:$(this).val()},function(data){
+            var aData=eval(data);
+            if(aData["res"]==1)
+            {
+                alert(data["info"]);
+                $("#salearea_id").val("0").focus();
+            }
+        })
+    })
+    $("#edit_org_form").validate({
+//            submitHandler:function(){
+//                submit_edit();
+//            },
+        rules:{
+            cust_code:{
+                required:true,
+                maxlength:30
+            },
+            cust_type:{
+                valNeqZero:true
+            },
+            salearea_id:{
+                valNeqZero:true
+            },
+            province:"required",
+            city:"required",
+            jwd:"required",
+            cust_name:"required",
+            contact:"required",
+            telephone:{
+                minlength:6,
+                maxlength:12,
+                number:true,
+                required:true
+            },
+            address:"required"
+        },
+        messages:{
+            cust_code:{
+                required:"客户编码不能为空",
+                maxlength:"客户编码最大为30位"
+            },
+            cust_type:{
+                valNeqZero:"请选择客户类型"
+            },
+            salearea_id:{
+                valNeqZero:"请选择销售区域"
+            },
+            province:"请选择省份",
+            city:"请选择市",
+            jwd:"经纬度不能为空",
+            cust_name:"店铺名称不能为空",
+            contact:"请填写联系人",
+            telephone:{
+                minlength:"请填写正确电话",
+                maxlength:"请填写正确电话",
+                number:"请填写正确电话",
+                required:"电话不能为空"
+            },
+            address:"请填写地址"
+        }
+        })
+//        function submit_edit(){
+//            $.ajax({
+//                url:"{:U('Home/Customer/editCustomer')}",
+//                type:"post",
+//                data:$("#edit_org_form").serialize(),
+//                dataType:"json",
+//                beforeSend:function(){
+//                    $(".await").show();
+//                },
+//                success:function(data){
+//                    alert(data["info"]);
+//                    if( data["res"]==1)
+//                    {
+//                        location.reload();
+//                        $("#myModal").modal("hide")
+//                    }
+//                    else
+//                    {
+//                        $(".await").hide();
+//                    }
+//                }
+//            })
+//        }
+        $("#edit_org").click(function(){
+            var staff_length=$(".staff_check:checked").length;
+            if(staff_length>0)
+                $("#edit_org_form").submit();
+            else
+                alert("请选择业务员");
+        })
+
+    //})
+</script></div>

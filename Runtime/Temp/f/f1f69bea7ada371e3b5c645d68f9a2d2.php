@@ -1,0 +1,3 @@
+<?php
+//000000086400a:13:{s:8:"goods_id";s:2:"45";s:10:"goods_code";s:5:"04044";s:10:"goods_name";s:12:"新疆大枣";s:10:"goods_spec";s:4:"500g";s:8:"brand_id";s:1:"2";s:8:"class_id";s:1:"6";s:8:"main_img";s:28:"2016-09-25/57e74626e374f.jpg";s:10:"goods_desc";s:0:"";s:15:"goods_convert_s";s:1:"1";s:15:"goods_convert_m";s:1:"1";s:15:"goods_convert_b";s:1:"1";s:8:"is_close";s:1:"0";s:8:"depot_id";s:1:"0";}
+?>

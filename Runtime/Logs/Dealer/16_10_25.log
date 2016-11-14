@@ -1,0 +1,682 @@
+[ 2016-10-25T08:49:52+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0520s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 0 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0020s ]
+
+[ 2016-10-25T08:49:52+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0360s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.039000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.039000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T08:50:00+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T08:50:09+08:00 ] 127.0.0.1 /index.php/Dealer/Action/updateStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=3 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='6' WHERE ( saleman_id=3 and org_parent_id=1 ) [ RunTime:0.0530s ]
+
+[ 2016-10-25T08:50:11+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T08:53:05+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 0 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T08:56:04+08:00 ] 127.0.0.1 /index.php/Dealer/Route/sd_selRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_customer_weihu` [ RunTime:0.0550s ]
+SQL: SELECT shop_id as shopid,cust_name as shopname,`address`,`longitude`,`dimension`,add_time as entertime,`type` FROM `zdb_customer_weihu` INNER JOIN zdb_customer_info on zdb_customer_info.cust_id=zdb_customer_weihu.shop_id  WHERE ( `add_time` > 1477324800 AND `add_time` < 1477411200  ) AND `saleman_id` = '0' ORDER BY entertime desc  [ RunTime:0.0390s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T08:56:07+08:00 ] 127.0.0.1 /index.php/Dealer/Route/sd_selRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_customer_weihu` [ RunTime:0.0060s ]
+SQL: SELECT shop_id as shopid,cust_name as shopname,`address`,`longitude`,`dimension`,add_time as entertime,`type` FROM `zdb_customer_weihu` INNER JOIN zdb_customer_info on zdb_customer_info.cust_id=zdb_customer_weihu.shop_id  WHERE ( `add_time` > 1477324800 AND `add_time` < 1477411200  ) AND `saleman_id` = '0' ORDER BY entertime desc  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T08:56:12+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 0 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T08:56:13+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0040s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T08:56:36+08:00 ] 127.0.0.1 /index.php/Dealer/Staff/edit?r=1477356996028&id=7
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `staff_id` = 7 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_dep` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_org_dep` WHERE `org_parent_id` = 1  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T08:57:51+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0080s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 0 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T08:57:58+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0080s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T08:59:46+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.004000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0060s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T09:00:00+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:00:04+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-10-25T09:04:31+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_action_config` INNER JOIN zdb_org_staff on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_action_config.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T09:10:07+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0020s ]
+
+[ 2016-10-25T09:10:09+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+ERR: 1054:Unknown column 'org_staff.org_parent_id' in 'where clause'
+ [ SQL语句 ] : SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE org_staff.org_parent_id = '1' 
+ERR: 1054:Unknown column 'org_staff.org_parent_id' in 'where clause'
+ [ SQL语句 ] : SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE org_staff.org_parent_id = '1' 
+
+[ 2016-10-25T09:10:34+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0060s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:10:43+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.004000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.005000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+ERR: 1054:Unknown column 'org_staff.org_parent_id' in 'where clause'
+ [ SQL语句 ] : SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE org_staff.org_parent_id = '1' 
+ERR: 1054:Unknown column 'org_staff.org_parent_id' in 'where clause'
+ [ SQL语句 ] : SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE org_staff.org_parent_id = '1' 
+
+[ 2016-10-25T09:11:16+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:11:22+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0030s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T09:12:39+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:12:40+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-25T09:18:39+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:18:44+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selNowRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0070s ]
+SQL: SELECT `now_time`,`longitude`,`dimension` FROM `zdb_org_action_position` WHERE `longitude` <> '0.0' AND `dimension` <> '0.0' AND `saleman_id` = 3 AND `today` = 20161025 AND `org_parent_id` = 1 ORDER BY now_time desc  [ RunTime:0.0010s ]
+
+[ 2016-10-25T09:18:45+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T09:18:53+08:00 ] 127.0.0.1 /index.php/Dealer/Action/updateStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0060s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=3 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='6' WHERE ( saleman_id=3 and org_parent_id=1 ) [ RunTime:0.0350s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=5 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `zdb_org_action_config` (`saleman_id`,`begin_time`,`end_time`,`interval`,`org_parent_id`) VALUES ('5','7:00','18:00','7','1') [ RunTime:0.0480s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=6 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: INSERT INTO `zdb_org_action_config` (`saleman_id`,`begin_time`,`end_time`,`interval`,`org_parent_id`) VALUES ('6','0','0','0','1') [ RunTime:0.0170s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=7 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: INSERT INTO `zdb_org_action_config` (`saleman_id`,`begin_time`,`end_time`,`interval`,`org_parent_id`) VALUES ('7','0','0','0','1') [ RunTime:0.0220s ]
+
+[ 2016-10-25T09:18:56+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.003000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-25T09:19:07+08:00 ] 127.0.0.1 /index.php/Dealer/Action/updateStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=3 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='6' WHERE ( saleman_id=3 and org_parent_id=1 ) [ RunTime:0.0340s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=5 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='7' WHERE ( saleman_id=5 and org_parent_id=1 ) [ RunTime:0.0200s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=6 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:30',`end_time`='18:30',`interval`='7' WHERE ( saleman_id=6 and org_parent_id=1 ) [ RunTime:0.0170s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=7 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='0',`end_time`='0',`interval`='0' WHERE ( saleman_id=7 and org_parent_id=1 ) [ RunTime:0.0190s ]
+
+[ 2016-10-25T09:19:09+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T09:19:25+08:00 ] 127.0.0.1 /index.php/Dealer/Action/updateStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=3 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='6' WHERE ( saleman_id=3 and org_parent_id=1 ) [ RunTime:0.0190s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=5 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='7' WHERE ( saleman_id=5 and org_parent_id=1 ) [ RunTime:0.0180s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=6 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:30',`end_time`='18:30',`interval`='7' WHERE ( saleman_id=6 and org_parent_id=1 ) [ RunTime:0.0190s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=7 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='17:00',`interval`='0' WHERE ( saleman_id=7 and org_parent_id=1 ) [ RunTime:0.0170s ]
+
+[ 2016-10-25T09:19:27+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0070s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-10-25T09:19:57+08:00 ] 127.0.0.1 /index.php/Dealer/Action/selStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+SQL: SELECT `staff_id`,`staff_name`,`mobile`,`login_user`,`begin_time`,`end_time`,`interval` FROM `zdb_org_staff` left join zdb_org_action_config on zdb_org_staff.staff_id=zdb_org_action_config.saleman_id  WHERE zdb_org_staff.role_id = 3 AND zdb_org_staff.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+NOTIC: [8] Undefined variable: start D:\xampp\htdocs\nlh_zdb\Runtime\Cache\Dealer\eef14a3054bc88df3ed34499ea787b45.php 第 42 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-10-25T09:20:03+08:00 ] 127.0.0.1 /index.php/Dealer/Action/updateStaffRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_config` [ RunTime:0.0060s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=3 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='6' WHERE ( saleman_id=3 and org_parent_id=1 ) [ RunTime:0.0370s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=5 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='18:00',`interval`='7' WHERE ( saleman_id=5 and org_parent_id=1 ) [ RunTime:0.0200s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=6 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='0',`end_time`='0',`interval`='7' WHERE ( saleman_id=6 and org_parent_id=1 ) [ RunTime:0.0170s ]
+SQL: SELECT count(saleman_id) as count FROM `zdb_org_action_config` WHERE ( saleman_id=7 and org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: UPDATE `zdb_org_action_config` SET `begin_time`='7:00',`end_time`='17:00',`interval`='0' WHERE ( saleman_id=7 and org_parent_id=1 ) [ RunTime:0.0190s ]
+

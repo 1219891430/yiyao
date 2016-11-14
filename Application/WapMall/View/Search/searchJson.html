@@ -1,0 +1,55 @@
+<volist name="goods" id="gvo">
+
+                <div class="item clearfix">
+                    <div class="info" data-org="{$gvo['org_parent_id']}" data-id="{$gvo['goods_id']}">
+                        <p class="tit show-sku" onclick="show_sku(this)">{$gvo['goods_name']}</p>
+                        <p class="fontgry show-sku" onclick="show_sku(this)">{$gvo['org_name']}</p>
+                        <div class="p-bottom show-sku" onclick="show_sku(this)">
+                            <if condition="$gvo['is_act'] eq 1">
+                                <foreach name="gvo['act']" item="act">
+
+                                    <div class="free-detail pic clearfix">
+
+                                            <if condition="$act['act_type'] eq 0">
+                                                <h5> {$gvo['goods_unit']}装 限时特价</h5>
+                                                <div class="wz fontgry">
+                                                    <p>原价 {$gvo['goods_base_price']} 元, 现价 {$act['act_price']} 元</p>
+                                                </div>
+                                            </if>
+                                            <if condition="$act['act_type'] eq 1">
+
+                                                <h5>{$gvo['goods_unit']}装 满减优惠 </h5>
+                                                <div class="wz fontgry">
+                                                    <p>每满 {$act['act_money']} 元, 减 {$act['act_offer_money']} 元</p>
+                                                </div>
+                                            </if>
+
+                                            <if condition="$act['act_type'] eq 2">
+
+                                                <h5>{$gvo['goods_unit']}装 限时赠品 </h5>
+                                                <div class="wz fontgry">
+                                                    <p>每满 {$act['goods_num']}{$gvo['goods_unit']}, 赠送 <a href="__MODULE__/goods?goods_id={$act['song_goods_id']}&org_id={$gvo['org_parent_id']}"><img src="{:C('GOODS_IMG')}{$act['song_goods']['main_img']}" width="30" height="30"></a><span>×{$act['song_goods_num']} {$act['song_goods']['goods_unit']}</p>
+                                                </div>
+
+                                            </if>
+
+                                    </div>
+
+                                </foreach>
+                            </if>
+
+                            <!--<div class="free-detail clearfix">
+                                <h5>买 袋 装赠品</h5>
+                                <div class="wz">
+                                    <img src="images/pic.jpg">
+                                    <p class="fontgry">原价 0.99 元, 现价 0.88 元</p>
+                                </div>
+
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="price">￥<span>{$gvo.goods_base_price}</span></div>
+                    <a class="go-detail" href="{:U('Goods/index',array('org_id'=>$gvo['org_parent_id'],'goods_id'=>$gvo['goods_id']))} ">查看详情</a>
+                </div>
+
+            </volist>

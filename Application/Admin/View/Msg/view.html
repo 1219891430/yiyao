@@ -1,0 +1,76 @@
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>查看信息详情</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="">类型：</td><td>
+                    <switch name="data.type">
+                    <case value="1">供货商加盟</case>
+                    <case value="2">终端店加盟</case>
+                    <default/>
+                    </switch>
+                    </td>
+                    <td class="" align="right">状态：</td><td>
+                    <switch name="data.status">
+                        <case value="1">已处理</case>
+                        <default/>
+                        未处理
+                    </switch>
+                </td>
+                </tr>
+
+                <tr>
+                    <td class="">联系人：</td><td>
+                    {$data.realname}
+                </td>
+                    <td class="" align="right">电话：</td><td>
+                    {$data.mobile}
+                </td>
+                </tr>
+
+                <tr>
+                    <td class="title">时间：</td><td colspan="3">
+                    {:date('Y-m-d H:i:s', $data['add_time'])}
+                </td>
+                </tr>
+
+                <tr>
+                    <td class="title">地址：</td><td colspan="3">
+                    {$data.address}
+                </td>
+                </tr>
+
+
+                <tr>
+                    <td class="title" >备注信息：</td><td colspan="3">
+                    {$data.message}
+                </td>
+                </tr>
+
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+    </div>
+</div>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>北极光-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+     <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container" id="main-container">
+    <include file="Public/menu"/>
+    <div class="main-right container-fluid">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                  
+                    <input type="hidden" id="check_org" value="{$org_id}">
+                    <input type="hidden" id="check_dep" value="{$dep_id}">
+      
+                    <select id="staff_id" class="w200 form-control" name="staff_id">
+                        <option value="0">业务员</option>
+                        <volist name="aStaff" id="ivo">
+                           
+                                <option value="{$ivo.admin_id}">{$ivo.true_name}</option>
+                         
+                        </volist>
+                    </select>
+                    <select id="is_cancel" class="w100 form-control" name="staff_id">
+                    	<php>if($urlPara["is_cancel"]){</php>
+                    		<option value="0" >未撤销</option>
+                    		<option value="1" selected="selected">已撤销</option>
+                    		
+                    	<php>}else{</php>
+                    		<option value="0" selected="selected">未撤销</option>
+                    		<option value="1" >已撤销</option>
+                    	<php>}</php>
+                        
+                        
+                    </select>
+                    <select id="is_full_pay" class="w100 form-control" name="staff_id">
+                    	<php>if($urlPara["is_full_pay"]){</php>
+                    		<option value="0" >未结清</option>
+                    		<option value="1" selected="selected">已结清</option>
+                    		
+                    	<php>}else{</php>
+                    		<option value="0" selected="selected">未结清</option>
+                    		<option value="1" >已结清</option>
+                    	<php>}</php>
+                        
+                        
+                    </select>
+
+                    <input type="text" class="w150 form-control" id="shopid" placeholder="请输入店铺名称">
+
+                    <input type="text" class="w150 form-control" readonly="readonly" <if condition="$urlPara['start'] neq 0">value="{$urlPara['start']}"</if>  class="form-control w100 cursor-pointer" id="start_time"
+                    placeholder="起始时间">
+                    <input type="text" class="w150 form-control" readonly="readonly" <if condition="$urlPara['end'] neq 0">value="{$urlPara['end']}"</if> class="form-control w100 cursor-pointer" id="end_time"
+                    placeholder="结束时间">
+
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+
+                </div>
+                <div class="fr">
+                <a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="explode" role="button">导出</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table">
+                <thead>
+                <tr>
+                    <td width="10%">赊款店铺</td>
+                    <td width="10%">订单编号</td>
+                    <td width="10%">订单金额</td>
+                    <td width="10%">赊款金额</td>
+                    <td width="8%">赊款订单时间</td>
+                    <td width="8%">业务员</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody id="content">
+                <volist id="qian" name="list">
+                    <tr>
+                        <td>{$qian.cust_name}</td>
+                        <td>{$qian.order_code}</td>
+                        <td>{$qian.order_total_money}</td>
+                        <td>{$qian.qiankuan}</td>
+                        <td>{$qian.create_time}</td>
+                        <td>{$qian.true_name}</td>
+                        <td>
+                        <a class="detail" attr="{$qian.order_id}" href="#">订单详情</a>&nbsp&nbsp&nbsp
+                        <a href="{:U('QDetails',array('order_id'=>$qian['order_id']))}">清欠明细</a>&nbsp&nbsp&nbsp
+                        <php>if($qian["is_cancel"]==0&&$qian["is_full_pay"]==0){</php>
+                        <a id="{$qian.order_id}" class="chexiao">撤销</a>&nbsp&nbsp&nbsp
+                        <a id="{$qian.order_id}" class="qingqian">清欠</a>&nbsp&nbsp&nbsp
+                        <php>}</php>
+                        </td>
+                    </tr>
+                    </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+            
+            <!--分页查询结束-->
+        </div>
+    </div>
+</div>
+<div id="await" class="await waits">
+        <span> <img src="___PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+    </div>
+    <!--新建弹出层开始-->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="modal-con"  class="modal-dialog modal_850 ">
+        	
+        </div>
+    </div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script language="javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+<script type="text/javascript">
+
+    $(".detail").click(function(){
+    	
+    	
+    		
+    	
+    	
+    	var data={order_id:$(this).attr("attr")}
+    
+        
+        ajaxDataPara("__URL__/detail",data);
+    })
+
+    $("#explode").click(function(){
+
+        var is_cancel=$("#is_cancel").val();
+        var is_full_pay=$("#is_full_pay").val();
+        var start=$("#start_time").val()==""?0:$("#start_time").val()
+        var end=$("#end_time").val()==""?0:$("#end_time").val()
+        if((start==0&&end!=0)||(start!=0&&end==0))
+            alert("请点击选择起始时间跟结束时间")
+        else{
+            shopid = $("#shopid").val();
+            if(shopid == ""){
+                shopid=0;
+            }
+            location.href="__URL__/index/explode/explode/is_full_pay/"+is_full_pay+"/is_cancel/"+is_cancel+"/shopid/"+shopid+"/staff_id/"+$("#staff_id").val()+"/start_time/"+start+"/end_time/"+end;
+        }
+    })
+
+
+    $(function () {
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2000,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+     $("#find").click(function(){
+        var is_cancel=$("#is_cancel").val();
+        var is_full_pay=$("#is_full_pay").val();
+        var start=$("#start_time").val()==""?0:$("#start_time").val()
+        var end=$("#end_time").val()==""?0:$("#end_time").val()
+        if((start==0&&end!=0)||(start!=0&&end==0))
+            alert("请点击选择起始时间跟结束时间")
+        else{
+            shopid = $("#shopid").val();
+            if(shopid == ""){
+                shopid=0;
+            }
+            location.href="__URL__/index/is_full_pay/"+is_full_pay+"/is_cancel/"+is_cancel+"/shopid/"+shopid+"/staff_id/"+$("#staff_id").val()+"/start_time/"+start+"/end_time/"+end;
+        }
+     })
+        
+        $(".chexiao").click(function(){
+        	//href="{:U('chexiao',array('orderId'=>$qian['order_id']))}";
+        	if(confirm("确定要撤销吗")){
+        		var id=$(this).attr("id");
+        		var data={'order_id':id};
+        		$.post("__URL__/chexiao",data,function(res){
+        			if(res){
+        				alert("撤销成功!");
+        				location.reload();
+        			}else{
+        				alert("撤销失败!");
+        			}
+        		});
+        	}
+        	
+        	
+        });
+        $(".qingqian").click(function(){
+        	
+        	var id=$(this).attr("id");
+        	ajaxDataPara("__URL__/qingqian",{"id":id});
+        });
+    })
+
+      
+   
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

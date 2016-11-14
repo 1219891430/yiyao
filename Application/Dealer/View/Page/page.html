@@ -1,0 +1,46 @@
+<meta charset="utf-8">
+<div class="pageCenter">
+      <ul class="pagination">
+           <li><a href="{$url}/pnum/{$pnum}/p/1{$param}">&laquo;</a></li>
+                  <volist name="pagelist.page_num" id="num">
+                       <if condition="$page.page_current eq $num">
+                           <li class="active"><a href="javascript:void(0)">{$num}</a></li>
+                            <else />
+                           <li><a href="{$url}/pnum/{$pnum}/p/{$num}{$param}">{$num}</a></li>
+                       </if>
+                    </volist>
+           <li><a href="{$url}/pnum/{$pnum}/p/{$page['page_total']}{$param}">&raquo;</a></li>
+     </ul>
+                
+</div>
+<div class="pageRight">
+显示行数：
+<select id="pageRig" class="w80 form-control">
+  <php>if($pnum==10){</php>
+      <option value="10" selected="selected">10</option>
+  <php>}else{</php>
+      <option value="10">10</option>
+  <php>}</php>
+  <php>if($pnum==20){</php>
+      <option value="20" selected="selected">20</option>
+  <php>}else{</php>
+      <option value="20">20</option>
+  <php>}</php>
+  <php>if($pnum==50){</php>
+      <option value="50" selected="selected">50</option>
+  <php>}else{</php>
+      <option value="50">50</option>
+  <php>}</php>
+  <php>if($pnum==100){</php>
+      <option value="100" selected="selected">100</option>
+  <php>}else{</php>
+      <option value="100">100</option>
+  <php>}</php> 
+</select>
+</div>
+<script>
+  $("#pageRig").change(function(){
+	  var pagenum=$(this).val();
+	  location.href="{$url}/pnum/"+pagenum+"{$param}";
+  });
+</script>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+
+                 
+
+                    <select id="staff_id" class="w100 form-control">
+                        <option value="0">业务员</option>
+                        <volist name="aStaff" id="svo">
+                            <if condition="$svo['staff_id'] eq $aUrlPara['staff_id']">
+                                <option selected="selected" value="{$svo.staff_id}">{$svo.staff_name}</option>
+                            <else/>
+                                <option value="{$svo.staff_id}">{$svo.staff_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                   
+                    </select>
+                    <input type="text" class="w150 form-control" <if condition="$aUrlPara['name'] neq '@@'">value="{$aUrlPara.name}"</if> id="cust_name" placeholder="请输入店铺名称">
+                    <input type="text" readonly="readonly" <if condition="$aUrlPara['start'] neq 0">value="{$aUrlPara['start']}"</if>  class="form-control w100 cursor-pointer" id="start_time"
+                    placeholder="起始时间">
+                    <input type="text" readonly="readonly" <if condition="$aUrlPara['end'] neq 0">value="{$aUrlPara['end']}"</if> class="form-control w100 cursor-pointer" id="end_time"
+                    placeholder="结束时间">
+                    <a class="btn btn-default" href="javascript:void(0)" id="find" role="button">查询</a>
+                </div>
+                <div class="fr">
+                     
+                
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="10%">单据编号</td>
+                    <td width="13%">商铺名称</td>
+                    <td width="8%">联系人</td>
+                    <td width="8%">业务员</td>
+                    <td width="8%">金额（￥）</td>
+                    
+                 <!--    <td width="8%">状态</td> -->
+                    <td width="12%">时间</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.change_code}</td>
+                        <td>{$vo.cust_name}</td>
+                        <td>{$vo.contact}</td>
+                        <td>{$vo.staff_name}</td>
+                        <td>{$vo.total_money}</td>
+                        
+                       <!--  <td>{$vo.status_name}</td> -->
+                        <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                        <td><ul class="operate-menu li-width50">
+                                <li><a attr="{$vo.change_id}" class="collapsed collapse-menu icons-href detail" href="javascript:void(0)">
+                                    <i class="icon-edit"></i>查看
+                                </a></li>
+                                <!--<li><a class="collapsed collapse-menu icons-href" href="{:U('print_template',array('change_id' => $vo['change_id'],'del'=>$_GET['del']))}" target="_blank"><i class="icon-edit"></i>打印</a>
+                                </a></li>-->
+                                
+                                
+                        </ul></td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$aUrlPara))}
+            <!--分页查询结束-->
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+    })
+    // $(".detail").click(function(){
+
+    // 	var data={'change_id':$(this).attr("attr")}
+    	
+    //     ajaxDataPara("__URL__/detail",data);
+
+    // })
+    $(".detail").click(function(){
+    	
+        var del = '<?php echo $_GET['del'] ?>';
+
+        if(del == 1){
+            del = 1;
+        }else{
+            del = 2;
+        }
+
+    	var data={'change_id':$(this).attr("attr"),del:del}
+    	
+        ajaxDataPara("__URL__/detail",data);
+
+    })
+    $(".print").click(function(){
+    		
+    	var change_id=$(this).attr("attr");
+    	
+        location.href='__URL__/print_template/change_id/'+change_id;
+        
+    })
+    $("#find").click(function(){
+        var del = '<?php echo $_GET['del'] ?>';
+        var start=$("#start_time").val()==""?0:$("#start_time").val()
+        var end=$("#end_time").val()==""?0:$("#end_time").val()
+        var cust_name=$("#cust_name").val()==""?"@@":$("#cust_name").val();
+        if((start==0&&end!=0)||(start!=0&&end==0))
+            alert("请点击选择起始时间跟结束时间")
+        else
+            location.href="__URL__/index/staff_id/"+$("#staff_id").val()+"/name/"+cust_name+"/start_time/"+start+"/end_time/"+end+"/del/"+del;
+    })
+    $("#toGoodsCount").click(function(){
+    	location.href="{:U('ChangeGoodsCount/index')}";
+    });
+</script>
+</body>
+</html>

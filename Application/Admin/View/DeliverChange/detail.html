@@ -1,0 +1,123 @@
+<div class="modal-content modal_850">
+<div class="modal-header">
+    <button type="button" class="close"
+            data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4 class="modal-title fb f16">
+        <span>查看调换货单</span>
+    </h4>
+</div>
+    <div class="modal-body modal_850">
+        <table class="table no_border">
+            <thead>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="80px">客户名称：</td><td class="tl">
+                {$res.cust_name}
+            </td>
+                <td class="tr">单据编号：</td><td><span class="f16 fb">{$res.change_code}</span></td>
+            </tr>
+            <tr>
+                <td>联系人：</td>
+                <td>
+                    {$res.contact}
+                </td>
+                <td class="tr">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话：</td>
+                <td>
+                    {$res.telephone}
+                </td>
+            </tr>
+            <tr>
+                <td>地址：</td>
+                <td>
+                    {$res.province}{$res.city}{$res.district}{$res.address}
+                </td>
+                <td class="tr">创建时间：</td>
+                <td>{$res.create_time|date='Y-m-d H:i:s',###}</td>
+            </tr>
+            <tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+        <div style="font-size:18px;font-weight:bold;margin:10px 0;">调出产品</div>
+        <table class="table list_table" id="goods_table">
+            <thead>
+            <tr>
+                <td width="10%">商品条码</td>
+                <td width="10%">商品名称</td>
+               
+                <td width="4%">单位</td>
+                <td width="4%">数量</td>
+                <td width="4%">单价</td>
+                <td width="4%">金额(￥)</td>
+              
+               
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="goods_out" id="gvo">
+                <tr>
+                    <td class="sname">{$gvo.goods_code}</td>
+                    <td>{$gvo.goods_name}</td>
+                    <td>{$gvo.goods_unit}</td>
+                    <td>{$gvo.number|getGoodsNum}</td>
+                    <td>{$gvo.singleprice}</td>
+                    <td class='tr tr_total'>{$gvo['number']*$gvo['singleprice']|sprintf='%.2f',###}</td>
+                    
+                </tr>
+            </volist>
+            
+            
+        </table>
+        <div style="font-size:18px;font-weight:bold;margin:10px 0;">换回产品</div>
+        <table class="table list_table" id="goods_table">
+            <thead>
+            <tr>
+                <td width="10%">商品条码</td>
+                <td width="10%">商品名称</td>
+               
+                <td width="4%">单位</td>
+                <td width="4%">数量</td>
+                <td width="4%">单价</td>
+                <td width="4%">金额(￥)</td>
+              
+               
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="goods_in" id="gvo">
+                <tr>
+                    <td class="sname">{$gvo.goods_code}</td>
+                    <td>{$gvo.goods_name}</td>
+                    <td>{$gvo.goods_unit}</td>
+                    <td>{$gvo.number}</td>
+                    <td>{$gvo.singleprice}</td>
+                    <td class='tr tr_total'><php>echo $gvo['number']*$gvo['singleprice']</php></td>
+                </tr>
+            </volist>
+            </tbody>
+            <tfoot>
+            <tr>
+            <php>if($res["total_money"]>0){</php>
+                            <td colspan="6">差价：{$res.total_money}，应收：{$res.total_money}，应退：0.00</td>
+            
+            <php>}elseif($res["order_total_money"]==0){</php>
+                            <td colspan="6">差价：0.00，应收：0.00，应退：0.00</td>
+            
+            <php>}else{</php>
+                            <td colspan="6">差价：{$res.total_money|abs}，应收：0.00，应退：{$res.total_money|abs}</td>
+            
+            <php>}</php>
+            </tr>
+            
+            </tfoot>
+        </table>
+    </div>
+<div class="modal-footer">
+    <a href="#" class="btn btn-default"
+       data-dismiss="modal">关闭
+    </a>
+</div>
+</div>

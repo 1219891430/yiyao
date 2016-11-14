@@ -1,0 +1,105 @@
+<meta charset="UTF-8">
+<div class="modal-content modal_650">
+<!--编辑机构弹出层开始-->
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title fb f16">批量分配业务员</h4>
+</div>
+<div class="modal-body modal_650">
+<table class="table no_border" id="customer_div">
+<thead></thead>
+    <tbody>
+    <tr><td colspan = "2"><span style="font-size:16px;font-weight: bold;margin-left:200px;">请为所选店铺分配业务员</span></td></tr>
+    <tr>
+        
+        <td width="15%" align="right">业务员：</td>
+        <td width="85%">
+        
+        <ul class="staff-task" id="all_staff">
+        
+            <volist name="staff_list" id="v">
+            
+           
+           
+            <li><input  class="staff_check"  type="checkbox" value="{$v.staff_id}"/>{$v.staff_name}</li>
+           
+
+            </volist>
+        </ul>
+        
+        </td>
+    </tr>
+    
+    </tbody>
+<tfoot></tfoot>
+</table>
+<table id="treetable" class="table list_table treetable" style="width:95%" >
+                <thead>
+                <tr>
+                    <td width="6%" >店铺</td>
+                    <td width="6%">地址</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="custlist" id="vo">
+                   <tr>
+                   	<input type="hidden" class="cust_id" value="{$vo.cust_id}" />
+                   <td>{$vo.cust_name}</td>
+                   <td>{$vo.province}{$vo.city}{$vo.district}{$vo.address}</td>
+                   </tr>
+                   </volist>
+                </tbody>
+                </table>
+
+</div>
+<div class="error">
+</div>
+
+<div class="modal-footer">
+<a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+    <a id="edit_all" class="btn btn-primary">分配</a>
+</div>
+</form>
+    <input type="hidden" id="is_close" value="{$data.is_close}">
+<!--弹出层结束-->
+<script type="text/javascript" src="__PUBLIC__/js/validate_form.js"></script>
+<script type="text/javascript">
+	$("#edit_all").click(function(){
+		var $staff=$(".staff_check:checked");
+		var $cust=$(".cust_id");
+		if($staff.length==0){
+			alert("请选择业务员");
+			return false;
+		}
+		var staff_ids=[];
+		var cust_ids=[];
+		$staff.each(function(){
+			var staff_id=$(this).val();
+			staff_ids.push(staff_id);
+		});
+		$cust.each(function(){
+			var cust_id=$(this).val();
+			cust_ids.push(cust_id);
+		});
+		
+
+		
+		var data1={"staff_ids":staff_ids,"cust_ids":cust_ids};
+		console.log(data1);
+		$.post("__URL__/updateAllExec",data1,function(data){
+			
+			if(data==0){
+				alert("分配失败");
+			}else if(data==1){
+				alert("分配成功");
+				reload();
+			}else if(data==2){
+				alert("分配错误");
+			}else if(data==3){
+				alert("请为所有店铺选择业务员")
+			}
+		});
+			
+	});
+</script>
+</div>

@@ -1,0 +1,30 @@
+<div id="top">
+<div class="navbar">
+<div class="navbar-inner">
+<div class="logo"><img src="__PUBLIC__/assets/images/logoG.png" /></div>
+<ul class="pull-right navInfo">
+    <if condition="$_SESSION['depot_id'] gt 0">
+    <li><a href="{:U('Admin/GoodsWarning/warning_view')}" class="head_goods_warning" id="head_warning">预警提示
+        <if condition="!empty($_COOKIE['warning_count'])">
+            <span class="badge bg_red">{$_COOKIE['warning_count']}</span>
+        </if>
+    </a></li>
+    </if>
+    <li><a href='javascript:void(0)' id="refresh_cache">刷新缓存</a> </li>
+    <li class="login_info">
+        <span><a href="{:U('Admin/Index/logout')}">退出</a></span>
+    </li>
+    <script type="text/javascript">
+        $("#refresh_cache").click(function () {
+            $.get("{:U('Admin/Index/refreshCache')}",{},function(res){
+            	if(res==1){
+            		alert("清除成功")
+            	}
+            });
+        })
+
+    </script>
+</ul>
+</div>
+</div>
+</div>

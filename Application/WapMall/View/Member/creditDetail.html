@@ -1,0 +1,54 @@
+﻿<include file='Public:head'/>
+<body>
+    <!--子页顶部-->
+    <div class="zy-search zy-tit">
+        <div class="sch-w clearfix">
+            <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+            <div class="tit">
+                赊欠明细
+            </div>
+        </div>
+    </div>
+    <div class="credit-w">
+        <!--赊欠记录-->
+        <volist name="detail['qingList']" id="qing">
+        <ul>
+            <li>
+                <p>清欠金额</p>
+                <p class="nam">{$_SESSION['cust_name']}</p>
+                <p class="credit"><strong class="fontgrn">{$qing['price']}</strong> 元</p>
+            </li>
+            <li class="info clearfix">
+                <p><strong>业务员</strong>{$detail['orderInfo']['staff_name']}</p>
+                <!--<p><strong>操作员</strong>小小</p>-->
+                <p><strong>赊款订单时间</strong>{$qing['addtime']}</p>
+            </li>
+            <li>
+                备注
+                <p>{$qing['mark']}</p>
+            </li>
+        </ul>
+        </volist>
+
+    </div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+    <script>
+        // 弹框
+        function toggleCard() {
+            $('.modal').slideToggle(300);
+        }
+        $('.sku-control-box,.btn-close').click(toggleCard);
+
+        $(".go-back").click(function () {
+            history.go(-1)
+        })
+    </script>
+
+</body>
+</html>

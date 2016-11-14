@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select id="staff_id" class="w100 form-control">
+                        <option value="0">业务员</option>
+                        <volist name="aStaff" id="svo">
+                            <if condition="$svo['staff_id'] eq $urlPara['staff_id']">
+                                <option selected="selected" value="{$svo.staff_id}">{$svo.staff_name}</option>
+                            <else/>
+                                <option value="{$svo.staff_id}">{$svo.staff_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    
+                    
+                    
+                    
+                    
+                    <select id="status" class="w100 form-control">
+                        <option value="0">状态</option>
+                        <volist name="aStatus" id="ivo" key="k">
+                            <if condition="$k eq $urlPara['status']">
+                                <option selected="selected" value="{$k}">{$ivo}</option>
+                                <else/>
+                                <option value="{$k}">{$ivo}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <select id="way" class="w100 form-control">
+                        <option value="0">结算方式</option>
+                        <volist name="aWay" id="ivo" key="k">
+                        <if condition="$k eq $urlPara['way']">
+                            <option selected="selected" value="{$k}">{$ivo}</option>
+                            <else/>
+                            <option value="{$k}">{$ivo}</option>
+                        </if>
+                    </volist>
+                    </select>
+                    <select id="tType" class="w100 form-control">
+                        <option value="0">订单类型</option>
+                        <volist name="tType" id="ivo" key="k">
+                        <if condition="$k eq $urlPara['way']">
+                            <option selected="selected" value="{$k}">{$ivo}</option>
+                            <else/>
+                            <option value="{$k}">{$ivo}</option>
+                        </if>
+                    </volist>
+                    </select>
+                    <select id="Show" class="w100 form-control">
+
+                        <option value="0">全部订单</option>
+
+                        <option <if condition="1 eq $_GET['Show']">selected="selected"</if> value="1">有备注订单</option>
+                     
+                    </select>
+                    <div class="w250" style="display: inline-block;position: relative;margin-top:0px;">
+
+                            <input name="cust_names"  <if condition="$urlPara['name'] neq '@@'">value="{$urlPara['name']}"</if> id="cust_names" type="text" placeholder="请输入店铺名称" class="form-control w250">
+
+                            
+
+                            <ul id="data_sel_ul" class="data_sel_ul " style="overflow:auto;"></ul>
+
+                    </div>
+                    
+                    <input type="text" readonly="readonly" <if condition="$urlPara['start'] neq 0">value="{$urlPara['start']}"</if>  class="form-control w100 cursor-pointer" id="start_time"
+                    placeholder="起始时间">
+                    <input type="text" readonly="readonly" <if condition="$urlPara['end'] neq 0">value="{$urlPara['end']}"</if> class="form-control w100 cursor-pointer" id="end_time"
+                    placeholder="结束时间">
+                    <a class="btn btn-default" href="javascript:void(0)" id="find" role="button">查询</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="10%">单据编号</td>
+                    <td width="13%">商铺名称</td>
+                    <td width="8%">联系人</td>
+                    <td width="8%">业务员</td>
+                    <td width="8%">金额（￥）</td>
+                    <td width="8%">结算方式</td>
+                    <td width="8%">订单类型</td>
+                 <!--    <td width="8%">状态</td> -->
+                    <td width="12%">时间</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="aOrder" id="vo">
+                    <tr>
+                        <td>{$vo.order_code}</td>
+                        <td>{$vo.cust_name}</td>
+                        <td>{$vo.cust_contact}</td>
+                        <td>{$vo.staff_name}</td>
+                        <td>{$vo.order_real_money}</td>
+                        <td>{$vo.way_name}</td>
+                        <td>{$vo.order_type}</td>
+                       <!--  <td>{$vo.status_name}</td> -->
+                        <td>{$vo.time}</td>
+                        <td><ul class="operate-menu li-width50">
+                                <li><a attr="{$vo.attr}" data-name="{$vo.attr_id}" class="collapsed collapse-menu icons-href detail" href="javascript:void(0)">
+                                        <i class="icon-edit"></i>查看
+                                    </a>
+                                </li>
+                                <li>
+                                    <notempty name="vo.is_show">
+                                        <img style="height:17px;width:17px;" src="__PUBLIC__/images/beizhu.png" alt="">
+                                    </notempty>
+                                </li>
+                        </ul></td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            <!-- {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}-->
+            <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+﻿<include file='Public:head'/>
+<body>
+	<!--头部 start-->
+    <div class="top clearfix">
+        <a href="#" class="go-back"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="logo-nlh">
+            <img src="__PUBLIC__/assets/wap/images/logo.png">
+            <span>批发商城</span>
+        </div>
+        <a class="top-user" href="{:U('WapMall/Member/index')}"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+    </div>
+    <!--头部 end-->
+    <!--搜索-->
+    <div class="sch-w clearfix">
+        <a class="ch-area" id="choiceDepot" href="javascript:void(0)"></a>
+        <div class="search">
+            <button class="go-sch" id="search"></button>
+            <input id="name1" type="text" placeholder="商品名或关键字">
+        </div>
+    </div>
+
+    <!--幻灯-->
+    <div class="banner">
+        <img class="lazy" src="__PUBLIC__/assets/wap/images/banner.jpg" width="100%">
+    </div>
+    <!--首页-->
+    <!--<div class="f1-w clearfix">
+        <a href="#" class="f1-item">
+            <img class="equal-img" src="__PUBLIC__/assets/wap/images/pic.jpg">
+            <p><span>新乐馆</span></p>
+        </a>
+        <a href="#" class="f1-item">
+            <img class="equal-img" src="__PUBLIC__/assets/wap/images/pic.jpg">
+            <p><span>新乐馆</span></p>
+        </a>
+        <a href="#" class="f1-item">
+            <img class="equal-img" src="__PUBLIC__/assets/wap/images/pic.jpg">
+            <p><span>新乐馆</span></p>
+        </a>
+    </div>-->
+    <div class="wrap">
+        <div class="brand-l clearfix">
+        	<volist name="brands" id="vo">
+        		
+        		<a class="brand" href='{:U("WapMall/Search/search/brand/$vo[brand_id]")}'>
+                    <img class="brand-img lazy" data-original="{:C('BRAND_IMG')}{$vo.brand_logo}">
+                </a>
+        	</volist>
+
+        </div>
+        <div class="brand-r"><p>为您推荐的<br>品牌</p></div>
+    </div>
+    <!--热卖产品-->
+    <div class="ind-tit"><span>&nbsp;热卖产品&nbsp;</span></div>
+    <div class="wrap bg-fff">
+        <div class="hot-l">
+            <a href="{:U('Goods/index',array('org_id'=>$goods[0]['org_parent_id'],'goods_id'=>$goods[0]['goods_id']))}">
+                <p>热卖产品</p>
+                <p class="tit">{$goods[0].goods_name}</p>
+                <p class="price">￥<span>{$goods[0].goods_base_price}</span></p>
+                <img class="hot-img-l lazy" data-original="{:C('GOODS_IMG')}{$goods[0].main_img}">
+                <!--<img src="__PUBLIC__/assets/wap/images/pic.jpg">-->
+            </a>
+        </div>
+        <div class="hot-r">
+            <a href="{:U('Goods/index',array('org_id'=>$goods[1]['org_parent_id'],'goods_id'=>$goods[1]['goods_id']))}">
+                <div class="fl">
+                    <p>热卖产品</p>
+                    <p class="tit">{$goods[1].goods_name}</p>
+                    <p class="price">￥<span>{$goods[1].goods_base_price}</span></p>
+                </div>
+                <img class="hot-img-r lazy" data-original="{:C('GOODS_IMG')}{$goods[1].main_img}">
+                <!--<img src="__PUBLIC__/assets/wap/images/pic.jpg">-->
+            </a>
+            <a href="{:U('Goods/index',array('org_id'=>$goods[2]['org_parent_id'],'goods_id'=>$goods[2]['goods_id']))}">
+                <div class="fl">
+                    <p>热卖产品</p>
+                    <p class="tit">{$goods[2].goods_name}</p>
+                    <p class="price">￥<span>{$goods[2].goods_base_price}</span></p>
+                </div>
+                <img  class="hot-img-r lazy" data-original="{:C('GOODS_IMG')}{$goods[2].main_img}">
+                <!--<img src="__PUBLIC__/assets/wap/images/pic.jpg">-->
+            </a>
+        </div>
+    </div>
+    <!--精选市场-->
+    <div class="ind-tit"><span>&nbsp;精选市场&nbsp;</span></div>
+    <div class="new-box">
+        <ul class="new-menu clearfix" id="classesMenu">
+        	<volist name="classes" id="vo">
+        		<php>if($class_id==$vo["class_id"]){</php>
+        		    <li  id="{$vo.class_id}" class="active">{$vo.class_name}</li>
+        		<php>}else{</php>
+        			<li  id="{$vo.class_id}"><a href="__URL__/index/class_id/{$vo.class_id}">{$vo.class_name}</a></li>
+        		<php>}</php>
+        	</volist>
+            
+        </ul>
+        <div class="new-list">
+            <ul class="clearfix">
+            	<volist name="subClasses" id="vo">
+        		<php>if($sub_class_id==$vo["class_id"]){</php>
+        			<li class="cur"><a href="javascript:void(0);">{$vo.class_name}</a></li>
+        		    
+        		<php>}else{</php>
+        			<li><a href="__URL__/index/sub_class_id/{$vo.class_id}">{$vo.class_name}</a></li>
+        			
+        		<php>}</php>
+        	</volist>
+            </ul>
+            <div class="clearfix">
+            	<volist name="classGoods" id="vo">
+            		
+            		<div class="item">
+                    <a href="{:U('Goods/index',array('org_id'=>$vo['org_parent_id'],'goods_id'=>$vo['goods_id']))}">
+                        <img class="pic-img lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}">
+                        <div class="info">
+                            <p class="tit">{$vo.goods_name}{$vo.goods_spec}</p>
+                            <p class="price-gry">{$vo.goods_base_price}</p>
+                            <p class="price">￥<span>{$vo.act_price}</span></p>
+                        </div>
+                    </a>
+                    <a cv="{$vo.cv_id}" org="{$vo.org_parent_id}" class="i-car"><i class="i-w-car"></i></a>
+                    </div>
+            	</volist>
+                
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+        <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+    </footer>
+
+    <!--底部悬浮按钮-->
+    <div class="foot-btn">
+        <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+        <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+        <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+    </div>
+
+    <!--切换仓库地址-->
+    <!--<div class="bomb-bg <if condition="!isset($_SESSION['depot_id'])"> hidden </if>">
+        <div class="change-bomb">
+            <em class="closed"></em>
+            <div class="chge-tit"><i></i>仓库地址</div>
+            <div class="chge-con">
+                <ul class="clearfix">
+                    <li><a class="hover" href="#">藁城</a></li>
+                    <li><a href="#">平山</a></li>
+                    <li><a href="#">新乐</a></li>
+                    <li><a href="#">邢台</a></li>
+                    <li><a href="#">保定</a></li>
+                    <li><a href="#">新乐</a></li>
+                    <li><a href="#">邢台</a></li>
+                    <li><a href="#">保定</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>-->
+
+    <div class="bomb-bg <if condition="isset($_SESSION['depot_id'])"> hidden </if>">
+        <div class="change-bomb">
+            <!--<em class="closed"></em>-->
+            <div class="chge-tit"><i></i>仓库地址</div>
+            <div class="chge-con">
+                <ul class="clearfix">
+                    <foreach name="depot" item="vo">
+                        <li><a class="depot_choice <if condition="$vo.repertory_id eq $_SESSION['depot_id']"> hover </if>" href="/index.php/WapMall/index/choiceDepot?depot_id={$vo.repertory_id}">{$vo.repertory_name}</a></li>
+                    </foreach>
+                </ul>
+            </div>
+            <div class="chge-ft">
+                <img src="__PUBLIC__/assets/images/mall/chg-ft.jpg">
+            </div>
+        </div>
+    </div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+<script>
+    
+		
+	$("img.lazy").lazyload({effect: "fadeIn"});
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+
+    $(".i-car").click(function(){
+    	
+    	var cust="<PHP>if($_SESSION['cust_id']){echo $_SESSION['cust_id'];}else{echo 0;}</php>";
+	    if(cust==0){
+	    	location.href="/index.php/WapMall/Member/login";
+	    }
+    	
+    	
+		var aurl="{:U('WapMall/Cart/add')}";
+		var reurl="{:U('WapMall/Cart/index')}";
+		//var reurl="";
+		var cv=$(this).attr("cv");
+		var org=$(this).attr("org");
+		
+		addcar_wap(cv, 1,org,aurl);
+	});
+     
+    //品牌图片高度控制
+    var divh = $(".brand-l").height();
+    $(".brand-img").css("height",divh/2);
+    var bdimgh = $(".brand-img").height();
+    window.onload=function(){
+        $(".brand-r").css("height",bdimgh*2);
+
+    }
+    //产品图片高度等于宽度
+    var imgWidth = $(".equal-img").width();
+    var hotimglh = $(".hot-img-l").width();
+    var hotimgrh = $(".hot-img-r").width();
+    var picimgh = $(".pic-img").width();
+    $(".equal-img").css("height",imgWidth);
+    $(".hot-img-l").css("height",hotimglh);
+    $(".hot-img-r").css("height",hotimgrh);
+    $(".pic-img").css("height",picimgh);
+    
+    $("#search").click(function(){
+    	var name=$("#name1").val();
+    	name=$.trim(name)
+     	if(name==""){
+    		alert("搜索条件不能为空");
+    		return;
+    	}
+    	location.href="/index.php/WapMall/Search/search/word/"+name;
+    })
+
+    $("#choiceDepot").click(function () {
+        $(".bomb-bg").fadeToggle();
+
+        $('.depot_choice').click(function () {
+            $(this).addClass('hover')
+            $(this).sibling().removeClass('hover')
+        })
+    })
+
+    //精选市场不返回顶部
+    function SetCookie(sName, sValue)
+    {
+        date = new Date();
+        s = date.getDate();
+        date.setDate(s+1);            //expire time is one month late!, and can't be current date!
+        document.cookie = sName + "=" + escape(sValue) + "; expires=" + date.toGMTString();
+    }
+    function GetCookie(sName)
+    {
+        // cookies are separated by semicolons
+        var aCookie = document.cookie.split("; ");
+        for (var i=0; i < aCookie.length; i++)
+        {
+            // a name/value pair (a crumb) is separated by an equal sign
+            var aCrumb = aCookie[i].split("=");
+            if (sName == aCrumb[0]) {
+                return unescape(aCrumb[1]);}
+        }
+
+        // a cookie with the requested name does not exist
+        return null;
+    }
+    function fnLoad()
+    {
+        document.body.scrollTop = GetCookie("scrollTop");
+    }
+
+    function fnUnload()
+    {
+        SetCookie("scrollTop", document.body.scrollTop)
+    }
+
+    window.onload = fnLoad;
+    window.onunload = fnUnload;
+</script>
+</body>
+</html>

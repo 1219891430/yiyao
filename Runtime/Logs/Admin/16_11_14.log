@@ -1,0 +1,2144 @@
+[ 2016-11-14T09:31:47+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/add?r=1479087107426
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 158 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 157 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 156 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 155 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 154 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 153 )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:31:56+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/add?r=1479087116367
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 158 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 157 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 156 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 155 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 154 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 153 )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:32:17+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087137625
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:32:17+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0080s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:32:21+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0100s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:33:45+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087224875
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:33:45+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0070s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:33:47+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:34:21+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087261797
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:34:22+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:34:30+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:34:53+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087293059
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:34:53+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0070s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:36:38+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087398051
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:36:38+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:36:44+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087404763
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:36:44+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0100s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:36:47+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:37:08+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087428699
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:37:08+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:37:12+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:38:03+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087482899
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0230s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0020s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:38:03+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0070s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:38:05+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:38:43+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087523755
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+ERR: syntax error, unexpected ','
+
+[ 2016-11-14T09:38:51+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087531107
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+ERR: syntax error, unexpected ','
+
+[ 2016-11-14T09:39:01+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087541763
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0130s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0030s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:39:01+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:39:10+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087550603
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:39:10+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:39:15+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '7' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=4 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=10 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:40:26+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087626403
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.004000s ]
+
+[ 2016-11-14T09:40:26+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0070s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0050s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:40:36+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087636283
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:40:36+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0080s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:40:39+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0080s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=1 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=2 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=3 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=11 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:42:12+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479087732811
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\DepotInController.class.php 第 94 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 2 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:42:12+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:45:37+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087937662&gid=5
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=5 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '5' AND ds.depot_id = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.027000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.027000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:45:43+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087943827&gid=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0240s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=1 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0080s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '1' AND ds.depot_id = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:45:49+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087949068&gid=15
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0090s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=15 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '15' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:46:00+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087960019&gid=16
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=16 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '16' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:46:07+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087967707&gid=17
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0160s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=17 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '17' LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:46:15+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/setorg?r=1479087974901&gid=14
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM zdb_org_info oi left join zdb_depot_org as do on oi.org_id=do.org_parent_id  WHERE do.repertory_id = 1 AND oi.is_close = 0  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( goods_id=14 AND depot_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT gi.*,ds.org_parent_id,ds.depot_id FROM zdb_goods_info gi left join zdb_depot_stock as ds on ds.goods_id=gi.goods_id  WHERE gi.goods_id = '14' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 58 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\5f3a4c5241fe7fbf95626c83d97e9b21.php 第 70 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:46:52+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088012827
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0050s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:46:53+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0070s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:46:58+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '11' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=17 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:00+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0070s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '10' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=16 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:47:02+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '9' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=15 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:03+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '16' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=14 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:05+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=8 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=9 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=12 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=13 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:07+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '8' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=5 )  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=6 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=7 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:47:10+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.011000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '11' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=17 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:16+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0050s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I146520161114566506','1','1','1','1','','2','2','1479088036','0','0') [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=17 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=39 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('19','1','39','17','17','通心络胶囊','0.26g*40s','瓶') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:19+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088039349&depot_in_id=19
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 19 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0090s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '19'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 17  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0100s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0000s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:47:20+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0090s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088040' WHERE `depot_in_id` = 19 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 19 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 19  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0070s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 17 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 17 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=39 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=17 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 17 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+17.00 WHERE `depot_id` = 1 AND `goods_id` = 17 [ RunTime:0.0590s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 17 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( goods_id = 17 ) ORDER BY goods_unit_type asc  [ RunTime:0.0010s ]
+SQL: SELECT `goods_convert_s`,`goods_convert_m`,`goods_convert_b` FROM `zdb_goods_info` WHERE ( goods_id = 17 ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='2 包 1 瓶' WHERE `depot_id` = 1 AND `goods_id` = 17 [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0070s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('17','1','1','1479088040','1','1','经销商入库+17.00','17') [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:22+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088042843
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0060s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:23+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0080s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:28+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '11' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=17 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:47:30+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '10' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=16 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:47:35+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I617220161114792825','1','1','1','1','','2','2','1479088055','0','0') [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=16 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=37 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0040s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('20','1','37','565','16','维胺酯胶囊','25mg*24s','盒') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:39+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088058845&depot_in_id=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.010000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 20 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0070s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '20'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 16  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0060s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:47:40+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0050s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088060' WHERE `depot_in_id` = 20 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 20 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 20  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 16 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=37 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=16 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+565.00 WHERE `depot_id` = 1 AND `goods_id` = 16 [ RunTime:0.0000s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( goods_id = 16 ) ORDER BY goods_unit_type asc  [ RunTime:0.0000s ]
+SQL: SELECT `goods_convert_s`,`goods_convert_m`,`goods_convert_b` FROM `zdb_goods_info` WHERE ( goods_id = 16 ) LIMIT 1   [ RunTime:0.0020s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='5 包 65 盒' WHERE `depot_id` = 1 AND `goods_id` = 16 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('16','1','1','1479088060','1','1','经销商入库+565.00','565') [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:42+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088062706
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0050s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:42+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0030s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:47:53+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '9' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0020s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=15 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:47:59+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0060s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I784320161114152130','1','1','1','1','','2','2','1479088079','0','0') [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=15 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0070s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=35 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0110s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('21','1','35','56','15','保济丸','3.7g*20','盒') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:01+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088081459
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0070s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:01+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:48:12+08:00 ] ::1 /yiyao/index.php/Admin/Dealer/edit?r=1479088092877&org_id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` WHERE `org_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_depot_org` WHERE `org_parent_id` = 1 AND `repertory_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:48:20+08:00 ] ::1 /yiyao/index.php/Admin/Dealer/check_mobile.html?mobile=13033330000&org_id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` WHERE `mobile` = '13033330000' LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:28+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088108613&depot_in_id=21
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 21 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0060s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '21'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 15  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0040s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.010000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.010000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:48:29+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0050s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088109' WHERE `depot_in_id` = 21 [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 21 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0080s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 21  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 15 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=35 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=15 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+56.00 WHERE `depot_id` = 1 AND `goods_id` = 15 [ RunTime:0.0010s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( goods_id = 15 ) ORDER BY goods_unit_type asc  [ RunTime:0.0010s ]
+SQL: SELECT `goods_convert_s`,`goods_convert_m`,`goods_convert_b` FROM `zdb_goods_info` WHERE ( goods_id = 15 ) LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='56 盒' WHERE `depot_id` = 1 AND `goods_id` = 15 [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('15','1','1','1479088109','1','1','经销商入库+56.00','56') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:48:31+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088111585
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0080s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:48:31+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0160s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:36+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '7' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=4 )  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=10 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:48:43+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0060s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I993620161114307009','1','1','1','1','','2','2','1479088123','0','0') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=4 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=10 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=24 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('22','1','10','7','4','灵芝孢子粉（破壁）','2g*60包','盒'),('22','1','24','8','10','牡丹皮','1kg(安徽)','包') [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-14T09:48:45+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088125074
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0040s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:45+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:48+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0000s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '9' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=15 )  [ RunTime:0.0000s ]
+
+[ 2016-11-14T09:48:54+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0090s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I355620161114809936','1','1','1','1','','2','2','1479088134','0','0') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0070s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=15 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=35 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0080s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('23','1','35','88','15','保济丸','3.7g*20','盒') [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:56+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/add?r=1479088136838
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0050s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:48:57+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:49:00+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/selGoods.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0070s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '16' AND ds.org_parent_id = '1' AND ds.depot_id = '1'  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_unit`,`goods_unit_type` FROM `zdb_goods_product` WHERE ( goods_id=14 )  [ RunTime:0.0010s ]
+
+[ 2016-11-14T09:49:05+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/addex
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0080s ]
+NOTIC: [8] Undefined index: in_status D:\xampp\htdocs\yiyao\Application\Common\Model\DepotInModel.class.php 第 25 行.
+SQL: INSERT INTO `zdb_depot_in` (`depot_in_code`,`depot_id`,`org_parent_id`,`in_type`,`in_status`,`in_remark`,`staff_id`,`create_id`,`create_time`,`checker_id`,`checker_time`) VALUES ('I199220161114711691','1','1','1','1','','2','2','1479088145','0','0') [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT `goods_name`,`goods_spec` FROM `zdb_goods_info` WHERE ( goods_id=14 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0070s ]
+SQL: SELECT `goods_unit` FROM `zdb_goods_product` WHERE ( cv_id=33 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_in_goods` (`depot_in_id`,`org_parent_id`,`cv_id`,`in_num`,`goods_id`,`goods_name`,`goods_spec`,`unit_name`) VALUES ('24','1','33','476','14','舒肝解郁胶囊','0.36g*28s','盒') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:49:08+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088147914&depot_in_id=24
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 24 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0050s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '24'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 14  [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0050s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:49:08+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0220s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088148' WHERE `depot_in_id` = 24 [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 24 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 24  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 14 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0060s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 14 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=33 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=14 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 14 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+476.00 WHERE `depot_id` = 1 AND `goods_id` = 14 [ RunTime:0.0010s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 14 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( goods_id = 14 ) ORDER BY goods_unit_type asc  [ RunTime:0.0010s ]
+SQL: SELECT `goods_convert_s`,`goods_convert_m`,`goods_convert_b` FROM `zdb_goods_info` WHERE ( goods_id = 14 ) LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='79 包 2 盒' WHERE `depot_id` = 1 AND `goods_id` = 14 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('14','1','1','1479088148','1','1','经销商入库+476.00','476') [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-14T09:49:10+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088150450&depot_in_id=23
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 23 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0050s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0090s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '23'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0460s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 15  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0010s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0100s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:49:11+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0060s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088151' WHERE `depot_in_id` = 23 [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 23 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 23  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 15 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+88.00 WHERE `depot_id` = 1 AND `goods_id` = 15 [ RunTime:0.0000s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 15 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='1 件 44 盒' WHERE `depot_id` = 1 AND `goods_id` = 15 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0050s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('15','1','1','1479088151','1','1','经销商入库+88.00','144') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:49:13+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inPass?r=1479088153491&depot_in_id=22
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 22 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_admin_user` [ RunTime:0.0050s ]
+SQL: SELECT `true_name` FROM `zdb_admin_user` WHERE ( admin_id=2 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.goods_code,zdb_depot_in_goods.*,zdb_depot_area.area_name FROM `zdb_depot_in_goods` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_in_goods.goods_id left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id  WHERE `depot_in_id` = '22'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 4  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE `goods_id` = 10  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0040s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT `brand_id`,`brand_name` FROM `zdb_goods_brand`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+NOTIC: [8] Undefined index: json D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\48f6568825bdcbf1f5ed962d610ed612.php 第 79 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-14T09:49:14+08:00 ] ::1 /yiyao/index.php/Admin/DepotIn/inpassEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_in` [ RunTime:0.0050s ]
+SQL: UPDATE `zdb_depot_in` SET `in_status`='2',`checker_id`='2',`checker_time`='1479088154' WHERE `depot_in_id` = 22 [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_in` WHERE `depot_in_id` = 22 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_in_goods` [ RunTime:0.0050s ]
+SQL: SELECT `goods_id`,`cv_id`,`in_num` FROM `zdb_depot_in_goods` WHERE `depot_in_id` = 22  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0040s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 4 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_org_goods_convert` WHERE `goods_id` = 10 AND ( org_parent_id=1 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 4 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=10 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=4 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 4 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+7.00 WHERE `depot_id` = 1 AND `goods_id` = 4 [ RunTime:0.0000s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 4 LIMIT 1   [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='3 包 6 盒' WHERE `depot_id` = 1 AND `goods_id` = 4 [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock_log` [ RunTime:0.0040s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('4','1','1','1479088154','1','1','经销商入库+7.00','36') [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_product` WHERE ( cv_id=24 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE ( goods_id=10 ) LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `small_stock`=small_stock+8.00 WHERE `depot_id` = 1 AND `goods_id` = 10 [ RunTime:0.0010s ]
+SQL: SELECT `goods_id`,`small_stock` FROM `zdb_depot_stock` WHERE `depot_id` = 1 AND `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_depot_stock` SET `stock_string`='1 件 3 包' WHERE `depot_id` = 1 AND `goods_id` = 10 [ RunTime:0.0010s ]
+SQL: INSERT INTO `zdb_depot_stock_log` (`goods_id`,`depot_id`,`org_parent_id`,`datetime`,`inout_type`,`is_in_out`,`bianhua`,`small_stock`) VALUES ('10','1','1','1479088154','1','1','经销商入库+8.00','18') [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

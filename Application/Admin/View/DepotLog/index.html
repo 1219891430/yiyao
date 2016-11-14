@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                <select class="form-control w200" id="depot">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="dvo">
+                            <option <if condition="$dvo['repertory_id'] eq $urlPara['depot_id']">selected="selected"</if> value="{$dvo.repertory_id}">{$dvo.repertory_name}</option>
+                            <volist name="dvo.depot_list" id="v">
+                            <option <if condition="$v['repertory_id'] eq $urlPara['depot_id']">selected="selected"</if> value="{$v.repertory_id}">|------{$v.repertory_name}</option> 
+                            </volist>
+                        </volist>
+                </select>
+                <input type="text" class="form-control w200" id="name"  value="{$cust_name}"  placeholder="请输入商品名称" />
+            <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+                
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="10%">仓库名称</td>
+                    
+                    <td width="10%">商品名称</td>
+                   <!-- <td width="10%">库存合计</td> --> 
+                    <td width="10%">库存小单位</td>
+                    <td width="10%">变化</td>
+                    <td width="10%">经销商</td>
+                    <td width="10%">时间</td>
+                    
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.depot_name}</td>
+                        
+                        <td>{$vo.goods_name}{$vo.goods_spec}</td>
+                       <!--  <td>{$vo.read_stock}</td> -->
+                        
+                        <td>{$vo.small_stock|floatval}</td>
+                        <td>{$vo.bianhua}</td>
+                        <td>{$vo.org_name}</td>
+                        <td>{$vo.datetime|date='Y-m-d H:i:s',###}</td>
+                        
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+          {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+
+            <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<script>
+	
+	$("#find").click(function(){
+        location.href="__URL__/index/depot_id/"+$("#depot").val()+"/goods_name/"+$("#name").val();
+    })
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

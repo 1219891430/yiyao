@@ -1,0 +1,103 @@
+<div class="modal-dialog modal_650 ">
+    <div class="modal-content modal_650">
+        <div class="modal-header">
+            <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title fb f16">
+                数据导入
+            </h4>
+        </div>
+        <form action="__URL__/into_cycle" id="submit_form" method="post">
+            <div class="modal-body modal_650">
+
+                <table class="table no_border">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            来源业务员：
+                            <select class="form-control w200" name="staffId1" id="staffId1">
+                                <option value="">请选择业务员</option>
+                                <volist name="staff_list" id="staff">
+                                    <if condition="$staff['staff_id'] eq $staff_id">
+                                        <option value="{$staff.staff_id}" selected="selected" >{$staff.staff_name}</option>
+                                        <else />
+                                        <option value="{$staff.staff_id}">{$staff.staff_name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </td>
+                </tr>
+                    <tr>
+                        <td>
+                            目标业务员：
+                            <select class="form-control w200" name="staffId2" id="staffId2">
+                                <option value="">请选择业务员</option>
+                                <volist name="staff_list" id="staff">
+                                    <if condition="$staff['staff_id'] eq $staff_id">
+                                        <option value="{$staff.staff_id}" selected="selected" >{$staff.staff_name}</option>
+                                        <else />
+                                        <option value="{$staff.staff_id}">{$staff.staff_name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="display: none;">
+                            清空来源业务员数据：
+                            <input type="checkbox" value="1" name="clearFrom">
+                        </td>
+                    </tr>
+
+</tbody>
+                    </table>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default"
+                   data-dismiss="modal">关闭
+                </a>
+                <a id="submit_cycle" class="btn btn-primary">
+                    导 入
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+        $("#submit_cycle").click(function(){
+            if( $('#staffId1').val() == $('#staffId2').val() ){
+                alert('来源业务员和目标业务员不能相同!');
+                return;
+            }
+            $("#submit_form").submit();
+        });
+
+        $("#submit_form").validate({
+            rules:{
+                staffId1:{
+                    required: true
+                },
+                staffId2:{
+                    required: true
+                }
+            },
+            messages:{
+                staffId1: {
+                    required: "必须选择来源业务员"
+                },
+                staffId2: {
+                    required: "必须选择目标业务员"
+                }
+            }
+        });
+
+    </script>
+
+</div>

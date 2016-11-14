@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>农乐汇-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    <div class="row-fluid main-content">
+    	
+        <div class="sel-data mb20"><div class="fl"><label>{$userInfo.true_name}</label>------<label>{$lineInfo.line_name}</label></div></div>
+
+        <table class="table list_table" id="role_table">
+        <thead>
+        <tr><td width="40%">终端门店</td>
+        <td width="20%">订单编号</td>
+        <td width="20%">订单费用</td>
+        <td width="20%">下单时间</td>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="orderList" id="shop">
+        <volist name="shop.order_list" id="order">
+        <tr>
+        <if condition="$i == 1"><td rowspan="{$shop.order_list|count}" style="vertical-align:middle;">{$shop.cust_name}</td></if>
+        <td>{$order.order_code}</td>
+        <td>{$order.order_total_money}</td>
+        <td>{$order.add_time}</td>
+        </tr>
+        </volist>
+        </volist>
+        </tbody>
+        <tfoot></tfoot>
+        </table>
+
+		<empty name="flag"><div><a class="btn btn-primary bg_3071a9" href="{:U('apply',array('line_id'=>$lineInfo['line_id'],'uid'=>$userInfo[admin_id]))}" role="button">车存申请</a></div></empty>
+        
+	</div>
+    </div>
+</div>
+</body>
+
+</html>

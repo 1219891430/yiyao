@@ -1,0 +1,537 @@
+﻿<include file='Public:head'/>
+<body>
+
+<style>
+    .g_unit{display: block; width: 100%}
+</style>
+
+    <!--搜索页-->
+    <div class="wrap bg-fff">
+        <div class="zy-top">
+            <!--子页搜索-->
+            <div class="zy-search">
+                <div class="sch-w clearfix">
+                    <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+                    <div class="search">
+                        <button class="go-sch" id="search" href="#"></button>
+                        <input type="text" id="keyword" value="{$_GET.word}" placeholder="商品名或关键字">
+                        <div class="top-filter">
+                            <if condition="!empty($search_class)">
+                                <span class="filter-tit">
+                            <span>{$search_class['class_name']}</span>
+                        </span>
+                            </if>
+
+                        </div>
+                    </div>
+
+                </div>
+                <a class="top-user" href="{:U('WapMall/Member/index')}"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+            </div>
+            <!--筛选-->
+            <ul class="filter-t clearfix">
+                <li style="width: 49%;" id="sort_price">价格
+
+                    <php>if($_GET["order"]=="price"){</php>
+                    <if condition="session('search_order_price'.$_SESSION['cust_id']) == 'desc'">
+                        <i class="arrow arrow-up"></i>
+                        <else />
+                        <i class="arrow arrow-down"></i>
+                    </if>
+                    <php>}else{</php>
+                    <i class="arrow"></i>
+                    <php>}</php>
+
+                </li><!--升arrow-up，降arrow-down-->
+                <li class="category" style="width: 50%; border-left: 1px solid #ddd;color:#fa4545;">分类</li>
+            </ul>
+            <div class="filter wrap hidden">
+                <ul class="clearfix" id="cla">
+
+                    <volist name="class" id="vo">
+
+                        <li onclick="subclass({$vo['class_id']})" class="
+                            <php>
+                            if($urlParam['cat'] == $vo['class_id'] || strInArray($urlParam['cat'], 'class_id', $vo['child'])) {echo 'curr';}
+                        </php>
+                       " >{$vo['class_name']}</li>
+
+                        <div id="child_{$vo['class_id']}" hidden>
+                            <foreach name="vo['child']" item="child">
+
+                                <li <if condition="$urlParam['cat'] eq $child['class_id']"> class="curr" </if> >
+                                    <a href="{:U('WapMall/Search/search', array('cat'=>$child['class_id']))}">{$child['class_name']}</a>
+                                </li>
+
+                            </foreach>
+                        </div>
+
+                    </volist>
+
+                </ul>
+                <div class="btn-box">
+                    <input type="button" id="reset" value="重置">
+                    <input type="button" class="category-btn" value="确定">
+                </div>
+            </div>
+        </div>
+        <!--商品列表-->
+        <div class="sch-top-empty"></div>
+        <div class="sch-list-new" id="list">
+
+            <volist name="goods" id="gvo">
+
+                <div class="item clearfix">
+                    <div class="info" data-org="{$gvo['org_parent_id']}" data-id="{$gvo['goods_id']}">
+                        <p class="tit show-sku" onclick="show_sku(this)">{$gvo['goods_name']}</p>
+                        <p class="fontgry show-sku" onclick="show_sku(this)">{$gvo['org_name']}</p>
+                        <div class="p-bottom show-sku" onclick="show_sku(this)">
+                            <if condition="$gvo['is_act'] eq 1">
+                                <foreach name="gvo['act']" item="act">
+
+                                    <div class="free-detail pic clearfix">
+
+                                            <if condition="$act['act_type'] eq 0">
+                                                <h5> {$gvo['goods_unit']}装 限时特价</h5>
+                                                <div class="wz fontgry">
+                                                    <p>原价 {$gvo['goods_base_price']} 元, 现价 {$act['act_price']} 元</p>
+                                                </div>
+                                            </if>
+                                            <if condition="$act['act_type'] eq 1">
+
+                                                <h5>{$gvo['goods_unit']}装 满减优惠 </h5>
+                                                <div class="wz fontgry">
+                                                    <p>每满 {$act['act_money']} 元, 减 {$act['act_offer_money']} 元</p>
+                                                </div>
+                                            </if>
+
+                                            <if condition="$act['act_type'] eq 2">
+
+                                                <h5>{$gvo['goods_unit']}装 限时赠品 </h5>
+                                                <div class="wz fontgry">
+                                                    <p>每满 {$act['goods_num']}{$gvo['goods_unit']}, 赠送<br><a href="__MODULE__/goods?goods_id={$act['song_goods_id']}&org_id={$gvo['org_parent_id']}"><img src="{:C('GOODS_IMG')}{$act['song_goods']['main_img']}" width="30" height="30"></a><span>×{$act['song_goods_num']} {$act['song_goods']['goods_unit']}</p>
+                                                </div>
+
+                                            </if>
+
+                                    </div>
+
+                                </foreach>
+                            </if>
+
+                            <!--<div class="free-detail clearfix">
+                                <h5>买 袋 装赠品</h5>
+                                <div class="wz">
+                                    <img src="images/pic.jpg">
+                                    <p class="fontgry">原价 0.99 元, 现价 0.88 元</p>
+                                </div>
+
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="price">￥<span>{$gvo.goods_base_price}</span></div>
+                    <a class="go-detail" href="{:U('Goods/index',array('org_id'=>$gvo['org_parent_id'],'goods_id'=>$gvo['goods_id']))} ">查看详情</a>
+                </div>
+
+            </volist>
+
+            <div class="list-loading"><div class="loading_box"><!--已经到底部了--></div></div>
+        </div>
+        <div class="cover-floor hidden"></div><!--去掉hidden展示下级-->
+    </div>
+
+    <footer>
+        <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+        <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+    </footer>
+
+    <!--底部悬浮按钮-->
+    <!--<div class="foot-btn">
+        <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+        <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+        <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+    </div>-->
+
+    <!--选择规格弹框-->
+    <div class="modal">
+        <div class="modal-detail">
+            <div class="modal-detail-top"><img id="goods_img" src="#"><span class="price"></span>注：只可选择一种单位商品</span></span></div>
+            <span class="btn-close"></span>
+            <div class="modal-detail-con">
+                <ul class="modal-detail-con-tit">
+                    <li>规格</li>
+                    <li>单位</li>
+                    <li>数量</li>
+                </ul>
+                <div class="modal-detail-con-check">
+                    <div class="check-color" id="spec">
+                    </div>
+                    <div class="check-num" id="price">
+                        <div class="check-num-control">
+                            <div class="check-size">30*30*22cm</div>
+                            <div class="item-amount">
+                                <a class="J_Minus minus" href="javascript:void(0)">-</a>
+                                <input class="text-amount J_ItemAmount" type="text" autocomplete="off" data-max="365" value="2">
+                                <a class="J_Plus plus" href="javascript:void(0)">+</a>
+                            </div>
+                            <p class="fontgry">￥69.00</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <input type="hidden" id="input_unit" value="0">
+
+
+            <p class="total">共<span class="fontbrand" id="a_num">0</span><span id="a_unit"></span>&nbsp;&nbsp;<span class="fontbrand" id="a_price">￥0.00</span></p>
+            <div class="modal-detail-menu clearfix">
+                <a class="menu" id="addcar" href="javascript:;">加入进货单</a>
+                <a class="menu menu-brand" id="ordernow" href="javascript:;">立即订购</a>
+            </div>
+        </div>
+    </div>
+
+    <!--底部悬浮按钮-->
+    <div class="foot-btn">
+        <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+        <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+        <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+    </div>
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+<script>
+	
+		        /**
+			 * 上拉加载具体业务实现
+			 */
+			$(".list-loading").hide();
+			function pullupRefresh(p) {
+				$(".list-loading").show();
+				var word="{$_GET.word}";
+				
+				var cat="{$_GET.cat}";
+				var order="{$_GET.order}";
+				var sort="{$_GET.sort}";
+				//var p="{$_GET.order}";
+				var data={};
+				if(order!=""){
+					data.order=order;
+				}
+				if(cat!=""){
+					data.cat=cat;
+				}
+				
+				if(word!=""){
+					data.word=word;
+				}
+				if(sort!=""){
+					data.sort=sort;
+				}
+				
+				data.p=p;
+				
+				if(p>1){
+					$.get("__URL__/searchJson",data,function(data){
+						
+						var html=data;
+
+					    
+					    
+
+						
+						$("#list").append(html);
+						$("img.lazy").lazyload({effect: "fadeIn"});
+						$(".list-loading").hide();
+						
+					},"html");
+				}
+				
+				
+			}
+		
+		
+		    var p=0;
+		    $(window).scroll(function(){
+		    	if ($(document).height() - $(this).scrollTop() - $(this).height()<170){
+		    		
+		    		p++;
+		    	    pullupRefresh(p);
+		    	}
+		    	
+		    });
+		
+</script>
+
+<script>
+
+    $("#search").click(function(){
+        var name=$("#keyword").val();
+        name=$.trim(name)
+
+        if (name == "") {
+            alert("搜索条件不能为空");
+            return;
+        }
+        location.href="/index.php/WapMall/Search/search/word/"+name;
+    })
+
+
+    // 分类弹框
+    function toggleCategory() {
+        $('.filter').slideToggle(300);
+        $('.cover-floor').fadeToggle(100);
+    }
+    $('.category').click(toggleCategory);
+    $('.category-btn').click(toggleCategory);
+    // 规格弹框
+    function toggleCard() {
+        $('.modal').slideToggle(300);
+    }
+    $('.btn-close').click(toggleCard);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+
+    var subclass = function (class_id) {
+        var subclass = $("#child_"+class_id).html()
+
+        console.log(subclass)
+
+        $("#cla").html(subclass)
+    }
+    
+    $("#reset").click(function () {
+        var html = '<volist name="class" id="vo"> <li onclick="subclass({$vo["class_id"]})" class="<php>if($urlParam["cat"] == $vo["class_id"] || strInArray($urlParam["cat"], "class_id", $vo["child"])) {echo "curr";} </php>" >{$vo["class_name"]}</li> <div id="child_{$vo["class_id"]}" hidden> <foreach name="vo['child']" item="child"> <li <if condition="$urlParam['cat'] eq $child['class_id']"> class="curr" </if> ><a href="{:U('WapMall/Search/search', array('cat'=>$child['class_id']))}">{$child['class_name']}</a> </li> </foreach> </div> </volist>'
+        $("#cla").html(html)
+    })
+    
+    function getDetail(org_id, goods_id) {
+
+        var url = "__MODULE__/Goods/info?org_id=" + org_id + "&goods_id="+goods_id;
+
+        $.get(url, function (data) {
+
+            var spec = data.info['goods_spec']
+
+            // 图片
+            $("#goods_img").attr("src","{:C('GOODS_IMG')}"+data.info['main_img'])
+
+            // 规格
+            $('#spec').html("<span class='hover'> " + spec + "</span>")
+
+            $(data.price).each(function (k,v) {
+
+                //console.log(v)
+
+                // 价格和数量
+                var html = '<div class="check-num-control">';
+                html += '<div class="check-size">' + v['act_price'] + '/' + v['goods_unit'] + '</div>';
+                html += '<div class="item-amount">';
+                html += '<a class="J_Minus minus" href="javascript:AJ_Minus(' + v['cv_id'] + ',' + v['act_price'] + ')">-</a>';
+                html += '<input id="J_amount_'+ v['cv_id'] + '" class="text-amount J_ItemAmount" onblur="check_J_ItemAmount('+ v['cv_id'] + ',' + v['act_price'] + ','+"'"+ v['goods_unit'] +"'"+')" data-unit="'+ v['goods_unit'] +'" data-org="'+ v['org_parent_id'] + '" data-cv="'+ v['cv_id'] +'" type="number" value="0">';
+                html += '<a class="J_Plus plus" href="javascript:AJ_Plus(' + v['cv_id']  + ',' + v['act_price'] + ','+"'"+ v['goods_unit'] +"'"+')">+</a>';
+                html += '</div>';
+                html += '<p class="fontgry"><span class="g_price price_' + v['cv_id'] + '"></span></p>';
+                html += '</div>';
+
+                $('#price').append(html)
+            })
+        })
+    }
+
+    function show_sku(obj) {
+
+        $('#unit').html("")
+        $('#price').html("")
+
+        var info = $(obj).parent('.info');
+        var org_id = info.data('org');
+        var goods_id = info.data('id');
+
+
+
+        getDetail(org_id, goods_id)
+        toggleCard()
+    }
+    /*$('.show-sku').click(function() {
+        $('#unit').html("")
+        $('#price').html("")
+
+        var info = $(this).parent('.info');
+        var org_id = info.data('org');
+        var goods_id = info.data('id');
+
+        getDetail(org_id, goods_id)
+    })*/
+
+    function addHover(obj,cv_id) {
+        $("#input_unit").val(cv_id)
+
+        $(obj).siblings('span').removeClass('hover')
+        $(obj).addClass('hover')
+    }
+
+    function check_J_ItemAmount(cv_id, price, unit) {
+        $(".J_ItemAmount").each(function (i, v) {
+            if ($(v).data("cv") != cv_id) {
+
+                if ($(v).val() != 0) {
+
+                    $(v).val(0)
+                }
+
+            };
+        })
+
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit)
+
+        console.log(num)
+
+        if (isNaN(num)) {
+            num = 0
+        }
+
+        $('#J_amount_'+cv_id).val(num)
+        var total = num * price
+
+        $("#a_price").html("￥"+total.toFixed(2))
+        $("#a_num").html(num)
+        $("#a_unit").html(unit)
+
+    }
+
+    // 数量加
+    function AJ_Plus(cv_id, price, unit) {
+
+        $(".g_price").html("")
+
+        check_J_ItemAmount(cv_id)
+
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit)
+
+        num += 1;
+
+        var total = num * price
+
+        $("#a_price").html("￥"+total.toFixed(2))
+        $("#a_num").html(num)
+        $("#a_unit").html(unit)
+
+        $('#J_amount_'+cv_id).val(num)
+
+    }
+
+    // 数量减
+    function AJ_Minus(cv_id, price, unit) {
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit)
+
+        num -= 1
+
+        var total = num * price
+
+        $("#a_price").html("￥"+total.toFixed(2))
+
+        if (num <= 0) {
+            num = 0
+            $("#a_price").html("￥0.00")
+        }
+        $("#a_num").html(num)
+        $("#a_unit").html(unit)
+
+        $('#J_amount_'+cv_id).val(num)
+    }
+
+    //
+    function addAll(reurl) {
+
+    <if condition="!isset($_SESSION['cust_id'])">
+
+                alert('登陆后可添加商品');
+
+        location.href='/index.php/WapMall/Member/login';
+        return;
+
+    </if>
+
+
+    <if condition="$_SESSION['depot_id'] != $_SESSION['cust_depot']">
+                alert('超出配送范围， 禁止添加')
+
+            return;
+
+    </if>
+
+        // 判断商品是否重复
+        var repeat = 0;
+        $(".J_ItemAmount").each(function () {
+            if ($(this).val() != 0) {
+                //console.log($(this).val())
+                repeat += 1;
+            }
+
+            //console.log($(this).attr("attr"))
+        })
+
+        if(repeat != 1) {
+
+            alert("请选择一种单位商品");
+            return false;
+
+        }
+
+        $(".J_ItemAmount").each(function (k, v) {
+            var num = $(this).val()
+            var cv = $(this).data('cv')
+            var org = $(this).data('org')
+            if (num == 0) {
+                return
+            }
+            var aurl="{:U('WapMall/Cart/add')}";
+
+            addcar_wap(cv, num, org, aurl, reurl)
+
+        })
+
+    }
+
+    // 加入购物车
+    $('#addcar').click(function () {
+
+        addAll()
+    });
+
+    // 立即下单
+    $('#ordernow').click(function () {
+        var reurl = "{:U('WapMall/Cart/index')}"
+
+        addAll(reurl);
+
+    })
+
+    $("#sort_price").click(function(){
+        var sort="{$_GET.sort}";
+        if(sort=="asc"){
+            sort="desc";
+        }else{
+            sort="asc";
+        }
+        var cat="{$_GET.cat}";
+        if(cat==""){
+        	var url = "__URL__/search/order/price/sort/"+sort+"/word/{$_GET.word}"
+        }else{
+        	var url = "__URL__/search/order/price/sort/"+sort+"/cat/"+cat+"/word/{$_GET.word}"
+        }
+        
+
+        location.href = url;
+    });
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+</head>
+
+<link href="__PUBLIC__/assets/css/bootstrap.min.css" rel="stylesheet">
+<script src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<body class="container">
+<input type="hidden" id="token" value="{$_token}">
+<div class="col-md-12" style="border-bottom: 1px solid #8b8b8b; padding-bottom: 20px; margin-bottom: 20px">
+    <div class="col-md-6" style="border-right: 1px solid #8b8b8b">
+        <h4 class="">生成预单</h4>
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="depot" class="col-sm-2 control-label">选择仓库</label>
+                <div class="col-sm-9">
+                    <select id="depot" class="form-control">
+                        <foreach name="depots" item="depot">
+                            <option value="{$depot.repertory_id}">{$depot.repertory_name}</option>
+                        </foreach>
+                        <option value="0" class="text-danger">** 随机仓库 **</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">单据类型</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="1" checked> 预单
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="2"> 退货单
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="type" value="3"> 调换货单
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">时间随机</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="rand_time" value="0" checked> 今天
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rand_time" value="1"> 昨天
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="rand_time" value="2"> 随机
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="add_num" class="col-sm-2 control-label">生成数量</label>
+                <div class="col-sm-6">
+                    <input id="add_num" class="form-control" type="number" value="10" placeholder="添加的商品的数量">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="add_num" class="col-sm-2 control-label"></label>
+                <div id="presale_res" class="col-sm-10" disabled></div>
+            </div>
+
+            <center class="col-sm-10">
+
+                <button type="button" id="add_order" data-loading-text="生成预单中..." class="btn btn-success btn-block">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</button>
+
+            </center>
+
+
+        </div>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <h4 class="">定单指派</h4>
+
+        <center class="col-sm-10">
+
+            <button type="button" id="assign_presale" data-loading-text="预单指派中..." class="btn btn-success btn-block">指&nbsp;&nbsp;&nbsp;&nbsp;派&nbsp;&nbsp;&nbsp;&nbsp;预&nbsp;&nbsp;&nbsp;&nbsp;单</button>
+
+        </center>
+
+    </div>
+
+    <div class="col-md-6">
+
+        <center class="col-sm-10">
+
+            <button type="button" id="assign_change" data-loading-text="调换货单指派中..." class="btn btn-success btn-block">指&nbsp;&nbsp;&nbsp;&nbsp;派&nbsp;&nbsp;&nbsp;&nbsp;调&nbsp;&nbsp;&nbsp;&nbsp;货&nbsp;&nbsp;&nbsp;&nbsp;单</button>
+
+        </center>
+
+    </div>
+    <div class="col-md-6">
+
+        <center class="col-sm-10">
+
+            <button type="button" id="assign_return" data-loading-text="退货单指派中..." class="btn btn-success btn-block">指&nbsp;&nbsp;&nbsp;&nbsp;派&nbsp;&nbsp;&nbsp;&nbsp;退&nbsp;&nbsp;&nbsp;&nbsp;货&nbsp;&nbsp;&nbsp;&nbsp;单</button>
+
+        </center>
+
+    </div>
+    <div class="col-md-6">
+        <div id="assign_msg" class="col-sm-10" disabled></div>
+    </div>
+
+</div>
+
+<div class="col-md-12" style="border-bottom: 1px solid #8b8b8b; padding-bottom: 20px; margin-bottom: 20px">
+    <div class="col-md-6">
+
+        <h4 class="">店铺下单</h4>
+
+        <div class="form-horizontal">
+
+        <center class="col-sm-10">
+
+            <button type="button" id="add_car_order" data-loading-text="店铺下单中..." class="btn btn-success btn-block">店&nbsp;&nbsp;&nbsp;&nbsp;铺&nbsp;&nbsp;&nbsp;&nbsp;下&nbsp;&nbsp;&nbsp;&nbsp;单</button>
+            <button type="button" id="add_car_change_order" data-loading-text="店铺下单中..." class="btn btn-success btn-block">店&nbsp;&nbsp;&nbsp;&nbsp;铺&nbsp;&nbsp;&nbsp;&nbsp;下&nbsp;&nbsp;&nbsp;&nbsp;单（调换货）</button>
+            <button type="button" id="add_car_return_order" data-loading-text="店铺下单中..." class="btn btn-success btn-block">店&nbsp;&nbsp;&nbsp;&nbsp;铺&nbsp;&nbsp;&nbsp;&nbsp;下&nbsp;&nbsp;&nbsp;&nbsp;单（退货）</button>
+
+        </center>
+		</div>
+
+    </div>
+
+
+    <div class="col-md-6">
+
+        <h4 class="">增加商品库存</h4>
+
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label for="stock_add_num" class="col-sm-2 control-label">增加数量</label>
+                <div class="col-sm-6">
+                    <input id="stock_add_num" class="form-control" type="number" value="1000" placeholder="添加的商品的数量">
+                </div>
+            </div>
+
+            <center class="col-sm-10">
+
+                <button type="button" id="add_goods_stock" data-loading-text="增加库存中..." class="btn btn-success btn-block">增&nbsp;&nbsp;&nbsp;&nbsp;加&nbsp;&nbsp;&nbsp;&nbsp;库&nbsp;&nbsp;&nbsp;&nbsp;存</button>
+
+            </center>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="col-md-12" style="border-bottom: 1px solid #8b8b8b; padding-bottom: 20px; margin-bottom: 20px">
+
+    <div class="col-md-6" style="border-right: 1px solid #8b8b8b">
+        <h4 class="">经销商业务员订单</h4>
+
+        <div class="form-horizontal">
+
+            <div class="form-group">
+                <label for="depot" class="col-sm-2 control-label">选择仓库</label>
+                <div class="col-sm-9">
+                    <select id="org_depot" class="form-control">
+                        <foreach name="depots" item="depot">
+                            <option value="{$depot.repertory_id}">{$depot.repertory_name}</option>
+                        </foreach>
+                        <option value="0" class="text-danger">** 随机仓库 **</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">单据类型</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="org_type" value="1" checked> 定单
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="org_type" value="2"> 退货单
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="org_type" value="3"> 调换货单
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">时间随机</label>
+                <div class="col-sm-9">
+                    <label class="radio-inline">
+                        <input type="radio" name="org_rand_time" value="0" checked> 今天
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="org_rand_time" value="1"> 昨天
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="org_rand_time" value="2"> 随机
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <label for="add_num" class="col-sm-2 control-label">生成数量</label>
+                <div class="col-sm-6">
+                    <input id="org_add_num" class="form-control" type="number" value="10" placeholder="添加的商品的数量">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="add_num" class="col-sm-2 control-label"></label>
+                <div id="org_presale_res" class="col-sm-10" disabled></div>
+            </div>
+
+            <center class="col-sm-10">
+
+                <button type="button" id="org_add_order" data-loading-text="生成定单中..." class="btn btn-success btn-block">生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</button>
+
+            </center>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+
+    // 添加经销商订单、调货单、退货单
+    $("#org_add_order").click(function () {
+        $.ajax({
+            url: "__URL__/addOrgOrder",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+                depot_id: $("#org_depot").val(),
+                add_num: $("#org_add_num").val(),
+                type: $("input[name='org_type']:checked").val(),
+                rand_time: $("input[name='org_rand_time']:checked").val(),
+            },
+
+            beforeSend: function () {
+                $("#org_add_order").button('loading')
+            },
+            success: function (data) {
+                $("#org_presale_res").append(data+"<br />");
+                $("#org_add_order").button('reset');
+            },
+            error: function () {
+                $("#org_add_order").button('reset');
+            }
+        })
+    });
+
+    $("#add_car_order").click(function () {
+        $.ajax({
+            url: "__URL__/addCarOrder",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+
+            beforeSend: function () {
+                $("#add_car_order").button('loading')
+            },
+            success: function () {
+                $("#add_car_order").button('reset');
+            },
+            error: function () {
+                $("#add_car_order").button('reset');
+            }
+        })
+    })
+    
+    
+    $("#add_car_return_order").click(function () {
+        $.ajax({
+            url: "__URL__/addCarReturnOrder",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+
+            beforeSend: function () {
+                $("#add_car_return_order").button('loading')
+            },
+            success: function () {
+                $("#add_car_return_order").button('reset');
+            },
+            error: function () {
+                $("#add_car_return_order").button('reset');
+            }
+        })
+    })
+    $("#add_car_change_order").click(function () {
+        $.ajax({
+            url: "__URL__/addCarChangeOrder",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+
+            beforeSend: function () {
+                $("#add_car_change_order").button('loading')
+            },
+            success: function () {
+                $("#add_car_change_order").button('reset');
+            },
+            error: function () {
+                $("#add_car_change_order").button('reset');
+            }
+        })
+    })
+
+    $("#add_goods_stock").click(function () {
+        $.ajax({
+            url: "__URL__/addStockGoods",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+                _num: $("#stock_add_num").val(),
+            },
+            beforeSend: function () {
+                $("#add_goods_stock").button('loading')
+            },
+            success: function () {
+                $("#add_goods_stock").button('reset');
+            },
+            error: function () {
+                $("#add_goods_stock").button('reset');
+            }
+        })
+    })
+
+    // 指派预单
+    $("#assign_presale").click(function () {
+        //window.open("__MODULE__/DeliverPlan/index.html")
+        $.ajax({
+            url: "__URL__/assignPresale",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+            beforeSend: function () {
+                $("#assign_presale").button('loading')
+            },
+            success: function (data) {
+                $("#assign_presale").button('reset');
+                /*$("#assign_msg").html('<div class="alert alert-danger alert-dismissible" role="alert"> <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> '+ data +' </div>')*/
+            },
+            error: function () {
+                $("#assign_presale").button('reset');
+            }
+        })
+
+    });
+
+    // 指派调换货
+    $("#assign_change").click(function () {
+        //window.open("__MODULE__/DeliverPlan/index.html")
+        $.ajax({
+            url: "__URL__/assignChange",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+            beforeSend: function () {
+                $("#assign_change").button('loading')
+            },
+            success: function () {
+                $("#assign_change").button('reset');
+            },
+            error: function () {
+                $("#assign_change").button('reset');
+            }
+        })
+
+    });
+
+    // 指派退货单
+    $("#assign_return").click(function () {
+        $.ajax({
+            url: "__URL__/assignReturn",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+            },
+            beforeSend: function () {
+                $("#assign_return").button('loading')
+            },
+            success: function (data) {
+                $("#assign_return").button('reset');
+            },
+            error: function () {
+                $("#assign_return").button('reset');
+            }
+        })
+
+    });
+
+    // 生成预单、退货单、调换货单
+    $("#add_order").click(function () {
+        $.ajax({
+            url: "__URL__/createOrder",
+            type: "post",
+            data: {
+                _token: $("#token").val(),
+                depot_id: $("#depot").val(),
+                add_num: $("#add_num").val(),
+                type: $("input[name='type']:checked").val(),
+                rand_time: $("input[name='rand_time']:checked").val(),
+            },
+            beforeSend: function () {
+                $("#add_order").button('loading')
+            },
+            success: function (data) {
+                $("#presale_res").append(data+"<br />");
+                $("#add_order").button('reset');
+            },
+            error: function () {
+                $("#add_order").button('reset');
+            }
+        })
+    })
+    
+    
+</script>
+
+</body>
+</html>

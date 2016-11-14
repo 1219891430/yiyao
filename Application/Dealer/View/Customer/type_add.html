@@ -1,0 +1,98 @@
+<div class="modal-content modal_650">
+<!--新建部门弹出层开始-->
+<form action="{:U('Home/CustomerType/addType')}" method="post" id="submit_form">
+    <!--onSubmit="return org_add_check()"-->
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title fb f16">添加客户类型</h4>
+    </div>
+    <div class="modal-body">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <td class="title-error" align="right">类型名称：</td>
+                    <td><input name="ct_name" id="ct_name" type="text" class="unit_name form-control w200"></td>
+                </tr>
+                <!--<tr>
+
+                    <td align="right">上级类型：</td>
+                    <td>
+                        <select name="ct_parent" id="ct_parent" class="form-control w200">
+                            <option value="0">类型目录</option>
+                            {$dataList}
+                        </select>
+                    </td>
+                </tr>-->
+                <tr>
+                    <td>类型说明：</td>
+                    <td colspan="3"><textarea id="ct_remark" name="ct_remark" style="resize: none;" rows="2"
+                                              class="form-control w300"> </textarea></td>
+                </tr>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+
+        <a id="submit_unit" class="btn btn-primary">创建</a>
+    </div>
+</form>
+<script type="text/javascript">
+    $(function () {
+        //new PCAS("province","city","district");
+
+        var validation = $("#submit_form").validate({
+            submitHandler:function(){
+                submit_add();
+            },
+            rules: {
+                ct_name: "required",
+                ct_code: {
+                    required: true,
+                    minlength: 15,
+                    maxlength: 15
+                }
+            },
+            messages: {
+                ct_name: "类型名称不能为空",
+                ct_code: {
+                    required: "类型编号不能为空",
+                    minlength: "类型编号为15位",
+                    maxlength: "类型编号为15位"
+                }
+            }
+        })
+
+        function submit_add(){
+            $.ajax({
+                url:"{:U('Dealer/Customer/addType')}",
+                type:"post",
+                data:$("#submit_form").serialize(),
+                dataType:"json",
+                beforeSend:function(){
+                    $(".await").show();
+                },
+                success:function(data){
+                    alert(data["info"]);
+                    if( data["res"]==1)
+                    {
+                        location.reload();
+                        $("#myModal").modal("hide")
+                    }
+                    else
+                    {
+                        $(".await").hide();
+                    }
+                }
+            })
+        }
+        $("#submit_unit").click(function () {
+            $("#submit_form").submit();
+        })
+    })
+</script></div>

@@ -1,0 +1,350 @@
+<include file='Public:head'/>
+<div class="red-line"></div>
+
+<!--产品详情页-->
+<div class="ware-top w clearfix">
+    <h1>{$goods_info.goods_name}</h1>
+    <div class="ware-l"><img class="lazy" data-original="{:C('GOODS_IMG')}{$goods_info.main_img}"></div>
+    <div class="ware-r">
+        <div class="detail-price">
+            <table>
+                <tr><th>价格</th>
+                    <foreach name="goods_price" item="vo">
+
+                        <td class="price">￥<span>{:getPrice($vo['act_price'])}</span></td>
+
+                    </foreach>
+                </tr>
+                <tr><th>起批量</th>
+                    <foreach name="goods_price" item="vo">
+                        <td>{$vo.wholesale_num} {$vo.goods_unit}</td>
+                    </foreach>
+                </tr>
+            </table>
+        </div>
+        <!--<div class="detail-info clearfix color-detail">
+            <h4>颜色</h4>
+            <div class="detail-info-r">
+                <span>粉色</span>
+                <span class="hover">淡蓝</span>
+                <span>米粉</span>
+            </div>
+        </div>-->
+        <div class="detail-info clearfix Specifications-detail">
+            <span class="sf-notice font-brand">注：只可选择1种货品</span>
+            <h4>规格</h4>
+            <div class="detail-info-r" id="de-line">
+                <foreach name="goods_price" item="vo">
+                <div class="spec-line clearfix">
+                    <strong>{$vo.goods_spec}</strong><span>{$vo.goods_unit}</span><span>{:getPrice($vo['act_price'])}元</span>
+                    <div class="item-amount">
+                        <a class="J_Minus minus" href="javascript:AJ_Minus({$vo.cv_id}, '{$vo.goods_unit}')">-</a>
+                        <input class="text-amount J_ItemAmount" attr="{$vo.cv_id}" name="goods" id="J_amount_{$vo.cv_id}" type="text" onblur="AJ_Edit({$vo.cv_id},'{$vo.goods_unit}')" autocomplete="off" data-max="365" value="0">
+                        <a class="J_Plus plus" href="javascript:AJ_Plus({$vo.cv_id},'{$vo.goods_unit}')">+</a>
+                    </div>
+                </div>
+                </foreach>
+
+            </div>
+            <i id="specifications" class="spec-show"></i>
+        </div>
+        <div class="detail-info clearfix free-detail">
+            <h4>促销信息</h4>
+            <div class="detail-info-r">
+                <foreach name="acts" item="act">
+
+                    <if condition="$act['act_type'] eq 0">
+
+                        <div class="clearfix">
+                            <h5>买 {$act['goods_unit']} 装优惠</h5>
+                            <div class="font-brand">
+                                <p>
+                                    原价 {$act['goods_base_price']} 元, 现价 {$act['act_price']} 元</br>
+                                </p>
+                            </div>
+                        </div>
+
+                    </if>
+
+                    <if condition="$act['act_type'] eq 1">
+
+                        <div class="clearfix">
+                            <h5>买 {$act['goods_unit']} 装返现</h5>
+                            <div class="font-brand">
+                                <p>
+                                    每购满 {$act['act_money']} 元减 {$act['act_offer_money']} 元</br>
+                                </p>
+                            </div>
+                        </div>
+
+                    </if>
+
+                    <if condition="$act['act_type'] eq 2">
+
+                        <div class="clearfix">
+                            <h5>买 {$act['goods_unit']} 装赠品</h5>
+
+                            <div class="free-d-c">
+                                <p>
+                                    <span>每够满{$act['goods_num']}{$act['goods_unit']} 赠送</span> <a href="__MODULE__/goods?goods_id={$act.goods_id}&org_id={$act.org_parent_id}"><img data-original="{:C('GOODS_IMG')}{$act['song_goods']['main_img']}" width="30" height="30"></a><span>×{$act['song_goods_num']} {$act['song_goods']['goods_unit']}</span>
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </if>
+
+                </foreach>
+
+
+
+            </div>
+        </div>
+        <div class="good-menu clearfix">
+            <a class="btn-brand" id="ordernow" href="javascript:void(0);">立即预购</a>
+            <a class="btn-pink" id="addcar" href="javascript:void(0);"><i class="i-car"></i>加入进货单</a>
+        </div>
+    </div>
+</div>
+<div class="w clearfix mt30">
+    <div class="hot-st-l">
+        <!--<h2>热销商品</h2>-->
+        <h2>最新上架</h2>
+        <div class="hot-st">
+            <foreach name="goods_hot" item="vo">
+            <a href="__MODULE__/goods?goods_id={$vo.goods_id}&org_id={$vo.org_parent_id}">
+                <img class="lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}">
+                <p class="tit">{$vo.goods_name}</p>
+                <p class="num clearfix"><span class="total">热销 <if condition="empty($vo['sale_num'])"> 0 <else /> {:getGoodsNumByUnit($vo['sale_num'], $vo['goods_unit'])} </if> {$vo['goods_unit']}</span><span class="price">￥{:getPrice($vo['act_price'])}</span></p>
+            </a>
+            </foreach>
+        </div>
+    </div>
+    <div class="detail-r">
+        <div class="detail-nav clearfix">
+            <div class="tit"><i></i>商品详情</div>
+        </div>
+        <div class="obj-content">
+            <div class="brand-nam">
+                品牌名称：<a href="/index.php/Mall/Search?brand={$goods_info.brand_id}">{$goods_info.brand_name} </a>
+                品类名称：<a href="/index.php/Mall/Search?cat={$goods_info.class_id}">{$goods_info.class_name} </a>
+            </div>
+            <h4>产品参数</h4>
+            <ul class="obj-list clearfix">
+                <li>商品条码：{$goods_info.goods_code}</li>
+                <li>商品规格：{$goods_info.goods_spec}</li>
+            </ul>
+        </div>
+        <div class="description-w">
+            {$goods_info.goods_desc}
+        </div>
+    </div>
+</div>
+
+<include file='Public:foot'/>
+
+<script type="text/javascript">
+    $(function() {
+    	
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	
+
+        /*$(".J_ItemAmount").keyup(function () {
+
+            var cv_id = $(this).attr("attr")
+
+            $(".J_ItemAmount").each(function (i, v) {
+                if ($(v).attr("attr") != cv_id) {
+
+                    if ($(v).val() != 0) {
+
+                        $(v).val(0)
+                    }
+
+                };
+
+                //console.log($(this).attr("attr"))
+            })
+
+        })*/
+
+
+
+        //配送范围的展开收起
+        $("#specifications").click(function() {
+            var aaa = $("#de-line").css("overflow");
+            if (aaa == "hidden") {
+                $("#de-line").css({'height': 'auto'});
+                $("#de-line").css("overflow", "auto");
+                $("#specifications").removeClass("spec-show");
+                $("#specifications").addClass("spec-hold");
+            }
+            else {
+                $("#de-line").css("height", "80");
+                $("#de-line").css("overflow", "hidden");
+                $("#specifications").removeClass("spec-hold")
+                $("#specifications").addClass("spec-show")
+            }
+        });
+        if ($("#de-line").height() > 80) {
+            $("#de-line").css("height", "80");
+            $("#de-line").css("overflow", "hidden");
+            $("#specifications").css("display", "block");
+        }
+    });
+
+    // 数量加
+    function AJ_Plus(cv_id, unit) {
+
+        $(".J_ItemAmount").each(function () {
+            if ($(this).attr("attr") != cv_id) {
+
+                if ($(this).val() != 0) {
+
+                    $(this).val(0)
+                }
+
+            };
+
+            //console.log($(this).attr("attr"))
+        })
+
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit);
+
+        num += 1
+
+        $('#J_amount_'+cv_id).val(num)
+
+    }
+
+    // 数量减
+    function AJ_Minus(cv_id, unit) {
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit);
+
+        num -= 1
+
+        if (num <= 0) {
+            num = 0
+        }
+
+        $('#J_amount_'+cv_id).val(num)
+
+    }
+
+    function AJ_Edit(cv_id, unit) {
+        $(".J_ItemAmount").each(function () {
+            if ($(this).attr("attr") != cv_id) {
+
+                if ($(this).val() != 0) {
+
+                    $(this).val(0)
+                }
+
+            };
+
+            //console.log($(this).attr("attr"))
+        })
+
+        var num = checkGoodsNumByUnit($('#J_amount_'+cv_id).val(), unit);
+
+        if (num <= 0) {
+            num = 0
+        }
+
+        $('#J_amount_'+cv_id).val(num)
+
+    }
+
+    // 加入购物车
+    function addAll(action) {
+
+        <if condition="!isset($_SESSION['cust_id'])">
+
+                        alert('登陆后可添加商品');
+
+                        location.href='/index.php/Mall/Member/login';
+        return;
+
+                </if>
+
+
+    <if condition="$_SESSION['mall_depot_id'] != $_SESSION['cust_depot']">
+                alert('超出配送范围， 禁止添加')
+
+            return;
+
+    </if>
+
+        // 判断商品是否重复
+        var repeat = 0;
+        $(".J_ItemAmount").each(function () {
+            if ($(this).val() != 0) {
+                //console.log($(this).val())
+                repeat += 1;
+            }
+
+            //console.log($(this).attr("attr"))
+        })
+
+        if(repeat != 1) {
+
+            alert("请选择一种货品");
+            return false;
+
+        }
+
+        // 获取选择的商品数量
+        var s = 0
+        var status;
+        $("input[name='goods']").each(function (k, v) {
+            var num = $(this).val()
+            var cv = $(this).attr('attr')
+            if (num == 0) {
+                return
+            }
+            status = addcar(cv, num,{$_GET.org_id}, false)
+            s += 1
+
+        })
+
+        console.log(status);
+
+        if (s != 0 && action == 'addcar') {
+            if(status) {
+                alert('添加成功')
+            }
+
+        }
+        if (s != 0 && action == 'ordernow') {
+            if (status) {
+                location.href = '/index.php/Mall/Cart/index'
+            }
+        }
+
+    }
+
+
+    // 加入购物车
+    $('#addcar').click(function () {
+
+        addAll('addcar')
+
+        $("input[name='goods']").each(function (k, v) {
+            $(this).val(0)
+        })
+
+    });
+
+    // 立即下单
+    $('#ordernow').click(function () {
+        addAll('ordernow');
+
+    })
+
+</script>
+
+</body>
+</html>

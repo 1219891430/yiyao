@@ -1,0 +1,49 @@
+<include file='Public:head'/>
+<body>
+<!--子页顶部-->
+<div class="zy-search zy-tit">
+    <div class="sch-w clearfix">
+        <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="tit">
+            登录
+        </div>
+    </div>
+</div>
+<div class="login-w">
+    <!--登录-->
+    <form method="post" action="__URL__/login">
+        <div class="form-group clearfix">
+            <i class="i-user"></i>
+            <input class="bd-b" name="user_name" type="text" placeholder="请输入手机号">
+        </div>
+        <div class="form-group clearfix">
+            <i class="i-pwd"></i>
+            <input type="password" name="user_pass" placeholder="请输入密码">
+        </div>
+        <input type="submit" class="btn-brand">
+        <div class="find-pwd clearfix">
+            <!--<a href="#">找回密码</a>-->
+        </div>
+    </form>
+</div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+<script>
+    // 弹框
+    function toggleCard() {
+        $('.modal').slideToggle(300);
+    }
+    $('.sku-control-box,.btn-close').click(toggleCard);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>陈列类型列表</span>
+        </h4>
+    </div>
+    <div class="modal-body modal-goldlog">
+        <table id="display_table" class="table no_border table-type1">
+            <thead>
+            <td widht="15%" class="tc">序号</td>
+            <td width="65%">陈列类型</td>
+            <td widht="20%">操作</td>
+            </thead>
+            <tbody>
+            <volist name="list" id="list">
+                <tr id="tr_m{$list.sdt_id}">
+                    <td class="tc">{$i}</td>
+                    <td>{$list.sdt_name}</td>
+                    <td>
+                        <a class="collapsed collapse-menu icons-href delete" id="{$list.sdt_id}" href="javascript:void(0)"
+                                ><i class="icon-remove-circle"></i>删除</a>&nbsp;
+                    </td>
+                </tr>
+            </volist>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
+    </div>
+    <div class="error">
+    </div>
+    <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+        <a id="new_display" class="btn btn-primary">
+            <span>添加陈列类型</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+      del()
+      function del(){
+          $(".delete").click(function(){
+              if(confirm("确定要删除该记录吗？"))
+              {
+                  var id=$(this).attr('id');
+                  $.ajax({
+                      url:"{:U('Dealer/Display/delType')}",
+                      type:"post",
+                      data:{sdt_id:id},
+                      dataType:"json",
+                      beforeSend:function(){
+                          $(".await").show();
+                      },
+                      success:function(data){
+                          alert(data["info"]);
+                          $(".await").hide();
+                          if(data["res"]==1)
+                              $("#tr_m"+id).remove();//移除当前行
+                      }
+                  })
+              }
+          })
+      }
+      var total;
+      $("#new_display").click(function(){
+          if($("#new_tr").length==0){
+              total=$("#display_table tbody tr:last-child > td:first-child").text();
+              total++;
+              var con='<tr id="new_tr"><td class="tc mar-t-5">'+total+'</td><td><input maxlength="20" name="sdt_name" type="text" class="unit_number new_display" form-control w200">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp<a id="add_display" class="btn btn-primary pad-4-12"> <span>添加</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a id="del_display" class="btn btn-default pad-4-12"> <span>删除</span></a></td><td></td></tr>';
+              $("#display_table tbody").append(con);
+              $(".new_display").focus();
+              addDisplay();
+              delDisplay();
+          }
+      })
+      function addDisplay()
+      {
+      	
+          $("#add_display").click(function(){
+               if($(".new_display").val()=="")
+               {
+                   alert("陈列类型不能为空")
+               }
+              else{
+                   var new_display=$(".new_display").val()
+                   $.ajax({
+                       url:"{:U('Dealer/Display/addType')}",
+                       type:"post",
+                       data:{sdt_name:new_display},
+                       dataType:"json",
+                       beforeSend:function(){
+                           $(".await").show();
+                       },
+                       success:function(data){
+                           alert(data["info"]);
+                           $(".await").hide();
+                           if( data["res"]==1)
+                           {
+                              $("#new_tr").remove();
+                              var con='<tr id="tr_'+data["id"]+'"><td class="tc">'+total+'</td><td>'+new_display+'</td> <td><a class="collapsed collapse-menu icons-href delete" id="'+data["id"]+'" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a>&nbsp;</td></tr>';
+                              $("#display_table tbody").append(con);
+                              del();
+                           }
+                       }
+                   })
+               }
+          })
+      }
+      function delDisplay(){
+          $("#del_display").click(function(){
+            $(this).parent().parent().remove();
+          })
+        }
+    </script>
+
+</div>

@@ -1,0 +1,229 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>修改促销活动</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                	
+                <tr>
+                    <td>活动名称：</td><td class="tl">
+                    <input name="act_name" id="act_name" readonly="readonly" value="{$res.act_name}" class="w200 form-control" />
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>活动类型：</td><td class="tl">
+                    <select name="act_type" id="act_type"  readonly="readonly" disabled="disabled" class="w200 form-control">
+                        <php>if($res["act_type"]==0){</php>
+                        	<option value="0" selected="selected">售价</option>
+                        	<option value="1">满额</option>
+                        	<option value="2">赠品</option>
+                        <php>}elseif($res["act_type"]==1){</php>
+                        	<option value="0">售价</option>
+                        	<option value="1" selected="selected">满额</option>
+                        	<option value="2">赠品</option>
+                        <php>}elseif($res["act_type"]==2){</php>
+                        	<option value="0">售价</option>
+                        	<option value="1" selected="selected">满额</option>
+                        	<option value="2">赠品</option>
+                        <php>}</php>
+                        
+                    
+                    </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>活动备注：</td><td class="tl">
+                    <input name="act_note" id="act_note" readonly="readonly" value="{$res.act_note}" class="w200 form-control" />
+                    </td>
+                </tr>
+                
+                <tr class="shoujia">
+                    <td>活动价格：</td>
+                    <td>
+                        <input name="act_price" readonly="readonly" value="{$res.act_price}" id="act_price" class="w200 form-control" />
+                    </td>
+                    
+                </tr>
+                
+                <tr class="mane">
+                    <td>满额金额：</td>
+                    <td>
+                        <input name="act_money" readonly="readonly" id="act_money" value="{$res.act_money}" class="w200 form-control" />
+                    </td>
+                    
+                </tr>
+                
+                <tr class="mane">
+                    <td>满减金额：</td>
+                    <td>
+                        <input name="act_offer_money" readonly="readonly" id="act_offer_money" value="{$res.act_offer_money}" class="w200 form-control" />
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>活动品牌：</td>
+                    <td>
+                        <select id="brand_id" readonly="readonly" name="brand_id" disabled="disabled" class="w200 form-control">
+                            <option value="0">请选择活动品牌</option>
+                            <volist name="brandlist" id="vo">
+                            	<php>if($res["brand_id"]==$vo["brand_id"]){</php>
+                                <option value="{$vo.brand_id}" selected="selected">{$vo.brand_name}</option>
+                                <php>}else{</php>
+                                <option value="{$vo.brand_id}">{$vo.brand_name}</option>
+                                <php>}</php>
+                            </volist>
+                        </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td>活动商品：</td>
+                    <td>
+                        <select id="goods_id" readonly="readonly" name="goods_id" disabled="disabled" class="w200 form-control">
+                            <option value="{$res.goods_id}">{$goods_name}</option>
+                        </select>
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>商品单位：</td>
+                    <td>
+                        <select id="cv_id" readonly="readonly" disabled="disabled" name="cv_id" class="w200 form-control">
+                            <option value="{$res.cv_id}">{$goods_unit}</option>
+                            
+                        </select>
+                    </td>
+                    
+                </tr>
+                
+                <tr  class="zengpin">
+                    <td>商品数量：</td>
+                    <td>
+                        <input type="number"  readonly="readonly" name="goods_num" value="{$res.goods_num}" id="goods_num" class="w200 form-control" />
+                    </td>
+                    
+                </tr>
+                
+                
+                <tr class="zengpin">
+                    <td>赠品品牌：</td>
+                    <td>
+                        <select id="song_brand_id" readonly="readonly" name="song_brand_id" disabled="disabled" class="w200 form-control">
+                            <option value="0">请选择赠品品牌</option>
+                            <volist name="brandlist" id="vo">
+                                <option value="{$vo.brand_id}">{$vo.brand_name}</option>
+                            </volist>
+                        </select>
+                    </td>
+                    
+                </tr>
+                <tr class="zengpin">
+                    <td>活动赠品：</td>
+                    <td>
+                        <select id="song_goods_id" readonly="readonly" name="song_goods_id" disabled="disabled" class="w200 form-control">
+                            <option value="{$res.song_goods_id}">{$song_goods_name}</option>
+                        </select>
+                    </td>
+                    
+                </tr>
+                
+                <tr class="zengpin">
+                    <td>赠品单位：</td>
+                    <td>
+                        <select id="song_cv_id" readonly="readonly" disabled="disabled" name="song_cv_id" class="w200 form-control">
+                           <option value="{$res.song_cv_id}">{$song_goods_unit}</option>
+                            
+                        </select>
+                    </td>
+                    
+                </tr>
+                
+                <tr class="zengpin">
+                    <td>赠品数量：</td>
+                    <td>
+                        <input type="number" readonly="readonly"  name="song_goods_num" value="{$res.song_goods_num}" id="song_goods_num" class="w200 form-control" />
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>起始时间：</td>
+                    <td>
+                        <input type="text" readonly="readonly" value="{$res.start_time|date='Y-m-d',###}"   class="form-control w200 cursor-pointer" name="start_time" id="start_time1"
+                    placeholder="起始时间">
+                    </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>结束时间：</td>
+                    <td>
+                        <input type="text" readonly="readonly" value="{$res.end_time|date='Y-m-d',###}" class="form-control w200 cursor-pointer" name="end_time" id="end_time1"
+                    placeholder="结束时间">
+                    </td>
+                    
+                </tr>
+                
+                
+                
+                
+                </tbody>
+                
+            </table>
+            
+        </div>
+        <div class="error">
+        </div>
+        <input type="hidden" name="supp_id" id="sid" value="">
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        
+    </div>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+    
+        var xianshi=function(act_type){
+        	if(act_type==0){
+        		$(".shoujia").show();
+        		$(".mane").hide();
+        		$(".zengpin").hide();
+        	}else if(act_type==1){
+        		$(".shoujia").hide();
+        		$(".mane").show();
+        		$(".zengpin").hide();
+        		
+        	}else if(act_type==2){
+        		$(".shoujia").hide();
+        		$(".mane").hide();
+        		$(".zengpin").show();
+        		
+        	}
+        	
+        }
+        
+        xianshi({$res.act_type});
+        $("#act_type").change(function(){
+        	var act_type=$(this).val();
+        	xianshi(act_type);
+        });
+        
+
+    </script>
+</div>

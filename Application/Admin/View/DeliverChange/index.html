@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select name="query[repertory_id]" id="repertory_id" class="form-control w200">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="vo">
+                            <if condition="$vo.repertory_id eq $query['repertory_id']">
+                                <option selected="selected" value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                                <else/><option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <select id="staff_id" class="w150 form-control">
+                        <option value="0">请选择业务员</option>
+                        <volist name="staffList" id="vo">
+                            <if condition="$vo.admin_id eq $query['staff_id']">
+                                <option selected="selected" value="{$vo.admin_id}">{$vo.true_name}</option>
+                                <else/>
+                                <option value="{$vo.admin_id}">{$vo.true_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+
+                    <input type="text" class="w150 form-control" id="cust_name" name="cust_name" value="{$query['cust_name']}" placeholder="请输入购货方">
+                    <input type="text" readonly="readonly" <if condition="$query['start_time'] neq 0">value="{$query['start_time']}"</if>  class="form-control w100 cursor-pointer" id="start_time"
+                    placeholder="起始时间">
+                    <input type="text" readonly="readonly" <if condition="$query['end_time'] neq 0">value="{$query['end_time']}"</if> class="form-control w100 cursor-pointer" id="end_time"
+                    placeholder="结束时间">
+                    <a class="btn btn-default" href="javascript:void(0)" id="find" role="button">查询</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="10%">单据编号</td>
+                    <td width="13%">商铺名称</td>
+                    <td width="8%">联系人</td>
+                    <td width="8%">业务员</td>
+                    <td width="8%">金额（￥）</td>
+                    
+                 <!--    <td width="8%">状态</td> -->
+                    <td width="12%">时间</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.change_code}</td>
+                        <td>{$vo.cust_name}</td>
+                        <td>{$vo.cust_contact}</td>
+                        <td>{$vo.true_name}</td>
+                        <td>{$vo.total_money}</td>
+                       <!--  <td>{$vo.status_name}</td> -->
+                        <td>{$vo.create_time|date='Y-m-d H:i:s',###}</td>
+                        <td><ul class="operate-menu li-width50">
+                                <li><a attr="{$vo.change_id}" class="collapsed collapse-menu icons-href detail" href="javascript:void(0)">
+                                    <i class="icon-edit"></i>查看
+                                </a></li>
+                                <!--<li><a class="collapsed collapse-menu icons-href" href="{:U('print_template',array('change_id' => $vo['change_id'],'del'=>$_GET['del']))}" target="_blank"><i class="icon-edit"></i>打印</a>
+                                </a></li>-->
+                                
+                                
+                        </ul></td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$query))}
+            <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+<script type="text/javascript">
+    $(function(){
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+    });
+
+    //部门联动
+    $("#repertory_id").change(function(){
+        var repertory_id = $(this).val();
+        if(repertory_id ==0){
+            $("#staff_id").html('<option value=0>请选择业务员</option>');
+            return;
+        }
+        $.ajax({type:'post',url: "{:U('Admin/Ajax/getRoleStaff')}",data:{ depot_id:repertory_id, role_id:5 }, dataType:'json',timeout: 5000,
+            error: function(){
+            },
+            success: function($r){
+                $("#staff_id").html('<option value=0>请选择业务员</option>');
+                if($r.status){
+                    var html = '<option value=0>请选择业务员</option>';
+                    $.each($r.rows,function(index,item){
+                        html+= '<option value="'+item.admin_id+'">'+item.true_name+'</option>';
+                    });
+                    $("#staff_id").html(html);
+                }
+            }
+        });
+    });
+
+    //查询
+    $("#find").click(function() {
+        var con = "";
+        if ($("#repertory_id").val() != '0') {
+            con += "/repertory_id/" + $("#repertory_id").val();
+        }
+        if ($("#staff_id").val() != 0) {
+            con += "/staff_id/" + $("#staff_id").val();
+        }
+        if ($('#cust_name').val() != '') {
+            con += '/cust_name/'+$('#cust_name').val();
+        }
+        if ($('#start_time').val() != '') {
+            con += '/start_time/'+$('#start_time').val();
+        }
+        if ($('#end_time').val() != '') {
+            con += '/end_time/'+$('#end_time').val();
+        }
+        location.href="__URL__/index"+con;
+    });
+    
+    $(".detail").click(function(){
+    	var change_id=$(this).attr("attr");
+    	var data={'change_id':change_id}
+    	
+        ajaxDataPara("__URL__/detail",data);
+    });
+</script>
+</body>
+<include file="Public/warning_sound"/>
+</html>

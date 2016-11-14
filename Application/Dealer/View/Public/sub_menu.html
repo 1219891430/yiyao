@@ -1,0 +1,28 @@
+<?php
+ 
+	$menuID = 0;
+    foreach($_SESSION['menu_dealer'] as $k=>$v)
+    {
+    	
+    	foreach($v['subclass'] as $val)
+        {
+        	if($val['controller']==CONTROLLER_NAME){ $menuID = $k; break; }
+		}
+        if($menuID > 0) { break; };
+	}
+    $sub_memu = $_SESSION['menu_dealer'][$menuID]['subclass'];
+    
+    
+
+?>
+
+<!-- 子菜单 -->
+
+<volist name="sub_memu" id="rightsubvo">
+    <dl>
+    <dd <if condition="(CONTROLLER_NAME eq $rightsubvo['controller']) AND (ACTION_NAME eq $rightsubvo['action'])">class="selected"</if> >
+    <a href="{:U('Dealer/'.$rightsubvo['controller'].'/'.$rightsubvo['action'].'')}">{$rightsubvo.subname}</a>
+    </dd>
+    <dt></dt>
+    </dl>
+</volist>

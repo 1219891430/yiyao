@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+
+                </div>
+                    
+                        <div class="fr">
+                            <a class="btn btn-primary bg_3071a9" id="cre_brand" href="javascript:void(0)" role="button">创建</a>
+                        </div>
+                    
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="10%">名称</td>
+                    <td width="10%">上级菜单</td>
+                    <td width="10%">模块</td>
+                    <td width="10">控制器</td>
+                    <td width="10%">函数</td>
+                    <td width="30%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                            <volist name="list" id="vo">
+                                <tr>
+                                <td>{$vo.title}</td>
+                                <td>{$vo.ptitle}</td>
+                                <td>{$vo.g}</td>
+                                
+                                <td>{$vo.m}</td>
+                                <td>{$vo.a}</td>
+                                <td>
+                               
+                                	
+                                	<ul class="operate-menu li-width33">
+                                		
+                                
+                                    <li><a attr="{$vo.id}" class="collapsed collapse-menu icons-href brand_edit" href="javascript:void(0)">
+                                        <i class="icon-edit"></i>修改
+                                    </a></li>
+
+                                    
+
+                                    <li><a attr="{$vo.id}" class="collapsed collapse-menu icons-href menu_del" href="javascript:void(0)">
+                                        <i class="icon-remove-circle"></i>删除
+                                    </a></li>
+                                
+                                </ul></td>
+                                </tr>
+                            </volist>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist))}
+            <!--表格查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 ">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $("#cre_brand").click(function(){
+    	
+        ajaxData("__URL__/add");
+    })
+    $("#cre_class").click(function(){
+        ajaxData("__URL__/classAdd");
+    })
+    
+    $(".menu_del").click(function(){
+        if(confirm("确定删除菜单"))
+        {
+        	var id=$(this).attr("attr");
+
+        	var data={id:id};
+        	
+            $.post("__URL__/del",data,function(msg){
+     	 	
+     	 		if(msg.res==1){
+     	 			alert(msg.info);
+     	 			location.reload();
+     	 		}else{
+     	 			alert(msg.info);
+     	 		}
+     	 	 
+     	   },"json");
+        }
+
+    });
+    
+
+    
+    $(".brand_edit").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/edit",data)
+    })
+
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

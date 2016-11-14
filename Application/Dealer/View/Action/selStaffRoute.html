@@ -1,0 +1,136 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>定位设置</span>
+        </h4>
+    </div>
+    <form action="__URL__/edit" id="submit_route_form" method="post">
+        <div class="modal-body modal_650">
+            <table class="table no_border list_table">
+                <thead>
+                <tr>
+                    <td class="tc fb" width="15%">账号</td>
+                    <td class="tc fb" width="15%">手机</td>
+                    <td class="tc fb" width="10%">姓名</td>
+                    <td class="tc fb" width="20%">开始时间</td>
+                    <td class="tc fb" width="20%">结束时间</td>
+                    <td class="tc fb" width="20%">间隔</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="route" id="vo">
+                    <tr>
+                    <td class="tc">{$vo.login_user}<input type="hidden" value="{$vo.staff_id}" name="staff_id[]"/></td>
+                    <td class="tc">{$vo.mobile}</td>
+                    <td class="tc">{$vo.staff_name}</td>
+                    <td class="tc">
+                    <select class="form-control w100 starttime" name="start_time[]">
+                        <eq name="vo.begin_time" value="0">
+                        	<option selected="selected" value="0">未设置</option>
+                        <else/>
+                           <option value="0">未设置</option>
+                        </eq>
+                        <volist name="arStart" id="item">
+                            <option value="{$item}" <if condition="$vo['begin_time'] eq $item">selected="selected"</if>>{$item}</option>
+                        </volist>
+                    </select>
+                    </td>
+                    <td class="tc">
+                    	<select class="form-control w100 endtime" name="end_time[]">
+                        <eq name="vo.end_time" value="0"><option selected="selected" value="0">未设置</option><else/><option value="0">未设置</option></eq>
+                        <volist name="arEnd" id="item">
+                            <option value="{$item}" <if condition="$vo['end_time'] eq $item">selected="selected"</if>>{$item}</option>
+                        </volist>
+                    </select>
+                    <for start="$start[0]" end="$start[1]" step="$step" name="time">
+
+                    </for>
+                    </td>
+                    <td class="tc"><input onkeyup="check_num(this)" maxlength="3" class="w50 tinterval" name="interval[]" style="color:#777" type="text" value="{$vo.interval}"/>分钟</td>
+                    </tr>
+                </volist>
+                <tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit_route" class="btn btn-primary">
+            <span>保存</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            $("#submit_route").click(function(){
+              if(!check())
+              {
+                alert("输入正确的时间间隔")
+              }
+              else if(!check_time())
+              {
+                  alert("设置起始结束时间")
+              }
+              else
+              {
+                routeCongif()
+              }
+            })
+        })
+        function check_time()
+        {
+            var j=0;
+            $(".list_table select").each(function(i){
+                    if($(".list_table .starttime").eq(i).val()!=0&&$(".list_table .endtime").eq(i).val()==0)
+                    {
+                        j++;
+                    }
+                else if($(".list_table .starttime").eq(i).val()!=0&&$(".list_table .endtime").eq(i).val()==0)
+                    {
+                        j++;
+                    }
+            })
+            return j>0?false:true;
+        }
+        function routeCongif()
+        {
+            $.ajax({
+                url:"__URL__/updateStaffRoute",
+                type:"post",
+                dataType:"json",
+                data:$("#submit_route_form").serialize(),
+                beforeSend:function(){
+                    $(".await").show();
+                },
+                success:function(data){
+                    alert(data["info"]);
+                    $("#myModal").modal("hide");
+                    $(".await").fadeOut(500);
+                }
+            })
+        }
+            function check()
+            {
+               var i=0;
+               $(".tinterval").each(function(){
+                   if($(this).val()==""||$(this).val()<0)
+                   {
+                       i++;
+                   }
+               })
+                return i>0?false:true;
+            }
+
+    </script>
+
+
+</div>

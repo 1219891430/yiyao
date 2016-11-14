@@ -1,0 +1,3 @@
+<?php
+//000000086400a:3:{i:0;a:6:{s:5:"cv_id";s:2:"44";s:8:"goods_id";s:2:"44";s:10:"goods_name";s:9:"圆茄子";s:10:"goods_spec";s:4:"500g";s:10:"goods_unit";s:3:"斤";s:15:"goods_unit_type";s:1:"1";}i:1;a:6:{s:5:"cv_id";s:2:"62";s:8:"goods_id";s:2:"44";s:10:"goods_name";s:9:"圆茄子";s:10:"goods_spec";s:4:"500g";s:10:"goods_unit";s:3:"包";s:15:"goods_unit_type";s:1:"2";}i:2;a:6:{s:5:"cv_id";s:2:"63";s:8:"goods_id";s:2:"44";s:10:"goods_name";s:9:"圆茄子";s:10:"goods_spec";s:4:"500g";s:10:"goods_unit";s:0:"";s:15:"goods_unit_type";s:1:"3";}}
+?>

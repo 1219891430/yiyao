@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+          <div class="sel-data mb20">
+                <div class="fr">
+                    <if condition="$depotID eq 0">
+                        <a class="btn btn-primary bg_3071a9" id="cre_c" role="button">创建</a>
+                        <else/> </if>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table id="treetable" class="table list_table">
+                <thead>
+                <tr>
+                   <td width="13%">仓库名称</td>
+                   <td width="10%">仓库负责人</td>
+                   <td width="12%">仓库电话</td>
+                   <td>仓库地址</td>
+                   <td width="60">状态</td>
+                   <td width="160">操作</td>
+                </tr>
+                </thead>
+                <tbody id="cust_table">
+                <volist name="list" id="vo">
+                    <tr id="tr_{$vo.repertory_id}">
+                        <td>{$vo.repertory_name}</td>
+                        <td>{$vo.repertory_user}</td>
+                        <td>{$vo.repertory_tel}</td>
+                        <td>{$vo.repertory_address}</td>
+                        <td id="td_{$vo.repertory_id}" class='<if condition="$vo.repertory_close eq 1">red<else/>green</if>'><if condition="$vo.repertory_close eq 1">关闭<else />开启</if></td>
+                        <td>
+                            <ul class="operate-menu li-width33">
+                                <if condition="$depotID eq 0">
+                                <li><a class="collapsed collapse-menu icons-href edit"  role="button" data-p="{$p}" data-id="{$vo.repertory_id}"><i class="icon-edit"></i>修改</a></li>
+                                <li><a class="collapsed collapse-menu icons-href delete" data-id="{$vo.repertory_id}"  data-close="{$vo.repertory_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                                </if>
+                            </ul>
+                        </td>
+                    </tr>
+                    <volist name="vo.depot_list" id="v">
+                    <tr id="tr_{$v.repertory_id}">
+                        <td>|-----------{$v.repertory_name}</td>
+                        <td>{$v.repertory_user}</td>
+                        <td>{$v.repertory_tel}</td>
+                        <td>{$v.repertory_address}</td>
+                        <td id="td_{$v.repertory_id}" class='<if condition="$v.repertory_close eq 1">red<else/>green</if>'><if condition="$v.repertory_close eq 1">关闭<else />开启</if></td>
+                        <td>
+                            <ul class="operate-menu li-width33">
+                                <li><a class="collapsed collapse-menu icons-href edit"  role="button" data-p="{$p}" data-id="{$v.repertory_id}"><i class="icon-edit"></i>修改</a></li>
+                                <li><a class="collapsed collapse-menu icons-href delete" data-id="{$v.repertory_id}"  data-close="{$v.repertory_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    </volist>
+                </volist>
+                </tbody>
+            </table>
+        {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array())) }
+
+        </div>
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+<script type="text/javascript">
+    //创建
+    $("#cre_c").click(function () {
+        $.ajax({
+            url: "__URL__/addDepot/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //编辑
+    $(".edit").click(function () {
+        $.ajax({
+            url: "__URL__/editDepot/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            data:{repertory_id:$(this).attr('data-id'),cust_name:$(this).attr('repertory_name'),p:$(this).attr('p')},
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    })
+    //删除
+    $(".delete").click(function(){
+        var state=$(this).attr("data-close");
+        if(state==1){
+            alert("该仓库已封存，暂不能删除，如果确定删除，请先解除封存状态！");
+        }else{
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('data-id');
+                $.post("{:U('Admin/Depot/delDepot')}",{repertory_id:id},function(result){
+                    if(result==1) {
+                        alert("删除成功!");
+                        location.reload();
+                    }else if (result == 2){
+                        alert("仓库还有库存，禁止删除");
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        }
+    });
+    $(function(){
+
+    });
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

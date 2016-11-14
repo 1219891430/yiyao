@@ -1,0 +1,108 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>单据打印</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <style media="print" type="text/css">.noprint{display:none}</style>
+    <link href="__PUBLIC__/assets/css/print.css" rel="stylesheet"/>
+    <script  src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script  src="__PUBLIC__/assets/js/colResizable-1.5.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div style="font-size: 36px; padding: 0 0 10px 0">出库单</div>
+    <div class="dataTables_wrapper no-footer">
+        <table class="table_m JColResizer" width="100%" cellspacing="0" cellpadding="0" id="DataTables_Table_0">
+            <tbody>
+                <tr>
+                    <th style="text-align: left; width: 51.3%;" colspan="3">单据日期：{$res.create_time}</th>
+                    <th style="text-align: left; width: 33.1%;" colspan="2">单据编号：{$res.depot_out_code}</th>
+                    <th style="text-align: left; width: 15.6%;">制单人：{$Think.session.true_name}</th>
+                </tr>
+                <tr>
+                    <td style="text-align: left" colspan="3">出库仓库：
+                    	<volist name="depotList" id="dvo">
+                            	<php>if($res["depot_id"]==$dvo["repertory_id"]){</php>
+                            	{$dvo.repertory_name}
+                                <php>}</php>
+                        </volist>
+                    	
+                    </td>
+                    <td style="text-align: left" colspan="2">出库类型：{$res.out_type|queryDepotOutType}</td>
+                    <td style="text-align: left">经销商：
+                    	<volist name="org_list" id="dvo">
+                                <php>if($res["org_parent_id"]==$dvo["org_id"]){</php>
+                            	{$dvo.org_name}
+                                <php>}</php>
+                            </volist>
+                    </td>
+                </tr>
+                
+                <tr class="f14">
+                    <td style="min-width:50px">行号</td>
+                    <td>商品编码</td>
+                    <td colspan="1">商品名称</td>
+                    <td style="min-width:50px">单位</td>
+                    <td style="min-width:50px">数量</td>
+                    <td>商品区域</td>
+                </tr>
+                <volist name="resGoods" id="gvo" key="k">
+                <tr>
+                    <td>{$k}</td>
+                    <td>{$gvo.goods_code}</td>
+                    <td colspan="1">{$gvo.goods_name}{$gvo.goods_spec}</td>
+                    <td><php>
+                            $gunit=$gvo["goods_unit"];
+                            
+                        </php>
+                        <volist name="gunit" id="uvo">
+                        <if condition="$uvo['cv_id'] eq $gvo['cv_id']">{$uvo.goods_unit}</if>
+                        </volist>
+                        </td>
+                    <td>{$gvo.out_num}</td>
+                   
+                    
+                    <td>{$gvo.area_name}</td>
+                </tr>
+                </volist>
+                <!--<tr>
+                    <td colspan="2">合计金额（￥）</td><td colspan="2"> （大写）{$aIn.rmd}</td><td colspan="3"> （小写）{$aIn.in_total_price}</td><td></td>
+                </tr>-->
+                <tr>
+                    <td colspan="6" style="text-align: left;border-bottom: 2px solid #000000">备注：{$aIn.in_remark}</td>
+                </tr>
+                <tr>
+                <td colspan="2" class="txt-l">入库类型：{$aIn.in_type}</td>
+                <td colspan="2" class="txt-l">经手人：</td>
+                <td colspan="1" class="txt-l">采购员：</td>
+                <td colspan="1" class="txt-l">库管员：</td></tr>
+            </tbody>
+        </table>
+    </div>
+    <input type="submit" class="btn_print noprint" onclick="window.print();" value="打印">
+    <!--<input type="submit" id="export" class="btn_print noprint" value="Excel导出">-->
+</div>
+
+<script>
+    $(function(){
+    	
+    	$("#export").click(function(){
+    		location.href="__URL__/edit/state/export/in_code/{$aIn.depot_in_code}";
+    	});
+    	
+    	
+        var onSampleResized = function(e){
+            var columns = $(e.currentTarget).find("th");
+
+            console.log(columns);
+        };
+        $("#DataTables_Table_0").colResizable({
+            liveDrag:true,
+            gripInnerHtml:"<div class='grip'></div>",
+            draggingClass:"dragging",
+            onResize:onSampleResized
+        });
+    });
+</script>
+</body>
+</html>

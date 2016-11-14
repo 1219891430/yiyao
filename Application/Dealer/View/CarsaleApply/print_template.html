@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>单据打印</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style media="print" type="text/css">.noprint{display:none}</style>
+    <link href="__PUBLIC__/css/print.css" rel="stylesheet"/>
+    <script src="__PUBLIC__/js/jquery-1.7.2.min.js"></script>
+    <script src="__PUBLIC__/js/colResizable-1.5.min.js"></script>
+    <script src="__PUBLIC__/js/print/CreateControl.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/js/print/GRInstall.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var gr_InstallPath = "__PUBLIC__/js/print/grinstall";
+    Install_InsertReport();
+    </script>
+    <script type="text/javascript">
+    CreateReport("Report");
+	function GridReportPrint(flag)
+	{
+		Report.LoadFromURL("{$templateFile}");
+		Report.LoadDataFromXML("{$xmlData}");
+		if(flag == 1)
+		{
+			Report.Print(true)
+		}
+		else
+		{
+			Report.PrintPreview(true);
+		}
+	}
+    </script>
+</head>
+<body>
+<script type="text/javascript">var Installed = Install_Detect();</script>
+	<div class="container">
+		<div style="font-size: 36px; padding: 0 0 10px 0">{$Think.session.org_name}车存申请单</div>
+		<div class="dataTables_wrapper no-footer">
+			<table class="table_m" width="100%" cellspacing="0" cellpadding="0" id="DataTables_Table_0">
+				<tr>
+					<th style="text-align: left" colspan="3">单据日期：{$aApply.time}</th>
+					<th style="text-align: left" colspan="4">单据编号：{$aApply.apply_code}</th>
+					<th style="text-align: left; width: 145px">制单人：{$Think.session.staff_name}</th>
+				</tr>
+			
+                <tr>
+				<td style="min-width: 50px">行号</td>
+				<td>商品编码</td>
+				<td>商品名称</td>
+				<td style="min-width: 80px">单位</td>
+				<td style="min-width: 90px">数量</td>
+				<td style="min-width: 90px">单价</td>
+				<td style="min-width: 90px">金额(￥)</td>
+				<td>备注</td>
+				</tr>
+
+				<volist name="aApplyGoods" id="gvo">
+				<tr>
+					<td style="min-width: 50px">{$i}</td>
+					<td>{$gvo.goods_code}</td>
+					<td>{$gvo.goods_name}</td>
+					<td>{$gvo.goods_unit}</td>
+					<td>{$gvo.apply_num}</td>
+					<td>{$gvo.apply_price}</td>
+					<td>{$gvo.apply_total_price}</td>
+					<td>{$gvo.apply_remark}</td>
+				</tr>
+				</volist>
+
+				<tr>
+					<td colspan="8" style="text-align: left; border-bottom: 2px solid #000000">备注：{$aApply.apply_remark}</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="txt-l">业务员：{$aApply.staff_name}</td>
+                    <td class="txt-l">审核人：</td>
+					<td colspan="2" class="txt-l">出库仓库：{$aApply.repertory_name}</td>
+                    <td colspan="2" class="txt-l">出库人：</td>
+					<td colspan="1" class="txt-l">金额小计：{$aApply.apply_total_money}</td>
+				</tr>
+			</table>
+		</div>
+    	<input type="submit" class="btn_print noprint" onClick="GridReportPrint(0)" value="预览">
+    	<input type="submit" class="btn_print noprint" onClick="GridReportPrint(1)" value="打印">
+		<input type="submit" id="export" class="btn_print noprint" value="Excel导出">
+	</div>
+</body>
+<script>
+    $(function(){
+    	
+    	$("#export").click(function(){
+    		location.href="__URL__/print_template/export/1/apply_code/{$aApply.apply_code}";
+    	});
+    	
+        var onSampleResized = function(e){
+            var columns = $(e.currentTarget).find("th");
+
+            console.log(columns);
+        };
+        $("#DataTables_Table_0").colResizable({
+            liveDrag:true,
+            gripInnerHtml:"<div class='grip'></div>",
+            draggingClass:"dragging",
+            onResize:onSampleResized
+        });
+    });
+</script>
+</html>
+
+<!-- 模板 copy -->

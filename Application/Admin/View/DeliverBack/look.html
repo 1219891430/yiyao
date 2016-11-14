@@ -1,0 +1,95 @@
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>查看配送单</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>出库仓库：</td>
+                    <td class="tl">
+                        <input class="w200 form-control" type="text" disabled value="{$return.repertory_name}">
+                    </td>
+
+                    <td class="tr">
+                        单据编号：
+                    </td>
+                    <td>
+                        <input class="w200 form-control" type="text" disabled value="{$return.return_code}">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>业务员</td>
+                    <td>
+                        <input class="w200 form-control" type="text" disabled value="{$return.staff_name}">
+                    </td>
+                    <td class="tr"></td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>备注：</td>
+                    <td colspan="3">
+                        <input class="w300 form-control" type="text" disabled value="{$return.return_remark}">
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <table class="table list_table" id="goods_table">
+                <thead>
+                <tr>
+                    <td width="20%">商品条码</td>
+                    <td width="25%">商品名称</td>
+                    <td width="7%">单位</td>
+                    <td width="7%">数量</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="goods" id="vo">
+                <tr id="goods_add_tr">
+                    <td>{$vo.goods_code}</td>
+                    <td>{$vo.goods_name}</td>
+                    <td>{$vo.goods_unit}</td>
+                    <td>{$vo.goods_num|getGoodsNum}</td>
+
+                </tr>
+                </volist>
+                <tr><td colspan='3'>&nbsp;</td><td class="tr" id='num_total'></td></td></tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="80px">制单人：</td><td class="tl">{$_SESSION['true_name']}</td>
+                    <td class="tr">时间：</td><td><span>{:date('Y-m-d H:i')}</span></td>
+                </tr>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+    </div>
+</div>

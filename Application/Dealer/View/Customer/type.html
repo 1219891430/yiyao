@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/jquery.treetable.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/jquery.treetable.theme.default.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+
+    <style type="text/css">
+        .mtf2 img{margin-top:-2px;margin-right:5px;cursor: pointer}
+        .text-index-2em td:first-child{text-indent: 2em}
+        .text-index-4em td:first-child{text-indent: 4em}
+    </style>
+</head>
+<body>
+
+<include file="Public/head" />
+<div class="main-container" id="main-container">
+<include file="Public/menu" />
+<div class="main-right container-fluid">
+<!--顶部菜单导航开始-->
+<div class="r-sub-nav row-fluid"><include file="Public/sub_menu" /></div>
+<!--顶部菜单导航结束-->
+<!--主体操作区域开始-->
+<div class="row-fluid main-content">
+
+
+    <!--右侧查询开始-->
+    <div class="sel-data mb20">
+        <div class="fr">
+            <a class="btn btn-primary bg_3071a9" id="cre_c"  role="button">创建</a>
+        </div>
+    </div>
+    <!--右侧查询结束-->
+    <!--表格查询开始-->
+    <table  id="treetable" class="table list_table treetable">
+        <thead>
+        <tr>
+            <td width="25%">客户类型名称</td>
+            <td width="42%">客户类型说明</td>
+            <td width="13%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="list" id="vo">
+            
+                <td>{$vo.ct_name}</td>
+                
+                <td>{$vo.ct_remark}</td>
+                 
+                <td>
+                    <ul class="operate-menu li-width50">
+                        <if condition="$org.is_system eq 0">
+                        <li><a class="collapsed collapse-menu icons-href edit" attr="{$vo.ct_id}" role="button"><i class="icon-edit"></i>&nbsp;修改</a></li>
+                        <li><a class="collapsed collapse-menu icons-href delete" id="{$vo.ct_id}" href="javascript:void(0)"
+                                ><i class="icon-remove-circle"></i>删除</a></li>
+                        </if>
+                    </ul>
+                </td>
+                 
+            </tr>
+        </volist>
+        </tbody>
+    </table>
+     {:W('Page/page',array("__URL__/type",$pnum,$pagelist))}
+    <!--表格查询结束-->
+
+
+</div>
+<!--主体操作区域结束-->
+
+<!--新建部门弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div  id="modal-con"   class="modal-dialog modal_650 "></div></div>
+<!--新建部门弹出层结束-->
+</div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">$("#myModal").on("hidden.bs.modal", function() {$(this).removeData("bs.modal");});</script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.treetable.js"></script>
+<script type="text/javascript">
+    $("#treetable").treetable({ expandable: true }).treetable("expandAll");
+
+    $(".edit").click(function () {
+        $.ajax({
+            url: "__URL__/editType",
+            type: "get",
+            dataType: "html",
+            data:{id:$(this).attr('attr')},
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    })
+
+    $("#cre_c").click(function () {
+        $.ajax({
+            url: "__URL__/addType/r"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    })
+
+    //删除
+    $(".delete").click(function(){
+        if(confirm("确定要删除该记录吗？"))
+        {
+            var id=$(this).attr('id');
+              
+              
+            $.post("__URL__/delType",{ct_id:id},function(result){
+                alert(result["info"]);
+                if(result["res"]==1)
+                    location.reload();
+            })
+        }
+    })
+//    //封存
+//    $(".fengcun").click(function(){
+//        if(confirm("确定要封存吗？"))
+//        {
+//            var id=$(this).attr('id');
+//            $.post("{:U('Home/Customer/close')}",{ct_id:id},function(result){
+//                var data=eval('('+result+')');
+//                if(data.status==1){alert("操作成功!");
+//                    $("#td_"+id).html("已封存");
+//                }else{alert("操作失败");}
+//            })
+//        }
+//    })
+//    //取消封存
+//    $(".open").click(function(){
+//        if(confirm("确定要取消封存吗？"))
+//        {
+//            var id=$(this).attr('id');
+//            $.post("{:U('Home/Customer/open')}",{ct_id:id},function(result){
+//                if(result==1){alert("操作成功!");$("#td_"+id).html("未封存");
+//                }else{alert("操作失败");}
+//            })
+//        }
+//    })
+</script>
+</body>
+</html>
+

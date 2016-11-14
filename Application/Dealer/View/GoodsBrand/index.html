@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+	<include file="Public/menu" />
+	<div class="main-right container-fluid">
+    
+    	<div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+        
+		<div class="row-fluid main-content">
+            <table class="table list_table" id="role_table">
+            <thead>
+            <tr>
+            <td width="20%">品牌名称</td>
+            <td width="30%">备注</td>
+            <td width="10%">状态</td>
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="brand" id="bvo">
+            <tr>
+                <td>{$bvo.brand_name}</td>
+                <td>{$bvo.remark}</td>
+                <td>
+                    <if condition="$bvo.is_close eq 1"><span style="color: red">关闭</span><else/><span style="color: green">正常</span></if>
+
+                </td>
+            </tr>
+            </volist>
+            </tbody>
+            <tfoot></tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

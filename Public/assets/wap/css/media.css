@@ -1,0 +1,36 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* 最大宽度480 */
+@media screen and (max-width: 640px) {	
+
+}
+
+/* 最大宽度480 */
+@media screen and (max-width: 480px) {	
+
+}
+
+
+
+/* 最大宽度414 */
+@media screen and (max-width:414px) {
+
+}
+
+
+/* 最大宽度375 */
+@media screen and (max-width:375px) {
+    .f1-item p span{font-size: 16px;}
+}
+
+/* 最大宽度360 */
+@media screen and (max-width:360px) {
+}
+
+/* 最大宽度320 */
+@media screen and (max-width:320px) {
+    .hot-r a{padding: 0.7em;}
+    .modal-detail-con-check .check-num .check-num-control .check-size{width: 50%;}
+    .order-list .info{width: 45%;}
+    .login-w form .form-group input{width: 89%;}
+}

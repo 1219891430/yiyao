@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<!--<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-form.js"></script>-->
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<style>
+	.li-width li{
+		width:90px;
+	}
+    .text-danger{color:#d9534f !important;}
+	
+</style>
+
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+        <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+        <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select id="op_brand" class="w150 form-control">
+                        <option value="0">全部品牌</option>
+                        <volist name="brandRes" id="bvo">
+                            <option <if condition="$bvo['brand_id'] eq $urlPara['bid']">selected="selected"</if> value="{$bvo.brand_id}">{$bvo.brand_name}</option>
+                        </volist>
+                    </select>
+                    <select id="op_class" class="w150 form-control">
+                        <option value="0">全部类别</option>
+                        <volist name="classRes" id="cvo">
+                            <option <if condition="$cvo['class_id'] eq $urlPara['cid']">selected="selected"</if> value="{$cvo.class_id}">{$cvo.class_name}</option>
+                            <volist name="cvo.class_list" id="svo">
+                            <option <if condition="$svo['class_id'] eq $urlPara['cid']">selected="selected"</if> value="{$svo.class_id}">|------{$svo.class_name}</option>
+                            </volist> 
+                        </volist>
+                    </select>
+                    <input type="text" class="form-control w150" id="op_name"   placeholder="请输入产品名称" value="{$urlPara['gid']}"/>
+                    <a class="btn btn-default" href="#" id="selPro" role="button">查询</a>
+                </div>
+                <div class="fr">
+                    <a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="cre_goods" role="button">创建</a>
+                    
+                    <a class="btn btn-primary bg_3071a9" href="__URL__/index/explode/explode" id="explode" role="button">导出</a>
+                   
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table">
+                <thead>
+                <tr>
+                   
+                    <td width="20%">产品名称</td>
+                    <td width="9%">品类</td>
+                    <td width="9%">品牌</td>
+                    <td width="7%">小包装</td>
+                    <td width="7%">中包装</td>
+                    <td width="7%">大包装</td>
+                    <td width="7%">转换系数</td>
+                    
+                    <!--<td width="9%">状态</td>-->
+                    <td width="20%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="goods" id="vo">
+                  <tr>
+                    
+                    <td>{$vo.goods_name}/{$vo.goods_spec}</td>
+                    <td>{$vo.class_name}</td>
+                    <td>{$vo.brand_name}</td>
+                    <td>{$vo.goods_unit_s}<eq name="vo.goods_small_unit_default" value="1">&nbsp;<span style="color:#FF0000">(默认)</span></eq></td>
+                    <td>{$vo.goods_unit_m}<eq name="vo.goods_mid_unit_default" value="1">&nbsp;<span style="color:#FF0000">(默认)</span></eq></td>
+                    <td>{$vo.goods_unit_b}<eq name="vo.goods_big_unit_default" value="1">&nbsp;<span style="color:#FF0000">(默认)</span></eq></td>
+                    <td>{$vo.goods_convert_s}*{$vo.goods_convert_m}*{$vo.goods_convert_b}</td>
+                    <!--
+                      <td class='<if condition="$vo.is_close eq 1">red<else/>green</if>'>
+                          <if condition="$vo.is_close eq 1">已封存<else/>未封存</if>
+                      </td>
+                      -->
+                      <td><ul class="operate-menu li-width">
+                      	
+                      	<php>if($depot_id==0){</php>
+                          <li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_edit" href="javascript:void(0)">
+                              <i class="icon-edit"></i>修改
+                          </a></li>
+                          </if>
+
+                          <php>if($vo["is_close"]==0){</php>
+						    	<li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_offpass" href="javascript:void(0)">
+								<i class="icon-edit"></i>已审核
+								</a>
+						       	</li>
+						  <php>}else{</php>
+						    	<li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_pass" href="javascript:void(0)">
+								<i class="icon-edit"></i>审核
+								</a>
+						       	</li>
+						  <php>}</php>
+						  
+                        <php>}else{</php>
+                        	
+                        	
+                        	<php>if($vo["is_close"]==0){</php>
+						    	<li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_offpass" href="javascript:void(0)">
+								<i class="icon-edit"></i>已审核</a></li>
+                            <li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_edit" href="javascript:void(0)">
+                              <i class="icon-edit"></i>修改</a></li>
+						   <php>}else{</php>
+						    	<li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_pass" href="javascript:void(0)">
+								<i class="icon-edit"></i>审核</a></li>
+						       	<li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_edit" href="javascript:void(0)">
+                              <i class="icon-edit"></i>修改</a></li>
+						   <php>}</php>
+						   
+						   <li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href area <if condition='empty($vo["area"])'> text-danger </if> " href="javascript:void(0)">
+                              <i class="icon-edit"></i>区域设置
+                          </a></li>
+
+                          <li><a attr="{$vo.goods_id}" name="{$vo.goods_name}" class="collapsed collapse-menu icons-href goods_warning" href="javascript:void(0)">
+                              <i class="icon-warning-sign"></i>设置预警值
+                              </a>
+                          </li>
+                          <li><a attr="{$vo.goods_id}" class="collapsed collapse-menu icons-href goods_set_org <if condition='empty($vo["org_parent_id"])'> text-danger </if>" href="javascript:void(0)">
+                              <i class="icon-edit"></i>经销商
+                          </a></li>
+                        	
+                        <php>}</php>
+                      </ul></td>
+                  </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+          {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+
+            <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850 ">
+       
+    </div>
+</div>
+
+<script type="text/javascript">
+var i=0;
+    $("#checkedgoods").click(function(){
+    	
+    	//var check= $("#checkedgoods").prop("checked");
+    	if(i==0){
+    		$(".check_good").prop("checked","checked");
+    		i=1;
+    	}else{
+    		$(".check_good").prop("checked",false);
+    		i=0;
+    	}
+    });
+
+$(".goods_warning").click(function () {
+    var data={gid:$(this).attr("attr"), gname:$(this).attr('name')};
+
+    ajaxDataPara("__MODULE__/GoodsWarning/warning",data);
+})
+    
+    		
+    $(".goods_edit").click(function(){
+        var data={gid:$(this).attr("attr")};
+
+        ajaxDataPara("__URL__/edit",data);
+    })
+
+    $(".goods_set_org").click(function(){
+        var data={gid:$(this).attr("attr")};
+
+        ajaxDataPara("__URL__/setorg",data);
+    })
+    	
+    $(".area").click(function(){
+        var data={goods_id:$(this).attr("attr")};
+
+        ajaxDataPara("__URL__/area",data);
+    })	
+    
+    $("#cre_goods").click(function(){
+        ajaxData("__URL__/add");
+    })
+    $("#selPro").click(function(){
+        location.href="__URL__/index/bid/"+$("#op_brand").val()+"/cid/"+$("#op_class").val()+"/gid/"+$("#op_name").val();
+    })
+    
+
+   
+    $(".goods_del").click(function(){
+        if(confirm("是否删除该产品,商品删除后相关单据数据为空"))
+        {
+            var data={gid:$(this).attr("attr")};
+            ajaxDataAUD("__URL__/del",data,true);
+        }
+    })
+    $(".goods_close").click(function(){
+            var data={gid:$(this).attr("attrid"),type:$(this).attr("attr")};
+            ajaxDataAUD("__URL__/close",data,true);
+    })
+    $("#import").click(function(){
+        ajaxData("__URL__/import");
+    })
+    $('#explode').click(function(){
+
+		
+		//ajaxDataPara("__URL__/edit_pwd",data);
+	})
+    
+    $(".goods_pass").click(function(){
+    	if(confirm("确定要通过审核吗")){
+    		var goods_id=$(this).attr("attr");
+    		var data={goods_id:goods_id};
+    		console.log(data);
+    		$.post("__URL__/setPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+    
+    $(".goods_offpass").click(function(){
+    	if(confirm("确定要设置成未审核状态吗")){
+    		var goods_id=$(this).attr("attr");
+    		var data={goods_id:goods_id};
+    		console.log(data);
+    		$.post("__URL__/setOffPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+
+</script>
+<include file="Public/warning_sound"/>
+<span style="display:none"><script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260673330'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1260673330' type='text/javascript'%3E%3C/script%3E"));</script></span>
+</body>
+</html>

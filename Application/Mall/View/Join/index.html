@@ -1,0 +1,132 @@
+
+<include file='Public:head'/>
+<div class="red-line"></div>
+
+<!--申请加盟-->
+<div class="gry-w">
+    <h1 class="join-tit">申请加盟</h1>
+    <form class="w join-form" method="post" id="submit_form" action="{:U('Mall/Join/send')}">
+        <div class="join-box">
+            <div class="form-group">
+                <h2><i></i>加盟类型</h2>
+                <select name="type" id="type" class="form-control w130">
+                    <option value="1">供货商加盟</option>
+                    <option value="2">终端店加盟</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <h2><i></i>联系人</h2>
+                <p>
+                    <input type="text" name="realname" class="form-control" placeholder="姓名">
+                    <input type="text" name="mobile" class="form-control" placeholder="电话">
+                    <input type="text" name="email" class="form-control" placeholder="Email">
+                </p>
+            </div>
+            <div class="form-group">
+                <h2><i></i>区域选择</h2>
+                <p>
+                    <select name="province" id="province" class="form-control w130"></select>
+                    <select id="city" name="city" class="form-control w130"></select>
+                    <select name="district" id="district" class="form-control w130"></select>
+                </p>
+            </div>
+            <div class="form-group">
+                <h2><i></i>详细地址</h2>
+                <input type="text" name="address" class="form-control lg">
+            </div>
+            <div class="form-group">
+                <h2><i></i>备注信息</h2>
+                <div class="text-area">
+                    <textarea rows="5" id="message" name="message">公司名称：
+产品介绍：</textarea>
+                </div>
+            </div>
+        </div>
+        <button class="btn-brand">申请提交</button>
+    </form>
+</div>
+
+<include file='Public:foot'/>
+
+
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<script type="text/javascript">
+    new PCAS("province","city","district","","","");
+
+    $('#type').change(function(){
+       if($(this).val()=='1'){
+           $('#message').html('公司名称：\r\n产品介绍：\r\n备注信息：');
+       }
+       else{
+           $('#message').html('店铺名称：\r\n备注信息：');
+       }
+    });
+
+    $("#submit_form").validate({
+        rules:{
+            type:{
+                required:true
+            },
+            realname:{
+                required:true,
+                maxlength:30
+            },
+            mobile:{
+                minlength:6,
+                maxlength:12,
+                number:true,
+                required:true
+            },
+            province:{
+                required:true
+            },
+            city:{
+                required:true
+            },
+            district:{
+                required:true
+            },
+            address:{
+                required:true,
+                maxlength:100
+            },
+            email:{
+                maxlength:30
+            }
+        },
+        messages: {
+            type: {
+                required: "加盟类型不能为空",
+            },
+            realname: {
+                required: "联系人不能为空",
+                maxlength: "仓库名称最大为15位"
+            },
+            mobile: {
+                minlength: "请填写正确电话",
+                maxlength: "请填写正确电话",
+                number: "请填写正确电话",
+                required: "电话不能为空"
+            },
+            province:{
+                required:"请选择省份"
+            },
+            city:{
+                required:"请选择城市"
+            },
+            district:{
+                required:"请选择县区"
+            },
+            address: {
+                required: "请填写详细地址",
+                maxlength: "仓库地址最大为50位"
+            },
+            email: {
+                maxlength: "电子邮件地址说明最大为30位"
+            }
+        }
+    });
+</script>
+</body>
+</html>

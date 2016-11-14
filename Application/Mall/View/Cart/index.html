@@ -1,0 +1,305 @@
+<include file='Public:head'/>
+<div class="red-line2"></div>
+
+<!--我的购物车-->
+<div class="gry-w cart-w">
+    <div class="cart-tit">
+        <span class="select"><input class="checkAll" type="checkbox">全选</span>
+        <span class="goods">货品</span>
+        <span>数量</span>
+        <span>单价(元)</span>
+        <span>金额</span>
+        <span>操作</span>
+    </div>
+    <volist name="carts" id="vo">
+    <div class="cart-box">
+
+            <div class="store-nam"><input class="checkByOrg" value="{$vo.org.id}" type="checkbox">{$vo.org.name}<a href="#"><!--<img src="__PUBLIC__/assets/images/mall/store-contact.jpg">--></a></div>
+
+        <foreach name="vo.cart" item="cart">
+
+            <table cellspacing="0" id="table_{$cart.cart_id}">
+                <tr>
+                    <td rowspan="2" class="w20">
+                        <input name='cart_id' attr="{$cart.cv_id}" value="{$cart.cart_id}" class="goods_checkbox_{$vo.org.id}" type="checkbox"></td>
+                    <td rowspan="2" class="gd-info"><a href="/index.php/Mall/Goods?goods_id={$cart.goods_id}&org_id={$cart.org_parent_id}" target="_blank">
+                        <img class="lazy" data-original="{:C('GOODS_IMG')}{$cart.goods_image}">
+                        <p>{$cart.goods_name}</p></a>
+                        <p id="zengpin_{$cart.cart_id}">
+                            <if condition="$cart['act']['act_type'] eq 0">
+                                <!--限时优惠，原价 {$cart.price} 元，现价 {$cart.act_price} 元-->
+                            </if>
+                            <if condition="$cart['act']['act_type'] eq 1">
+                                <!--限时满减，共优惠 {$cart['total'] - $cart['act_total']} 元-->
+                            </if>
+                            <if condition="$cart['act']['act_type'] eq 2">
+                                赠品：<a href="__MODULE__/goods?goods_id={$cart['act']['song_goods_id']}&org_id={$cart['act']['org_parent_id']}">{$cart['song']['goods_name']}</a>/{$cart['song']['goods_spec']} <span>×{$cart['song_goods_num']} {$cart['song']['goods_unit']}</span>
+                            </if>
+                        </p>
+                    </td>
+                    <td class="w180">单位:{$cart.goods_unit}&nbsp;&nbsp;&nbsp;&nbsp;规格:{$cart.goods_spec}</td>
+                    <td>
+                        <div class="item-amount">
+                            <input type="hidden" id="old_{$cart['cart_id']}" value="{$cart.quantity}">
+                            <a class="J_Minus minus" href="javascript:J_Minus({$cart.cart_id}, {$cart.cv_id},{$cart.org_parent_id}, '{$cart.goods_unit}')">-</a>
+                            <input id="J_amount_{$cart.cart_id}" class="text-amount J_ItemAmount" onblur="J_amount_edit({$cart.cart_id}, {$cart.cv_id}, {$cart.org_parent_id}, '{$cart.goods_unit}')" type="text" value="{$cart.quantity}">
+                            <a class="J_Plus plus" href="javascript:J_Plus({$cart.cart_id}, {$cart.cv_id}, {$cart.org_parent_id}, '{$cart.goods_unit}')">+</a>
+                        </div>
+                    </td>
+                    <td class="ft14 font-gry">
+                        <span class="cur">￥{$cart.act_price}</span>
+                    </td>
+                    <td><p class="price"><span id="total_{$cart.cart_id}">￥{$cart['act_total']}</span></p>
+                        <if condition="$cart['act']['act_type'] eq 1">
+                            <p class="font-grn">限时减免￥<span id="offer_money_{$cart.cart_id}">{$cart.offer_money}</span></p>
+                        </if>
+                    </td>
+                    <td><a href="javascript:delCart('{$cart.cart_id}')"> 删除 </a></td>
+                </tr>
+            </table>
+
+        </foreach>
+
+
+
+
+    </div>
+    </volist>
+
+    <div class="cart-amount clearfix">
+        <span class="w130 ml10"><input class="checkAll" type="checkbox">全选</span>
+        <span class="w380"><a ID="delAll" href="#">删除</a></span>
+        <span class="w130">货品种类：<span class="big cv_num">{$cv_num}</span> 种</span>
+        <span class="w180">数量总计：<span class="big cart_num">{$total_num}</span> 件</span>
+        <span class="cart-total">货品金额总计：<strong id="cart_price_total">{$total_price} </strong>元</span>
+        <a class="ct-amt-btn" href="javascript:orderSubmit();">下单</a>
+    </div>
+</div>
+
+
+
+
+
+<!--底部-->
+<include file='Public:foot'/>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".J_ItemAmount").each(function () {
+            var num = parseFloat($(this).val())
+
+            $(this).val(num)
+
+        })
+
+        // 全选
+        $("input[type='checkbox']").each(function () {
+            $(this).attr("checked", true);
+        });
+        //幻灯
+        $("#slider").jSlider({
+                    pause:10000,
+                    naviSlider:'naviSlider'
+                }
+        );
+
+    });
+    $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+
+    // 全选
+    $('.checkAll').click(function () {
+
+        var is_check = $(this).attr("checked")
+
+        if (is_check == undefined) {
+            is_check = false
+        }
+
+        $("input[type='checkbox']").each(function () {
+            $(this).attr("checked", is_check);
+        });
+
+    })
+
+    // 根据经销商全选反选
+    $('.checkByOrg').click(function () {
+        var id = $(this).val()
+        var is_check = $(this).attr("checked")
+        if (is_check == undefined) {
+            is_check = false
+        }
+        $('.goods_checkbox_'+id).each(function () {
+            $(this).attr("checked", is_check);
+        });
+    });
+
+    // 数量加
+    function J_Plus(cart_id,cv_id,org_id, unit) {
+        var num = checkGoodsNumByUnit($('#J_amount_'+cart_id).val(), unit);
+
+        num += 1
+
+        updateCart(cart_id, cv_id, org_id, num, $('#old_'+cart_id).val())
+
+        $('#J_amount_'+cart_id).val(num)
+    }
+
+    // 数量减
+    function J_Minus(cart_id,cv_id, org_id, unit) {
+        var num = checkGoodsNumByUnit($('#J_amount_'+cart_id).val(), unit);
+
+        num -= 1
+
+        if (num <= 1) {
+            num = 1
+        }
+
+        updateCart(cart_id, cv_id, org_id, num, $('#old_'+cart_id).val())
+
+        $('#J_amount_'+cart_id).val(num)
+    }
+
+    // 输入
+    function J_amount_edit(cart_id, cv_id, org_id, unit) {
+        var num = checkGoodsNumByUnit($('#J_amount_'+cart_id).val(), unit);
+
+        updateCart(cart_id, cv_id, org_id, num, $('#old_'+cart_id).val())
+
+        $('#J_amount_'+cart_id).val(num)
+
+    }
+
+
+    function updateCart(cart_id, cv_id, org_id, quantity, old_num) {
+
+        if (quantity == old_num) {
+            return false;
+        }
+
+        $.ajax({
+            url: '/index.php/Mall/Cart/update',
+            type:'get',
+            data: {cv_id: cv_id, quantity: quantity, org_id:org_id},
+            success: function (d) {
+                if (d.status) {
+                    $('#old_'+cart_id).val(d.rows.goods[cv_id]['quantity'])
+                    $('.cart_num').html(d.rows.total_num)
+                    $('#cart_price_total').html(d.rows.amount)
+                    $('#total_' + cart_id).html('￥' + d.rows.subtotal.toFixed(2))
+                    $('#offer_money_' + cart_id).html(d.rows.goods[cv_id]['offer_money'])
+
+                    var song = d.rows.goods[cv_id].song_goods
+                    var song_num = d.rows.goods[cv_id].song_num
+                    if (song_num > 0) {
+
+                        $("#zengpin_" + cart_id).html("赠品：<a href='__MODULE__/goods?goods_id="+song['goods_id']+"&org_id="+song['org_parent_id']+"'>"+song['goods_name']+"</a>"+ "/" + song['goods_spec'] +" <span>×"+song_num +" "+ song['goods_unit']+"</span>")
+                    } else {
+                        $("#zengpin_" + cart_id).html("");
+                    }
+
+                } else {
+                    $('#J_amount_'+cart_id).val(old_num)
+                    alert(d.msg)
+                }
+
+            },
+            error: function (xhr) {
+                console.log(xhr)
+            }
+
+        })
+    }
+
+
+    // 选择删除
+    $('#delAll').click(function () {
+        var ids = '';
+        $('input:checkbox[name=cart_id]:checked').each(function(){
+            ids += $(this).val() + ','
+
+        });
+        ids = ids.substring(0, ids.length-1)
+        console.log(ids)
+        delCart(ids)
+    })
+
+    function delCart(cart_id) {
+        if(confirm("确定要删除商品吗？")) {
+
+            $.ajax({
+                url: '/index.php/Mall/Cart/del',
+                type:'get',
+                data: {cart_id: cart_id},
+                success: function (d) {
+                    if (d.status) {
+                        ids = cart_id.split(',')
+
+                        $.each(ids, function (k,v) {
+                            console.log(v)
+                            $('#table_' + v).remove()
+                        })
+
+                        $('.cart_num').html(d.rows.total_num)
+                        $('.cv_num').html(d.rows.cv_num)
+                        $('#cart_price_total').html(d.rows.amount)
+                    } else {
+                        //$('#J_amount_'+cart_id).val(old_num)
+                        alert(d.rows.msg)
+                    }
+
+                },
+                error: function (xhr) {
+                    console.log(xhr)
+                }
+
+            })
+        }
+
+    }
+
+
+    // 提交订单
+    function orderSubmit() {
+
+        var cv_id=''
+        $("input[name='cart_id']:checked").each(function (k, v) {
+            //var cart_id = $(this).val()
+            cv_id += $(this).attr('attr') + ','
+        })
+        cv_id = cv_id.substr(0, cv_id.length-1)
+
+        if(cv_id.length == 0) {
+            return;
+        }
+
+        $.ajax({
+            url: '/index.php/Mall/Cart/order',
+            type: 'post',
+            data: {
+                cv_id: cv_id,
+                remark: '',
+            },
+            success: function (d) {
+                if (d.status) {
+                    alert(d.msg)
+                    location.href = '/index.php/Mall/Member/order'
+                } else {
+                    alert(d.msg)
+                }
+            }
+
+        })
+    }
+
+
+
+</script>
+
+</body>
+</html>

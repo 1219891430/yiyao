@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/goods.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    <div class="row-fluid main-content">
+        <div class="sel-data mb20">
+            <div class="fl">
+            <select class="form-control w200" id="queryDepot" name="queryDepot">
+            <option value="0">请选择仓库</option>
+            <volist name="depot_list" id="depotName" key="depotID">
+            <if condition="$depotID eq $queryDepot">
+            <option value="{$depotID}" selected>{$depotName}</option>
+            <else />
+            <option value="{$depotID}">{$depotName}</option>
+            </if>
+            </volist>
+            </select>
+            <select class="form-control w200" id="queryRole" name="queryRole" >
+            <option value="0">请选择角色</option>
+            <volist name="role_list" id="roleName" key="roleID">
+            <if condition="$roleID eq $queryRole">
+            <option value="{$roleID}" selected>{$roleName}</option>
+            <else />
+            <option value="{$roleID}">{$roleName}</option>
+            </if>
+            </volist>
+            </select>
+            <a class="btn btn-default" href="#" id="chaxun" role="button">查询</a>
+            </div>    
+            <div class="fr"><a class="btn btn-primary bg_3071a9" href="#" id="cre_zc" role="button">创建</a></div>
+		</div>
+
+        <table class="table list_table">
+        <thead>
+        <tr>
+        <td width="10%">编号</td>
+        <td width="15%">姓名</td>
+        <td width="15%">手机号</td>
+        <td width="15%">角色</td>
+        <td width="15%">仓库</td>
+        <td width="10%">状态</td>
+        <td width="15%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="staff_list" id="da">
+        <tr>
+        <td>{$da.admin_id}</td>
+        <td>{$da.true_name}</td>
+        <td>{$da.mobile}</td>
+        <td>{$role_list[$da[role_id]]}</td>
+        <td>{$depot_list[$da[depot_id]]}</td>
+        <td id="td_{$da.admin_id}" class='<if condition="$da.is_close eq 1">red<else/>green</if>'>
+        <if condition="$da.is_close eq 1">已关闭<else/>使用中</if>
+        </td>
+        <td>
+        <ul class="operate-menu li-width33">
+        <li><a data-id="{$da.admin_id}" class="collapsed collapse-menu icons-href edit" href="javascript:void(0)"><i class="icon-edit"></i>编辑</a></li>
+        <!--
+            <li><a data-id="{$da.admin_id}" class="collapsed collapse-menu icons-href delete" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+        !-->
+        <if condition="$da.is_close eq 1">
+        <li><a data-id="{$da.admin_id}" class="collapsed collapse-menu icons-href open" href="javascript:void(0)"><i class="icon-remove-circle"></i>启用</a></li>
+        <else/>
+        <li><a data-id="{$da.admin_id}" class="collapsed collapse-menu icons-href closed" href="javascript:void(0)"><i class="icon-remove-circle"></i>关闭</a></li>
+        </if>
+        </ul>
+        </td>
+        </tr>
+        </volist>
+        </tbody>
+        <tfoot></tfoot>
+        </table>
+        
+        <!--分页查询开始-->
+        {:W('Page/page',array("__URL__/index", $pnum, $pagelist, array('queryDepot'=>$queryDepot, 'queryRole'=>$queryRole)))}
+        <!--分页查询结束-->
+	</div>
+    </div>
+</div>
+
+<!--弹出层开始-->
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div id="modal-con" class="modal-dialog modal_850 "></div></div>
+<!--弹出层结束-->
+
+<script type="text/javascript">
+$(function () {
+
+	// 查询人员
+    $("#chaxun").click(function () {
+        var queryDepot = $("#queryDepot").val();
+        var queryRole = $("#queryRole").val();
+        location.href = "{:U('index')}" + "?queryDepot=" + queryDepot + "&queryRole=" + queryRole + "&r=" + new Date().getTime();
+    });
+
+	// 添加人员
+	$("#cre_zc").click(function(){ ajaxData("{:U('add')}"); });
+
+	// 编辑人员
+	$(".edit").click(function(){ 
+		var admin_id = $(this).attr('data-id');
+		var url = "{:U('edit')}" + "?id=" + admin_id;
+		ajaxData(url);
+    });
+
+    // 删除人员
+    $(".delete").click(function(){
+	if(confirm("确定要删除该记录吗？"))
+	{
+		var id = $(this).attr('data-id');
+		var url = "{:U('del')}" + "?id=" + id;
+		$.get(url, function(result){
+			if(result == 1) {
+				alert("删除成功!");
+				location.reload(true);
+			} else {
+				alert("删除失败");
+			}
+		});
+	}});
+
+    // 启用人员
+    $(".open").click(function () {
+	if (confirm("确定要启用吗？")) {
+		var id = $(this).attr('data-id');
+		var url = "{:U('close')}" + "?id=" + id + "&st=0";
+		$.get(url, function(result){
+			if(result == 1) {
+				alert("操作成功!");
+				location.reload(true);
+			} else {
+				alert("操作失败");
+			}
+		});
+			
+	}})
+	
+    // 关闭人员
+	$(".closed").click(function (){
+	if (confirm("确定要关闭吗？")) {
+		var id = $(this).attr('data-id');
+		var url = "{:U('close')}" + "?id=" + id + "&st=1";
+		$.get(url, function(result){
+			if(result == 1) {
+				alert("操作成功!");
+				location.reload(true);
+			} else {
+				alert("操作失败");
+			}
+		});
+	}})
+
+})
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

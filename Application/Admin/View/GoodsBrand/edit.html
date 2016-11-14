@@ -1,0 +1,79 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>修改品牌</span>
+        </h4>
+    </div>
+    <form action="__URL__/editex" id="brand_form" method="post" enctype="multipart/form-data">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <input type="hidden" name="id" id="id" value="{$res.brand_id}">
+                    <td>品牌名称</td><td>
+                    <input type="text" name="brand_name" value="{$res.brand_name}" id="brand_name" maxlength="10" class="w200 form-control"/>
+                </td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="3"> <input name="remark" value="{$res.remark}" id="remark" type="text" maxlength="100" class="w300 form-control"/></td>
+                </tr>
+                <tr>
+                    <td>品牌logo</td>
+                    <td colspan="3"> <input name="logo" type="file" class="w300"/></td>
+                </tr>
+                <notempty name="res.brand_logo">
+                <tr>
+                    <td>logo图片</td>
+                    <td colspan="3"> <img src="/Public/Uploads/brand/{$res.brand_logo}" width="80" height="80"/></td>
+                </tr>
+                </notempty>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <input type="hidden" name="bid" value="{$brand_info.brand_id}">
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <if condition="$brand_info.is_close eq 0">
+        <a id="submit_brand" class="btn btn-primary">
+            <span>修改</span>
+        </a>
+        </if>
+    </div>
+    <input type="hidden" id="brand_close" value="{$brand_info.is_close}">
+    <script type="text/javascript" src="__PUBLIC__/js/validate_form.js"></script>
+    <script type="text/javascript">
+        if($("#brand_close").val()==1)
+        {
+            $("#brand_code,#brand_name,#remark").attr("disabled","disabled");
+        }
+        $("#submit_brand").click(function(){
+        	var brand_name=$("#brand_name").val();
+     		brand_name=$.trim(brand_name);
+     		if(brand_name==""){
+     			alert("品牌名不能为空");
+     			return;
+     		}
+
+            $("#brand_form").submit();
+        })
+        
+        function brand_form_add(){
+            var data=$("#brand_form").serialize();
+            ajaxDataAUD("__URL__/editex",data,true);
+        }
+    </script>
+</div>

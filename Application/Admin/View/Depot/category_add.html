@@ -1,0 +1,161 @@
+<div class="modal-content modal_850">
+    <form action="{:U('Admin/Depot/addCategory')}" method="post" enctype="multipart/form-data"  id="submit_form">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title fb f16">选择品类</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal_700" id="customer_add_div">
+                <div class="mt20">
+                    所属仓库：<select name="depot_id" id="depot_id" class="form-control w200">
+                    <option value="0">请选择仓库</option>
+                    <volist id="vo" name="depotList">
+                        <option value="{$vo.repertory_id}" style="text-indent: 1em" <if condition="$vo.repertory_id eq $depotID">selected </if> >{$vo.repertory_name}</option>
+                    </volist>
+                </select>
+                    <input type="hidden" name="repertory_id" value="{$repertory_id}" />
+                    &nbsp;<input id="cate_name" placeholder="请输入品类名称" type="text" class="form-control w200">
+                    <input type="button" id="find_class" class="btn btn-primary" value="搜索"/>
+                </div>
+                <div class="goods_body">
+                    <table class="table list_table mt10 goods_search" id="goods_search">
+                        <thead>
+                        <tr>
+                            <td class="tc" width="50"><input id="choice_all" class="check_mt0" type="checkbox"></td>
+                            <td>品类名称</td>
+                            <td>品类备注</td>
+                            <td width="60">状态</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" id="close_customer" class="btn btn-default" data-dismiss="modal">关闭</a>
+            <a id="submit_unit" class="btn btn-primary">添加</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+
+    function getClassList(){
+        var repertory_id = $('#depot_id').val();
+
+        if(repertory_id ==0){
+            //alert('请选择仓库');
+            return;
+        }
+
+        $.ajax({
+            url:"{:U('Admin/Depot/getCategoryList')}",
+            type:"post",
+            dataType:"json",
+            data:{ repertory_id: repertory_id , cate_name : $("#cate_name").val() },
+            success:function(data){
+                // 清空商品筛选列表
+                $("#goods_search tbody").empty()
+                if(data["rows"].length==0) { alert("暂无数据"); return; }
+
+                // 循环商品列表
+                var conHTML = "";
+                var rc = false;
+                $.each(data["rows"],function(index,item){
+
+                    rc = item.repertory_id==repertory_id;
+                    // 拼接商品HTML
+                    conHTML += "<tr>";
+                    if(!rc){
+                        conHTML += "<td class='tc'><input name='class_id[]' class='check_mt0 parentcheck'  value='"+item.class_id+"' type='checkbox'></td>";    
+                    }
+                    else{
+                        conHTML += "<td class='tc'> </td>";
+                    }
+
+                    conHTML += "<td>"+item.class_name+"</td>";
+                    conHTML += "<td>"+item.remark+"</td>";
+                    conHTML += "<td>"+ (rc==false ? "未加入":"<i class='red'>已加入</i>" ) +"</td>";
+                    conHTML += "</tr>";
+                    $.each(item['class_list'],function(it,v){
+                    	
+                    	rc1 = v.repertory_id==repertory_id;
+                    // 拼接商品HTML
+                    	conHTML += "<tr>";
+                    	if(!rc1){
+                        	conHTML += "<td class='tc'><input name='class_id[]' data-parent='"+v.parent_class+"' class='check_mt0 subcheck' value='"+v.class_id+"' type='checkbox'></td>";    
+                    	}
+                    	else{
+                       		conHTML += "<td class='tc'> </td>";
+                    	}
+
+                    	conHTML += "<td>|----------"+v.class_name+"</td>";
+                    	conHTML += "<td>"+v.remark+"</td>";
+                    	conHTML += "<td>"+ (rc1==false ? "未加入":"<i class='red'>已加入</i>" ) +"</td>";
+                    	conHTML += "</tr>";
+                    });
+                });
+                
+                
+                
+                $("#goods_search tbody").append(conHTML);
+                
+                $(".parentcheck").click(function(){
+                	var class_id= $(this).val();
+                	
+                	if($(this).attr("checked")!="checked"){ 
+                	    $("input[data-parent='"+class_id+"']").removeAttr("checked");
+                	}else{
+                		$("input[data-parent='"+class_id+"']").attr("checked","checked");
+                	}
+                });
+                $(".subcheck").click(function(){
+                	var class_id=$(this).attr("data-parent");
+                	
+                	if($(this).attr("checked")!="checked"){ 
+                		//$(".parentcheck[value='"+class_id+"']").removeAttr("checked");
+                	}else{
+                		$(".parentcheck[value='"+class_id+"']").attr("checked","checked");
+                	}
+                	
+                });
+                
+            }
+        });
+        
+    }
+    
+    
+    
+    $(function(){
+
+        $("#choice_all").click(function(){
+            if($(this).attr("checked")!="checked") 
+                $(".goods_search tbody input").removeAttr("checked");
+            else 
+                $(".goods_search tbody input").attr("checked","checked");
+        });
+        
+        
+
+        $('#find_class').click(function(){
+
+            getClassList();
+        });
+
+        $('#submit_unit').click(function(){
+            var checkbox = $("#goods_search tbody input[type='checkbox']:checked");
+            if(checkbox.length==0){
+                alert('没有选择任何品牌');
+                return;
+            }
+            
+            
+            $('#submit_form').submit();
+        });
+
+        getClassList();
+        
+    });
+</script>

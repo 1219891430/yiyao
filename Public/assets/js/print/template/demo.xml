@@ -1,0 +1,37 @@
+﻿<xml>
+<row>
+	<RowID>1</RowID>
+	<ProductCode>123456789</ProductCode>
+	<ProductName>蒙牛酸奶200ML</ProductName>
+	<UnitName>件</UnitName>
+	<Quantity>200</Quantity>
+	<UnitPrice>250</UnitPrice>
+	<Amount>50000</Amount>
+	<Type>调出</Type>
+	<Remark></Remark>
+</row>
+<row>
+	<RowID>2</RowID>
+	<ProductCode>987654321</ProductCode>
+	<ProductName>君乐宝酸奶250ML</ProductName>
+	<UnitName>件</UnitName>
+	<Quantity>100</Quantity>
+	<UnitPrice>300</UnitPrice>
+	<Amount>30000</Amount>
+	<Type>调入</Type>
+	<Remark></Remark>
+</row>
+<Parameter>
+	<Dealer>君乐宝正定经销商</Dealer>
+	<OrderDate>2016-03-09</OrderDate>
+	<OrderCode>YD16030902334945</OrderCode>
+	<Creater>魏向前</Creater>
+	<ShopName>肖玉秀副食店</ShopName>
+	<Contact>肖玉秀</Contact>
+	<Telephone>6358219</Telephone>
+	<Address>正定潭村港务口街 29 号</Address>
+	<Balance>20000</Balance>
+	<Income>20000</Income>
+	<Outback>0</Outback>
+</Parameter>
+</xml>

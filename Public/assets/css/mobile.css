@@ -1,0 +1,51 @@
+@CHARSET "UTF-8";
+@import "base.css";
+/**关于我们**/
+html{width:100%;height:100%;}
+body{font-size:16px;color:#333;font-family: "微软雅黑";width: 100%;height: 100%;}
+a{cursor:pointer;}
+.about_us{width:98%;height: 100%;padding:0 2%}
+.about_us .p1{ margin-top:1em;line-height: 1.2em;width:100%;margin-left:1.2em;margin-right:1.2em;}
+.about_us .p2{ margin-top:0.6em;}
+.about_us .p3{ margin-top:0.6em;}
+.about_us .p4{ margin-top:1em; width:100%;margin-left:1.2em;margin-right:1.2em;}
+.about_us .p5{ margin-top:1em; width:100%;margin-left:1.2em;margin-right:1.2em;}
+.about_us .p6{ margin-top:0.6em;}
+.about_us .ewm-ul li{width:50%;text-align: center;margin-top:1.5em;margin-left:auto;margin-right:auto}
+.about_us .ewm-ul li img{width:44%;}
+.about_us .footer{bottom: 1em;margin:0 auto;width:100%;text-align: center}
+
+
+/****活动****/
+.active_bg{width:100%;max-width:600px;margin:0 auto;background-color: #ecebf0;height:100%;overflow: hidden}
+.active_info{padding:0.8em}
+.active_bg h1.title{text-align: left;font-size: 1.2em;line-height: 1.2em;font-weight: bold}
+.active_bg h2{font-size:0.8em;color:gray;margin-top:0.5em}
+.active_bg h2 span{color:gray}
+ul.active{margin:0 auto;background: #fff}
+ul.active li{border-top:1px solid #adadad;background: url('../images/mobile/hd.png') no-repeat 0.5em 0.7em;background-size:2.2em 2.2em;position: relative;height:4em}
+ul.active li:last-child{border-bottom: 1px solid #adadad}
+ul.active li div.info{margin-left:3em;padding-top:0.6em}
+ul.active li a{font-weight: bold;line-height:1.4em;padding-right:6em;margin-bottom:0.2em;display: block;font-size:1em;overflow: hidden;text-overflow:clip;height:1.2em;color:#4d4d4d;text-decoration: none}
+ul.active li a.time{font-size: 0.8em;color:gray;overflow:inherit;}
+ul.active li span{position: absolute;padding:0.2em 0.6em;background: #999;color:#fff;border-radius: 10px;top:1.3em;right: 1em;font-size:0.9em}
+ul.active li span.check{background: #bb3636}
+.active_bg .bdt1{border-top:1px solid #c2c2c2;height:2px;margin-top:1em;border-bottom:1px solid #fff}
+.active_footer{background: #37393e;position: fixed;bottom: 0px;width:100%;padding:0.5em;opacity: 0.8}
+.active_footer .footer_1{width:80%;margin-left:10%;background: #bb3636;border-radius: 10px;padding:0.5em;color:#fff;border:0px;font-size:0.8em}
+.up_down{width:30px;height:30px;border-radius: 50%;text-align: center;position:fixed;;bottom:7em;right:1em;background: #37393e;opacity: 0.6;color: #fff;font-size:0.5em;}
+.up_down .up_img{width:16px;height: 10px;margin:3px 7px}
+.up_down .up_img img{width:100%;height:100%;}
+.submit_div{margin:0 auto;max-width:600px;width: 80%;display: none;z-index: 9999;position: absolute;left:10%;top:10px;background: #39b3e6;border-radius: 10px}
+.submit_div h1{height:3em;background:#ecebf0;border:1px solid #dedce5;border-top-right-radius: 10px;border-top-left-radius: 10px;line-height: 3em}
+.submit_div ul.submit_ul{width: 100%;height:2.5em;line-height: 2.5em;background: #bb3636;}
+.submit_div ul.submit_ul li{border-left:1px solid #770000;text-align: center;float: left;width:50%;color:#fff}
+.submit_div ul.submit_ul li:first-child{border:0px}
+ul.submit_info{width:100%;background: #f6f5fa;padding:1em}
+ul.submit_info li:last-child{margin-top:1em}
+ul.submit_info li input{width:75%;}
+ul.submit_info .form-control{display: inline;margin-left: 0.5em}
+.await {background: none repeat scroll 0 0 #000;height: 100%;left: 0;line-height: 100%;opacity: 0.6;position: fixed;text-align: center;top: 0;vertical-align: middle;width: 100%;z-index: 9;display: none;}
+.await span {height: 100%;margin: 0;padding: 0;position: relative;top: 40%;vertical-align: middle;width: 100%;}
+
+

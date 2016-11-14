@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>单据打印</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style media="print" type="text/css">.noprint{display:none}</style>
+
+    <link href="__PUBLIC__/assets/css/print.css" rel="stylesheet"/>
+    <script  src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script  src="__PUBLIC__/assets/js/colResizable-1.5.min.js"></script>
+    <script src="__PUBLIC__/assets/js/print/CreateControl.js" type="text/javascript"></script>
+    <script src="__PUBLIC__/assets/js/print/GRInstall.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var gr_InstallPath = "__PUBLIC__/assets/js/print/grinstall";
+        Install_InsertReport();
+    </script>
+    <script type="text/javascript">
+        CreateReport("Report");
+        function GridReportPrint(flag)
+        {
+            Report.LoadFromURL("{$templateFile}");
+            Report.LoadDataFromXML("{$xmlData}");
+            if(flag == 1)
+            {
+                Report.Print(true)
+            }
+            else
+            {
+                Report.PrintPreview(true);
+            }
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">var Installed = Install_Detect();</script>
+<div class="container">
+    <div style="font-size: 36px; padding: 30px 0 10px 0">{$org_name}销售单</div>
+    <div class="header">
+        <span>服务热线：</span>
+        <volist name="ar_org_telephone" id="org_telephone">
+            <span>{$org_telephone}</span>
+        </volist>
+        <span>联系人：{$org_contacts}</span>
+    </div>
+    <div  class="dataTables_wrapper no-footer">
+        <table class="table_m" width="100%" cellspacing="0" cellpadding="0" id="DataTables_Table_0" >
+            <tr>
+                <th style="text-align: left" colspan="3">单据日期：{$order.create_time}</th>
+                <th style="text-align: left" colspan="4">单据编号：{$order.order_code}</th>
+                <th style="text-align: left;width: 212px" colspan="2">制单人：{$puser}</th>
+            </tr>
+            <tr>
+                <td style="text-align: left" colspan="3">往来单位：{$order.cust_name}</td>
+                <td style="text-align: left" colspan="4">联系人：{$order.cust_contact}</td>
+                <td style="text-align: left" colspan="2">客户电话：{$order.cust_tel}</td>
+            </tr>
+            <tr>
+                <td style="text-align: left" colspan="7">地址：{$order.cust_address}</td><td style="text-align: left" colspan="2">出库仓库：{$order.store}</td>
+            </tr>
+            <tr>
+                <td style="min-width:50px">行号</td>
+                <td>商品编码</td>
+                <td>商品名称</td>
+                <td style="min-width:50px">单位</td>
+                <td style="min-width:50px">数量</td>
+                <td style="min-width:50px">单价</td>
+                <td style="min-width:80px">金额(￥)</td>
+                <td style="min-width:50px">赠送</td>
+                <td>备注</td>
+            </tr>
+            <volist name="goodsList" id="v">
+                <tr>
+                    <td>{$i}</td>
+                    <td>{$v.goods_code}</td>
+                    <td>{$v.good_name}{$v.goods_spec}</td>
+                    <td>{$v.goods_unit}</td><td>{$v.number}</td>
+                    <td>{$v.singleprice}</td><td>{$v.allPrice}</td>
+                    <td> <if condition="$v['type_name'] eq '促销品'">是 <else />否</if></td><td>{$v.remark}</td>
+                </tr>
+            </volist>
+            <tr>
+                <td colspan="9" style="text-align: left;border-bottom: 2px solid #000000">备注：{$order.order_remark}</td>
+            </tr>
+
+            <if condition="$order.order_type != 3">
+                <tr>
+                    <td class="txt-l" colspan="2" style="border-bottom: 2px solid #000000">收款方式:{$order.ways}</td>
+                    <td colspan="1" class="txt-l" style="border-bottom: 2px solid #000000">订单总额:{$tallPrice} </td>
+                    <td  class="txt-l" colspan="4" style="border-bottom: 2px solid #000000"  >（大写）{$order.tallPrice|num_to_rmb}</td>
+                    <td colspan="2" class="txt-l" style="border-bottom: 2px solid #000000" >已收：{$order.order_real_money}&nbsp;&nbsp;&nbsp;&nbsp;应收：{$order.shou}</td>
+                </tr>
+            </if>
+
+            <tr>
+                <td colspan="2" class="txt-l">业务员：{$order.staff_name}</td>
+                <td class="txt-l" colspan="1">送货人：{$order.o_driver}</td>
+                <td  class="txt-l" colspan="2">派单日期：{$ptime}</td>
+                <td colspan="2" class="txt-l">收货人：</td>
+                <td colspan="2" class="txt-l">审核人：</td>
+            </tr>
+            <tr>
+                <td colspan="9" class="txt-l">{$acti_message}</td>
+            </tr>
+        </table>
+    </div>
+    <input type="submit" class="btn_print noprint" onClick="GridReportPrint(0)" value="预览">
+    <input type="submit" class="btn_print noprint" onClick="GridReportPrint(1)" value="打印">
+    <input type="submit" id="export" class="btn_print noprint" value="Excel导出">
+</div>
+</body>
+<script>
+    $(function(){
+        $("#export").click(function(){
+            location.href="__URL__/look/state/export/id/{$id}";
+        });
+        var onSampleResized = function(e){
+            var columns = $(e.currentTarget).find("th");
+
+            console.log(columns);
+        };
+        $("#DataTables_Table_0").colResizable({
+            liveDrag:true,
+            gripInnerHtml:"<div class='grip'></div>",
+            draggingClass:"dragging",
+            onResize:onSampleResized
+        });
+    });
+
+</script>
+</html>
+
+<!-- 模板 copy -->

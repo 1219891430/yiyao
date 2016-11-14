@@ -1,0 +1,172 @@
+<div class="modal-dialog" style="width: 95%">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close close_refresh" data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title fb f16">
+                线路设定
+            </h4>
+        </div>
+        <div class="col-md-6">
+
+            <form action="" id="submit_form" method="post">
+                <div class="modal-body">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <p>姓名：{$staff["staff_name"]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 职位：{$staff["job_post"]} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 电话：{$staff["mobile"]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 线路：D-{$param["index"]}</p>
+                        </div>
+
+
+                        <table id="treetable" class="table list_table treetable">
+                            <thead>
+                            <div>
+                                <div class="btn-group">
+
+                                    <a href="javascript:void(0);" class="btn btn-success btn-xs" id="add">添加</a>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del">删除</a>
+                                    <a href="javascript:void(0);" class="btn btn-info btn-xs" id="map">查看地图</a>
+
+                                </div>
+
+                            </div>
+                            <tr>
+                                <td width="1%">
+                                    <input id="checkAll" type="checkbox">
+                                </td>
+                                <!--<td width="10%">编号</td>-->
+                                <td width="10%">终端店</td>
+                                <td width="5%">店主</td>
+                                <td width="15%">地址</td>
+                                <td width="5%">线路</td>
+
+                            </tr>
+                            </thead>
+                            <tbody id="cust_list">
+
+                            <foreach name="custs" item="cust">
+
+                                <tr id="tr_{$cust['cust_id']}">
+                                    <td style="text-align: center">
+                                        <input value="{$cust['cust_id']}" type="checkbox" name="cust_id">
+                                    </td>
+                                    <!--<td>{$cust['cust_id']}</td>-->
+                                    <td>{$cust["cust_name"]}</td>
+                                    <td>{$cust["contact"]}</td>
+                                    <td>{$cust["province"]}{$cust["city"]}{$cust["district"]}{$cust["address"]}</td>
+                                    <td>D-{$param["index"]}</td>
+
+                                </tr>
+
+                            </foreach>
+
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+            </form>
+
+
+        </div>
+
+        <div class="col-md-6" style="border-left: 2px solid #00e0bc; height: 700px !important;">
+
+                <iframe id="iframe" name="miframe" src="__URL__/map?staff_id={$param['staff_id']}&index={$param['index']}" class="col-md-12" style="height: 100%"></iframe>
+
+
+        </div>
+
+        <div class=" clearfix"></div>
+
+        <div class="modal-footer">
+            <a href="#" class="btn btn-default close_refresh" data-dismiss="modal">关闭
+            </a>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+
+        // 全选
+        $('#checkAll').click(function () {
+
+            var is_check = $(this).attr("checked")
+
+            if (is_check == undefined) {
+                is_check = false
+            }
+
+            $("input[type='checkbox']").each(function () {
+                $(this).attr("checked", is_check);
+            });
+
+        })
+
+        // 添加
+        $("#add").click(function () {
+
+            $("#iframe").attr("src","__URL__/add_cust?staff_id={$param['staff_id']}&index={$param['index']}")
+        })
+
+        // 地图
+        $("#map").click(function () {
+            $("#iframe").attr("src","__URL__/map?staff_id={$param['staff_id']}&index={$param['index']}")
+        })
+        
+        // 删除
+        $("#del").click(function () {
+            // 获取所有
+            var custs = $("input[name='cust_id']:checked")
+
+            if (custs.length <= 0) {
+                return false;
+            }
+            if (confirm("确定要删除线路上的终端店吗？")) {
+
+                var id;
+                var ids = [];
+
+                var c = {};
+                var cs = [];
+
+                custs.each(function () {
+                    id = $(this).val();
+                    ids.push(id)
+                })
+
+                var staff_id = {$param["staff_id"]};
+                var index = {$param["index"]};
+
+                var data = {custs: ids,staff_id:staff_id, index:index};
+
+                $.ajax({
+                    url: "__URL__/del",
+                    type:"get",
+                    data:data,
+                    success:function(d){
+                        if (d == 1) {
+                            custs.each(function () {
+                                $("#tr_"+$(this).val()).remove();
+                            })
+
+                            miframe.window.update(ids);
+
+                            miframe.reload()
+                        }
+                    }
+                })
+            }
+
+        })
+
+        // 关闭显示层刷新页面
+        $(".close_refresh").click(function () {
+            window.parent.location.reload();
+        })
+    </script>
+
+</div>

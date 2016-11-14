@@ -1,0 +1,56 @@
+<div class="modal-dialog modal_650 ">
+    <div class="modal-content modal_650">
+        <div class="modal-header">
+            <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title fb f16">
+                设置周期天数
+            </h4>
+        </div>
+        <form action="__URL__/set_cycle?org_id={$org_id}" id="submit_form" method="post">
+            <div class="modal-body modal_650">
+
+                设置周期天数为 <input type="number" name="cycle_times" value="{$cycle_times}" class="form-control input-sm w100" required min="1" max="15"> 天
+
+            </div>
+
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default"
+                   data-dismiss="modal">关闭
+                </a>
+                <a id="submit_cycle" class="btn btn-primary">
+                    设 置
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+        $("#submit_cycle").click(function () {
+            $("#submit_form").submit();
+        })
+        $("#submit_form").validate({
+
+            rules:{
+                cycle_times:{
+                    number: true,
+                    min:1,
+                    max:15,
+                    required: true,
+                },
+            },
+            messages:{
+                cycle_times: {
+                    number:"请输入正确的天数。",
+                    min:"输入天数必须大于 1 天。",
+                    max:"输入天数必须小于 15 天。",
+                    required: "输入天数不能为小于 1 天。"
+                },
+            }
+        })
+    </script>
+
+</div>

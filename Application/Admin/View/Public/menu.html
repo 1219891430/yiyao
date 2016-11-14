@@ -1,0 +1,14 @@
+<ul class="main-left nav nav-stacked" id="main_left">
+	<!-- 菜单 -->
+    <volist name="Think.session.menu" id="leftvo"  key="y">
+    <li class="dropdown">
+    <a href="javascript:void(0)" class="collapsed collapse-menu"><i class="left-bg {$leftvo.icon}"></i><span>{$leftvo.name}</span></a>
+    <ul class="main-left-menu">
+    <volist name="leftvo.subclass" id="leftsubvo">
+    <li><a href="{:U('Admin/'.$leftsubvo['controller'].'/'.$leftsubvo['action'])}"><span>{$leftsubvo.subname}</span></a></li>
+    </volist>
+    </ul>
+    </li>
+    </volist>
+    <li></li>
+</ul>

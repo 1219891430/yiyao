@@ -1,0 +1,87 @@
+<!--底部-->
+
+
+<!--切换仓库地址-->
+<div class="bomb-bg hidden">
+    <div class="change-bomb">
+        <!--<em class="closed"></em>-->
+        <div class="chge-tit"><i></i>仓库地址</div>
+        <div class="chge-con">
+            <ul class="clearfix">
+                <foreach name="depot" item="vo">
+                    <li><a class="depot_choice <if condition="$vo.repertory_id eq $_SESSION['mall_depot_id']"> hover </if>" href="/index.php/mall/index/choiceDepot?depot_id={$vo.repertory_id}">{$vo.repertory_name}</a></li>
+                </foreach>
+            </ul>
+        </div>
+        <div class="chge-ft">
+            <img src="__PUBLIC__/assets/images/mall/chg-ft.jpg">
+        </div>
+    </div>
+</div>
+
+
+<div class="foot-ensure">
+    <div class="ensure-box clearfix">
+        <div class="item">
+            <i class="i-zpbz"></i>
+            <p><strong>正品保证</strong><br>品质保障 购物无忧</p>
+        </div>
+        <div class="item">
+            <i class="i-ksxd"></i>
+            <p><strong>快速下单</strong><br>快速准确下单</p>
+        </div>
+        <div class="item">
+            <i class="i-hssd"></i>
+            <p><strong>火速送达</strong><br>B2B模式 急速送达</p>
+        </div>
+        <div class="item" style="border: none;">
+            <i class="i-tsfw"></i>
+            <p><strong>特色服务</strong><br>不一样的购物体验</p>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="w">
+        <p><a href="__MODULE__/index.html">首页</a> |
+            <a href="http://www.nlh360.com/article/61" target="_blank">关于我们</a> |
+            <a href="http://company.zhaopin.com/CC324868137.htm" target="_blank">诚聘英才</a> |
+            <a href="http://www.nlh360.com/" target="_blank">农乐汇商城</a> |
+            <a href="http://www.nlh360.com/article/63" target="_blank">合作洽谈</a> |
+            <a href="http://www.nlh360.com/article/64" target="_blank">农乐汇优势</a>
+        </p>
+        <p>
+            CopyRight @ 2016 河北泽农信息科技有限公司 增值电信业务经营许可证：冀B2-20160058 网站备案：冀ICP备15028980号
+            <span style="display: none;"><script src="http://s4.cnzz.com/z_stat.php?id=1257011767&web_id=1257011767" language="JavaScript"></script></span>
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(function () {
+        // 未登录弹出选择仓库
+        <if condition="empty($_SESSION['mall_depot_id'])">
+
+                $(".bomb-bg").fadeToggle();
+
+
+        $('.depot_choice').click(function () {
+            $(this).addClass('hover')
+            $(this).sibling().removeClass('hover')
+        })
+
+
+
+        </if>
+    })
+
+    $("#choiceDepot").click(function () {
+        $(".bomb-bg").fadeToggle();
+
+        $('.depot_choice').click(function () {
+            $(this).addClass('hover')
+            $(this).sibling().removeClass('hover')
+        })
+    })
+
+</script>

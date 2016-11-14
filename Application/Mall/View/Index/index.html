@@ -1,0 +1,160 @@
+<include file='Public:head'/>
+<style>
+    .headNav .navCon .navCon-cate .cateMenu{height:460px;overflow: hidden;}
+</style>
+<!-- banner start -->
+<div class="banner">
+    <div class="swap">
+        <ul id="slider">
+            <li style="background:url(__PUBLIC__/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
+                <div class="s-banner-con">
+                    <img class="nav1-wz animated fadeInLeft" src="__PUBLIC__/assets/images/mall/nav1-1.png">
+                    <img class="nav1-pic animated fadeInRight" src="__PUBLIC__/assets/images/mall/nav1-2.png">
+                    <a href="#" target="_blank"></a>
+                </div>
+            </li>
+            <li style="background:url(__PUBLIC__/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
+                <div class="s-banner-con">
+                    <img class="nav1-wz animated fadeInLeft" src="__PUBLIC__/assets/images/mall/nav1-1.png">
+                    <img class="nav1-pic animated fadeInRight" src="__PUBLIC__/assets/images/mall/nav1-2.png">
+                    <a href="#" target="_blank"></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <ul id="naviSlider">
+        <li sindex="1" class="on"></li>
+        <li sindex="2"></li>
+    </ul>
+</div>
+<!-- banner end -->
+<!--特色推荐 start-->
+<div class="slide-r">
+    <div class="slide-r-box">
+        <div class="slide-r-cont1">
+            <h3>我要加盟</h3>
+            <div class="slide-r-go">
+                <a href="">我有仓库</a>
+                <a href="">我有产品</a>
+                <a href="">我有商店</a>
+                <a href="">我有人员</a>
+                <a href="">我有物流</a>
+                <a href="">我有资源</a>
+            </div>
+            <a class="slide-r-btn" href="{:U('mall/join/index')}">申请加盟入驻</a>
+        </div>
+        <div class="slide-r-cont2">
+            <h3>今日推荐</h3>
+            <div class="slide-r-pic">
+                <a href="#">
+                    <img src="images/pic.jpg" width="100" height="100">
+                    <p>厂商批发 冻干太空零食 无添加</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--品牌-->
+<div class="ind-tit w">人气品牌</div>
+<div class="floor1 w clearfix">
+    <div class="flr1-l">
+        <img src="__PUBLIC__/assets/images/mall/pic2.jpg" width="223" height="358">
+        <p>人气品牌街<br><small>Famous Brand</small></p>
+    </div>
+    <div class="flr1-r">
+        <ul>
+
+            <volist name="brands" id="vo" offset="0" length='15'>
+                <li><a href="/index.php/Mall/Search?brand={$vo.brand_id}"><img class="lazy" data-original="{:C('BRAND_IMG')}{$vo.brand_logo}"><p>{$vo['brand_name']}</p></a> </li>
+            </volist>
+        </ul>
+    </div>
+</div>
+
+<!--楼层-->
+<div class="ind-tit w">热销百货市场</div>
+<div class="floor w clearfix">
+    <div class="flr-l">
+        <div class="flr-t">
+            <img src="__PUBLIC__/assets/images/mall/pic3.jpg" width="232" height="377">
+        </div>
+        <div class="flr-f">
+            <div class="ind-l-nav">
+                <volist name="classes" id="class" offset="0" length='4'>
+                    <a href="/index.php/Mall/Search?cat={$class.class_id}">{$class.class_name}</a>
+                </volist>
+            </div>
+            <div class="brand2">
+                <volist name="brands" id="vo">
+                    <a href="/index.php/Mall/Search?brand={$vo.brand_id}">
+                        <img class="lazy" width="180px" height="70px" data-original="{:C('BRAND_IMG')}{$vo.brand_logo}">
+                    </a>
+                </volist>
+            </div>
+        </div>
+    </div>
+    <div class="flr-r">
+        <div class="flr-t">
+            <a class="flr-tit" href="#">热销单品</a>
+            <div class="clearfix item-box">
+
+                <volist name="goods" id="vo">
+
+                    <div class="item">
+                        <div class="brd">
+                            <a href="/index.php/Mall/Search?word={$vo.goods_name}">
+                                <img class="lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}">
+                            </a>
+                            <p class="tit"><a href="/index.php/Mall/Search?word={$vo.goods_name}">{$vo.goods_name}</a></p>
+                            <p class="price">￥<span>{:getPrice($vo['goods_base_price'])}</span></p>
+                        </div>
+                        <span class="info">{$vo.wholesale_num} {$vo.goods_unit}起批</span>
+                        <!--<p class="font-gry">参考零售价:￥{$vo["goods_base_price"]*$per_price}</p>-->
+                    </div>
+
+                </volist>
+            </div>
+        </div>
+        <!--<div class="flr-f">
+            <a class="flr-tit" href="#">热门商家</a>
+
+            <div class="clearfix item-box">
+                <div class="item">
+                    <a href="#">
+                        <img src="__PUBLIC__/assets/images/mall/pic.jpg">
+                        <i class="i-store"></i>
+                        <p class="tit">河北泽农信息科技有限公司</p>
+                    </a>
+                </div>
+
+            </div>
+        </div>-->
+    </div>
+</div>
+
+
+
+<include file='Public:foot'/>
+
+<script type="text/javascript">
+    var MODEL_NAME = '{:ACTION_NAME}';
+    $(document).ready(function(){
+        //幻灯
+        $("#slider").jSlider({
+                    pause:10000,
+                    naviSlider:'naviSlider'
+                }
+        );
+    });
+    
+    $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+    
+</script>
+</body>
+</html>

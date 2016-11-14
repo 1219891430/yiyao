@@ -1,0 +1,102 @@
+<div id="top">
+<div class="navbar">
+<div class="navbar-inner">
+    <div class="logo"><img src="__PUBLIC__/assets/images/logoG.png" /></div>
+    <ul class="navInfo">
+    	<li><a class="fb tel" style="font-size:14px">热线电话：400-0311-995</a></li>
+        <li><a href="tencent://message/?Menu=yes&uin=3414136692" class="fb"><img src="__PUBLIC__/assets/images/backgrounds/qq.gif"></a></li>
+    </ul>
+    <ul class="pull-right navInfo">
+    	<li><a href="{:U('Dealer/CarsaleApply/index')}" class="carApply" id="cheshen">车存申请
+            <if condition="!empty($_SESSION['apply_num'])">
+                <span class="badge bg_gren">{$_SESSION['apply_num']}</span>
+            </if>
+        </a></li>
+        <li><a href="{:U('Dealer/CarsaleBack/index')}">车销退库
+            <if condition="!empty($_SESSION['return_stock_num'])">
+            <span class="badge bg_gren">{$_SESSION["return_stock_num"]}</span>
+            </if>
+        </a></li>
+        <li><a href="{:U('Dealer/CarSalesOrder/index')}" class="carApply" id="chexiao">车销订单
+            <if condition="!empty($_SESSION['order_num'])">
+            <span class="badge bg_gren">{$_SESSION['order_num']}</span>
+            </if>
+        </a></li>
+        <li><a href="{:U('Dealer/PlanOrder/index')}" class="carApply" id="yudan">预售订单
+            <if condition="!empty($_SESSION['car_order_num'])">
+            <span class="badge bg_gren">{$_SESSION['car_order_num']}</span>
+            </if>
+        </a></li>
+        <!--<li><a href="#">新消息<img src="__PUBLIC__/assets/images/backgrounds/mess_icon.png"><span class="badge bg_gren">9</span></a></li>-->
+        <li class="login_info">
+        <a href="javascript:void(0)" id="AdminStaffName" onclick="editInfo();" style="padding:0px;padding-right:10px;">{$Think.session.staff_name}</a>
+        <img src="__PUBLIC__/assets/images/hengx.png">
+        <span><a href="{:U('Dealer/Index/logout')}">退出</a></span>
+        </li>
+        <li><a href="javascript:void(0);" onclick="AddFavorite('农乐汇-抓单宝',location.href)">收藏本页</a></li>
+	</ul>
+</div>
+</div>
+</div>
+
+<!--编辑人员弹出层开始-->
+<div class="modal" id="myModaledit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog modal_650">
+<div class="modal-content modal_650" id="adminInfo"></div>
+</div>
+</div>
+<!--弹出层结束-->
+
+<script type="text/javascript">
+function AddFavorite(title, url) 
+{
+	try { window.external.addFavorite(url, title); }
+	catch (e) {
+		try { window.sidebar.addPanel(title, url, ""); }
+		catch (e) { alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加"); }
+	}
+}
+function getCarApply()
+{
+	$.ajax({
+		url:"{:U('Home/CarportApply/getCarApply')}",
+		type:"post",
+		dataType:"json",
+		success:function(data){
+			$("#cheshen span").html(data.applyOrderNum);
+			$("#chexiao span").html(data.carOrderNum);
+			$("#yudan span").html(data.yuOrderNum);
+		}
+	})
+}
+getCarApply();
+//window.setInterval(getCarApply, 10000);
+
+function editInfo()
+{
+	var url = "{:U('Home/Staff/editAdmin')}";
+	$.ajax({url:url,success:function(data){
+		$('#adminInfo').html(data);
+		$("#myModaledit").modal({backdrop:"static"});
+	}});
+}
+
+function edit_admin_info()
+{
+	var url = "{:U('Home/Staff/editAdmin')}";
+	var staff_name = $("#staff_name1").val();
+	$.post(url,{staff_name:staff_name},function(result){
+		var flag = parseInt(result);
+		if(flag == 1)
+		{
+			alert('修改成功');
+			$('#AdminStaffName').html(staff_name);
+			$("#myModaledit").modal('hide');
+		}
+		else
+		{
+			alert('名称重复，修改失败');
+		}
+	});
+}
+</script>

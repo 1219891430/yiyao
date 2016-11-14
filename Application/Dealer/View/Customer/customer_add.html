@@ -1,0 +1,225 @@
+<!--新建部门弹出层开始-->
+<div class="modal-content modal_850">
+<form action="{:U('Home/Customer/addCustomer')}" method="post" enctype="multipart/form-data"  id="submit_form">
+    <!--onSubmit="return org_add_check()"-->
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title fb f16">添加客户</h4>
+</div>
+<div class="modal-body">
+<div class="modal_850" id="customer_add_div">
+<table class="table no_border">
+<thead></thead>
+<tbody>
+<tr>
+    <!--<input type="hidden" id="lngX" />
+    <input type="hidden" id="latY" />-->
+    <td class="title-error" align="right">店铺名称：</td><td><input name="cust_name" id="cust_name" type="text" class="unit_name form-control w200">
+    <ul class="ul-div" id="cust-data" style="height:30px;">
+    </ul>
+        <td class="title-error" align="right">联系人：</td><td><input name="contact" id="contact" type="text" class="unit_name form-control w200"></td>
+</tr>
+
+<tr>
+    <td class="title-error" align="right">客户类型：</td><td><select name="cust_type" id="cust_type" class="form-control w200">
+    <option value="0">请选择客户类型</option>
+    <volist id="vo" name="typelist">
+        <
+            <option value="{$vo.ct_id}" style="text-indent: 1em">{$vo.ct_name}</option>
+       
+     
+    </volist>
+        </select></td>
+    <td align="right">营业面积：</td><td><input name="business_area" id="business_area" type="text" class="unit_name form-control w200"></td>
+</tr>
+<tr>
+    <td class="title-error" align="right">电话：</td><td><input name="telephone" id="telephone" type="text" class="unit_number form-control w200"></td>
+</tr>
+<tr>
+    <td class="title-error" align="right">所在地：</td><td colspan="3">
+    <select name="province" id="province" class="form-control w130"></select>
+    <select id="city" name="city" class="form-control w130"></select>
+    <select name="district" id="district" class="form-control w130"></select>
+</td>
+</tr>
+<tr>
+    <td class="title-error" align="right">经纬度：</td><td colspan="3">
+       <input type="text" name="jwd" id="jwdvo" readonly="readonly" class="w200 form-control jwd_val"/>
+       &nbsp;&nbsp;&nbsp;&nbsp;
+       <a id="jwd" href="javascript:void(0)" style="text-decoration: underline">点击获取经纬度</a>
+</td>
+</tr>
+<tr>
+    <td class="title-error">地址：</td><td><input name="address" id="address" type="text" class="unit_name form-control w200"></td>
+    
+</tr>
+<tr>
+    <td align="right" class="title-error">业务员：</td>
+    <td colspan="3">
+        <ul class="staff-task" id="all_staff">
+        <volist name="staffList" id="vo">
+            <li><input name="staff_id[]" class="staff_check" type="checkbox" value="{$vo.staff_id}"/>{$vo.staff_name}</li>
+        </volist>
+        </ul>
+   </td>
+</tr>
+
+</tbody>
+<tfoot></tfoot>
+</table>
+</div>
+</div>    
+<div class="modal-footer">
+<a href="javascript:void(0)" id="close_customer" class="btn btn-default" data-dismiss="modal">关闭</a>
+<a id="submit_unit" class="btn btn-primary">创建</a>
+</div>
+</form>
+<input type="hidden" id="hcust_id">
+<script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+<script type="text/javascript">
+
+
+   //$("#cust_name").blur(function(){
+	//  var cust_name=$(this).val();
+	//  alert(cust_name);
+  // });
+
+
+
+    new PCAS("province","city","district");
+    $("#jwd").click(function(){
+        mapObj.clearMap();
+        $(".jwd_map").show();
+        $("#submit_unit,#close_customer").attr("disabled","disabled");
+        if($("#cust_name").attr("disabled")=="disabled")
+        {
+        	alert("dfgf");
+
+            var arr=$(".jwd_val").val().split(",");
+            addMarker(arr[0],arr[1]);
+            $("#lngX").val(arr[0]);
+            $("#latY").val(arr[1]);
+        }
+        else
+        $("#lngX,#latY").val("");
+    })
+    //模糊查询商铺
+    
+    $(".modal-content").click(function(){
+        $("#cust-data").empty().hide();
+    })
+   
+   
+    
+    $("#submit_unit").click(function(){
+        var staff_length=$(".staff_check:checked").length;
+        if(staff_length>0)
+            $("#submit_form").submit();
+        else
+            alert("请选择业务员");
+    })
+    
+    function submit_unit(){
+    	var staffIds=new Array();
+    	
+    	var i=0;
+    	$(".staff_check:checked").each(function(){
+    		
+    		staffIds[i]=$(this).val();
+    		i++;
+    	})
+        var cust_name=$("#cust_name").val();
+    	var contact=$("#contact").val();
+    	var cust_type=$("#cust_type").val();
+    	var business_area=$("#business_area").val();
+    	var telephone=$("#telephone").val();
+    	var province=$("#province").val();
+    	var city=$("#city").val();
+    	var district=$("#district").val();
+    	var lngX=$("#lngX").val();
+    	var latY=$("#latY").val();
+    	var address=$("#address").val();
+    	
+    	var data={
+    		cust_name:cust_name,
+    		contact:contact,
+    		cust_type:cust_type,
+    		business_area:business_area,
+    		telephone:telephone,
+    		province:province,
+    		city:city,
+    		district:district,
+    		lngX:lngX,
+    		latY:latY,
+    		address:address,
+    		staffIds:staffIds,
+    	}
+    	
+        
+    	$.post("__URL__/addCustomer",data,function(res){
+    		if(res["code"]==1){
+    			alert(res["msg"]);
+    			location.reload();
+    		}else{
+    			alert(res["msg"]);
+    			
+    		}
+    		
+    	},"json");
+
+ 
+
+
+    }
+    
+    $("#submit_form").validate({
+          submitHandler:function(){
+              submit_unit();
+          },
+        rules:{
+            cust_code:{
+                required:true,
+                maxlength:30
+            },
+            cust_type:{
+                valNeqZero:true
+            },
+            
+            province:"required",
+            city:"required",
+            jwd:"required",
+            cust_name:"required",
+            contact:"required",
+            telephone:{
+                minlength:6,
+                maxlength:12,
+                number:true,
+                required:true
+            },
+            address:"required"
+        },
+        messages:{
+            cust_code:{
+                required:"客户编码不能为空",
+                maxlength:"客户编码最大为15位"
+            },
+            cust_type:{
+                valNeqZero:"请选择客户类型"
+            },
+            
+            province:"请选择省份",
+            city:"请选择市",
+            jwd:"经纬度不能为空",
+            cust_name:"店铺名称不能为空",
+            contact:"请填写联系人",
+            telephone:{
+                minlength:"请填写正确电话",
+                maxlength:"请填写正确电话",
+                number:"请填写正确电话",
+                required:"电话不能为空"
+            },
+            address:"请填写地址"
+        }
+    })
+
+</script></div>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <div class="sel-data mb20">
+        <div class="fl">
+                    <select name="query[repertory_id]" id="repertory_id" class="form-control w200">
+                                <option value="0">请选择仓库</option>
+                                <volist name="depotList" id="vo">
+                                    <if condition="$vo.repertory_id eq $query['repertory_id']">
+                                        <option selected="selected" value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                                        <else/><option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                                    </if>
+                                </volist>
+                            </select>
+                    <select name="query[dealer_id]" id="dealer_id" class="form-control w200">
+                        <option value="0">请选择经销商</option>
+                        <volist name="dealerList" id="vo">
+                            <if condition="$vo.org_id eq $query['dealer_id']">
+                                <option selected="selected" value="{$vo.org_id}">{$vo.org_name}</option>
+                                <else/><option value="{$vo.org_id}">{$vo.org_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+            <input type="text" class="form-control w200" id="cust_name" name="query['cust_name']"  value="{$query.cust_name}"  placeholder="请输入商铺名称" />
+            <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+        </div>
+        <div class="fr">
+            <!--<a class="btn btn-primary bg_3071a9" id="cre_c"  role="button">创建</a>-->
+        </div>
+    </div>
+    <!--右侧查询结束-->
+    <!--表格查询开始-->
+    <table class="table list_table">
+        <thead>
+        <tr>
+            <td width="10%">客户名称</td>
+            <td width="10%">联系人</td>
+            <td width="10%">电话</td>
+            <td>地址</td>
+            <td width="60">状态</td>
+
+            <td width="180">建店时间</td>
+            <td width="200">操作</td>
+        </tr>
+        </thead>
+        <tbody id="cust_table">
+        <volist name="list" id="list">
+        <tr id="tr_{$list.cust_id}">
+            <td>{$list.cust_name}</td>
+            <td>{$list.contact}</td>
+            <td>{$list.telephone}</td>
+            <td>{$list.province}{$list.city}{$list.district}{$list.address}</td>
+            <td id="td_{$list.cust_id}" class='<if condition="$list.is_close eq 1">red<else/>green</if>'><if condition="$list.is_close eq 1">关闭<else />开启</if></td>
+            <td>{$list.reg_time|date="Y-m-d H:i:s",###}</td>
+            <td>
+                <ul class="operate-menu li-width33">
+                    <li><a class="collapsed collapse-menu icons-href edit"  role="button" data-p="{$p}"  data-id="{$list.cust_id}"><i class="icon-edit"></i>修改</a></li>
+                    <if condition="$list.is_close eq 1">
+                        <li><a data-id="{$list.cust_id}" class="collapsed collapse-menu icons-href open" href="javascript:void(0)"><i class="icon-remove-circle"></i>启用</a></li>
+                        <else/>
+                        <li><a data-id="{$list.cust_id}" class="collapsed collapse-menu icons-href closed" href="javascript:void(0)"><i class="icon-remove-circle"></i>关闭</a></li>
+                    </if>
+                    <!--
+                    <li><a class="collapsed collapse-menu icons-href delete" data-id="{$list.cust_id}"  data-close="{$list.is_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                    -->
+                </ul>
+            </td>
+        </tr>
+        </volist>
+        </tbody>
+    </table>
+
+        {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$query))}
+        </div>
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+<!--地图弹出层开始-->
+<div class="jwd_map">
+    <div id="iCenter"></div>
+    <div class="iCenter_info">
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;经度&nbsp;&nbsp;&nbsp;&nbsp;<input readonly="readonly" type="text" class="form-control w130" id="lngX"></span>
+        <span>&nbsp;&nbsp;&nbsp;&nbsp;纬度&nbsp;&nbsp;&nbsp;&nbsp;<input readonly="readonly" type="text" class="form-control w130" id="latY"></span>
+        <span class="w50"><input type="button" class="form-control" id="jwd_add" value="确定"></span>
+        <span class="w50"><input type="button" class="form-control" id="jwd_close" value="关闭"></span>
+    </div>
+</div>
+<!--地图弹出层结束-->
+<script language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=372a8961a7f4ade22c2fc3e7558d337b"></script>
+<script type="text/javascript">
+    var mapObj,marker;
+    mapInit();
+    //初始化地图对象，加载地图
+    function mapInit(){
+        mapObj = new AMap.Map("iCenter",{
+           resizeEnable: true,
+           zoom:12,
+        });
+        mapObj.plugin(["AMap.ToolBar"],function(){
+            toolBar = new AMap.ToolBar();
+            mapObj.addControl(toolBar);
+            userControl();
+        });
+        AMap.event.addListener(mapObj,'click',getLnglat);
+    }
+    //鼠标在地图上点击，获取经纬度坐标
+    function getLnglat(e){
+        mapObj.clearMap();
+        document.getElementById("lngX").value=e.lnglat.getLng();
+        document.getElementById("latY").value=e.lnglat.getLat();
+        addMarker(e.lnglat.getLng(),e.lnglat.getLat())
+    }
+    //添加标注
+    function addMarker(j,w){
+        marker = new AMap.Marker({
+            icon:"__PUBLIC__/assets/images/mark.png",
+            position:new AMap.LngLat(j,w)
+        });
+        marker.setMap(mapObj);  //在地图上添加点
+    }
+</script>
+<script type="text/javascript">
+    //部门联动
+    $("#repertory_id").change(function(){
+        var depot_id = $(this).val();
+        if(depot_id ==0){
+            $("#dealer_id").html('<option value=0>请选择经销商</option>');
+            return;
+        }
+        $.ajax({type:'post',url: "{:U('Admin/Ajax/getDepotOrg')}",data:{ depot_id:depot_id }, dataType:'json',timeout: 5000,
+            error: function(){
+            },
+            success: function($r){
+                $("#dealer_id").html('<option value=0>请选择经销商</option>');
+                if($r.status){
+                    var html = '<option value=0>请选择经销商</option>';
+                    $.each($r.rows,function(index,item){
+                        html+= '<option value="'+item.org_id+'">'+item.org_name+'</option>';
+                    });
+                    $("#dealer_id").html(html);
+                }
+            }
+        });
+    });
+
+    //地图
+    $("#jwd_close").click(function(){
+        $(".jwd_map").hide();
+        $("#submit_unit,#close_customer").removeAttr("disabled");
+    });
+    $("#jwd_add").click(function(){
+        $(".jwd_val").val($("#lngX").val()+","+$("#latY").val())
+        $("#submit_unit,#close_customer").removeAttr("disabled");
+        $(".jwd_map").hide();
+    });
+
+    //创建
+    $("#cre_c").click(function () {
+        $.ajax({
+            url: "__URL__/add/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //查询
+    $("#find").click(function() {
+        var con = "";
+        if ($("#cust_name").val() != '') {
+            con += "/cust_name/" + $("#cust_name").val();
+        }
+        if ($("#repertory_id").val() != 0) {
+            con += "/repertory_id/" + $("#repertory_id").val();
+        }
+        if ($('#dealer_id').val() != 0) {
+            con += '/dealer_id/'+$('#dealer_id').val();
+        }
+        location.href="__URL__/index"+con;
+    });
+
+
+    //编辑
+    $(".edit").click(function () {
+        $.ajax({
+            url: "__URL__/edit/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            data:{cust_id:$(this).attr('data-id'),p:$(this).attr('data-p')},
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //删除
+    $(".delete").click(function(){
+        var state=$(this).attr("data-close");
+        if(state==1){
+            alert("该客户已封存，暂不能删除，如果确定删除，请先解除封存状态！");
+        }else{
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('data-id');
+                $.post("{:U('Admin/Shops/del')}",{cust_id:id},function(result){
+                    if(result==1){
+                        alert("删除成功!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        }
+    });
+
+    // 启用
+    $(".open").click(function () {
+        if (confirm("确定要启用吗？")) {
+            var id = $(this).attr('data-id');
+            var url = "{:U('close')}" + "?id=" + id + "&st=0";
+            $.get(url, function(result){
+                if(result == 1) {
+                    alert("操作成功!");
+                    location.reload(true);
+                } else {
+                    alert("操作失败");
+                }
+            });
+
+        }});
+
+    // 关闭
+    $(".closed").click(function (){
+        if (confirm("确定要关闭吗？")) {
+            var id = $(this).attr('data-id');
+            var url = "{:U('close')}" + "?id=" + id + "&st=1";
+            $.get(url, function(result){
+                if(result == 1) {
+                    alert("操作成功!");
+                    location.reload(true);
+                } else {
+                    alert("操作失败");
+                }
+            });
+        }});
+
+    // 审核
+    $(".checkok").click(function () {
+        if (confirm("确定设置为【已审核】状态吗？")) {
+            var id = $(this).attr('data-id');
+            var url = "{:U('check')}" + "?id=" + id + "&st=1";
+            $.get(url, function(result){
+                if(result == 1) {
+                    alert("操作成功!");
+                    location.reload(true);
+                } else {
+                    alert("操作失败");
+                }
+            });
+        }});
+
+    // 关闭
+    $(".checkno").click(function (){
+        if (confirm("确定设置为【未审核】状态吗？")) {
+            var id = $(this).attr('data-id');
+            var url = "{:U('check')}" + "?id=" + id + "&st=0";
+            $.get(url, function(result){
+                if(result == 1) {
+                    alert("操作成功!");
+                    location.reload(true);
+                } else {
+                    alert("操作失败");
+                }
+            });
+        }});
+
+
+    $(function(){
+
+    });
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

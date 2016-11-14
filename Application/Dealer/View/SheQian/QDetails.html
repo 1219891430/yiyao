@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container" id="main-container">
+    <include file="Public/menu"/>
+    <div class="main-right container-fluid">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <input type="hidden" id="check_org" value="{$org_id}">
+                    <input type="hidden" id="check_dep" value="{$dep_id}">
+      
+                    <!-- <select class="form-control w200" id="org">
+                        {$option}
+                    </select> -->
+                    <!-- <button attr="1" id="salesman">业务员销货</button>
+                    <button attr="2" id="goods">产品出货</button> -->
+
+                    <!-- <a class="btn btn-default" href="#" id="chaxun" role="button">查询</a> -->
+                </div>
+                <div class="fr">
+                <a class="btn btn-primary bg_3071a9" href="{:U('QDetails',array('order_id'=>$_GET['order_id'],'export'=>'export'))}" role="button">导出</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table">
+                <thead>
+                <tr>
+                    <td width="10%">赊款店铺</td>
+                    <td width="10%">清欠金额</td>
+                    <td width="10%">业务员</td>
+                    <td width="8%">清欠操作人</td>
+                    
+                    <td width="8%">清欠时间</td>
+                    <td width="10%">备注</td>
+                </tr>
+                
+                </thead>
+                
+                <tbody id="content">
+                <volist name="list" id="data" >
+
+                 <tr>
+                    <td width="10%">{$data.cust_name}</td>
+                    <td width="10%">{$data.price}</td>
+                    <td width="10%">{$data.order_staff_name}</td>
+                    <td width="10%">{$data.qian_staff_name}</td>
+                    <td width="10%">{$data.addtime|date='Y-m-d H:i:s',###}</td>
+                    <td width="10%">{$data.mark}</td>
+                </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            
+             
+            <!--表格查询结束-->
+            <!-- 分页查询开始 -->
+
+                   <!-- 分页查询结束 -->
+                   
+                   {:W('Page/page',array("__URL__/QDetails",$pnum,$pagelist,$urlPara))}
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script language="javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

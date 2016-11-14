@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title></title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/jquery.treetable.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/jquery.treetable.theme.default.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-switch.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <!-- 按钮 -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap-switch.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/highlight.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/main.js"></script>
+    <!-- 按钮 -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+
+</head>`
+<body>
+
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>添加仓库经销商</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+
+                    <td width="80px">仓库</td><td>
+                        <select class="form-control w200" name="depot" id="depot">
+                            <volist name="depot" id="d">
+                                <option value="{$d.repertory_id}">{$d.repertory_name}</option>
+                            </volist>
+                        </select>
+                    </td>
+                    <td width="80px">经销商</td>
+                    <td>
+                        <select class="form-control w200" name="org" id="org">
+                            <volist name="orglist" id="org">
+                                <option value="{$org.org_id}">{$org.org_name}</option>
+                            </volist>
+                        </select>
+                    </td>
+
+                </tr>
+
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit" class="btn btn-primary">
+            <span>添加</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+
+        $(function(){
+            $("#start_time,#end_time").manhuaDate({
+                Event : "click",//可选
+                Left : 0,//弹出时间停靠的左边位置
+                Top : -16,//弹出时间停靠的顶部边位置
+                fuhao : "-",//日期连接符默认为-
+                isTime : false,//是否开启时间值默认为false
+                beginY : 2014,//年份的开始默认为1949
+                endY :2049//年份的结束默认为2049
+            });
+        });
+
+        $("#submit").click(function(){
+
+            $("#submit_form").submit();
+        })
+        $("#submit_form").validate({
+            submitHandler:function(){
+                submit_add();
+            },
+
+        })
+        function submit_add()
+        {
+            var data=$("#submit_form").serialize();
+            ajaxDataAUD("__URL__/doadd",data,true);
+        }
+    </script>
+
+</div>
+</body>
+</html>

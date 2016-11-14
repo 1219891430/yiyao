@@ -1,0 +1,108 @@
+<style>
+    #showpic { z-index:99999; position:absolute; width:75; height:75; text-align:center; line-height:150%; border:2px solid #DEEFFA; padding:5px; background:#FFFFFF;}
+</style>
+<div id="showpic" style="display:none;"><img name="showpic_img" id="showpic_img" width="120" height="160"></div>
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>修改商品</span>
+        </h4>
+    </div>
+    
+    <form action="__URL__/editex" id="goods_form" method="post" enctype="multipart/form-data">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                	
+                <tr>
+                    <td>商品条码</td>
+                    <td>
+                        <input type="text" name="goods_code" disabled="disabled" id="barcode_input" value="{$res.goods_code}"  class="w200 form-control"/>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>商品名称</td>
+                    <td>
+                        <input type="hidden" id="goods_id" name="goods_id" value="{$res.goods_id}" >
+                        <input type="text" maxlength="100" value="{$res.goods_name}" disabled="disabled" name="goods_name" class="w200 form-control"/>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>商品规格</td><td>
+                    <input type="text" maxlength="50" id="goods_spec" disabled="disabled" value="{$res.goods_spec}" name="goods_spec" class="w200 form-control"/>
+                  </td>
+                  </tr>
+                  <tr>
+                  	<td>设置区域</td>
+                  	<td>
+                  		<select class="w200 form-control" id="area_id">
+                  			<option value="0">选择区域</option>
+                  			<volist name="arealist" id="vo">
+                  				<php>if($area_id==$vo["area_id"]){</php>
+                  					<option value="{$vo.area_id}" selected="selected">{$vo.area_name}</option>
+                  				<php>}else{</php>
+                  					<option value="{$vo.area_id}">{$vo.area_name}</option>
+                  				<php>}</php>
+                  				
+                  			</volist>
+                  		</select>
+                  		
+                  	</td>
+                  </tr>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit_goods" class="btn btn-primary">
+            <span>修改</span>
+        </a>
+    </div>
+    
+
+    <script type="text/javascript">
+      
+        
+        $("#submit_goods").click(function(){
+             var area_id=$("#area_id").val();
+//           if(area_id==0){
+//           	alert("请选择区域");
+//           	return;
+//           }
+             var goods_id=$("#goods_id").val();
+             
+             var data={area_id:area_id,goods_id:goods_id};
+             
+             console.log(data);
+        	 $.post("__URL__/areaEx",data,function(res){
+        	 	
+        	 	  if(res.res==1){
+        	 	  	  alert(res.msg);
+        	 	  	  location.reload();
+        	 	  }else{
+        	 	  	  alert(res.msg);
+        	 	  }
+        	 },"json");
+        })
+        
+       
+
+        
+       
+    </script>
+</div>

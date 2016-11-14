@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    <div class="row-fluid main-content">
+    	<div class="sel-data mb20">
+		<div class="fl">
+            <select id="line_id" class="w250 form-control">
+            <option value="0">配送线路</option>
+            <volist name="line_list" id="lvo">
+            <if condition="$lvo['line_id'] eq $queryLine">
+            <option selected="selected" value="{$lvo.line_id}">{$lvo.line_name}</option>
+            <else/>
+            <option value="{$lvo.line_id}">{$lvo.line_name}</option>
+            </if>
+            </volist>
+            </select>                    
+            <input type="text" readonly="readonly" class="form-control w150 cursor-pointer" id="start_time" placeholder="起始时间" value="{$startTime}" />
+            <input type="text" readonly="readonly" class="form-control w150 cursor-pointer" id="end_time" placeholder="结束时间" value="{$endTime}" />
+            <a class="btn btn-default" href="#" id="find" role="button">查询预单</a>
+		</div>
+		</div>
+
+        <table class="table list_table" id="role_table">
+        <thead>
+        <tr><td width="40%">终端门店</td>
+        <td width="20%">订单编号</td>
+        <td width="20%">订单费用</td>
+        <td width="20%">下单时间</td>
+        </tr>
+        </thead>
+        <tbody>
+        <volist name="orderList" id="shop">
+        <volist name="shop.order_list" id="order">
+        <tr>
+        <if condition="$i == 1"><td rowspan="{$shop.order_list|count}" style="vertical-align:middle;">{$shop.cust_name}</td></if>
+        <td>{$order.order_code}</td>
+        <td>{$order.order_total_money}</td>
+        <td>{$order.add_time}</td>
+        </tr>
+        </volist>
+        </volist>
+        </tbody>
+        <tfoot></tfoot>
+        </table>
+
+		<form id="shippingForm" action="{:U('add')}" method="post">
+
+            <select id="staff_id" name="staff_id" class="w150 form-control">
+            <option value="0">配送人员</option>
+            <volist name="staffList" id="svo">
+            <if condition="$svo['admin_id'] eq $queryStaffID">
+            <option selected="selected" value="{$svo.admin_id}">{$svo.true_name}</option>
+            <else/>
+            <option value="{$svo.admin_id}">{$svo.true_name}</option>
+            </if>
+            </volist>
+            </select>
+            
+			<input type="hidden" id="selectLine" name="lineID" value="{$queryLine}" />
+        	<input type="hidden" name="presale_list" value='{$presaleIDList}' />
+            <input type="hidden" name="return_list" value='{$returnIDList}' />
+            <input type="hidden" name="change_list" value='{$changeIDList}' />
+            <input type="hidden" name="customer_order_list" value='{$customerOrderIDList}' />
+            <a class="btn btn-primary bg_3071a9" href="javascript:void(0)" onClick="saveShipping()" role="button">指派配送</a>
+        
+        </form>
+	</div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+	$("#start_time,#end_time").manhuaDate({
+		Event : "click",//可选
+		Left : 0,//弹出时间停靠的左边位置
+		Top : -16,//弹出时间停靠的顶部边位置
+		fuhao : "-",//日期连接符默认为-
+		isTime : false,//是否开启时间值默认为false
+		beginY : 2014,//年份的开始默认为1949
+		endY :2049//年份的结束默认为2049
+	});
+});
+
+$("#find").click(function(){
+
+	var line_id = $('#line_id').val();
+	var start_time = $("#start_time").val();
+	var end_time = $("#end_time").val();
+	
+	if(line_id == 0 || start_time == '' || end_time == '')
+	{
+		alert('请选择查询条件');
+		return;
+	}
+
+	$('#selectLine').val(line_id);
+	var url = "{:U('index')}" + "?lid=" + line_id + "&start=" + start_time + "&end=" + end_time;
+	location.href = url;
+});
+
+function saveShipping()
+{
+	var staff_id = $('#staff_id').val();
+	if(staff_id == 0)
+	{
+		alert('请选择配送人员');
+		return;
+	}
+	else
+	{
+		$('#shippingForm').submit();
+	}
+}
+</script>
+</body>
+<include file="Public/warning_sound"/>
+</html>

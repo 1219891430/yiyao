@@ -1,0 +1,3 @@
+<?php
+//000000086400a:3:{i:0;a:6:{s:5:"cv_id";s:1:"7";s:8:"goods_id";s:1:"3";s:10:"goods_name";s:35:"注射用盐酸大观霉素(卓青)";s:10:"goods_spec";s:2:"2g";s:10:"goods_unit";s:3:"盒";s:15:"goods_unit_type";s:1:"1";}i:1;a:6:{s:5:"cv_id";s:1:"9";s:8:"goods_id";s:1:"3";s:10:"goods_name";s:35:"注射用盐酸大观霉素(卓青)";s:10:"goods_spec";s:2:"2g";s:10:"goods_unit";s:3:"包";s:15:"goods_unit_type";s:1:"2";}i:2;a:6:{s:5:"cv_id";s:1:"8";s:8:"goods_id";s:1:"3";s:10:"goods_name";s:35:"注射用盐酸大观霉素(卓青)";s:10:"goods_spec";s:2:"2g";s:10:"goods_unit";s:3:"件";s:15:"goods_unit_type";s:1:"3";}}
+?>

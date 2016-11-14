@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    
+    	<div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+
+		<div class="row-fluid main-content">
+        <table id="treetable" class="table list_table treetable">
+            <thead>
+            <tr>
+            <td width="15%">机构全称</td>
+            <td width="10%">联系人</td>
+            <td width="15%">电话</td>
+            <td width="15%">地区</td>
+            <td width="20%">地址</td>
+            <td width="10%">状态</td>
+            <td width="20%">注册时间</td>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <td style="text-align: center">{$org.org_name}</td>
+            <td style="text-align: center">{$org.contacts}</td>
+            <td style="text-align: center">{$org.mobile}</td>
+            <td style="text-align: center">{$org.province}{$org.city}{$org.district}</td>
+            <td style="text-align: center">{$org.address}</td>
+            <td style="text-align: center" class='<if condition="$org.is_close eq 1">red<else/>green</if>'>
+            <if condition="$org.is_close eq 1">已关闭<else/>正常</if>
+            <td style="text-align: center">{$org.reg_time|date="Y 年 m 月 d 日", ###}</td>
+            </td>
+
+            </tr>
+
+			</tbody>
+		</table>
+        </div>
+    
+	</div>
+</div>
+
+</body>
+</html>

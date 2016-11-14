@@ -1,0 +1,29 @@
+@CHARSET "UTF-8";
+@import "base.css";
+body{font-family: "微软雅黑";font-size:16px;color:#000000;background-color:#fff;text-align:center}
+.container{width:90%;margin:20px auto}
+.m_10{ margin-bottom:10px; text-align:center}
+.m_10 th{ font-size:18px;font-weight:normal;padding: 20px 0}
+.m_10 td{text-align:right;border:0}
+.ml_20{padding-left:10px }
+.table_m{border:2px solid #000000;margin-bottom:10px}
+.table_m .txt-l{text-align: left}
+.table_m th,td{padding: 0 2px; height:36px; line-height:36px; border-right:1px solid #000000;border-bottom:1px solid #000000;font-weight: normal;word-spacing: 1px; letter-spacing: 1px;text-align: center}
+.table_m b{padding: 0 5px}
+.table_p td{border:0;}
+.table_remark{width: 100%;margin: 0px 0 20px 0;}
+.table_remark ul{ list-style: none; margin: 0; padding: 0}
+.table_remark ul li{ line-height: 38px; height: 38px; padding: 0 10px;float: left}
+.table_remark .table_remark_width{ width: 100%; text-align: left}
+.btn_print{width:112px;height:31px;margin:20px auto;border:0;cursor:pointer}
+.header{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.header b{font-size: 18px}
+.header span{
+	padding: 0 10px;
+	font-size: 20px;
+	font-weight: 700;
+}

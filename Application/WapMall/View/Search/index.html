@@ -1,0 +1,412 @@
+﻿<include file='Public:head'/>
+<body>
+	<div id="pullrefresh">
+	
+    <!--搜索页-->
+    <div class="wrap bg-fff">
+        <div class="zy-top">
+            <!--子页搜索-->
+            <div class="zy-search">
+                <div class="sch-w clearfix">
+                    <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+                    <div class="search">
+                        <button class="go-sch" id="search" href="#"></button>
+                        <input type="text" id="name1" value="{$_GET.word}" placeholder="商品名或关键字">
+                    </div>
+                </div>
+                <a class="top-user" href="{:U('WapMall/Member/index')}"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+            </div>
+            <!--筛选-->
+            <ul class="filter-t clearfix">
+                <li class="active"><a href="#" id="zonghe">综合</a></li>
+                <li><a href="#" id="xiaoliang">
+                	销量
+                	<php>if($_GET["order"]=="sales"){</php>
+                	<if condition="session('search_order_sales'.$_SESSION['cust_id']) == 'desc'">
+                  <i class="arrow arrow-down"></i>
+                  <else />
+                  <i class="arrow arrow-up"></i>
+                  </if>
+                	<php>}else{</php>
+                		<i class="arrow"></i>
+                	<php>}</php>
+                    </a>
+                </li><!--升arrow-up，降arrow-down-->
+                <li>
+                	<a href="#" id="jiage">
+                	价格
+                	<php>if($_GET["order"]=="price"){</php>
+                	<if condition="session('search_order_price'.$_SESSION['cust_id']) == 'desc'">
+                		<i class="arrow arrow-down"></i>
+        			<else /> 
+        			    <i class="arrow arrow-up"></i>
+        			</if>
+        			<php>}else{</php>
+                		<i class="arrow"></i>
+                	<php>}</php>
+                	
+                </a>
+                </li>
+                <!--<li><a href="#" id="qidingliang">起定量</a></li>-->
+                
+        
+                
+            </ul>
+            <ul class="filter-f clearfix" id="title">
+                <li class="" type="class"><span>按分类<i></i></span></li> <!--class="show"展示下级-->
+                <li type="brand"><span>按品牌<i></i></span></li>
+            </ul>
+            <div class="filter wrap hidden" id="class"><!--去掉hidden展示下级-->
+                <ul class="clearfix">
+				    <php>foreach($cats as $id=>$name ){ </php>
+                   
+				   <li id="{$id}" type="class" class="sub" isChecked="false">{$name}</li>
+				   <php>}</php>
+                </ul>
+                <div class="btn-box">
+                    <input id="classreset" type="reset" value="重置">
+                    <input id="classsubmit" type="submit" value="确定">
+                </div>
+			</div>
+		    <div class="filter wrap hidden" id="brand"><!--去掉hidden展示下级-->
+				<ul class="clearfix">
+				   <php>foreach($brands as $id=>$name ){ </php>
+                   
+				   <li id="{$id}" type="brand" class="sub" isChecked="false">{$name}</li>
+				   
+				   <php>}</php>
+                </ul>
+                <div class="btn-box">
+                    <input id="brandreset" type="reset" value="重置">
+                    <input id="brandsubmit" type="submit" value="确定">
+                </div>
+            </div>
+        </div>
+        <!--商品列表-->
+        <div class="sch-top-empty"></div>
+        <div class="mui-scroll">
+        <div class="sch-list">
+        	<div id="list">
+        	
+        	<volist name="goods" id="vo">
+        		<div class="item">
+                <a class="itema clearfix" href="{:U('Goods/index',array('org_id'=>$vo['org_parent_id'],'goods_id'=>$vo['goods_id']))}">
+                    <img class="lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}">
+                    <div class="info">
+                        <p class="tit">{$vo.goods_name}</p>
+                        <p class="fontgry">{$vo.org_name}</p>
+                        <div class="p-bottom">
+                            <p class="price">￥<span>{$vo.goods_base_price}</span></p>
+                            <p class="fontgry"><span class="price-gry">{$vo.goods_base_price}</span>共成交{$vo.sales}笔</p>
+                        </div>
+                    </div>
+                </a>
+                <a class="i-car" href="JavaScript:addCarL({$vo.cv_id},{$vo.org_id});" cv="{$vo.cv_id}"><i class="i-w-car"></i></a>
+            	</div>
+        		
+        	</volist>
+        	
+        	</div>
+        	
+            
+            
+            <div class="list-loading"><div class="loading_box"><!--已经到底部了--></div></div>
+        </div>
+        </div>
+        <div class="cover-floor hidden"></div><!--去掉hidden展示下级-->
+    </div>
+
+    <footer>
+        <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+        <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+    </footer>
+
+    <!--底部悬浮按钮-->
+    <div class="foot-btn">
+        <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+        <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+        <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+    </div>
+    <input  type="hidden" id="brand_id" value="{$_GET.brand}"/>
+    <input  type="hidden" id="class_id" value="{$_GET.cat}"/>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+</div>
+
+
+		<script>
+		
+	
+	        /**
+			 * 上拉加载具体业务实现
+			 */
+			$(".list-loading").hide();
+			function pullupRefresh(p) {
+				$(".list-loading").show();
+				var word="{$_GET.word}";
+				var brand="{$_GET.brand}";
+				var cat="{$_GET.cat}";
+				var order="{$_GET.order}";
+				var sort="{$_GET.sort}";
+				//var p="{$_GET.order}";
+				var data={};
+				if(order!=""){
+					data.order=order;
+				}
+				if(cat!=""){
+					data.cat=cat;
+				}
+				if(brand!=""){
+					data.brand=brand;
+				}
+				if(word!=""){
+					data.word=word;
+				}
+				if(sort!=""){
+					data.sort=sort;
+				}
+				
+				data.p=p;
+				
+				if(p>1){
+					$.get("__URL__/indexJson",data,function(data){
+						if(data==""){
+							end="true";
+						}
+						var html="";
+					    for(var i=0;i<data.length;i++){
+					    	
+					    	
+html=html+"<div class='item'>"+
+              "<a class='itema clearfix' href='__MODULE__/Goods/index/org_id/"+data[i].org_parent_id+"/goods_id/"+data[i].goods_id+" '>"+
+                   	"<img class='lazy' data-original='{:C('GOODS_IMG')}"+data[i].main_img+"'>"+
+                   	"<div class='info'>"+
+                            "<p class='tit'>"+data[i].goods_name+"</p>"+
+                            "<p class='fontgry'>"+data[i].org_name+"</p>"+
+                            "<div class='p-bottom'>"+
+                                "<p class='price'>￥<span>"+data[i].goods_base_price+"</span></p>"+
+                                "<p class='fontgry'><span class='price-gry'>"+data[i].goods_base_price+"</span>共成交"+data[i].sales+"笔</p>"+
+                            "</div>"+
+                    "</div>"+
+              "</a>"+
+              "<a class='i-car' href='JavaScript:addCarL("+data[i].cv_id+","+data[i].org_id+");' cv='"+data[i].cv_id+"'><i class='i-w-car'></i></a>"+
+           "</div>";
+					    	
+					    	
+					    }
+					    
+					    
+
+						
+						$("#list").append(html);
+						$("img.lazy").lazyload({effect: "fadeIn"});
+						$(".list-loading").hide();
+						
+					},"json");
+				}
+				
+				
+			}
+		
+		
+		    var p=0;
+		    $(window).scroll(function(){
+		    	if ($(document).height() - $(this).scrollTop() - $(this).height()<170){
+		    		
+		    		p++;
+		    	    pullupRefresh(p);
+		    	}
+		    	
+		    });
+		
+			
+			
+			
+
+			
+			
+			
+			
+		</script>
+
+
+<script>
+	
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		
+    $("#search").click(function(){
+    	var name=$("#name1").val();
+    	name=$.trim(name)
+     	if(name==""){
+    		alert("搜索条件不能为空");
+    		return;
+    	}
+    	location.href="/index.php/WapMall/Search/index/word/"+name;
+    })
+    
+    function addCarL(cv,org){
+    	var cust="<PHP>if($_SESSION['cust_id']){echo $_SESSION['cust_id'];}else{echo 0;}</php>";
+	    if(cust==0){
+	    	location.href="/index.php/WapMall/Member/login";
+	    }
+		
+		var aurl="{:U('WapMall/Cart/add')}";
+		var reurl="{:U('WapMall/Cart/index')}";
+		//var reurl="";
+		
+		
+		addcar_wap(cv, 1,org, aurl);
+    	
+    }
+    
+//	$(".i-car").click(function(){
+//		
+//	    var cust="<PHP>if($_SESSION['cust_id']){echo $_SESSION['cust_id'];}else{echo 0;}</php>";
+//	    if(cust==0){
+//	    	location.href="/index.php/WapMall/Member/login";
+//	    }
+//		
+//		var aurl="{:U('WapMall/Cart/add')}";
+//		var reurl="{:U('WapMall/Cart/index')}";
+//		//var reurl="";
+//		var cv=$(this).attr("cv");
+//		
+//		addcar_wap(cv, 1, aurl);
+//	});
+	$("#zonghe").click(function(){
+	    
+	    location.href="/index.php/WapMall/Search/index/word/<php>echo $_GET['word'];</php>";
+	});
+	
+	$("#jiage").click(function(){
+		var sort="{$sort}";
+		if(sort=="asc"){
+			sort="desc";
+		}else{
+			sort="asc";
+		}
+		var cat="{$_GET.cat}";
+		var brand="{$_GET.brand}";
+		var url="";
+		if(cat!=""){
+			url=url+"/cat/"+cat;
+		}
+		if(brand!=""){
+			url=url+"/brand/"+brand;
+		}
+	    location.href="/index.php/WapMall/Search/index"+url+"/order/price/sort/"+sort+"/word/<php>echo $_GET['word'];</php>";
+	});
+	
+	$("#xiaoliang").click(function(){
+		var sort="{$sort}";
+		
+		if(sort=="asc"){
+			sort="desc";
+		}else{
+			sort="asc";
+		}
+		var cat="{$_GET.cat}";
+		var brand="{$_GET.brand}";
+		var url="";
+		if(cat!=""){
+			url=url+"/cat/"+cat;
+		}
+		if(brand!=""){
+			url=url+"/brand/"+brand;
+		}
+	    location.href="/index.php/WapMall/Search/index"+url+"/order/sales/sort/"+sort+"/word/<php>echo $_GET['word'];</php>";
+	});
+	
+	$("#title li").click(function(){
+	    $("#title li").removeClass("show");
+	    $(this).addClass("show");
+		
+		var type=$(this).attr("type");
+		
+		if(type=="class"){
+		    $("#class").show();
+			$("#brand").hide();
+		}else if(type=="brand"){
+		    $("#brand").show();
+			$("#class").hide();
+		}
+	});
+	
+	$(".sub").click(function(){
+	    var type=$(this).attr("type");
+		var id=$(this).attr("id");
+		var isChecked=$(this).attr("isChecked");
+		$(".sub").css("background-color","#FFFFFF");
+		$(this).css("background-color","#CCCCCC");
+		$(".sub").attr("isChecked","false");
+		$(this).attr("isChecked","true");
+		if(type=="class"){
+			$("#class_id").val(id);
+		}else if(type=="brand"){
+			$("#brand_id").val(id);
+		}
+	});
+	
+	$("#classreset").click(function(){
+//		$("#title li").removeClass("show");
+//		$(".sub").attr("isChecked","false");
+//		$(".sub").css("background-color","#FFFFFF");
+//		$("#brand").hide();
+//		$("#class").hide();
+        var name=$("#name1").val();
+    	name=$.trim(name)
+     	
+    	location.href="/index.php/WapMall/Search/index/order/<php>echo $_GET['order'];</php>/word/"+name;
+
+	});
+	$("#brandreset").click(function(){
+//		$("#title li").removeClass("show");
+//		$(".sub").attr("isChecked","false");
+//		$(".sub").css("background-color","#FFFFFF");
+//		$("#brand").hide();
+//		$("#class").hide();
+		
+		var name=$("#name1").val();
+    	name=$.trim(name)
+     	
+    	location.href="/index.php/WapMall/Search/index/order/<php>echo $_GET['order'];</php>/word/"+name;
+	});
+	
+	$("#classsubmit").click(function(){
+		var class_id=$("#class_id").val();
+		var brand_id=$("#brand_id").val();
+		
+		if(class_id==0){
+			return;
+		}
+		if(brand_id==0){
+			location.href="/index.php/WapMall/Search/index/cat/"+class_id+"/word/<php>echo $_GET['word'];</php>";
+		}else{
+			location.href="/index.php/WapMall/Search/index/brand/"+brand_id+"/cat/"+class_id+"/word/<php>echo $_GET['word'];</php>";
+		}
+		
+	});
+	$("#brandsubmit").click(function(){
+		var brand_id=$("#brand_id").val();
+		var class_id=$("#class_id").val();
+		if(brand_id==0){
+			return;
+		}
+		if(class_id==0){
+			location.href="/index.php/WapMall/Search/index/brand/"+brand_id+"/word/<php>echo $_GET['word'];</php>";
+		}else{
+			location.href="/index.php/WapMall/Search/index/brand/"+brand_id+"/cat/"+class_id+"/word/<php>echo $_GET['word'];</php>";
+		}
+		
+	});
+	$(".go-back").click(function () {
+        	history.go(-1)
+    })
+	
+</script>
+
+</body>
+</html>

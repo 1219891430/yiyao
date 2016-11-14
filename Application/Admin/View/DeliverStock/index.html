@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select name="query[repertory_id]" id="repertory_id" class="form-control w200">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="vo">
+                            <if condition="$vo.repertory_id eq $query['repertory_id']">
+                                <option selected="selected" value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                                <else/><option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <select id="staff_id" class="w150 form-control">
+                        <option value="0">请选择业务员</option>
+                        <volist name="staffList" id="vo">
+                            <if condition="$vo.admin_id eq $query['staff_id']">
+                                <option selected="selected" value="{$vo.admin_id}">{$vo.true_name}</option>
+                                <else/>
+                                <option value="{$vo.admin_id}">{$vo.true_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <input id="goods_name" <if condition="$query['goods_name'] neq '@@'">value="{$query['goods_name']}"</if> type="text" placeholder="请输入商品名称" class="form-control w150">
+                    <a class="btn btn-default" href="javascript:void(0)" id="find" role="button">查询</a>
+                </div>
+                <div class="fr">
+                <!--<a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="explode" role="button">导出</a>-->
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="10%">业务员</td>
+                    <td width="13%">商品名称</td>
+                    <td width="13%">数量</td>
+                    <td width="8%">车存大单位</td>
+                    <td width="8%">车存中单位</td>
+                    <td width="8%">车存小单位</td>
+                    <td width="8%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.true_name}</td>
+                        <td>{$vo.goods_name}</td>
+                        <td>{$vo.read_stock}</td>
+                        <td>{$vo.big_stock}</td>
+                        <td>{$vo.in_stock}</td>
+                        <td>{$vo.small_stock}</td>
+                        <td><a href="__URL__/record/goods/{$vo.goods_id}/staff/{$vo.staff_id}">查看</a></td>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$query))}
+            <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+<script type="text/javascript">
+    //部门联动
+    $("#repertory_id").change(function(){
+        var repertory_id = $(this).val();
+        if(repertory_id ==0){
+            $("#staff_id").html('<option value=0>请选择业务员</option>');
+            return;
+        }
+        $.ajax({type:'post',url: "{:U('Admin/Ajax/getRoleStaff')}",data:{depot_id:repertory_id,role_id:5 }, dataType:'json',timeout: 5000,
+            error: function(){
+            },
+            success: function($r){
+                $("#staff_id").html('<option value=0>请选择业务员</option>');
+                if($r.status){
+                    var html = '<option value=0>请选择业务员</option>';
+                    $.each($r.rows,function(index,item){
+                       html+= '<option value="'+item.admin_id+'">'+item.true_name+'</option>';
+                    });
+                    $("#staff_id").html(html);
+                }
+            }
+        });
+    });
+
+    //查询
+    $("#find").click(function() {
+        var con = "";
+        if ($("#repertory_id").val() != '0') {
+            con += "/repertory_id/" + $("#repertory_id").val();
+        }
+        if ($("#staff_id").val() != 0) {
+            con += "/staff_id/" + $("#staff_id").val();
+        }
+        if ($('#goods_name').val() != '') {
+            con += '/goods_name/'+$('#goods_name').val();
+        }
+        location.href="__URL__/index"+con;
+    });
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

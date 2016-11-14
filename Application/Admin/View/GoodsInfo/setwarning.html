@@ -1,0 +1,119 @@
+
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>设置商品预警【{$goods.name}】</span>
+        </h4>
+    </div>
+
+    <form action="__URL__/addex" id="goods_form" method="post" enctype="multipart/form-data">
+        <div class="modal-body modal_850">
+            <table class="table table-hover">
+                <thead>
+                <tr class="warning">
+                    <th width="20%">经销商</th>
+                    <th class="text-center" width="10%">是否自动预警</th>
+                    <th width="10%">预警值</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <foreach name="orgs" item="vo">
+
+                    <tr>
+                        <input type="hidden" name="_id" value="{$vo.org_id}">
+                        <td>{$vo.org_name}</td>
+                        <td class="text-center">
+                            <input type="checkbox" <if condition="$vo.warning_type == 2"> checked </if>  name="warning_type"> </td>
+                        <td>
+                            <input type="number" id="org_{$vo.org_id}" <if condition="$vo.warning_type == 2"> disabled </if> name="warning_value" min="0" value="{$vo.warning_value}">
+                        </td>
+                    </tr>
+
+
+                </foreach>
+
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <br />
+
+            <script id="editor" type="text/plain" style="height: 300px"></script>
+
+        </div>
+        <div class="error">
+        </div>
+
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+    </div>
+
+
+    <script type="text/javascript">
+
+        $("input[name='warning_type']").click(function () {
+
+            var goods_id = {$goods.id};
+            var org_id = $(this).parent().siblings("input[name='_id']").val();
+            var is_checked=$(this).is(':checked');
+            var warning_type = is_checked ? 2 : 1;
+
+            $.ajax({
+                url: "__MODULE__/GoodsWarning/setWarningType",
+                type: "post",
+                data: {
+                    goods_id: goods_id,
+                    org_id: org_id,
+                    warning_type: warning_type
+                },
+
+                success: function (d) {
+                    if(d.status) {
+                        if(d.type == 1) {
+                            $("#org_"+org_id).attr("disabled", false)
+                        } else {
+                            $("#org_"+org_id).attr("disabled", true)
+                        }
+                    } else {
+                        alert(d.msg)
+                    }
+                }
+            })
+        })
+
+
+        $("input[name='warning_value']").blur(function () {
+            var goods_id = {$goods.id};
+            var org_id = $(this).parent().siblings("input[name='_id']").val();
+            var warning_value = $(this).val()
+
+            $.ajax({
+                url: "__MODULE__/GoodsWarning/setWarningValue",
+                type: "post",
+                data: {
+                    goods_id: goods_id,
+                    org_id: org_id,
+                    warning_value: warning_value
+                },
+
+                success: function (d) {
+                    if(d.status) {
+                        $("#org_"+org_id).val(d.value)
+                    } else {
+                        alert(d.msg)
+                    }
+                }
+            })
+        })
+
+    </script>
+
+</div>

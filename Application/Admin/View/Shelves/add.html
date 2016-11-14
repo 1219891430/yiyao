@@ -1,0 +1,98 @@
+<div class="modal-content modal_850">
+    <form action="{:U('Admin/Shelves/add')}" method="post" enctype="multipart/form-data"  id="submit_form">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title fb f16">添加货架</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal_850" id="customer_add_div">
+                <table class="table no_border">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                        <td width="100">所属仓库：</td><td><select name="depot_id" id="depot_id" class="form-control w200">
+                        <option value="0">请选择仓库</option>
+                        <volist id="vo" name="depotList">
+                            <option value="{$vo.repertory_id}" style="text-indent: 1em">{$vo.repertory_name}</option>
+                        </volist>
+                    </select></td>
+                        <td  align="right">名称：</td><td><input name="shelves_name" id="shelves_name" value="{$data.shelves_name}" type="text" class="unit_name form-control w200"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">货架信息：</td><td colspan="3">
+                        层数：<input type="text" name="shelves_y" id="shelves_y" value="{$data.shelves_y}" class="w100 form-control jwd_val"/>
+                        个数/层：<input type="text" name="shelves_x" id="shelves_x" value="{$data.shelves_x}" class="w100 form-control jwd_val"/>
+                    </td>
+                    <tr>
+                        <td >备注：</td><td colspan="3">
+                        <input name="shelves_note" id="shelves_note" value="{$data.shelves_note}" type="text" class="unit_name form-control w400">
+                    </td>
+                    </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" id="close_customer" class="btn btn-default" data-dismiss="modal">关闭</a>
+            <a id="submit_unit" class="btn btn-primary">创建</a>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+
+<script type="text/javascript">
+
+    $("#submit_form").validate({
+        rules:{
+            shelves_name:{
+                required:true,
+                maxlength:30
+            },
+            shelves_note:{
+                maxlength:200
+            },
+            depot_id:{
+                valNeqZero:true
+            },
+            shelves_y:{
+                valNeqZero:true,
+                number:true,
+                required:true
+            },
+            shelves_x:{
+                valNeqZero:true,
+                number:true,
+                required:true
+            },
+        },
+        messages: {
+            shelves_name: {
+                required: "名称不能为空",
+                maxlength: "名称最大为15位"
+            },
+            shelves_note: {
+                maxlength: "备注最大为100位"
+            },
+            depot_id: {
+                valNeqZero: "请选择仓库"
+            },
+            shelves_y: {
+                valNeqZero: "请填写货架层数",
+                number: "请填写正确货架层数",
+                required: "货架层数不能为空"
+            },
+            shelves_x: {
+                valNeqZero: "请填写货架每层位置数",
+                number: "请填写正确货架每层位置数",
+                required: "货架每层位置数不能为空"
+            }
+        }
+    });
+
+    $("#submit_unit").click(function(){
+        if ($('#submit_form').valid()) {
+            $('#submit_form').submit();
+        }
+    });
+</script>

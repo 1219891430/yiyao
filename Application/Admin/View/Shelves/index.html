@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>北极光-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+        <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+        <div class="row-fluid main-content">
+
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select name="query[depot_id]" id="depot_id" class="form-control w200">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="vo">
+                            <if condition="$vo.repertory_id eq $query['depot_id']">
+                                <option selected="selected" value="{$vod.repertory_id}">{$vo.repertory_name}</option>
+                                <else/><option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+                <div class="fr">
+                    <a class="btn btn-primary bg_3071a9" id="cre_c"  role="button">创建</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table">
+                <thead>
+                <tr>
+                    <td width="">货架名称</td>
+                    <td width="10%">备注</td>
+                    <td width="10%">层数</td>
+                    <td width="10%">个数</td>
+                    <td width="10%">总仓位</td>
+                    <td width="160">操作</td>
+                </tr>
+                </thead>
+                <tbody id="cust_table">
+                <volist name="list" id="list">
+                    <tr id="tr_{$list.shelves_id}">
+                        <td>{$list.shelves_name}</td>
+                        <td>{$list.shelves_note}</td>
+                        <td>{$list.shelves_y}</td>
+                        <td>{$list.shelves_x}</td>
+                        <td>{$list[shelves_x]*$list[shelves_y]}</td>
+                        <td>
+                            <ul class="operate-menu li-width33">
+                                <li><a class="collapsed collapse-menu icons-href view"  role="button" data-p="{$p}"  data-id="{$list.shelves_id}"><i class="icon-view"></i>详情</a></li>
+                                <li><a class="collapsed collapse-menu icons-href edit"  role="button" data-p="{$p}"  data-id="{$list.shelves_id}"><i class="icon-edit"></i>修改</a></li>
+                                <li><a class="collapsed collapse-menu icons-href delete" data-id="{$list.shelves_id}"   href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+            </table>
+
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$query))}
+        </div>
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+
+<script type="text/javascript">
+
+    //创建
+    $("#cre_c").click(function () {
+        $.ajax({
+            url: "__URL__/add/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //查询
+    $("#find").click(function() {
+        var con = "";
+        if ($("#depot_id").val() != 0) {
+            con += "/depot_id/" + $("#depot_id").val();
+        }
+        location.href="__URL__/index"+con;
+    });
+
+
+    //编辑
+    $(".edit").click(function () {
+        $.ajax({
+            url: "__URL__/edit/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            data:{ shelves_id:$(this).attr('data-id'),p:$(this).attr('data-p')},
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //删除
+    $(".delete").click(function(){
+        var state=$(this).attr("data-close");
+
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('data-id');
+                $.post("{:U('Admin/Shelves/del')}",{shelves_id:id},function(result){
+                    if(result==1){
+                        alert("删除成功!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+
+    });
+
+    //编辑
+    $(".view").click(function () {
+        $.ajax({
+            url: "__URL__/detail/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            data:{ shelves_id:$(this).attr('data-id'),p:$(this).attr('data-p')},
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        });
+
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    $(function(){
+
+    });
+</script>
+</body>
+</html>

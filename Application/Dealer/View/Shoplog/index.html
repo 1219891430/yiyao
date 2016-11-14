@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+        <include file="Public/menu" />
+        <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select class="form-control w150" name="staffId" id="staffId">
+                        <option value="0">所有人员</option>
+                        <volist name="stafflist" id="staff">
+                            <if condition="$staff['staff_id'] eq $staff_id"><option value="{$staff.staff_id}" selected="selected" >{$staff.staff_name}</option>
+                                <else /><option value="{$staff.staff_id}">{$staff.staff_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <input type="text" class="form-control w150" value="{$shop}" id="shop" placeholder="商铺名称"/>
+                    <input type="text" readonly="readonly" class="form-control w150" value="{$start}" id="start_time"
+                           placeholder="起始时间">
+                    <input type="text" readonly="readonly" class="form-control w150" value="{$end}" id="end_time"
+                           placeholder="结束时间">
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+                <div class="fr">
+                    <!--<a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="cre_zc" role="button">创建</a>-->
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="15%">业务员</td>
+                    <td width="10%">店铺</td>
+                    <td width="49%">日志内容</td>
+                    <td width="15%">时间</td>
+                    <td width="5%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="list">
+                    <tr id="tr_{$list.log_id}">
+                        <td style="width:15%">{$list.staff_name}</td>
+                        <td style="width:15%">{$list.cust_name}</td>
+                        <td style="width:40%">
+                            <?php if($list["record"]==1): ?>
+                            <a href="__PUBLIC__/Uploads/{$list.file_path}" target="_blank">语音日志</a>
+                            <audio src="__PUBLIC__/Uploads/{$list.file_path}">您的浏览器不支持 audio 标签。</audio>
+                            <?php else:?>
+                            {$list.log_content}
+                            <?php endif;?>
+                        </td>
+                        <td style="width:15%">{$list.log_time}</td>
+                        <td style="width:15%"><ul class="operate-menu li-width100">
+                            <li><a attr="{$list.role_id}" class="collapsed collapse-menu icons-href delete" id="{$list.log_id}" href="javascript:void(0)">
+                                <i class="icon-remove-circle"></i>删除
+                            </a></li>
+                        </ul></td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array('staff_id'=>$staff_id,'start'=>$start,'end'=>$end,'shop'=>$shop)))}
+            <!--分页查询结束-->
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 ">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2017//年份的结束默认为2049
+        });
+        //查询
+        $("#find").click(function(){
+                var staffId=$("#staffId").val();
+                location.href="?staff_id="+staffId+"&start="+$("#start_time").val()+"&end="+$("#end_time").val()+"&shop="+$("#shop").val();
+        })
+        $(".delete").click(function(){
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('id');
+                
+                
+                $.post("__URL__/delLog",{log_id:id},function(result){
+                	
+                    if(result==1){
+                        alert("删除成功!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<include file='Public:head'/>
+<body>
+<!--子页顶部-->
+<div class="zy-search zy-tit">
+    <div class="sch-w clearfix">
+        <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="tit">
+            全部预单
+        </div>
+    </div>
+    <!--<a class="top-user" href="__URL__/index"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>-->
+</div>
+<div class="wrap pb2" id="list">
+    <!--全部订单-->
+
+    <volist name="orders" id="vo">
+        <div class="order-list">
+        <div class="ord-tit clearfix">
+            <h4><a href="#">{$vo.add_time|date='Y-m-d H:i:s', ###}</a></h4>
+            <span class="fontgry">订单号：{$vo.order_code}</span>
+        </div>
+            <foreach name="vo.goods" item="vog">
+            <div class="item">
+                <a class="itema clearfix" href="#">
+                    <img class="lazy" data-original="{:C('GOODS_IMG')}{$vog.main_img}">
+                    <div class="info">
+                        <p class="tit">{$vog.goods_name}</p>
+                        <div class="p-bottom">
+                            <p>单位：{$vog.unit_name}</p>
+                            <p>规格：{$vog.goods_spec}</p>
+                        </div>
+                    </div>
+                    <div class="odr-price">
+                        <p><small>￥</small>{$vog['goods_total_money']}</p>
+                        <p class="p-bottom">×{$vog.number}</p>
+                    </div>
+                </a>
+            </div>
+            </foreach>
+        <div class="total fontbrand">共<strong>{:count($vo.goods)}</strong>件商品&nbsp;&nbsp;合计：￥<big>{$vo.order_total_money}</big></div>
+
+            <div class="del clearfix">
+
+                <if condition="$vo.is_cancel eq 0">
+                    <if condition="$vo.order_status eq 1">
+                        <a class="btn-white" href="JavaScript:cancelOrder({$vo.order_id});">删除订单</a>
+
+                        <elseif condition="$vo.order_status eq 2" />
+
+                        <span style="color: green; float: right">订单已派送</span>
+
+                        <else />
+
+                        <span style="color: red; float: right">订单异常</span>
+
+                    </if>
+                    <else />
+                    <span style="color: red; float: right">订单已取消</span>
+                </if>
+
+            </div>
+            <!--<if condition="$vo.is_cancel eq 0 and $vo.order_status eq 1">
+                <div class="del clearfix"><a class="btn-white" href="JavaScript:cancelOrder({$vo.order_id});">删除订单</a> </div>
+            </if>-->
+    </div>
+    </volist>
+</div>
+
+<div class="list-loading"><div class="loading_box"><!--已经到底部了--></div></div>
+
+<footer>
+    <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+    <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+</footer>
+
+<!--底部悬浮按钮-->
+<div class="foot-btn">
+    <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+    <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+    <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+</div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+<script>
+
+// 弹框
+   
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		
+
+        
+           $(".list-loading").hide();
+			function pullupRefresh(p) {
+				
+				$(".list-loading").show();
+				
+				var data={};
+				data.p=p;
+				
+				if(p>1){
+					$.get("__URL__/orderJson",data,function(data){
+						//alert(data);
+						var html="";
+					    for(var i=0;i<data.length;i++){
+					    	
+					    	
+	html=html+"<div class='order-list'>"+
+        "<div class='ord-tit clearfix'>"+
+            "<h4><a href='#'>"+data[i].add_time+"</a></h4>"+
+            "<span class='fontgry'>订单号："+data[i].order_code+"</span>"+
+        "</div>";
+          					for(var ii=0;ii<data[i]["goods"].length;ii++){
+          	
+          	                 // alert(data[i]["goods"][ii]["goods_name"]);
+          	html=html+"<div class='item'>"+
+                "<a class='itema clearfix' href='#'>"+
+                    "<img class='lazy' data-original='"+"{:C('GOODS_IMG')}"+"'"+data[i]["goods"][ii]["main_img"]+"'>"+
+                    "<div class='info'>"+
+                        "<p class='tit'>"+data[i]["goods"][ii]["goods_name"]+"</p>"+
+                        "<div class='p-bottom'>"+
+                            "<p>单位："+data[i]["goods"][ii]["unit_name"]+"</p>"+
+                            "<p>规格："+data[i]["goods"][ii]["goods_spec"]+"</p>"+
+                        "</div>"+
+                    "</div>"+
+                    "<div class='odr-price'>"+
+                        "<p><small>￥</small>"+data[i]["goods"][ii]["goods_total_money"]+"</p>"+
+                        "<p class='p-bottom'>×"+data[i]["goods"][ii]["number"]+"</p>"+
+                    "</div>"+
+                "</a>"+
+            "</div>";
+          							
+          					}
+            
+        html=html+"<div class='total fontbrand'>共<strong>"+data[i]["goods"].length+"</strong>件商品&nbsp;&nbsp;合计：￥<big>"+data[i]["order_total_money"]+"</big></div>"+
+          "<div class='del clearfix'><a class='btn-white' href='JavaScript:cancelOrder("+data[i]["order_id"]+");'>删除订单</a> </div>"+
+          
+  "</div>";
+					    	
+					    	
+					    }
+						
+						$("#list").append(html);
+						$("img.lazy").lazyload({effect: "fadeIn"});
+						$(".list-loading").hide();
+						
+					},"json");
+				}
+				
+				
+			}
+    var p=0;
+    
+	$(window).scroll(function(){
+		
+		if ($(document).height() - $(this).scrollTop() - $(this).height()<170){
+		    		
+		    p++;
+		    
+		    pullupRefresh(p);
+		}
+		    	
+	});
+
+    function toggleCard() {
+        $('.modal').slideToggle(300);
+    }
+    $('.sku-control-box,.btn-close').click(toggleCard);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+
+    function cancelOrder(order_id) {
+
+        if(confirm("确定要取消该订单吗？")) {
+
+            h = '__URL__/ordercancel?order_id=' + order_id;
+
+            location.href = h
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<include file='Public:head'/>
+<body>
+<!--个人中心-->
+<div class="wrap">
+
+    <div class="member-top">
+
+
+        <div class="cont">
+            <if condition="!isset($_SESSION['cust_id'])">
+                <a class="go-login" href="__URL__/login">立即登录</a>
+
+                <else />
+
+                <div class="cont">
+                    <img src="__PUBLIC__/assets/images/pic.jpg">
+                    <p>{$cust_info['cust_name']}</p>
+                </div>
+            </if>
+            <a class="sign-out" href="__URL__/logout">退出</a>
+        </div>
+
+    </div>
+
+    <div class="member-main">
+        <ul>
+            <li><a href="__URL__/order"><i class="mb-order"></i>我的预单</a></li>
+            <li><a href="__URL__/carOrder"><i class="mb-order"></i>成交定单</a></li>
+            <li><a href="__URL__/credit"><i class="mb-credit"></i>赊欠记录</a></li>
+            <li><a href="__URL__/my"><i class="mb-user"></i>个人信息</a></li>
+            <li><a href="/index.php/WapMall/cart"><i class="mb-cart"></i>我的进货单</a></li>
+            <li><a href="__URL__/oftenbuy"><i class="mb-myorder"></i>我的常购订单</a></li>
+        </ul>
+    </div>
+</div>
+
+<footer>
+    <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+    <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+</footer>
+
+<!--底部悬浮按钮-->
+<div class="foot-btn">
+    <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+    <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+    <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+</div>
+
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+</body>
+</html>

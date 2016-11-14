@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select class="form-control w200" id="repertory_id">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="vo">
+                            <if condition="$vo.repertory_id eq $_GET['repertory_id']">
+                                <option selected="selected" value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                                <else/><option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <a class="btn btn-default" href="javascript:void(0)" id="find" role="button">查询</a>
+                </div>
+                    
+                        <div class="fr">
+                            <a class="btn btn-primary bg_3071a9" id="cre_cate" href="javascript:void(0)" role="button">添加</a>
+                        </div>
+                    
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="20%">类别名称</td>
+                    <td widht="20%">是否主类</td>
+                    <td width="30%">备注</td>
+                    <td width="10%">状态</td>
+                    <td width="20%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                            <volist name="list" id="bvo">
+                                <tr>
+                                <td>{$bvo.class_name}</td>
+                                    <td class=''>
+                                        <if condition="$bvo.parent_class eq 0">是<else/>否</if>
+                                    </td>
+                                <td>{$bvo.remark}</td>
+                                <td class='<if condition="$bvo.is_close eq 1">red<else/>green</if>'>
+                                    <if condition="$bvo.is_close eq 1">已封存<else/>未封存</if>
+                                </td>
+                                <td>
+                                    <ul class="operate-menu li-width33">
+                                        <if condition="$bvo.is_close eq 1">
+                                            <li><a class="collapsed collapse-menu icons-href set" data-id="{$bvo.class_id}" data-col="is_close" data-val="0" data-msg="解封" href="javascript:void(0)"><i class="icon-remove-circle"></i>解封</a></li>
+                                            <else/>
+                                            <li><a class="collapsed collapse-menu icons-href set" data-id="{$bvo.class_id}" data-col="is_close" data-val="1" data-msg="封存" href="javascript:void(0)"><i class="icon-remove-circle"></i>封存</a></li>
+                                        </if>
+                                        <li><a class="collapsed collapse-menu icons-href delete" data-id="{$bvo.class_id}"  data-depot="{$bvo.repertory_id}" data-close="{$bvo.is_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                                    </ul>
+                                </td>
+                                </tr>
+                                <volist name="bvo['class_list']" id="vo">
+                                <tr>
+                                <td>|-----------{$vo.class_name}</td>
+                                    <td class=''>
+                                        <if condition="$vo.parent_class eq 0">是<else/>否</if>
+                                    </td>
+                                <td>{$vo.remark}</td>
+                                <td class='<if condition="$vo.is_close eq 1">red<else/>green</if>'>
+                                    <if condition="$bvo.is_close eq 1">已封存<else/>未封存</if>
+                                </td>
+                                <td>
+                                    <ul class="operate-menu li-width33">
+                                        <if condition="$bvo.is_close eq 1">
+                                            <li><a class="collapsed collapse-menu icons-href set" data-id="{$vo.class_id}" data-col="is_close" data-val="0" data-msg="解封" href="javascript:void(0)"><i class="icon-remove-circle"></i>解封</a></li>
+                                            <else/>
+                                            <li><a class="collapsed collapse-menu icons-href set" data-id="{$vo.class_id}" data-col="is_close" data-val="1" data-msg="封存" href="javascript:void(0)"><i class="icon-remove-circle"></i>封存</a></li>
+                                        </if>
+                                        <li><a class="collapsed collapse-menu icons-href delete" data-id="{$vo.class_id}"  data-depot="{$vo.repertory_id}" data-close="{$vo.is_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>
+                                    </ul>
+                                </td>
+                                </tr>
+                                
+                            	</volist>
+                            </volist>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+        
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+<!--新建弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con"  class="modal-dialog modal_850 "></div>
+</div>
+<!--新建弹出层结束-->
+</body>
+
+<script type="text/javascript">
+
+    //查询
+    $("#find").click(function() {
+        var con = "";
+        if ($("#repertory_id").val() != '') {
+            con += "/repertory_id/" + $("#repertory_id").val();
+        }
+        location.href="__URL__/category"+con;
+    });
+
+    //创建
+    $("#cre_cate").click(function(){
+        /*
+        var repertory_id = $("#repertory_id").val();
+        if(repertory_id == 0){
+            alert("请选择仓库");
+            return;
+        }
+        var repertory_name = $("#repertory_id").find("option:selected").text();
+        */
+
+        $.ajax({
+            url: "__URL__/addCategory/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            data:{ },
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+
+    //删除
+    $(".delete").click(function(){
+
+        var state=$(this).attr("data-close");
+        if(state==1){
+            alert("该数据已封存，暂不能删除，如果确定删除，请先解除封存状态！");
+        }else{
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('data-id');
+                var depot_id=$(this).attr('data-depot');
+                
+                
+                $.post("{:U('Admin/Depot/delCategory')}",{class_id:id, depot_id:depot_id},function(result){
+
+                    console.log(result)
+
+                    if(result==1) {
+                        alert("删除成功!");
+                        location.reload();
+                    } else if (result == 2) {
+                        alert("删除失败，仓库不存在!");
+                        location.reload();
+                    }else if (result == 3) {
+                        alert("删除失败，该品类还有库存!");
+                        location.reload();
+                    }else if (result == 4) {
+                        alert("删除失败，该品类有子类!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        }
+    });
+
+    //设置状态
+    $(".set").click(function(){
+        var id = $(this).attr('data-id');
+        var col = $(this).attr('data-col');
+        var val = $(this).attr('data-val');
+        var msg = $(this).attr('data-msg');
+
+        if(confirm("确定要"+msg+"吗？")){
+            $.post("{:U('Admin/Depot/setCateData')}",{id:id,col:col,val:val },function(result){
+                if(result==1){
+                    alert("操作成功!");
+                    location.reload();
+                }else{
+                    alert("操作失败");
+                }
+            })
+        }
+    })
+</script>
+
+</html>

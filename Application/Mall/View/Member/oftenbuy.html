@@ -1,0 +1,84 @@
+<include file='Public:head'/>
+<div class="red-line2"></div>
+
+<!--个人中心-->
+<div class="w clearfix mt30">
+    <div class="us-l">
+        <h3><i></i>个人中心</h3>
+        <ul>
+            <ul>
+
+                <li><a href="__URL__/index">个人信息</a></li>
+                <li><a href="__URL__/order">我的预单</a></li>
+                <li><a href="__URL__/carOrder">完成订单</a></li>
+                <li><a href="__URL__/credit">赊欠记录</a></li>
+                <li><a href="__MODULE__/Cart/index">我的购物车</a></li>
+                <li><a class="hover" href="__URL__/oftenbuy">我的常订商品</a></li>
+            </ul>
+
+        </ul>
+    </div>
+    <div class="us-r">
+        <div class="tit clearfix">
+            <h3>我的常订商品</h3>
+        </div>
+        <div class="order-usual clearfix">
+
+            <volist name="oftenbuy" id="vo">
+
+                <div class="usual-item">
+                    <dl>
+                        <dt><a href="/index.php/Mall/Goods?goods_id={$vo.goods_id}&org_id={$vo.org_parent_id}"><img class="lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}"></a></dt>
+                        <dd>
+                            <a class="usual-tit" href="/index.php/Mall/Goods?goods_id={$vo.goods_id}&org_id={$vo.org_parent_id}">{$vo.goods_name}</a>
+                            <p class="price">￥<span>{$vo.goods_base_price} </span> / {$vo.unit_name}</p>
+                            <p class="font-grn">{$vo.org_name}</p>
+                            <p class="ord-times">已下单 {$vo.time} 次</p>
+                        </dd>
+                    </dl>
+                    <div class="usual-btn">
+                        <a class="lightning" href="javascript:ofadd({$vo.cv_id},{$vo.wholesale_num},{$vo.org_parent_id},false, '/index.php/Mall/Cart/index');"><i></i>立即下单</a>
+                        <a class="car addcar" href="javascript:ofadd({$vo.cv_id},{$vo.wholesale_num},{$vo.org_parent_id});"><i></i>加入购物车</a>
+                    </div>
+                </div>
+
+            </volist>
+
+        </div>
+    </div>
+</div>
+
+
+
+<!--底部-->
+<include file='Public:foot'/>
+
+<script type="text/javascript">
+    $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+ 
+    $(document).ready(function(){
+        $("#duration").click(function(){
+            $(".dut-box").slideToggle();
+        })
+    });
+
+    function ofadd(cv, num, org,async,url) {
+
+    <if condition="$_SESSION['mall_depot_id'] != $_SESSION['cust_depot']">
+                alert('超出配送范围， 禁止添加')
+
+            return;
+
+    </if>
+        addcar(cv, num, org,async,url)
+    }
+
+</script>
+
+</body>
+</html>

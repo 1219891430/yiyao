@@ -1,0 +1,74 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>添加品牌</span>
+        </h4>
+    </div>
+    <form action="__URL__/addex" id="brand_form" method="post" enctype="multipart/form-data">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>品牌名称</td><td>
+                    <input type="text" value="{$code}" name="brand_name" id="brand_name" class="w200 form-control" />
+                </td>
+                    
+                    
+                </td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="3"> <input name="remark" type="text" maxlength="100" class="w300 form-control"/></td>
+                </tr>
+
+                <tr>
+                    <td>品牌logo</td>
+                    <td colspan="3"> <input name="logo" type="file" class="w300"/></td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit_brand" class="btn btn-primary">
+            <span>创建</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+
+
+     $("#submit_brand").click(function(){
+
+     	var brand_name=$("#brand_name").val();
+
+     	brand_name=$.trim(brand_name);
+
+     	if(brand_name==""){
+     		alert("品牌名不能为空");
+     		return;
+     	}
+
+         $("#brand_form").submit();
+     })
+
+        /*function brand_form_add(){
+
+            var data=$("#brand_form").serialize();
+
+            ajaxDataAUD("__URL__/addex",data,true);
+        }*/
+        
+    </script>
+</div>

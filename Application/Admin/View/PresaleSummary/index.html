@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/jquery-ui.min.css" rel="stylesheet">
+<!--<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/switch/jquery-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-slide.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/assets/My97DatePicker/WdatePicker.js"></script>
+
+
+ 
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    <div class="row-fluid main-content">
+    <div class="sel-data mb20">
+    <div class="fl">
+    
+        <select id="queryDepot" class="w200 form-control">
+        <option value="0">请选择仓库</option>
+        <volist name="depot_list" id="depotName" key="depotID">
+        <if condition="$depotID eq $queryDepot">
+        <option selected="selected" value="{$depotID}">{$depotName}</option>
+        <else/>
+        <option value="{$depotID}">{$depotName}</option>
+        </if>
+        </volist>
+        </select>
+        <input type="text" readonly="readonly" value="{$queryBeginTime}"  class="form-control w200 cursor-pointer " onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="start_time" placeholder="起始时间">
+        <input type="text" readonly="readonly" value="{$queryEndTime}"  class="form-control w200 cursor-pointer " onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="end_time" placeholder="结束时间">
+        <a class="btn btn-default" href="#" id="find" role="button">查询（预单类型）</a>
+
+    </div>
+    </div>
+	<div class="main-container">
+        <div id="printHtml" >
+            <volist name="summaryData" id="data">
+                <div><h2 style="line-height:40px; font-size:18px; font-weight:700;" >{$data.org_name}</h2></div>
+                <table class="table list_table" id="tb">
+                    <thead>
+                    <tr>
+                        <td width="10%">品牌</td>
+                        <td>产品</td>
+                        <td width="10%">规格</td>
+                        <td width="10%">销售</td>
+                        <td width="10%">退货</td>
+                        <td width="10%">调出</td>
+                        <td width="10%">换回</td>
+                        <td width="10%">小计</td>
+                        <td width="10%">出货量</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="data.brand_list" id="brand">
+                        <volist name="brand.goods_list" id="goods">
+                            <tr>
+                                <if condition="$i eq 1"><td style="vertical-align: middle;" rowspan="{$brand.goods_list|count}">{$brand.brand_name}</td></if>
+                                <td style="vertical-align: middle;">{$goods.goods_name}</td>
+                                <td style="vertical-align: middle;">{$goods.goods_spec}</td>
+                                <td style="vertical-align: middle;">{$goods.sales_numstring}</td>
+                                <td style="vertical-align: middle;">{$goods.return_numstring}</td>
+                                <td style="vertical-align: middle;">{$goods.change_out_numstring}</td>
+                                <td style="vertical-align: middle;">{$goods.change_in_numstring}</td>
+                                <td style="vertical-align: middle;">{$goods.total|sprintf='%.2f',###}元</td>
+                                <td style="vertical-align: middle;">{$goods.total_numstring}</td>
+                            </tr>
+                        </volist>
+                    </volist>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </volist>
+        </div>
+
+
+        <div style="margin-bottom:10px; text-align:left;">
+            <a id="print" class="btn btn-primary"><span>打印</span></a>
+            <a id="export" class="btn btn-primary"><span>导出（预单类型）</span></a>
+
+            <!--<a id="check" class="btn btn-primary"><span>确认对账</span></a>-->
+        </div>
+       
+	</div>
+	</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.jqprint-0.3.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+	
+	// 查询
+	$("#find").click(function(){
+
+		var depot_id = $('#queryDepot').val();
+		var start_time = $('#start_time').val();
+		var end_time = $('#end_time').val();
+		var url = "{:U('index')}" + "?type=1&did=" + depot_id + "&st=" + start_time + "&et=" + end_time + "&r=" + new Date().getTime();
+		
+		// 检查输入
+		if(depot_id == 0 || start_time == '' || end_time == '')
+		{
+			alert('选择查询条件！');
+		}
+		else
+		{
+
+			location.href = url;
+		}
+	});
+	
+	$("#export").click(function(){
+		var depot_id = $('#queryDepot').val();
+		var start_time = $('#start_time').val();
+		var end_time = $('#end_time').val();
+		var url = "{:U('index')}" + "?export=export&did=" + depot_id + "&st=" + start_time + "&et=" + end_time + "&r=" + new Date().getTime();
+		
+		// 检查输入
+		if(depot_id == 0 || start_time == '' || end_time == '')
+		{
+			alert('选择查询条件！');
+		}
+		else
+		{
+			location.href = url;
+		}
+	});
+	
+	
+	$("#print").click(function(){
+
+        $("#printHtml").jqprint();
+	});
+
+});
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

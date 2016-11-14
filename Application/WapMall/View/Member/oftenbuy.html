@@ -1,0 +1,105 @@
+<include file='Public:head'/>
+<body>
+<!--子页顶部-->
+<div class="zy-search zy-tit">
+    <div class="sch-w clearfix">
+        <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="tit">
+            我的常购订单
+        </div>
+    </div>
+    <a class="top-user" href="#"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+</div>
+<div class="wrap pb2">
+    <!--全部订单-->
+
+    <volist name="oftenbuy" id="vo">
+        <div class="order-list">
+
+            <div class="ord-tit clearfix">
+                <h4><a href="#">{$vo['org_name']}</a></h4>
+                <!--<span class="fontgry">订单号：562136435</span>-->
+            </div>
+            <div class="item">
+                <div class="itema clearfix">
+                    <a href="/index.php/WapMall/Goods?goods_id={$vo.goods_id}&org_id={$vo.org_parent_id}"><img class="lazy" data-original="{:C('GOODS_IMG')}{$vo.main_img}"></a>
+                    <div class="info">
+                        <a href="/index.php/WapMall/Goods?goods_id={$vo.goods_id}&org_id={$vo.org_parent_id}"><p class="tit">{$vo.goods_name}</p></a>
+                        <div class="p-bottom">
+                            <p>单位：{$vo.unit_name}</p>
+                            <p>规格：{$vo.goods_spec}</p>
+                        </div>
+                    </div>
+                    <div class="odr-price">
+                        <p class="price">￥<span>{$vo.goods_base_price}</span></p>
+                        <p class="p-bottom fontgry">已下单 {$vo.time} 次</p>
+                    </div>
+                </div>
+            </div>
+            <div class="del clearfix">
+                <a class="btn-white btn-red-bd" href="javascript:ofadd({$vo.cv_id},{$vo.wholesale_num}, {$vo.org_parent_id},'/index.php/WapMall/Cart/index');">立即下单</a>
+                <a class="btn-white" href="javascript:ofadd({$vo.cv_id},{$vo.wholesale_num},{$vo.org_parent_id});">放入进货单</a>
+            </div>
+        </div>
+    </volist>
+
+</div>
+
+
+
+<footer>
+    <p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">洽谈合作</a> | <a href="#">诚聘英才</a></p>
+    <p>CopyRight @ 2015 河北泽农信息有限公司</p>
+</footer>
+
+<!--底部悬浮按钮-->
+<div class="foot-btn">
+    <a class="active" href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+    <a href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+    <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+</div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+<script>
+
+
+
+	
+			$("img.lazy").lazyload({effect: "fadeIn"});
+	
+
+
+    // 弹框
+    function toggleCard() {
+        $('.modal').slideToggle(300);
+    }
+    $('.sku-control-box,.btn-close').click(toggleCard);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+
+
+    function ofadd(cv, num,org ,url) {
+
+    <if condition="$_SESSION['depot_id'] != $_SESSION['cust_depot']">
+                alert('超出配送范围， 禁止添加')
+
+            return;
+
+    </if>
+        var reurl=url;
+        var aurl="{:U('WapMall/Cart/add')}"
+        addcar_wap(cv, num,org,aurl,reurl);
+    }
+
+
+</script>
+
+</body>
+</html>

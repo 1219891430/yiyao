@@ -1,0 +1,152 @@
+<div class="modal-content modal_850">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>审核配送单【{$apply['apply_code']}】</span>
+        </h4>
+    </div>
+    <form action="" id="submit_form" method="post">
+        <input type="hidden" id="apply_id" value="{$apply.apply_id}">
+        <div class="modal-body modal_850">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>出库仓库：</td>
+                    <td class="tl">
+                        <select disabled name="depot_id" id="depot_id" class="w200 form-control">
+
+                            <volist name="depotList" id="dvo">
+                                <if condition="$dvo['repertory_id'] eq $apply['repertory_id']">
+                                    <option value="{$dvo.repertory_id}" selected>{$dvo.repertory_name}</option>
+                                <else/>
+                                <option di value="{$dvo.repertory_id}">{$dvo.repertory_name}</option>
+                                </if>
+
+
+                            </volist>
+                        </select>
+                    </td>
+
+                    <td class="tr">
+                        单据编号：
+                    </td>
+                    <td>
+                        <span class="f16 fb">{$apply.apply_code}</span>
+                        <input type="hidden" id="code" value="{$apply.apply_code}">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>业务员</td>
+                    <td>
+                        <select disabled id="apage_staff_id" name="staff_id" class="w200 form-control">
+                            <option value="0">选择业务员</option>
+                            <volist name="aStaff" id="avo">
+                                <if condition="$avo['admin_id'] eq $apply['staff_id']">
+                                    <option value="{$avo.admin_id}" selected>{$avo.true_name}</option>
+                                    <else/>
+
+                                    <option value="{$avo.admin_id}">{$avo.true_name}</option>
+                                </if>
+                            </volist>
+                        </select>
+                    </td>
+                    <td class="tr"></td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td>备注：</td>
+                    <td colspan="3">
+                        <input class="w300 form-control" id="apply_remark" value="{$apply.apply_remark}">
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <table class="table list_table" id="goods_table">
+                <thead>
+                <tr>
+                    <td width="20%">商品条码</td>
+                    <td width="25%">商品名称</td>
+                    <td width="7%">单位</td>
+                    <td width="7%">数量</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="goods" id="vo">
+                <tr id="goods_add_tr">
+                    <td>
+                        {$vo.goods_code}
+                    </td>
+                    <td>
+                        {$vo.goods_name}
+                    </td>
+                    <td>
+                        {$vo.goods_unit}
+                    </td>
+                    <td>
+                        {$vo.apply_num|getGoodsNum}
+                    </td>
+
+                </tr>
+                    </volist>
+                <tr><td colspan='3'>&nbsp;</td><td class="tr" id='num_total'></td></tr>
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="80px">制单人：</td><td class="tl">{$_SESSION['true_name']}</td>
+                    <td class="tr">时间：</td><td><span>{:date("Y-m-d H:i:s")}</span></td>
+                </tr>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+        <input type="hidden" name="supp_id" id="sid" value="">
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="create_form" class="btn btn-primary">
+            <span>审核</span>
+        </a>
+    </div>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+
+    $("#create_form").click(function(){
+        $("#submit_form").submit();
+    })
+    $("#submit_form").validate({
+        submitHandler:function(){
+            depotIn()
+        }
+    })
+    function depotIn(){
+        var aGoodsData=goodsTransferArr("#goods_table");
+
+        var data={id:$("#apply_id").val(), depot_id:{$apply.repertory_id}}
+
+        ajaxDataAUD("__URL__/checkEx",data,true)
+    }
+
+</script>
+
+</div>

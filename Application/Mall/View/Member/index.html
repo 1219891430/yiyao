@@ -1,0 +1,81 @@
+<include file='Public:head'/>
+<div class="red-line2"></div>
+
+<!--个人中心-->
+<div class="w clearfix mt30">
+    <div class="us-l">
+        <h3><i></i>个人中心</h3>
+        <ul>
+            <li><a class="hover" href="#">个人信息</a></li>
+            <li><a href="__URL__/order">我的预单</a></li>
+            <li><a href="__URL__/carOrder">完成订单</a></li>
+            <li><a href="__URL__/credit">赊欠记录</a></li>
+            <li><a href="__MODULE__/Cart/index">我的购物车</a></li>
+            <li><a href="__URL__/oftenbuy">我的常订商品</a></li>
+        </ul>
+    </div>
+    <div class="us-r">
+        <h4>个人信息</h4>
+        <div class="profile clearfix">
+            <form class="fl" method="post" action="__URL__/my">
+
+                <if condition="$cust_info.head_pic == ''">
+                    <img src="__PUBLIC__/assets/images/mall/pic.jpg" class="photo" width="120" height="120">
+
+                    <else />
+                    <img src="{$cust_info.head_pic}" class="photo" width="120" height="120">
+                </if>
+
+                <dl><dt><span class="font-brand">*</span>门店名称：</dt>
+                    <dd>
+
+                        <input type="text" name="cust_name" class="form-control" value="{$cust_info.cust_name}">
+
+                        <!--<a href="__URL__/modifyPwd"> 修改密码 </a>-->
+
+                    </dd>
+
+                </dl>
+
+                <dl><dt><span class="font-brand">*</span>老板姓名：</dt><dd><input type="text" name="contact" class="form-control" value="{$cust_info.contact}"></dd></dl>
+                <dl><dt><span class="font-brand">*</span>手机：</dt><dd><input type="tel" name="telephone" class="form-control" value="{$cust_info.telephone}"></dd></dl>
+
+
+                <dl>
+                    <dt><span class="font-brand">*</span>所在地区：</dt>
+                    <dd>
+                        <select name="province" id="province" class="form-control w130"></select>
+                        <select id="city" name="city" class="form-control w130"></select>
+                        <select name="district" id="district" class="form-control w130"></select>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt><span class="font-brand">*</span>门店地址：</dt>
+                    <dd>
+                        <input type="text" name="address" class="form-control" value="{$cust_info.address}">
+                    </dd>
+                </dl>
+
+                <dl><dt>&nbsp;</dt><dd><button class="submit">提交</button></dd></dl>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<!--底部-->
+<include file='Public:foot'/>
+
+
+
+<script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+
+<script type="text/javascript">
+    new PCAS("province","city","district","{$cust_info['province']}","{$cust_info['city']}","{$cust_info['district']}");
+
+</script>
+
+</body>
+</html>

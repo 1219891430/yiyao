@@ -1,0 +1,28 @@
+<script src="__PUBLIC__/assets/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/timer.js"></script>
+<script type="text/javascript">
+
+    $(function(){
+        var warning_sound_num = $.cookie('warning_sound_num');
+        //console.log("warning_sound_num:" + warning_sound_num)
+
+        var i=warning_sound_num;
+
+        $('body').everyTime('8s',function(){
+            i--
+            if(i>=0){
+                playAudio()
+                $.cookie('warning_sound_num',i)
+                console.log($.cookie('warning_sound_num'))
+            }
+
+        },warning_sound_num);
+
+    });
+
+    function playAudio() {
+        $('<audio id="chatAudio"><source src="__PUBLIC__/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
+
+        $('#chatAudio')[0].play(); //播放声音
+    }
+</script>

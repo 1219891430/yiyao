@@ -1,0 +1,94 @@
+<include file='Public:head'/>
+<div class="red-line2"></div>
+
+<!--个人中心-->
+<div class="w clearfix mt30">
+    <div class="us-l">
+        <h3><i></i>个人中心</h3>
+        <ul>
+            <li><a href="__URL__/index">个人信息</a></li>
+            <li><a href="__URL__/order">我的预单</a></li>
+            <li><a href="__URL__/carOrder">完成订单</a></li>
+            <li><a class="hover" href="__URL__/credit">赊欠记录</a></li>
+            <li><a href="__MODULE__/Cart/index">我的购物车</a></li>
+            <li><a href="__URL__/oftenbuy">我的常订商品</a></li>
+        </ul>
+    </div>
+    <div class="us-r">
+        <div class="credit clearfix">
+            <table class="credit-tab" cellpadding="0" cellspacing="0">
+                <tr>
+                    <th width="250" align="left">赊欠店铺</th>
+                    <th>订单金额(元)</th>
+                    <th>赊欠金额(元)</th>
+                    <th>赊款订单时间</th>
+                    <th>业务员</th>
+                    <th>操作</th>
+                </tr>
+
+                <volist name="orderList" id="vo">
+                <tr>
+                    <td style="text-align: left">{$_SESSION['cust_name']}</td>
+                    <td>{$vo['order_total_money']}</td>
+                    <td class="price"><span>{$vo['banlance_money']}</span></td>
+                    <td>{$vo['create_time']}</td>
+                    <td>{$vo['staff_name']}</td>
+                    <td class="handle">
+                        <a href="__URL__/carOrder?order={$vo['order_id']}">订单详情</a><br>
+                        <a href="__URL__/creditDetail?type={$vo['type']}&order_id={$vo['order_id']}">清欠明细</a></td>
+                </tr>
+                </volist>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+{:W('Page/page',array("__URL__/credit?1", $pnum, $pagelist, $urlParam))}
+<!--page-->
+<!--分页查询开始-->
+<!--{:W('Page/page',array("__URL__/credit?1", $pnum, $pagelist, $urlParam))}-->
+<!--分页查询结束-->
+
+
+<!--底部-->
+<div class="foot-ensure">
+    <div class="ensure-box clearfix">
+        <div class="item">
+            <i class="i-zpbz"></i>
+            <p><strong>正品保证</strong><br>品质保障 购物无忧</p>
+        </div>
+        <div class="item">
+            <i class="i-ksxd"></i>
+            <p><strong>快速下单</strong><br>快速准确下单</p>
+        </div>
+        <div class="item">
+            <i class="i-hssd"></i>
+            <p><strong>火速送达</strong><br>B2B模式 急速送达</p>
+        </div>
+        <div class="item" style="border: none;">
+            <i class="i-tsfw"></i>
+            <p><strong>特色服务</strong><br>不一样的购物体验</p>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    <div class="w">
+        <p><a href="{url app=index}" target="_blank">首页</a> | <a href="{url app=article&act=view&article_id=61}">关于我们</a> | <a href="{url app=article&act=view&article_id=62}">诚聘英才</a> | <a href="{url app=article&act=view&article_id=62}">农乐汇商城</a> | <a href="{url app=article&act=view&article_id=63}">合作洽谈</a> | <a href="{url app=article&act=view&article_id=64}">农乐汇优势</a></p>
+        <p>
+            CopyRight @ 2016 河北泽农信息科技有限公司 增值电信业务经营许可证：冀B2-20160058 网站备案：冀ICP备15028980号
+            <span style="display: none;"><script src="http://s4.cnzz.com/z_stat.php?id=1257011767&web_id=1257011767" language="JavaScript"></script></span>
+        </p>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#duration").click(function(){
+            $(".dut-box").slideToggle();
+        })
+    });
+</script>
+
+</body>
+</html>

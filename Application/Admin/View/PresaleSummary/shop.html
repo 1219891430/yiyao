@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/jquery-ui.min.css" rel="stylesheet">
+<!--<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">-->
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/switch/jquery-ui.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-slide.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui-timepicker-addon.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script language="javascript" type="text/javascript" src="__PUBLIC__/assets/My97DatePicker/WdatePicker.js"></script>
+
+
+ 
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+    <div class="row-fluid main-content">
+    <div class="sel-data mb20">
+    <div class="fl">
+    
+        <select id="queryDepot" class="w200 form-control">
+            <option value="0">请选择仓库</option>
+            <volist name="depot_list" id="vo">
+            <if condition="$vo.repertory_id eq $queryDepot">
+            <option selected="selected" value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+            <else/>
+            <option value="{$vo.repertory_id}">{$vo.repertory_name}</option>
+            </if>
+            </volist>
+        </select>
+
+        <select id="queryOrg" class="w200 form-control">
+            <option value="0">请选择经销商</option>
+            <volist name="org_list" id="vo">
+                <if condition="$vo.org_id eq $queryOrg">
+                    <option selected="selected" value="{$vo.org_id}">{$vo.org_name}</option>
+                    <else/>
+                    <option value="{$vo.org_id}">{$vo.org_name}</option>
+                </if>
+            </volist>
+        </select>
+
+        <input type="hidden" value="{$_GET.shopIds}" id="shopIds" />
+        <input type="text" readonly="readonly" value="{$queryBeginTime}"  class="form-control w200 cursor-pointer " onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="start_time" placeholder="起始时间">
+        <input type="text" readonly="readonly" value="{$queryEndTime}"  class="form-control w200 cursor-pointer " onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="end_time" placeholder="结束时间">
+        <a class="btn btn-default" href="#" id="selectShop" role="button">选择店铺</a>
+        <a class="btn btn-default" href="#" id="findC" role="button">查询（店铺汇总）</a>
+
+    </div>
+    </div>
+	<div class="main-container">
+
+        <div id="printHtml">
+            <volist name="summaryData" id="data">
+                <div><h2 style="line-height:40px; font-size:18px; font-weight:700;" >{$data.org_name}</h2></div>
+                <table class="table list_table" id="tb">
+                    <thead>
+                    <tr>
+                        <td width="5%">分类</td>
+                        <td width="5%">名称</td>
+                        <td width="8%">合计</td>
+                        <foreach name="shops" item="shop">
+                            <td>{$shop['cust_name']}</td>
+                        </foreach>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <volist name="data.class_list" id="class">
+                        <volist name="class.goods_list" id="goods">
+                            <tr>
+                                <if condition="$i eq 1">
+                                    <td style="vertical-align: middle;" rowspan="{$class.goods_list|count}">{$class.class_name}</td>
+                                </if>
+                                <td style="vertical-align: middle;">{$goods.goods_name}</td>
+                                <td style="vertical-align: middle;">{$goods['total_numstring']}</td>
+
+                                <foreach name="shops" item="shop">
+
+                                    <td style="vertical-align: middle;">{$goods[$shop['cust_id']]['total_numstring']}</td>
+
+                                </foreach>
+
+                            </tr>
+                        </volist>
+                    </volist>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </volist>
+        </div>
+        <div style="margin-bottom:10px; text-align:left;">
+            <a id="print" class="btn btn-primary"><span>打印</span></a>
+            <a id="exportS" class="btn btn-primary"><span>导出（店铺汇总）</span></a>
+            <if condition="$queryOrg gt 0">
+                <a id="markPurchase" class="btn btn-primary"><span>生成（采购单）</span></a>
+            </if>
+        </div>
+       
+	</div>
+	</div>
+	</div>
+</div>
+
+
+
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+
+<div class="modal" id="myModal1" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal_650 ">
+        <div class="modal-content modal_650">
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title fb f16">
+                    选择需要生成的分类
+                </h4>
+            </div>
+                <div class="modal-body modal_650">
+                    <input name="id" value="{$order['order_id']}" type="hidden">
+                    <table class="table no_border">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <volist name="summaryData" id="data">
+                                    <volist name="data.class_list" id="class">
+                                        {$class.class_name}<input name="filterClass" class="check_mt" type="checkbox" value="{$class.class_id}">&nbsp;&nbsp;&nbsp;&nbsp;
+                                    </volist>
+                                </volist>
+
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-default"
+                       data-dismiss="modal">关闭
+                    </a>
+                    <a id="submit_unit" class="btn btn-primary">
+                        确认
+                    </a>
+                </div>
+        </div>
+
+    </div>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog" style="width:1200px;">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.jqprint-0.3.js"></script>
+
+<script type="text/javascript">
+$(function(){
+
+    //联动
+    $("#queryDepot").change(function(){
+        var depot_id = $(this).val();
+        if(depot_id ==0){
+            $("#queryOrg").html('<option value=0>请选择经销商</option>');
+            return;
+        }
+        $.ajax({type:'post',url: "{:U('Admin/Ajax/getDepotOrg')}",data:{ depot_id:depot_id }, dataType:'json',timeout: 5000,
+            error: function(){
+            },
+            success: function($r){
+                $("#queryOrg").html('<option value=0>请选择经销商</option>');
+                if($r.status){
+                    var html = '<option value=0>请选择经销商</option>';
+                    $.each($r.rows,function(index,item){
+                        html+= '<option value="'+item.org_id+'">'+item.org_name+'</option>';
+                    });
+                    $("#queryOrg").html(html);
+                }
+            }
+        });
+    });
+
+
+    $("#findC").click(function(){
+
+		var depot_id = $('#queryDepot').val();
+        var org_id = $('#queryOrg').val();
+		var start_time = $('#start_time').val();
+		var end_time = $('#end_time').val();
+		var shopIds=$('#shopIds').val();
+		
+		var url = "{:U('shop')}" + "?type=2&did=" + depot_id + "&oid=" + org_id + "&st=" + start_time + "&et=" + end_time + "&shopIds=" + shopIds + "&r=" + new Date().getTime();
+
+		// 检查输入
+		if(depot_id == 0 || start_time == '' || end_time == '')
+		{
+			alert('选择查询条件！');
+		}
+		else
+		{
+
+			location.href = url;
+		}
+	});
+	$("#selectShop").click(function(){
+		
+        ajaxData("__URL__/selectShop");
+    
+		
+	});
+	
+//	$("#selectShop").click(function(){
+//		
+//      ajaxData("__URL__/setting");
+//  
+//		
+//	});
+
+
+    $("#exportS").click(function(){
+		var depot_id = $('#queryDepot').val();
+        var org_id = $('#queryOrg').val();
+		var start_time = $('#start_time').val();
+		var end_time = $('#end_time').val();
+		var url = "{:U('shop')}" + "?exportS=exportS&did=" + depot_id + "&oid=" + org_id + "&st=" + start_time + "&et=" + end_time + "&r=" + new Date().getTime();
+
+		// 检查输入
+		if(depot_id == 0 || start_time == '' || end_time == '')
+		{
+			alert('选择查询条件！');
+		}
+		else
+		{
+			location.href = url;
+		}
+	});
+
+    $("#markPurchase").click(function(){
+        $("#myModal1").modal({backdrop:"static"});
+    });
+
+    $('#submit_unit').click(function(){
+
+        var id_array=new Array();
+        $('input[name="filterClass"]:checked').each(function(){
+            id_array.push($(this).val());
+        });
+        var idstr=id_array.join(',');
+
+        var depot_id = $('#queryDepot').val();
+        var org_id = $('#queryOrg').val();
+        var start_time = $('#start_time').val();
+        var end_time = $('#end_time').val();
+        var url = "{:U('shop')}" + "?markPurchase=markPurchase&did=" + depot_id + "&oid=" + org_id + "&st=" + start_time + "&et=" + end_time + "&class="+ idstr + "&r=" + new Date().getTime();
+
+        // 检查输入
+        if(depot_id == 0 || start_time == '' || end_time == '')
+        {
+            alert('选择查询条件！');
+        }
+        else
+        {
+            location.href = url;
+        }
+    });
+
+	$("#print").click(function(){
+
+        $("#printHtml").jqprint();
+	});
+
+});
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

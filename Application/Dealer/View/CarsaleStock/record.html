@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                <!--  
+                    <select id="depot" class="w100 form-control">
+                        <option value="0">全部仓库</option>
+                        <volist name="depotList" id="dvo">
+                            <option <if condition="$dvo['repertory_id'] eq $urlPara['depot_id']">selected="selected"</if> value="{$dvo.repertory_id}">{$dvo.repertory_name}</option>
+                        </volist>
+                    </select>
+
+                    <select id="op_brand" class="w150 form-control">
+                        <option value="0">全部品牌</option>
+                        <volist name="brand" id="bvo">
+                            <option <if condition="$bvo['brand_id'] eq $urlPara['brand_id']">selected="selected"</if> value="{$bvo.brand_id}">{$bvo.brand_name}</option>
+                        </volist>
+                    </select>
+
+
+
+                    <input type="text" id="goods_name" value="{$urlPara['goods_name']}" class="form-control w200" placeholder="输入商品名称"/>
+                    
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                    -->
+                </div>
+                
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="10%">业务员</td>
+                    
+                    <td width="10%">商品名称</td>
+                   <!-- <td width="10%">库存合计</td> --> 
+                    <td width="10%">车存大单位</td>
+                    <td width="10%">车存中单位</td>
+                    <td width="10%">车存小单位</td>
+                    <td width="10%">变化</td>
+                    
+                    <td width="10%">时间</td>
+                    <!--<td width="10%">备注</td>-->
+                    
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.staff_name}</td>
+                        
+                        <td>{$vo.goods_name}{$vo.goods_spec}</td>
+                       <!--  <td>{$vo.read_stock}</td> -->
+                        <td>{$vo.big_stock}</td>
+                        <td>{$vo.mid_stock}</td>
+                        <td>{$vo.goods_string}</td>
+                        <td>{$vo.bianhua}</td>
+                        
+                        <td>{$vo.datetime|date='Y-m-d H:i:s',###}</td>
+                       <!-- <td>{$vo.remark}</td>-->
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            <div class="tc">
+                <ul class="pagination">
+                    <li><a href="__URL__/record/page/1/goods/{$goods_id}/staff/{$staff_id}">&laquo;</a></li>
+                    <volist name="page.page_num" id="num">
+                        <if condition="$page.page_current eq $num">
+                            <li class="active"><a href="javascript:void(0)">{$num}</a></li>
+                            <else />
+                            <li><a href="__URL__/record/page/{$num}/goods/{$goods_id}/staff/{$staff_id}">{$num}</a></li>
+                        </if>
+                    </volist>
+                    <li><a href="__URL__/record/page/{$page['page_total']}/goods/{$goods_id}/staff/{$staff_id}">&raquo;</a></li>
+                </ul>
+            </div>
+            <!--分页查询结束-->
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+
+</body>
+</html>

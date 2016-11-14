@@ -1,0 +1,75 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>修改品类</span>
+        </h4>
+    </div>
+    <form action="" id="brand_form" method="post">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>品类名称</td><td>
+                    <input type="hidden" name="id" value="{$id}"/>
+                    <input type="text" value="{$res.class_name}" name="class_name" id="class_name" class="w200 form-control"/>
+                </td>
+                    <!--<td class="title-error">上级品类</td><td>
+                    <select class="w200 form-control" id="parent_class">
+                    	<option value="0">
+                    		顶级品类
+                    	</option>
+                    	
+                    </select>	
+                </td>-->
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="3"> <input name="remark" value="{$res.remark}" id="remark" type="text" maxlength="100" class="w300 form-control"/></td>
+
+                </tr>
+                
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <input type="hidden" name="bid" value="{$brand_info.brand_id}">
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <if condition="$brand_info.is_close eq 0">
+        <a id="submit_brand" class="btn btn-primary">
+            <span>修改</span>
+        </a>
+        </if>
+    </div>
+    <input type="hidden" id="brand_close" value="{$brand_info.is_close}">
+    <script type="text/javascript" src="__PUBLIC__/js/validate_form.js"></script>
+    <script type="text/javascript">
+        
+        $("#submit_brand").click(function(){
+        	var class_name=$("#class_name").val();
+     		class_name=$.trim(class_name);
+     		if(class_name==""){
+     			alert("品牌名不能为空");
+     			return;
+     		}
+        	brand_form_add();
+        })
+        
+        function brand_form_add(){
+        	
+            var data=$("#brand_form").serialize();
+            ajaxDataAUD("__URL__/editex",data,true);
+        }
+    </script>
+</div>

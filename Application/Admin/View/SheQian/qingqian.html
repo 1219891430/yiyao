@@ -1,0 +1,90 @@
+<!--新建部门弹出层开始-->
+<div class="modal-content modal_650">
+    <form action="" method="post" enctype="multipart/form-data"  id="submit_form">
+        <!--onSubmit="return org_add_check()"-->
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title fb f16">清欠操作</h4>
+        </div>
+        <div class="modal-body">
+            <div class="modal_650">
+                <table class="table no_border">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+                     <td align="right">订单编号：</td>
+                     <td>{$res.order_code}</td>
+                     <td>店铺：</td>
+                     <td style="margin-right: 20px;"><input value="{$res.cust_name}" type="text" class="w200" style="border:0;"></td>
+                     
+                        
+                    </tr>
+                    <tr>
+                        <td>订单金额：</td>
+                        <td><input value="{$res.order_total_money}" type="text" class="w200" style="border:0;"></td>
+                        <td>欠款金额：</td>
+                        <td style="margin-right: 20px;"><input value="{$res.order_qian_money}" type="text" class="w200" style="border:0;"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">清欠金额：</td>
+                        <td>
+                        <input id="money" type="text" class="form-control w200" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">备注：</td>
+                        <td colspan="3">
+                        <input id="remark" type="text" class="form-control w300" >
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="javascript:void(0)" id="close_customer" class="btn btn-default" data-dismiss="modal">关闭</a>
+            <a id="qingqian" class="btn btn-primary">清欠</a>
+        </div>
+    </form>
+ </div>
+ <script>
+ 	
+ 	$("#qingqian").click(function(){
+ 		
+ 		var money=$("#money").val();
+ 		var remark=$("#remark").val();
+ 		var order_id="{$res.order_id}";
+ 		var qiankuanMoney="{$res.order_qian_money}";
+ 		if(money==""){
+ 			alert("请填写清欠金额");
+ 			return;
+ 		}
+ 		if(isNaN(money)){
+ 		 	alert("清欠金额只能为数字");
+ 			return;
+ 		}
+ 		qiankuanMoney=Number(qiankuanMoney); 
+ 		money=Number(money); 
+ 		
+ 		if(qiankuanMoney<money){
+ 			alert("清欠金额不能大于欠款金额");
+ 			return;
+ 		}
+ 		
+ 		var data={"money":money,"remark":remark,"order_id":order_id,'qiankuanMoney':qiankuanMoney};
+ 		
+ 		
+ 		$.post("__URL__/qingqianEx",data,function(res){
+ 			
+ 			if(res.code==1){
+ 				alert(res.msg);
+ 				location.reload();
+ 			}else{
+ 				alert(res.msg);
+ 			}
+ 			
+ 		},"json");
+ 	});
+ 	
+ </script>

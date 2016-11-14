@@ -1,0 +1,92 @@
+<div class="modal-dialog modal_650 ">
+    <div class="modal-content modal_650">
+        <div class="modal-header">
+            <button type="button" class="close"
+                    data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+            <h4 class="modal-title fb f16">
+                修改部门
+            </h4>
+        </div>
+        <form action="" id="submit_form" method="post">
+            <div class="modal-body modal_650">
+                <table class="table no_border">
+                    <thead></thead>
+                    <tbody>
+                    <tr>
+
+                        <td align="right" class="title-error">部门名称：</td>
+                        <td><input name="dep_name" id="dep_name" type="text" value="{$dep.dep_name}" class="unit_name form-control w200">
+                        </td>
+                    </tr>
+
+                    <tr>
+
+                        <td align="right" class="title-error">负责人：</td>
+                        <td><input id="dep_header" name="dep_header" type="text" value="{$dep.dep_header}" class="form-control w200"></td>
+
+                    </tr>
+                    <tr>
+                        <td align="right">备注：</td>
+                        <td><textarea name="remark" id="remark" class="form-control" style="resize: none;"
+                                      rows="2">{$dep.remark}</textarea></td>
+                    </tr>
+
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+            <div class="error">
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-default"
+                   data-dismiss="modal">关闭
+                </a>
+                <a id="submit_dep" class="btn btn-primary">
+                    修改
+                </a>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="__PUBLIC__/assets/js/validate_form.js"></script>
+    <script type="text/javascript">
+
+
+        $("#submit_dep").click(function(){
+            $("#submit_form").submit();
+        })
+        $("#submit_form").validate({
+            submitHandler:function(){
+                depEdit()
+            },
+            rules:{
+                dep_name:{
+                    required:true
+                },
+                dep_header: {
+                    required:true
+                }
+            },
+            messages:{
+                dep_name: {
+                    required: "部门名不能为空",
+                },
+                dep_header: {
+                    required: "负责人不能为空",
+                }
+            }
+        })
+        function depEdit(){
+            var data={
+                id:{$dep.dep_id},
+                dep_name:$("#dep_name").val(),
+                dep_header:$("#dep_header").val(),
+                remark:$("#remark").val(),
+            };
+            ajaxDataAUD("__URL__/edit",data,true)
+        }
+    </script>
+
+</div>

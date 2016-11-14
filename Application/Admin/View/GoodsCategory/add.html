@@ -1,0 +1,84 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>添加品类</span>
+        </h4>
+    </div>
+    <form action="" id="brand_form" method="post">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                	<td>品类名称</td><td>
+                    <input type="text"  id="class_name" maxlength="10" class="w200 form-control"/>
+                    
+                </td>
+                </tr>
+                <tr>
+                    <td>上级品类</td><td>
+                    <select class="w200 form-control" id="parent_class">
+                    	<option value="0">
+                    		顶级品类
+                    	</option>
+                    	
+                        <volist name="list" id="vo">
+                        <option value="{$vo.class_id}">{$vo.class_name}</option>
+                        </volist>
+                        
+                    </select>	
+                    
+                </td>
+                </tr>
+                <tr>
+                    <td>备注</td>
+                    <td colspan="3"> <input id="remark" type="text" maxlength="100" class="w300 form-control"/></td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit_class" class="btn btn-primary">
+            <span>创建</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+     $("#submit_class").click(function(){
+     	
+     	var parent_class = $('#parent_class').val();
+     	var class_name=$("#class_name").val();
+     	class_name=$.trim(class_name);
+     	if(class_name==""){
+     		alert("品类名不能为空");
+     		return;
+     	}
+     	 
+     	 var remark=$("#remark").val();
+     	 var data={class_name:class_name,parent_class:parent_class,remark:remark};
+     	 $.post("__URL__/addex",data,function(msg){
+     	 	
+     	 	
+     	 	if(msg.res==1){
+     	 		alert(msg.info);
+     	 		location.reload();
+     	 	}else{
+     	 		alert(msg.info);
+     	 	}
+     	 	 
+     	 },"json");
+   
+     });
+    </script>
+</div>

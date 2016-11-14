@@ -1,0 +1,94 @@
+<div class="modal-content modal_650">
+<!--编辑机构弹出层开始-->
+<form action="{:U('Dealer/Customer/editType')}" name="edit_org_form" id="edit_org_form" method="post">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title fb f16">编辑客户类型</h4>
+    </div>
+    <div class="modal-body modal_650">
+        <table class="table no_border">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <input type="hidden" name="ct_id" value="{$data.ct_id}">
+                <td class="title-error" align="right">类型名称：</td>
+                <td><input name="ct_name" id="ct_name" type="text" value="{$data.ct_name}"
+                           class="unit_name form-control w200"></td>
+            </tr>
+           
+            <tr>
+                <td>类型说明：</td>
+                <td colspan="3"><textarea id="ct_remark" name="ct_remark" style="resize: none;" rows="2"
+                                          class="form-control w300"> {$data.ct_remark}</textarea></td>
+            </tr>
+
+            </tbody>
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <div class="error">
+    </div>
+
+    <div class="modal-footer">
+        <a href="javascript:void(0)" class="btn btn-default" data-dismiss="modal">关闭</a>
+
+        <a id="edit_org" class="btn btn-primary">修改</a>
+    </div>
+</form>
+<!--弹出层结束-->
+<script type="text/javascript">
+	
+	
+    $(function () {
+    	
+        //new PCAS("province","city","district");
+
+        var validation = $("#edit_org_form").validate({
+            submitHandler:function(){
+                submit_add();
+            },
+            rules: {
+                ct_name: "required",
+                ct_code: {
+                    required: true,
+                    minlength: 15,
+                    maxlength: 15
+                }
+            },
+            messages: {
+                ct_name: "类型名称不能为空",
+                ct_code: {
+                    required: "类型编号不能为空",
+                    minlength: "类型编号为15位",
+                    maxlength: "类型编号为15位"
+                }
+            }
+        })
+        function submit_add(){
+            $.ajax({
+                url:"__URL__/editType",
+                type:"post",
+                data:$("#edit_org_form").serialize(),
+                dataType:"json",
+                beforeSend:function(){
+                    $(".await").show();
+                },
+                success:function(data){
+                    alert(data["info"]);
+                    if( data["res"]==1)
+                    {
+                        location.reload();
+                        $("#myModal").modal("hide")
+                    }
+                    else
+                    {
+                        $(".await").hide();
+                    }
+                }
+            })
+        }
+        $("#edit_org").click(function () {
+            $("#edit_org_form").submit();
+        })
+    })
+</script></div>

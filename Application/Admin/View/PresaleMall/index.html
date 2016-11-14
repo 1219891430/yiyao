@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>北极光-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+        <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+
+                    <select id="depot_id" class="w200 form-control">
+                        <option value="0">仓库</option>
+                        <volist name="depotList" id="svo">
+                            <if condition="$svo['repertory_id'] eq $urlPara['depot_id']">
+                                <option selected="selected" value="{$svo.repertory_id}">{$svo.repertory_name}</option>
+                                <else/>
+                                <option value="{$svo.repertory_id}">{$svo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+
+                    <input type="text" id="cust" value="{$urlPara['cust']}" class="w150 form-control"  placeholder="请输入终端店">
+                    <input type="text" readonly="readonly" value="{$urlPara['start']}"  class="form-control w100 cursor-pointer" id="start_time" placeholder="起始时间">
+                    <input type="text" readonly="readonly" <if condition="$urlPara['end'] neq 0">value="{$urlPara['end']}"</if> class="form-control w100 cursor-pointer" id="end_time" placeholder="结束时间">
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="10%">单据号</td>
+                    <td>终端店</td>
+                    <td width="8%">联系人</td>
+                    <td width="8%">电话</td>
+                    <td width="8%">出货仓库</td>
+                    <td width="5%">预单金额</td>
+                    <td width="5%">结算方式</td>
+                    <td width="10%">日期</td>
+                    <td width="5%">定单状态</td>
+                    <td width="10%">是否取消</td>
+                    <td width="15%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr id="tr_{$list.order_id}">
+                        <td  style="text-align: center">{$vo.order_code}</td>
+                        <td  style="text-align: center">{$vo.cust_name}</td>
+                        <td  style="text-align: center">{$vo.cust_contact}</td>
+                        <td  style="text-align: center">{$vo.cust_tel}</td>
+                        <td  style="text-align: center">{$vo.repertory_name}</td>
+                        <td  style="text-align: center">{$vo.order_total_money}</td>
+                        <!--<td>{$list.order_real_money}</td>-->
+                        <td  style="text-align: center">
+                            <switch name="vo.order_way">
+                                <case value="1">货到付款</case>
+                                <case value="2">账期结算</case>
+                                <case value="3">月度结算</case>
+                                <default/>
+                                其他
+                            </switch>
+                        </td>
+                        <td  style="text-align: center">{:date('Y-m-d H:i:s', $vo['add_time'])}</td>
+                        <td  style="text-align: center">
+                            <switch name="vo.order_status">
+                                <case value="1">已下单</case>
+                                <case value="2">已派送</case>
+                                <default/>
+                                其他
+                            </switch>
+                        </td>
+                        <td style="text-align: center"><if condition="$vo.is_cancel eq 1"> <span style="color: red">已取消<br>({:date('Y-m-d H:i:s', $vo['cancel_time'])})</span>  <else/> 正常 </if></td>
+
+                        <td style="text-align: center">
+                            <ul class="operate-menu li-width22">
+                                <!-- add begin -->
+                                <li>
+                                    <a class="collapsed collapse-menu icons-href look" role="button"
+                                       attr="{$vo.order_id}"><i class="icon-edit"></i>查看&nbsp;&nbsp;
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </td>
+                    </tr>
+                </volist>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$aUrlPara))}
+            <!--分页查询结束-->
+        </div>
+
+
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+    });
+
+    $("#find").click(function(){
+        //depot_id  staff_id  start_time
+        var h = "__URL__?"
+
+        // depot_id
+        h += "depot_id=" + $("#depot_id").val();
+
+        // cust
+        h += "&cust=" + $("#cust").val();
+
+        // start_time
+        h += "&start=" + $("#start_time").val();
+
+        // end_time
+        h += "&end=" + $("#end_time").val();
+
+        location.href = h;
+    });
+
+    //查看
+    $(".look").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/look/r/" + new Date().getTime(),data);
+    })
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

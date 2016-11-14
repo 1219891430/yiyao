@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/qiandao.css" rel="stylesheet">
+    <style type="text/css">
+        #tr_staff{cursor:pointer}
+        #tr_staff:hover{background: #DBEAF9;}
+    </style>
+    <style type="text/css">
+        #show{
+            height: 780px;
+            width: 360px;
+            /*border:1px solid blue;*/
+            padding: 10px;
+            overflow: hidden;
+        }
+        #show li{
+            list-style: none;
+            width: 340px;
+        }
+        #show li img{
+            margin: 0 auto;
+            width: 340px;
+            height:680px;
+        }
+    </style>
+    <style type="text/css">
+        #show_img{width:auto; height:auto;position:absolute;z-index:300000;display:none}
+        #img_src{border:3px solid gray;}
+        #img_del{position:absolute;;right:10px;top:10px;width:30px;cursor:pointer;}
+        .img_check{display:none}
+    </style>
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/qiandao.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/layer/layer.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<div id="blockUI" style="display:none;background-color:gray; position: absolute; left: 0px; top: 0px; z-index: 1000;  opacity: 0.7;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);" onClick="return false" onMouseDown="return false" onMouseMove="return false" onMouseUp="return false" onDblClick="return false">
+</div>
+<div id="show_img">
+    <img id="img_del" src="__PUBLIC__/assets/images/close.png"/>
+    <img id="img_src" src="" >
+</div>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select class="form-control w200" name="staffId" id="staffId">
+                        <option value="0">所有业务员</option>
+                        <volist name="staff_list" id="staff">
+                            <if condition="$staff['staff_id'] eq $staff_id">
+                                <option value="{$staff.staff_id}" selected="selected" >{$staff.staff_name}</option>
+                            <else />
+                                <option value="{$staff.staff_id}">{$staff.staff_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+                <div class="fr"><a class="btn btn-primary bg_3071a9" role="button" id="set_cycle">设置拜访周期</a></div>
+                <div class="fr" style="margin-right: 10px;"><a class="btn btn-primary bg_3071a9" role="button" id="into_cycle">数据导入</a></div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="15%">业务员</td>
+                    <td width="15%">电话</td>
+                    <td width="15%">职位</td>
+                     <td width="20%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="staffs" id="vo">
+                    <tr id="tr_{$vo.staff_id}">
+                        <td  style="text-align: center;vertical-align:middle; ">{$vo.staff_name}</td>
+                        <td style="text-align: center;vertical-align:middle;">{$vo.mobile}</td>
+                        <td style="text-align: center;vertical-align:middle;">
+                            {$vo.job_post}
+                        </td>
+                        <td style="text-align: center;vertical-align:middle;">
+                            <ul class="operate-menu li-width25">
+                                <!--<li><a class="collapsed collapse-menu" id="setting_{$vo.staff_id}" href="#">
+                                    设置
+                                </a></li>-->
+
+                                <li><a class="collapsed collapse-menu" id="look_{$vo.staff_id}" href="__URL__/cycle?staff_id={$vo.staff_id}">
+                                    <i class="icon-eyes"></i> 查看
+                                </a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+
+            <!--分页查询结束-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array('staffId'=>$staff_id)))}
+
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 ">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //查询
+        $("#find").click(function(){
+            var staffId=$("#staffId").val();
+            location.href="?staffId="+staffId;
+        })
+    })
+</script>
+<script type="text/javascript">
+    $("#set_cycle").click(function () {
+        ajaxDataPara("__URL__/set_cycle");
+    });
+    $("#into_cycle").click(function () {
+        ajaxDataPara("__URL__/into_cycle");
+    });
+</script>
+</body>
+</html>

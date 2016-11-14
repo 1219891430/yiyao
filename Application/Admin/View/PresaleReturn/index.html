@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>北极光-抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    <div class="r-sub-nav row-fluid">
+            <include file="Public/sub_menu"/>
+        </div>
+    <div class="row-fluid main-content">
+        <!--右侧查询开始-->
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select id="depot_id" class="w200 form-control">
+                        <option value="0">请选择仓库</option>
+                        <volist name="depotList" id="svo">
+                            <if condition="$svo['repertory_id'] eq $urlPara['depot_id']">
+                                <option selected="selected" value="{$svo.repertory_id}">{$svo.repertory_name}</option>
+                                <else/>
+                                <option value="{$svo.repertory_id}">{$svo.repertory_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <select id="staff_id" class="w200 form-control">
+                        <option value="0">请选择业务员</option>
+                        <volist name="staffList" id="svo">
+                            <if condition="$svo['admin_id'] eq $urlPara['staff_id']">
+                                <option selected="selected" value="{$svo.admin_id}">{$svo.true_name}</option>
+                                <else/>
+                                <option value="{$svo.admin_id}">{$svo.true_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+
+                    
+                    
+                   <input type="text" value="{$urlPara['cust']}" class="w150 form-control" id="cust"  placeholder="请输入购货方">
+                    <input type="text" readonly="readonly" <if condition="$urlPara['start'] neq 0">value="{$urlPara['start']}"</if>  class="form-control w100 cursor-pointer" id="start_time"
+                    placeholder="起始时间">
+                    <input type="text" readonly="readonly" <if condition="$urlPara['end'] neq 0">value="{$urlPara['end']}"</if> class="form-control w100 cursor-pointer" id="end_time"
+                    placeholder="结束时间">
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr>
+                    <td width="12%">单据号</td>
+                    <td width="12%">入库仓库</td>
+                    <td width="8%">订单金额</td>
+                    <td width="8%">业务员</td>
+                    <td width="8%">订单来源</td>
+                    <td width="8%">结算方式</td>
+                    <td width="10%">时间</td>
+                    <td width="20%">备注</td>
+                    <td width="8%">是否取消</td>
+                    <td width="10%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                	
+                  <volist name="list" id="re">
+                    <tr id="tr_{$re.return_id}">
+                        <td style="text-align: center">{$re.return_code}</td>
+                        <td style="text-align: center">{$re.repertory_name}</td>
+                        <td style="text-align: center">{$re.return_real_money}</td>
+                        <td style="text-align: center">{$re.true_name}</td>
+                        <td  style="text-align: center">
+                        	<php>if($re["order_from"]==2){</php>
+                        		业务员
+                        	<php>}elseif($re["order_from"]==3){</php>
+                        		商城下单
+                        	<php>}else{</php>
+                        		采单人员
+                        	<php>}</php>
+                        </td>
+                        
+                        <td  style="text-align: center">
+                            <switch name="re.order_way">
+                                <case value="1">货到付款</case>
+                                <case value="2">账期结算</case>
+                                <case value="3">月度结算</case>
+                                <default/>
+                                其他
+                            </switch>
+                        </td>
+                        <td style="text-align: center">{$re.add_time|date='Y-m-d H:i:s', ###}</td>
+                        <td style="text-align: center">{$re.order_remark}</td>
+                        <td style="text-align: center"><if condition="$re.is_cancel eq 1"> <span style="color: red">已取消({:date('Y-m-d H:i:s', $re['cancel_time'])})</span>  <else/> 正常 </if></td>
+
+                        <td style="text-align: center">
+                          
+                               <a attr="{$re.return_id}" class="collapsed collapse-menu icons-href look" href="javascript:void(0)">
+                                    <i class="icon-edit"></i>查看
+                                </a>
+
+                                	
+                                	<!--<a href="{:U('Home/PlanOrder/returninfo', array( 'in_code' => $list['depot_in_code'],'print' => 1 ))}" title="打印" class="collapsed collapse-menu icons-href" target="_blank">
+                                	<i class="icon-edit"></i>打印</a>-->
+                             
+
+                           
+                        </td>
+                    </tr>
+                </volist>
+
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+        <!--分页查询开始-->
+        {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$aUrlPara))}
+        <!--分页查询结束-->
+        </div>
+    
+    
+    </div>
+</div>
+<div id="await" class="await"><span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span></div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_850">
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+    });
+
+    //部门联动
+    $("#depot_id").change(function(){
+        var depot_id = $(this).val();
+        if(depot_id ==0){
+            $("#staff_id").html('<option value=0>请选择业务员</option>');
+            return;
+        }
+        $.ajax({type:'post',url: "{:U('Admin/Ajax/getRoleStaff')}",data:{ depot_id:depot_id,role_id:4  }, dataType:'json',timeout: 5000,
+            error: function(){
+            },
+            success: function($r){
+                $("#staff_id").html('<option value=0>请选择业务员</option>');
+                if($r.status){
+                    var html = '<option value=0>请选择业务员</option>';
+                    $.each($r.rows,function(index,item){
+                        html+= '<option value="'+item.admin_id+'">'+item.true_name+'</option>';
+                    });
+                    $("#staff_id").html(html);
+                }
+            }
+        });
+    });
+
+    $("#find").click(function(){
+        //depot_id  staff_id  start_time
+        var h = "__URL__?"
+
+        // depot_id
+        h += "depot_id=" + $("#depot_id").val();
+
+        // staff_id
+        h += "&staff_id=" + $("#staff_id").val();
+
+        // cust
+        h += "&cust=" + $("#cust").val();
+
+        // start_time
+        h += "&start=" + $("#start_time").val();
+
+        // end_time
+        h += "&end=" + $("#end_time").val();
+
+        location.href = h;
+    });
+
+    //查看
+    $(".look").click(function(){
+        var data={id:$(this).attr("attr")};
+        ajaxDataPara("__URL__/look/r/" + new Date().getTime(),data);
+    })
+</script>
+<include file="Public/warning_sound"/>
+</body>
+</html>

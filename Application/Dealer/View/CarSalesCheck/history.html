@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__assets/js/manhuaDate.1.0.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <!-- 
+                    <select id="status" class="w100 form-control">
+                        <option value="3" <php>if($status==3){</php>selected="selected"<php>}</php>>全部状态</option>
+                        <option value="0" <php>if($status==0){</php>selected="selected"<php>}</php>    >未对账</option>
+                        <option value="1" <php>if($status==1){</php>selected="selected"<php>}</php>>已对账</option>
+                    </select>
+                    
+                    <input type="text" readonly="readonly" value="{$date}"  class="form-control w200 cursor-pointer" id="date"
+                    placeholder="时间">
+                    
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                     -->
+                </div>
+            </div>
+            <div style="text-align: center;margin:30px 0;font-size:20px;">
+            	<span>{$staff_name}历史对账单</span>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table">
+                <thead>
+                <tr>
+
+                    <td width="16%">对账时间</td>
+                    <td width="16%">操作</td>
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="vo">
+                    <tr>
+                        <td>{$vo.end_time|date="Y-m-d H:i:s",###}</td>
+                       
+                        <td>
+                              
+                          &nbsp; &nbsp;&nbsp; &nbsp;<a did="{$vo.id}" status="0" class="collapsed collapse-menu icons-href chexiaoduizhang" href="javascript:void(0)">
+                                    <i class="icon-edit"></i>查看
+                               </a> &nbsp; &nbsp; &nbsp; &nbsp;
+                                
+                             <!--<span><a href="{:U('CarSalesCheck/showHistoryDuizhang',array('state'=>'print','id'=>$vo['id']))}" target="_blank">打印</a></span>
+                             
+                             &nbsp; &nbsp; &nbsp; &nbsp;
+                                
+                             <span><a href="{:U('CarSalesCheck/showHistoryDuizhang',array('state'=>'export','id'=>$vo['id']))}" target="_blank">导出</a></span>-->
+                             
+                              
+                         </td>
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            {:W('Page/page',array("__URL__/history",$pnum,$pagelist,$urlPara))}
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_1050">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#date").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+    })
+    $(".history").click(function(){
+    	var staff=$(this).attr("staff");
+    	location.href="__URL__/history/staff/"+staff;
+    });
+    $(".check_detail").click(function(){
+        var data={code:$(this).attr("attr"),status:$(this).attr("attr_status")};
+        ajaxDataPara("__URL__/detail",data);
+    });
+    
+    
+   $(".chexiaoduizhang").click(function(){
+	   
+	   var id=$(this).attr("did");
+	   location.href="__URL__/showHistoryDuizhang/id/"+id;
+ 
+   });
+       
+  
+    
+    
+    
+    
+    $("#find").click(function(){
+
+        var date=$("#date").val()==""?0:$("#date").val()     
+        location.href="__URL__/index/date/"+date;
+    })
+</script>
+</body>
+</html>

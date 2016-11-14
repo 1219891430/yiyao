@@ -1,0 +1,133 @@
+/* CSS Document */
+body{
+	padding:0;
+	margin:0;
+	background-color:#EEEEEE;
+	font-size:12px;
+}
+header{
+	background:#F96;
+	width:100%;
+	height:60px;
+	text-align:center;
+	line-height:60px;
+	font-family:"微软雅黑";
+	color:#FFF;
+	font-weight:bold;
+	font-size:24px;
+}
+article{
+	border-bottom:solid #F99 2px;
+	text-align:center;
+}
+article a{
+	font-size:16px;
+	color:#c00;
+	text-decoration:none;
+}
+article a:hover{
+	text-decoration:underline;
+}
+article img{
+	width:90%;
+	border:solid #c00 1px;
+	margin-bottom:15px;
+}
+article img:hover{
+	width:90%;
+	border:solid #c00 2px;
+}
+.content .title{
+	border-bottom:solid #F99 2px;
+	margin:5px auto;
+	color:#c00; 
+	padding-left:5%;
+	padding-bottom:5px;
+	font-family:"微软雅黑";
+	font-weight:bold;
+}
+.content div{
+	margin:5px auto;
+	width:90%;
+}
+.detial{
+	margin:5px auto;
+	width:90%;
+}
+.detial span{
+	font-family:"微软雅黑";
+	font-size:16px;
+	margin:0 5px;
+}
+.detial .v{
+	font-size:18px;
+	color:#900;
+}
+article p{
+	width:90%;
+	margin:5px auto;
+}
+
+footer{
+	text-align:center;
+	margin-top:0px;
+	height:30px;
+	line-height:30px;
+	font-family:"微软雅黑";
+	
+}
+.inputItem{
+	width:90%;
+	margin:5px auto;
+}
+.inputItem span{
+	display:block;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+.inputItem div{
+	font-size:18px;
+	font-family:"微软雅黑";
+	color:#C00;
+}
+
+.inputItem input{
+	width:100%;
+	height:30px;
+}
+.inputItem textarea{
+	width:100%;
+	height:80px;
+}
+.button a{
+	display:block;
+	width:90%;
+	margin:15px auto;
+	height:40px;
+	text-decoration:none;
+	background-color:#C03;
+	color:#FFF;
+	font-family:"微软雅黑";
+	text-align:center;
+	line-height:40px;
+	font-size:18px;
+	border-radius:10px;
+}
+.button a:hover{
+	background-color:#900;
+}
+.welcome{
+	width:90%;
+	margin:15px auto;
+}
+.welcome .right{
+	float:right;
+	width:auto;
+	font-size:16px;
+	font-family:"微软雅黑";
+}
+.welcome span{
+	color:#C00;
+	font-size:18px;
+}
+

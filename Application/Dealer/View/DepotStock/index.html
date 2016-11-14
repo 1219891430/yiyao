@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+</head>
+<body>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right container-fluid">
+    
+    	<div class="r-sub-nav row-fluid"><include file="Public/sub_menu"/></div>
+		<div class="row-fluid main-content">
+
+            <div class="sel-data mb20">
+            <div class="fl">
+            <select id="brand_id" class="w150 form-control">
+                    <option value="0">全部品牌</option>
+                    <volist name="brandList" id="bvo">
+                    <option <if condition="$bvo['brand_id'] eq $urlPara['brand_id']">selected="selected"</if> value="{$bvo.brand_id}">{$bvo.brand_name}</option>
+                    </volist>
+            </select>
+            <input type="text" id="goods_name" value="{$urlPara['goods_name']}" class="form-control w200" placeholder="输入商品名称"/>
+            <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+            <a class="btn btn-default" href="#" id="export" role="button">导出</a>
+            </div>
+            <div class="fr"></div>
+            </div>
+
+            <table class="table list_table" id="role_table">
+            <thead>
+            <tr><td width="15%">仓库名称</td>
+            <td width="10%">品牌</td>
+            <td width="20%">商品名称</td>
+            <td width="10%">库存合计</td>
+            <!--<td width="10%">库存大单位</td>
+            <td width="10%">库存中单位</td>-->
+            <td width="10%">库存小单位</td>
+            <!--<td width="10%">参考金额</td>-->
+            <!--<td width="10%">操作</td>-->
+            
+            </tr>
+            </thead>
+            <tbody>
+            <volist name="list" id="vo">
+            <tr>
+            <td>{$vo.depot_name}</td>
+            <td>{$vo.brand_name}</td>
+            <!-- <td>{$vo.goods_name}{$vo.goods_spec}/{$vo.goods_convert}</td>-->
+            <td>{$vo.goods_name}{$vo.goods_spec}</td>
+            <td>{$vo.numString}</td>
+            <!--<td>{$vo.big_stock}</td>
+            <td>{$vo.in_stock}</td>-->
+            <td>{$vo.small_stock}</td>
+            <!--<td>{$vo.goods_sum_money}元</td>-->
+<!--            <td style="text-align:center;"><a href="__URL__/record/goods/{$vo.goods_id}/depot/{$vo.depot_id}">查看</a></td>
+-->            
+            </tr>
+            </volist>
+            </tbody>
+            <tfoot></tfoot>
+            </table>
+                {:W('Page/page',array("__URL__/index",$pnum,$pagelist,$urlPara))}
+        </div>
+
+    </div>
+</div>
+<script>
+        $("#find").click(function(){
+                location.href="__URL__/index/brand_id/"+$("#brand_id").val()+"/goods_name/"+$("#goods_name").val();
+        })
+        $("#export").click(function(){
+                location.href="__URL__/index/export/export/brand_id/"+$("#brand_id").val()+"/goods_name/"+$("#goods_name").val();
+        })
+</script>
+</body>
+</html>

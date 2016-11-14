@@ -1,0 +1,103 @@
+﻿<include file='Public:head'/>
+
+<body>
+<!--子页顶部-->
+<div class="zy-search">
+    <div class="sch-w clearfix">
+        <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="search">
+            <button class="go-sch" id="search" href="#"></button>
+            <input type="text" id="name1" placeholder="商品名或关键字">
+        </div>
+    </div>
+    <a class="top-user" href="{:U('WapMall/Member/index')}"><img src="__PUBLIC__/assets/wap/images/i-user.png"></a>
+</div>
+    <!--分类页-->
+    <div class="wrap clearfix">
+        <div class="cate-l">
+            <ul>
+                <volist name="class" id="vo">
+                    <li onclick="jump({$vo['class_id']})" <if condition="$class_id eq $vo['class_id']"> class="cur" </if> >{$vo['class_name']}</li>
+
+                    <div id="sub_{$vo['class_id']}" hidden>
+                        <volist name="vo['child']" id="sub">
+
+                            <a class="animated" href="/index.php/WapMall/Search/search?cat={$sub.class_id}">{$sub['class_name']}</a>
+
+                        </volist>
+                    </div>
+
+                </volist>
+            </ul>
+        </div>
+        <div class="cate-r">
+            <div class="cate-tit"><span>&nbsp;&nbsp;热门分类&nbsp;&nbsp;</span></div>
+            <div class="cate-box clearfix" id="subclass">
+                <!--<a class="animated tot" href="/index.php/WapMall/Search/search?cat={$first_class.class_id}">{$first_class['class_name']}</a>--><!--第一个链接到一级分类-->
+                <volist name="first_class['child']" id="sub">
+
+                    <a class="animated" href="/index.php/WapMall/Search/search?cat={$sub.class_id}">{$sub['class_name']}</a>
+
+                </volist>
+
+            </div>
+            <div class="cate-tit"><span>&nbsp;&nbsp;热门品牌&nbsp;&nbsp;</span></div>
+            <div class="cate-brand clearfix">
+                <volist name="brand" id="vob">
+
+                    <a class="brand" href="/index.php/WapMall/Search/search?brand={$vob.brand_id}"><img class="lazy" data-original="{:C('BRAND_IMG')}{$vob.brand_logo}"></a>
+
+                </volist>
+            </div>
+        </div>
+    </div>
+
+    <!--底部悬浮按钮-->
+<div class="foot-btn">
+    <a href="/index.php/WapMall/index"><i class="nlh-home"></i>首页</a>
+    <a class="active" href="/index.php/WapMall/Index/nav"><i class="nlh-ct"></i>分类</a>
+    <a href="/index.php/WapMall/Cart"><i class="nlh-cart"></i>进货单</a>
+</div>
+
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+<script>
+
+    $(function() {
+		try{
+			$("img.lazy").lazyload({effect: "fadeIn"});
+		}
+		catch(e){}
+	});
+
+    $("#search").click(function(){
+    	var name=$("#name1").val();
+    	name=$.trim(name)
+     	if(name==""){
+    		alert("搜索条件不能为空");
+    		return;
+    	}
+    	location.href="/index.php/WapMall/Search/search/word/"+name;
+    })
+    
+    //导航页
+    var wH = $(window).height();
+    var ctLH = wH - $(".foot-btn").height() - $(".zy-search").height();
+    $(".cate-l").css("min-height",ctLH);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+
+    var jump = function (class_id) {
+        var html = $("#sub_"+class_id).html()
+        //console.log(html)
+        $("#subclass").html(html)
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+<style type="text/css">
+#show_img{width:auto; height:auto;position:absolute;z-index:300000;display:none}
+#img_src{border:3px solid gray;}
+#img_del{position:absolute;;right:10px;top:10px;width:30px;cursor:pointer;}
+.img_check{display:none}
+.list_table img{ margin-left:10px; margin-right:10px;}
+</style>
+</head>
+<body>
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+
+    <div class="r-sub-nav row-fluid"><include file="Public/sub_menu" /></div>
+
+    <div class="row-fluid main-content">
+
+        <div class="sel-data mb20">
+            <div class="fl">
+            <select class="form-control w200" name="staff_id" id="staff_id">
+            <option value="0">所有业务员</option>
+            <volist id="stafflist" name="stafflist">
+            <if condition="$stafflist['staff_id'] eq $name">
+            <option value="{$stafflist.staff_id}" selected="selected">{$stafflist.staff_name}</option>
+            <else />
+            <option value="{$stafflist.staff_id}">{$stafflist.staff_name}</option>
+            </if>
+            </volist>
+            </select>
+            <input type="text" class="form-control w150" value="{$shop}" id="shop" placeholder="商铺名称"/>
+<!--            <input type="text" class="form-control w150" value="{$display_name}" id="display_name" placeholder="照片类型"/>
+-->            <input type="text" readonly="readonly" class="form-control w150" value="{$start}" id="start_time" placeholder="起始时间">
+            <input type="text" readonly="readonly" class="form-control w150" value="{$end}" id="end_time" placeholder="结束时间">
+            <a class="btn btn-default" href="#" role="button" id="find">查询</a>
+            </div>
+            <div class="fr">
+            <a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="cre_display" role="button">创建陈列类型</a>
+            </div>
+        </div>
+
+        <table class="table list_table" id="role_table">
+        <thead>
+        <tr>
+        <td width="10%">业务员</td>
+        <td width="15%">店铺</td>
+        <td width="30%">陈列图片</td>
+        <td width="auto">陈列类型</td>
+        <td width="auto">备注</td>
+        <td width="13%">时间</td>
+        <td width="7%">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr>-->
+        <!--<td >{$list.saleman}</td>-->
+        <!--<td >{$list.shop}</td>-->
+        <!--<td style="align-content: center;">ssss</td>-->
+        <!--<td >ssss</td>-->
+        <!--<td ><ul class="operate-menu">-->
+        <!--<li><a attr="{$role_list.role_id}" class="collapsed collapse-menu icons-href delete" id="{$list.log_id}" href="javascript:void(0)">-->
+        <!--<i class="icon-remove-circle"></i>删除-->
+        <!--</a></li>-->
+        <!--</ul></td>-->
+        <!--</tr>-->
+        <volist name="list" id="list">
+        <tr id="tr_{$list.sd_id}">
+        <td>{$list.staff_name} <a target="_blank" href="__URL__/detail?staffId={$list.saleman_id}">[查看组图]</a></td>
+        <td>{$list.cust_name} <a target="_blank" href="__URL__/detail?shopId={$list.shop_id}">[查看组图]</a></td>
+        <td>
+            <empty name="list.display_thumb">
+                    <img class="big_img"  width="40px"  src="__PUBLIC__/Uploads/{$list.display_img}" />
+                <else />
+                    <img class="big_img"  width="40px"  src="__PUBLIC__/Uploads/{$list.display_thumb}" />
+            </empty>
+            </td>
+        <td>{$list.sdt_name}</td>
+        <td>{$list.remark}</td>
+        <td>{$list.add_time|date="Y-m-d H:i:s",###}</td>
+        <td><ul class="operate-menu li-width100">
+        <li><a attr="{$list.sd_id}" class="collapsed collapse-menu icons-href delete" id="{$list.sd_id}" href="javascript:void(0)">
+        <i class="icon-remove-circle"></i>删除
+        </a></li>
+        </ul></td>
+        </tr>
+        </volist>
+        </tbody>
+        <tfoot></tfoot>
+        </table>
+
+        
+        {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array('name'=>$name,'start'=>$start,'end'=>$end,'shop'=>$shop,'display_name'=>$display_name)))}
+
+    </div>
+    </div>
+</div>
+
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 "></div>
+</div>
+
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("#cre_display").click(function(){
+            ajaxData("__URL__/typeList");
+        })
+        $(".big_img").click(function(e){
+            var img_con="";
+            $("#blockUI").show().width($(window).width()).height($("body").height());
+            var b_top=$(window).scrollTop()+25;
+            $("#img_src").attr("src",$(this).attr("src"));
+            var img_width=400;
+            var b_left=($(window).width()-img_width)/2;
+            $("#show_img").show(300).css({"top":b_top+"px","left":b_left+"px","z-index":"10000"});
+            if($(this).width()>$(this).height())
+            {
+                if($("#img_src").width()>=600)
+                    $("#img_src").width(600)
+            }
+            else{
+                if($("#img_src").height()>=400)
+                    $("#img_src").height(400)
+            }
+        })
+        $("#img_del").click(function(){
+            $("#show_img").hide(300);
+            $("#blockUI").hide(300)
+        })
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2017//年份的结束默认为2049
+        });
+        $(".delete").click(function(){
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('id');
+                $.post("{:U('Dealer/Display/delDis')}",{sd_id:id},function(result){
+                    if(result==1){
+                        alert("删除成功!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        })
+        $("#find").click(function(){
+            var staff_id=$("#staff_id").val();
+            location.href="?staff_id="+staff_id+"&start="+$("#start_time").val()+"&end="+$("#end_time").val()+"&shop="+$("#shop").val();
+        })
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>经销商后台-北极光抓单宝</title>
+<link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="http://developer.amap.com/Public/css/demo.Default.css" />
+
+<!--[if lt IE 9]>
+<script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+<script src="__PUBLIC__/assets/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+    <style type="text/css">
+        #show_img{width:auto; height:auto;position:absolute;z-index:300000;display:none}
+        #img_src{border:3px solid gray;}
+        #img_del{position:absolute;;right:10px;top:10px;width:30px;cursor:pointer;}
+        .img_check{display:none}
+    </style>
+</head>
+<body>
+<div id="blockUI" style="display:none;background-color:gray; position: absolute; left: 0px; top: 0px; z-index: 1000;  opacity: 0.7;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);" onClick="return false" onMouseDown="return false" onMouseMove="return false" onMouseUp="return false" onDblClick="return false">
+</div>
+<div id="show_img">
+    <img id="img_del" src="__PUBLIC__/assets/images/close.png"/>
+    <img id="img_src" src="" >
+</div>
+<include file="Public/head" />
+<div class="main-container" id="main-container">
+<include file="Public/menu" />
+<div class="main-right container-fluid">
+<!--顶部菜单导航开始-->
+<div class="r-sub-nav row-fluid"><include file="Public/sub_menu" /></div>
+<!--顶部菜单导航结束-->
+<!--主体操作区域开始-->
+<div class="row-fluid main-content">
+    <!--右侧查询开始-->
+    <div class="sel-data mb20">
+        <div class="fl">
+            <select name="staff_id" id="staff_id" class="form-control w200">
+                <option value="0">请选择业务员</option>
+                    <volist name="staffList" id="vo">
+                        <if condition="$vo.staff_id eq $staff_id">
+                        <option selected="selected" value="{$vo.staff_id}">{$vo.staff_name}</option>
+                          <else/><option value="{$vo.staff_id}">{$vo.staff_name}</option>
+                            </if>
+                        </volist>
+            </select>
+            
+            <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+            
+        </div>
+        <div class="fr">
+
+            <a class="btn btn-primary bg_3071a9" id="cre_c"  role="button">创建</a>
+           <a class="btn btn-primary bg_3071a9" id="updateAll"  role="button">分配业务员</a>
+        </div>
+    </div>
+    <!--右侧查询结束-->
+    <!--表格查询开始-->
+    <table class="table list_table">
+        <thead>
+        <tr>
+        	<td width="1%"><input type="checkbox" id="all"></td>
+            <td width="8%">客户名称</td>
+            <td width="5%">客户类型</td>
+            <td width="5%">联系人</td>
+            <td width="5%">电话</td>
+            <td>地址</td>
+            <td width="5%">状态</td>
+            <td>所属业务员</td>
+            <td width="14%">建店时间</td>
+            <td width="14%">操作</td>
+        </tr>
+        </thead>
+        <tbody id="cust_table">
+        <volist name="list" id="list">
+        <tr id="tr_{$list.cust_id}">
+        	 <td><input <if condition="$list.is_close eq 1">disabled='disabled'</if> value="{$list.cust_id}" class="optional" type="checkbox"/></td>
+
+            <td>{$list.cust_name}</td>
+            <td>{$list.ct_name}</td>
+            <td>{$list.contact}</td>
+            <td>{$list.telephone}</td>
+            <td>{$list.province}{$list.city}{$list.district}{$list.address}</td>
+            
+            <td id="td_{$list.cust_id}" class='<if condition="$list.is_close eq 1">red<else/>green</if>'><if condition="$list.is_close eq 1">已封存<else />未封存</if></td>
+            <td>{$list.staff_name}</td>
+            <td>{$list.reg_time|date="Y-m-d H:i:s",###}</td>
+            <td>
+                <ul class="operate-menu li-width33">
+                    <!--<li><a class="collapsed collapse-menu icons-href delete" id="{$list.cust_id}"  attr="{$list.is_close}" href="javascript:void(0)"><i class="icon-remove-circle"></i>删除</a></li>-->
+                <if condition="$list.is_close eq 1">
+                    <li><a class="collapsed collapse-menu icons-href fengcun" id="{$list.cust_id}" href="javascript:void(0)"><i class="icon-remove-circle"></i>解封</a></li>
+                    <else/>
+                    <li><a class="collapsed collapse-menu icons-href fengcun" id="{$list.cust_id}" href="javascript:void(0)"><i class="icon-remove-circle"></i>封存</a></li>
+                </if>
+                </ul>
+            </td>
+        </tr>
+        </volist>
+        </tbody>
+    </table>
+    <!--表格查询结束-->
+    
+    {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array("staff_id"=>$staff_id)))}
+</div>
+<!--主体操作区域结束-->
+    <div id="await" class="await waits">
+        <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+    </div>
+    <!--新建弹出层开始-->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="modal-con"  class="modal-dialog modal_850 "></div></div></div>
+    <!--新建弹出层结束-->
+</div>
+</div>
+<div class="jwd_map">
+    <div id="iCenter"></div>
+    <div class="iCenter_info">
+       <span>&nbsp;&nbsp;&nbsp;&nbsp;经度&nbsp;&nbsp;&nbsp;&nbsp;<input readonly="readonly" type="text" class="form-control w130" id="lngX"></span>
+       <span>&nbsp;&nbsp;&nbsp;&nbsp;纬度&nbsp;&nbsp;&nbsp;&nbsp;<input readonly="readonly" type="text" class="form-control w130" id="latY"></span>
+       <span class="w50"><input type="button" class="form-control" id="jwd_add" value="确定"></span>
+       <span class="w50"><input type="button" class="form-control" id="jwd_close" value="关闭"></span>
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">$("#myModal").on("hidden.bs.modal", function() {$(this).removeData("bs.modal");});</script>
+<script language="javascript" src="http://webapi.amap.com/maps?v=1.3&key=372a8961a7f4ade22c2fc3e7558d337b"></script>
+<script type="text/javascript">
+    var mapObj,marker;
+    mapInit();
+    //初始化地图对象，加载地图
+    function mapInit(){
+        mapObj = new AMap.Map("iCenter");
+        mapObj.plugin(["AMap.ToolBar"],function(){
+            toolBar = new AMap.ToolBar();
+            mapObj.addControl(toolBar);
+            userControl();
+        });
+        AMap.event.addListener(mapObj,'click',getLnglat);
+    }
+    //鼠标在地图上点击，获取经纬度坐标
+    function getLnglat(e){
+        mapObj.clearMap();
+        document.getElementById("lngX").value=e.lnglat.getLng();
+        document.getElementById("latY").value=e.lnglat.getLat();
+       addMarker(e.lnglat.getLng(),e.lnglat.getLat())
+    }
+    //添加标注
+    function addMarker(j,w){
+        marker = new AMap.Marker({
+            icon:"__PUBLIC__/assets/images/mark.png",
+            position:new AMap.LngLat(j,w)
+        });
+        marker.setMap(mapObj);  //在地图上添加点
+    }
+</script>
+<script type="text/javascript">
+    
+    $("#all").click(function(){
+    	var res=$("#all").attr("checked");
+    	
+    	if(res=="checked"){
+    	    $(".optional").attr("checked","checked");	
+    	}else{
+    		$(".optional").attr("checked",false);
+    	}
+    });
+   
+    $("#jwd_close").click(function(){
+        $(".jwd_map").hide();
+        $("#submit_unit,#close_customer").removeAttr("disabled");
+    })
+    $("#jwd_add").click(function(){
+        $(".jwd_val").val($("#lngX").val()+","+$("#latY").val())
+        $("#submit_unit,#close_customer").removeAttr("disabled");
+        $(".jwd_map").hide();
+    })
+    
+    $(".big_img").click(function(e){
+        var img_con="";
+        $("#blockUI").show().width($(window).width()).height($("body").height());
+        var b_top=$(window).scrollTop()+25;
+        $("#img_src").attr("src",$(this).attr("src"));
+        var img_width=400;
+        var b_left=($(window).width()-img_width)/2;
+        $("#show_img").show(300).css({"top":b_top+"px","left":b_left+"px","z-index":"10000"});
+        if($("#img_src").width()>=$("#img_src").height())
+        {
+            if($("#img_src").width()>=600)
+                $("#img_src").width(600)
+        }
+        else{
+            if($("#img_src").height()>=400)
+                $("#img_src").height(400)
+        }
+    })
+    $("#img_del").click(function(){
+        $("#show_img").hide(300);
+        $("#blockUI").hide(300)
+    })
+    
+    
+    
+    $("#cre_c").click(function () {
+        $.ajax({
+            url: "__URL__/addCustomer/r/"+new Date().getTime(),
+            type: "get",
+            dataType: "html",
+            beforeSend: function () {
+                $(".await").show();
+            },
+            success: function (data) {
+                $("#modal-con").empty().append(data);
+                $(".await").hide();
+            }
+        })
+        $("#myModal").modal({backdrop: "static"});
+    });
+    $("#updateAll").click(function(){
+    	var custs=$(".optional:checked");
+    	if(custs.length==0){
+		    alert("请选择要修改的店铺");
+		    return;
+		}
+    	var cust_id;
+    	var cust_ids=[];
+    	custs.each(function(){
+    		cust_id=$(this).val();
+    		cust_ids.push(cust_id);
+    	})
+    	var data={"cust_ids":cust_ids};
+    	ajaxDataPara("__URL__/updateAll",data);
+    });
+   
+    //删除
+    $(".delete").click(function(){
+        var state=$(this).attr("attr");
+        if(state==1){
+            alert("该客户已封存，暂不能删除，如果确定删除，请先解除封存状态！");
+        }else{
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('id');
+                
+                $.post("{:U('Dealer/Customer/delCustomer')}",{cust_id:id},function(result){
+                    if(result.code==1){
+                        alert("删除成功!");
+                        location.reload();
+                    }else{
+                        alert("失败");
+                    }
+                },"json");
+            }
+        }
+    })
+    //封存
+    $(".fengcun").click(function () {
+
+        if(confirm("确定要改变封存状态吗？")) {
+            var id=$(this).attr('id');
+
+            $.post("{:U('Dealer/Customer/fengcun')}",{cust_id:id},function(result){
+
+                if(result.status){
+                    alert(result.msg);
+                    location.reload();
+                }else{
+                    alert(result.msg);
+                }
+            },"json");
+        }
+    })
+    
+
+    $("#find").click(function(){
+        var con="";
+        if($("#staff_id").val()!=0)
+            con+="/staff_id/"+$("#staff_id").val();        
+        
+        location.href="__URL__/index"+con;
+    })
+
+   
+
+    
+    
+ </script>
+</body>
+</html>

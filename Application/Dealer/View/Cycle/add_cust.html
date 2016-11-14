@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>农乐汇-抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/PCASClass.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/goods.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="http://developer.amap.com/Public/css/demo.Default.css" />
+
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+
+    <style type="text/css">.markerContentStyle span{font-family: "微软雅黑"}</style>
+</head>
+
+<style>
+    body { margin: 0; font: 13px/1.5 "Microsoft YaHei", "Helvetica Neue", "Sans-Serif";min-width: 100% !important;background-color: #fff !important; }
+</style>
+
+<body>
+<!--主体操作区域开始-->
+<div class="row-fluid main-content" style="border: none">
+<!--右侧查询开始-->
+<div class="sel-data mb20">
+    <div class="fl">
+        <input type="text" value="{$param['cust_name']}" class="form-control w200" name="cust_name" placeholder="输入终端店关键字">
+
+        <a class="btn btn-default" href="javascript:void(0);" id="find" role="button">查询</a>
+
+    </div>
+    <div class="fr">
+        <a class="btn btn-info" id="reload">刷新</a>
+    </div>
+</div>
+<!--右侧查询结束-->
+
+<form action="" id="submit_form" method="post">
+    <div class="modal-body">
+
+        <div class="panel panel-default">
+
+            <table id="treetable" class="table list_table treetable">
+                <thead>
+                <div>
+                    <!--<div class="btn-group">
+
+                        <a href="javascript:void(0);" class="btn btn-success btn-xs" id="add">添加</a>
+                        <a href="javascript:void(0);" class="btn btn-danger btn-xs" id="del">删除</a>
+                        <a href="javascript:void(0);" class="btn btn-info btn-xs" id="map">查看地图</a>
+
+                    </div>-->
+
+                </div>
+                <tr>
+                    <td width="1%">
+                        <input id="checkAll" type="checkbox">
+                    </td>
+                    <!--<td width="10%">编号</td>-->
+                    <td width="10%">终端店</td>
+                    <td width="5%">店主</td>
+                    <td width="5%">电话</td>
+                    <!--<td width="15%">地址</td>-->
+
+                </tr>
+                </thead>
+                <tbody id="tbody_cust_list">
+
+                <foreach name="custs" item="cust">
+
+                    <tr id="tr_{$cust['cust_id']}">
+                        <td style="text-align: center">
+                            <input value="{$cust['cust_id']}" data-name="{$cust['cust_name']}" data-contact="{$cust['contact']}" data-telephone='{$cust["telephone"]}' data-address='{$cust["province"]}{$cust["city"]}{$cust["district"]}{$cust["address"]}' type="checkbox" class="cust_checkbox">
+                        </td>
+                        <!--<td>{$cust['cust_id']}</td>-->
+                        <td>{$cust["cust_name"]}</td>
+                        <td>{$cust["contact"]}</td>
+                        <td>{$cust["telephone"]}</td>
+                        <!--<td>{$cust["province"]}{$cust["city"]}{$cust["district"]}{$cust["address"]}</td>-->
+
+                    </tr>
+
+                </foreach>
+
+
+                </tbody>
+            </table>
+
+            <!--分页查询开始-->
+            {:W('Page/page',array("__URL__/add_cust",$pnum,$pagelist,$param))}
+
+            <!--分页查询结束-->
+
+        </div>
+        <button type="button" id="add_btn" class="btn btn-success btn-sm"> 添 加 </button>
+
+    </div>
+</form>
+</div>
+
+<script type="text/javascript">
+
+    // 更新列表
+    var update = function (cust_ids) {
+        var data = {ids: cust_ids}
+        var html;
+        $.get("__URL__/getShopsByIds",data, function (d) {
+            $.each(d, function (k, v) {
+                html = '<tr id="tr_'+ v.cust_id +'"> <td style="text-align: center"> <input value="'+ v.cust_id +'" data-name="'+ v.cust_name +'" data-contact="'+ v.contact +'" data-telephone="'+ v.telephone +'" data-address="'+ v.province+v.city+v.district+v.address +'" type="checkbox" class="cust_checkbox"> </td> <td>'+ v.cust_name +'</td> <td>'+v.contact+'</td> <td>'+v.telephone+'</td> </tr>';
+                $("#tbody_cust_list").append(html)
+            })
+        })
+    }
+
+    // 刷新页面
+    $("#reload").click(function () {
+        window.location.reload();
+    })
+
+    // 全选
+    $('#checkAll').click(function () {
+
+        var is_check = $(this).attr("checked")
+
+        if (is_check == undefined) {
+            is_check = false
+        }
+
+        $("input[type='checkbox']").each(function () {
+            $(this).attr("checked", is_check);
+        });
+
+    })
+
+    // 添加
+    $("#add_btn").click(function () {
+        var custs = $(".cust_checkbox:checked")
+
+        if (custs.length <= 0) {
+            return false;
+        }
+
+        var id;
+        var ids = [];
+
+        custs.each(function () {
+            id = $(this).val();
+            ids.push(id)
+        })
+
+        var staff_id = {$param["staff_id"]};
+        var index = {$param["index"]};
+
+        var data = {custs: ids,staff_id:staff_id, index:index};
+
+        $.ajax({
+            url: "__URL__/add_custx",
+            type:"post",
+            data:data,
+            success:function(d){
+                if(d==1) {
+                    var html;
+                    custs.each(function () {
+                        html = '<tr id="tr_'+ $(this).val() +'"> <td style="text-align: center"> <input value="'+ $(this).val() +'" type="checkbox" name="cust_id"> </td> <td>'+ $(this).data("name") +'</td> <td>'+ $(this).data("contact") +'</td> <td>'+ $(this).data("address") +'</td><td>D-{$param["index"]}</td> </tr>'
+
+                        $('#cust_list', window.parent.document).append(html)
+                    })
+
+                    alert("添加成功");
+
+                    window.location.reload()
+
+                    $("input[type='checkbox']").attr("checked", false);
+
+                }
+            }
+        })
+    })
+
+    // 查找
+    $("#find").click(function () {
+        var name = $("input[name='cust_name']").val();
+
+        window.location.href = "__URL__/add_cust?staff_id={$param['staff_id']}&index={$param['index']}&cust_name="+name
+
+    })
+
+</script>
+
+
+</body>
+</html>

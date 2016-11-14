@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>经销商后台-北极光抓单宝</title>
+    <link href="__PUBLIC__/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
+    <link href="__PUBLIC__/assets/css/qiandao.css" rel="stylesheet">
+    <style type="text/css">
+        #tr_staff{cursor:pointer}
+        #tr_staff:hover{background: #DBEAF9;}
+    </style>
+    <style type="text/css">
+      #show{
+        height: 780px;
+        width: 360px;
+        /*border:1px solid blue;*/
+        padding: 10px;
+        overflow: hidden;
+      }
+      #show li{
+        list-style: none;
+        width: 340px;
+      }
+      #show li img{
+        margin: 0 auto;
+        width: 340px;
+        height:680px; 
+      }
+    </style>
+    <style type="text/css">
+        #show_img{width:auto; height:auto;position:absolute;z-index:300000;display:none}
+        #img_src{border:3px solid gray;}
+        #img_del{position:absolute;;right:10px;top:10px;width:30px;cursor:pointer;}
+        .img_check{display:none}
+    </style>
+    <!--[if lt IE 9]>
+    <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
+    <script src="__PUBLIC__/assets/js/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/qiandao.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/assets/js/layer/layer.js"></script>
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/jquery-messages_cn.js"></script> -->
+</head>
+<body>
+<div id="blockUI" style="display:none;background-color:gray; position: absolute; left: 0px; top: 0px; z-index: 1000;  opacity: 0.7;filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);" onClick="return false" onMouseDown="return false" onMouseMove="return false" onMouseUp="return false" onDblClick="return false">
+</div>
+<div id="show_img">
+    <img id="img_del" src="__PUBLIC__/assets/images/close.png"/>
+    <img id="img_src" src="" >
+</div>
+
+<include file="Public/head"/>
+<div class="main-container">
+    <include file="Public/menu" />
+    <div class="main-right">
+        <!--右侧菜单导航开始-->
+        <div class="r-sub-nav row-fluid "><include file="Public/sub_menu" /></div>
+        <!--右侧菜单导航结束-->
+        <div class="row-fluid main-content">
+            <!--右侧查询开始-->
+            <div class="sel-data mb20">
+                <div class="fl">
+                    <select class="form-control w200" name="staffId" id="staffId">
+                        <option value="0">所有业务员</option>
+                        <volist name="staff" id="staff">
+                            <if condition="$staff['staff_id'] eq $staff_id"><option value="{$staff.staff_id}" selected="selected" >{$staff.staff_name}</option>
+                                <else /><option value="{$staff.staff_id}">{$staff.staff_name}</option>
+                            </if>
+                        </volist>
+                    </select>
+                    <input type="text" readonly="readonly" class="form-control w200" value="{$start}" id="start_time"
+                           placeholder="起始时间">
+                    <input type="text" readonly="readonly" class="form-control w200" value="{$end}" id="end_time"
+                           placeholder="结束时间">
+                    <a class="btn btn-default" href="#" id="find" role="button">查询</a>
+                </div>
+                <div class="fr">
+                    
+                </div>
+            </div>
+            <!--右侧查询结束-->
+            <!--表格查询开始-->
+            <table class="table list_table" id="role_table">
+                <thead>
+                <tr><td width="15%">业务员</td>
+                    <td widht="40%">地址</td>
+                    <td width="20%">图片</td>
+                    <td width="15%">时间</td>
+                    <!-- <td width="10%">操作</td> -->
+                </tr>
+                </thead>
+                <tbody>
+                <volist name="list" id="list">
+                    <tr id="tr_{$list.signin_id}">
+                        <td  style="text-align: center;vertical-align:middle; ">{$list.staff}</td>
+                        <td style="text-align: center;vertical-align:middle;">{$list.address}</td>
+                        <td style="text-align: center;vertical-align:middle;">
+                                <img class="big_img"  width="40px" src="__PUBLIC__/Uploads/{$list.img}" style=" vertical-align:middle;"/>
+                        </td>
+                        <td style="text-align: center;vertical-align:middle;">
+                                {$list.now_time}
+                        </td>
+                   <!--      <td style="text-align: center;vertical-align:middle;">
+                                <ul class="operate-menu li-width100">
+                                    <li><a attr="{$role_list.role_id}" class="collapsed collapse-menu icons-href delete" id="{$list.signin_id}" href="javascript:void(0)">
+                                    <i class="icon-remove-circle"></i>删除
+                                </a></li>
+                                </ul>
+                        </td> -->
+                    </tr>
+                </volist>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+            <!--表格查询结束-->
+            <!--分页查询开始-->
+            
+            <!--分页查询结束-->
+            {:W('Page/page',array("__URL__/index",$pnum,$pagelist,array('staffId'=>$staff_id,'start'=>$start,'end'=>$end)))}
+            
+        </div>
+    </div>
+</div>
+<div id="await" class="await">
+    <span> <img src="__PUBLIC__/assets/images/loding.gif" title="加载图片"/></span>
+</div>
+<!--弹出层开始-->
+<div class="modal" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="modal-con" class="modal-dialog modal_650 ">
+    </div>
+</div>
+<script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".big_img").click(function(e){
+            var img_con="";
+            $("#blockUI").show().width($(window).width()).height($("body").height());
+            var b_top=$(window).scrollTop()+25;
+            $("#img_src").attr("src",$(this).attr("src"));
+            var img_width=400;
+            var b_left=($(window).width()-img_width)/2;
+            $("#show_img").show(300).css({"top":b_top+"px","left":b_left+"px","z-index":"10000"});
+            if($(this).width()>$(this).height())
+            {
+                if($("#img_src").width()>=600)
+                    $("#img_src").width(600)
+            }
+            else{
+                if($("#img_src").height()>=400)
+                    $("#img_src").height(400)
+            }
+        })
+        $("#img_del").click(function(){
+            $("#show_img").hide(300);
+            $("#blockUI").hide(300)
+        })
+        $("#start_time,#end_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2017//年份的结束默认为2049
+        });
+        //删除
+        $(".delete").click(function(){
+            if(confirm("确定要删除该记录吗？"))
+            {
+                var id=$(this).attr('id');
+                $.post("{:U('Home/Signin/delSign')}",{signin_id:id},function(result){
+                    if(result==1){
+                        alert("删除成功!");
+                        $("#tr_"+id).remove();//移除当前行
+                    }else{
+                        alert("失败");
+                    }
+                })
+            }
+        })
+        //查询
+        $("#find").click(function(){
+            if($("#start_time").val()!=""&&$("#end_time").val()!="")
+            {
+                var staffId=$("#staffId").val();
+                location.href="?staffId="+staffId+"&start="+$("#start_time").val()+"&end="+$("#end_time").val();
+            }
+            else{
+                alert("请选择起始、结束时间")
+            }
+        })
+    })
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("#look").click(function () {
+            $.ajax({
+                url: "__URL__/look",
+                type: "get",
+                dataType: "html",
+                beforeSend: function () {
+                    $(".await").show();
+                },
+                success: function (data) {
+                    $("#modal-con").empty().append(data);
+                    $(".await").hide();
+                }
+            })
+            $("#myModal").modal({backdrop: "static"});
+        })
+    })
+</script>
+</body>
+</html>

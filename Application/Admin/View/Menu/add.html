@@ -1,0 +1,176 @@
+<div class="modal-content modal_650">
+    <div class="modal-header">
+        <button type="button" class="close"
+                data-dismiss="modal" aria-hidden="true">
+            &times;
+        </button>
+        <h4 class="modal-title fb f16">
+            <span>添加菜单</span>
+        </h4>
+    </div>
+    <form action="__URL__/addex" id="menu_form" method="post">
+        <div class="modal-body modal_650">
+            <table class="table no_border">
+                <thead>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>名称</td><td>
+                    <input type="text" id="title"  name="title"  class="w200 form-control" />
+                </td>
+                    
+                    
+                </td>
+                </tr>
+                <tr>
+                    <td>上级菜单</td>
+                    <td> 
+                    	<select id="pid" name="pid" class="w200 form-control">
+                    		<option value="0">顶级菜单</option>
+                    		<volist name="pmenuList" id="vo">
+                    			<option value="{$vo.id}">{$vo.title}</option>
+                    			<volist name="vo['submenu']" id="v" >
+                    				<option value="{$v.id}">----{$v.title}</option>
+                    			</volist>
+                    		</volist>
+                    	  
+                    	</select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>模块</td>
+                    <td> <input id="g" name="g" type="text" class="w200 form-control"/></td>
+                </tr>
+                
+                <tr>
+                    <td>控制器</td>
+                    <td> <input id="m" name="m" type="text" class="w200 form-control"/></td>
+                </tr>
+                
+                <tr>
+                    <td>函数</td>
+                    <td> <input id="a" name="a" type="text" class="w200 form-control"/></td>
+                </tr>
+                
+                <tr>
+                    <td>ico</td>
+                    <td> 
+                    <!--<select id="ico" name="ico" class="w200 form-control">
+                      	
+                      	<option value="left-bg-base">left-bg-base</option>
+                      	<option value="left-bg-customer">left-bg-customer</option>
+                      	<option value="left-bg-action">left-bg-action</option>
+                      	<option value="left-bg-depot">left-bg-depot</option>
+                      	<option value="left-bg-goods">left-bg-goods</option>
+                      	<option value="left-bg-order">left-bg-order</option>
+                      	<option value="left-bg-deliver">left-bg-deliver</option>
+                      	<option value="left-bg-sheqian">left-bg-sheqian</option>
+                      	
+                      </select>-->
+                      <input type="text"  id="ico" name="ico" class="w200 form-control" />
+                    </td>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>层级</td>
+                    <td> 
+                    <select id="level" name="level" class="w200 form-control">
+                      	
+                      	<option value="1">1</option>
+                      	<option value="2">2</option>
+                      	<option value="3">3</option>
+                      </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>排序</td>
+                    <td> <input id="sort" name="sort" type="number" value="1"  min="1" class="w200 form-control"/></td>
+                </tr>
+                
+                <tr>
+                    <td>备注</td>
+                    <td> <input id="remark" name="remark" type="text" class="w300 form-control"/></td>
+                </tr>
+                <tr>
+                    <td>是否启用</td>
+                    <td> 
+                    <select id="status" name="status" class="w200 form-control">
+                      	
+                      	<option value="0">停用</option>
+                      	<option value="1">启用</option>
+                      </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>类型</td>
+                    <td> 
+                      <select id="flag" name="flag" class="w200 form-control">
+                      	
+                      	<option value="0">页面</option>
+                      	<option value="1">按钮</option>
+                      </select>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </form>
+    <div class="modal-footer">
+        <a href="#" class="btn btn-default"
+           data-dismiss="modal">关闭
+        </a>
+        <a id="submit_form" class="btn btn-primary">
+            <span>创建</span>
+        </a>
+    </div>
+    <script type="text/javascript">
+
+
+     $("#submit_form").click(function(){
+
+     	 var flag=$("#flag").val();
+     	 var status=$("#status").val();
+     	 var remark=$("#remark").val();
+     	 var sort=$("#sort").val();
+     	 var level=$("#level").val();
+     	 var ico=$("#ico").val();
+     	 var a=$("#a").val();
+     	 var m=$("#m").val();
+     	 var g=$("#g").val();
+     	 var pid=$("#pid").val();
+     	 var title=$("#title").val();
+     	 var data={}
+     	 data.flag=flag;
+     	 data.status=status;
+     	 data.remark=remark;
+     	 data.sort=sort;
+     	 data.level=level;
+     	 data.ico=ico;
+     	 data.a1=a;
+     	 data.m=m;
+     	 data.g=g;
+     	 data.pid=pid;
+     	 data.title=title;
+     	 
+     	 $.post("__URL__/addex",data,function(res){
+     	 	
+     	 	if(res.res==1){
+     	 		alert("添加成功");
+     	 		location.reload();
+     	 	}else{
+     	 		alert("添加失败");
+     	 	}
+     	 },"json");
+
+        
+     })
+
+       
+    </script>
+</div>

@@ -1,0 +1,17 @@
+{
+	"status":true,
+	"update":{
+		"note":"抓单宝",
+		"version":1102,
+		"name":"zdb_1.0.2",
+		"url":"http://www.pgyer.com/apiv1/app/install?aId=6de1bde7bd092e9cb05bd42a847cfd93&_api_key=c15d2f35949e9bbbad37f3a4115dfb69",
+		"des":"1，全新升级全新界面。\r\n2，其他优化信息。"
+	},
+	"ios":{
+	    "note":"抓单宝ios端",
+        "version":1002,
+        "name":"zdb_1.0.2",
+        "url":"http://www.pgyer.com/",
+        "des":"1，全新升级全新界面。\r\n2，其他优化信息。"
+	}
+}

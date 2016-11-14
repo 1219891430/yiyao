@@ -1,0 +1,44 @@
+<include file='Public:head'/>
+
+<body>
+<!--子页顶部-->
+<div class="zy-search zy-tit">
+    <div class="sch-w clearfix">
+        <a class="go-back" href="#"><img src="__PUBLIC__/assets/wap/images/go-back.png"></a>
+        <div class="tit">
+            个人信息
+        </div>
+    </div>
+</div>
+<div class="information-w">
+    <!--个人信息-->
+    <ul class="clearfix">
+        <li><a href="#"><span class="tit">头像</span><img class="photo" src="__PUBLIC__/assets/wap/images/pic.jpg"></a></li>
+        <li><a href="#"><span class="tit">门店名称</span><span>{$cust_info['cust_name']}</span></a></li>
+        <li><a href="#"><span class="tit">老板姓名</span><span>{$cust_info['contact']}</span></a></li>
+        <li><a href="#"><span class="tit">手机</span><span>{$cust_info['telephone']}</span></a></li>
+        <li><a href="#"><span class="tit">所在地</span><span>{$cust_info['district']}</span></a></li>
+        <li><a href="#"><span class="tit">门店地址</span><span>{$cust_info['address']}</span></a></li>
+    </ul>
+</div>
+
+
+<!--loading start-->
+<div class="loading_box"></div>
+<!--loading end-->
+
+
+<script>
+    // 弹框
+    function toggleCard() {
+        $('.modal').slideToggle(300);
+    }
+    $('.sku-control-box,.btn-close').click(toggleCard);
+
+    $(".go-back").click(function () {
+        history.go(-1)
+    })
+</script>
+
+</body>
+</html>
