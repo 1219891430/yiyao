@@ -3,15 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>北极光抓单宝系统后台</title>
-<link href="/yiyao/Public/assets/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/yiyao/Public/assets/js/jquery-1.7.2.min.js"></script>
+<link href="/Public/assets/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/Public/assets/js/jquery-1.7.2.min.js"></script>
 </head>
 <body>
 
 <div class="login">
     <div class="login-box">
         <div class="l_box">
-            <img src="/yiyao/Public/assets/images/logo-login.png">
+            <img src="/Public/assets/images/logo-login.png">
         </div>
         <div class="d_box" style="margin-top: 160px;">
             <form name="user_login" method="post" action="<?php echo U('login');?>" onSubmit="return checkLogin()">
@@ -40,8 +40,8 @@ function checkLogin()
 	}
 }
 </script>
-<script src="/yiyao/Public/assets/js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/timer.js"></script>
+<script src="/Public/assets/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/timer.js"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -63,7 +63,7 @@ function checkLogin()
     });
 
     function playAudio() {
-        $('<audio id="chatAudio"><source src="/yiyao/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
+        $('<audio id="chatAudio"><source src="/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
 
         $('#chatAudio')[0].play(); //播放声音
     }

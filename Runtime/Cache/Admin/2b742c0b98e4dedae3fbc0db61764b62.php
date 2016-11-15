@@ -5,25 +5,25 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>北极光抓单宝系统后台</title>
-<link href="/yiyao/Public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/style.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Public/assets/css/bootstrap.css" rel="stylesheet">
+<link href="/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/Public/assets/css/style.css" rel="stylesheet">
+<link href="/Public/assets/css/font-awesome.min.css" rel="stylesheet">
 <!--[if lt IE 9]>
-<script src="/yiyao/Public/assets/js/html5shiv.min.js"></script>
-<script src="/yiyao/Public/assets/js/respond.min.js"></script>
+<script src="/Public/assets/js/html5shiv.min.js"></script>
+<script src="/Public/assets/js/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="/yiyao/Public/assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/bootstrap.min.js"></script>
-<!-- <script type="text/javascript" src="/yiyao/Public/assets/js/jquery-messages_cn.js"></script> -->
-<script type="text/javascript" src="/yiyao/Public/assets/js/zstb.js"></script>
+<script type="text/javascript" src="/Public/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="/Public/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="/Public/assets/js/zstb.js"></script>
 </head>
 <body>
 
 <div id="top">
 <div class="navbar">
 <div class="navbar-inner">
-<div class="logo"><img src="/yiyao/Public/assets/images/logoG.png" /></div>
+<div class="logo"><img src="/Public/assets/images/logoG.png" /></div>
 <ul class="pull-right navInfo">
     <?php if($_SESSION['depot_id'] > 0): ?><li><a href="<?php echo U('Admin/GoodsWarning/warning_view');?>" class="head_goods_warning" id="head_warning">预警提示
         <?php if(!empty($_COOKIE['warning_count'])): ?><span class="badge bg_red"><?php echo ($_COOKIE['warning_count']); ?></span><?php endif; ?>
@@ -60,12 +60,12 @@
 </ul>
 
     <div class="main-right">
-    <div class="welcome"><img src="/yiyao/Public/assets/images/welcome_logo.png"><h1 class="fb">欢迎使用北极光-抓单宝平台</h1></div>
+    <div class="welcome"><img src="/Public/assets/images/welcome_logo.png"><h1 class="fb">欢迎使用北极光-抓单宝平台</h1></div>
     </div>
 </div>
-<div id="await" class="await"><span> <img src="/yiyao/Public/assets/images/loding.gif" title="加载图片"/></span></div>
-<script src="/yiyao/Public/assets/js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/timer.js"></script>
+<div id="await" class="await"><span> <img src="/Public/assets/images/loding.gif" title="加载图片"/></span></div>
+<script src="/Public/assets/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/timer.js"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -87,7 +87,7 @@
     });
 
     function playAudio() {
-        $('<audio id="chatAudio"><source src="/yiyao/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
+        $('<audio id="chatAudio"><source src="/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
 
         $('#chatAudio')[0].play(); //播放声音
     }

@@ -17,13 +17,6 @@
 <script type="text/javascript" src="/Public/assets/js/bootstrap.min.js"></script>
 <!-- <script type="text/javascript" src="/Public/assets/js/jquery-messages_cn.js"></script> -->
 <script type="text/javascript" src="/Public/assets/js/zstb.js"></script>
-<style>
-	
-	.li-width li{
-		width:60px;
-	}
-	
-</style>
 </head>
 <body>
 
@@ -82,9 +75,8 @@
 
         </div>
     <div class="row-fluid main-content">
-    	
-    	
-    	<!--右侧查询开始-->
+        
+            <!--右侧查询开始-->
             <div class="sel-data mb20">
                 <div class="fl">
 
@@ -100,107 +92,61 @@
             <table class="table list_table" id="role_table">
                 <thead>
                 <tr>
-                    <td width="20%">类别名称</td>
-                    <td width="20%">备注</td>
+                    <td>品牌名称</td>
+                    
+                    <td width="30%">备注</td>
+                    <td width="120">logo</td>
                     <td width="20%">操作</td>
                 </tr>
                 </thead>
                 <tbody>
-				<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bvo): $mod = ($i % 2 );++$i;?><tr>
-						<td><?php echo ($bvo["class_name"]); ?></td>
-						<td><?php echo ($bvo["remark"]); ?></td>
-						<td>
-							<ul class="operate-menu li-width">
-								
-						<?php if(1==1 || $depot_id==0){ ?>
-							<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_edit" href="javascript:void(0)">
-											<i class="icon-edit"></i>修改</a></li>
-						    <?php if($bvo["is_close"]==0){ ?>
-						    	<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_offpass" href="javascript:void(0)">
-											<i class="icon-edit"></i>已审核</a></li>
-						    <?php }else{ ?>
-						    	<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_pass" href="javascript:void(0)">
-											<i class="icon-edit"></i>审核
-								</a>
-						       </li>
-						    <?php } ?>
-						    
-							<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href brand_del" href="javascript:void(0)">
-								<i class="icon-remove-circle"></i>删除
-							</a></li>
-						<?php }else{ ?>
-								<?php if($bvo["is_close"]==0){ ?>
-						    	<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href " href="javascript:void(0)">
+                            <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$bvo): $mod = ($i % 2 );++$i;?><tr>
+                                <td><?php echo ($bvo["brand_name"]); ?></td>
+                                <td><?php echo ($bvo["remark"]); ?></td>
+                                <td><img src="/Public/Uploads/brand/<?php echo ($bvo["brand_logo"]); ?>" width="80" height="80" /> </td>
+                                <td>
+                               
+                                	
+                                	<ul class="operate-menu li-width33">
+                                		
+                                <?php if(1==1 || $depot_id==0){ ?>
+                                    <li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href brand_edit" href="javascript:void(0)">
+                                        <i class="icon-edit"></i>修改
+                                    </a></li>
+
+                                    <?php if($bvo["is_close"]==0){ ?>
+						    				<li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href brand_offpass" href="javascript:void(0)">
 											<i class="icon-edit"></i>已审核
-								</a></li>
-						   		 <?php }else{ ?>
-						    	<li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href " href="javascript:void(0)">
-											<i class="icon-edit"></i>未审核</a></li>
-						       <li><a attr="<?php echo ($bvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_edit" href="javascript:void(0)">
-											<i class="icon-edit"></i>修改</a></li>
-						    	<?php } ?>
-						<?php } ?>
-						</ul>
-						</td>
-					</tr>
-					<?php if(is_array($bvo["class_list"])): $i = 0; $__LIST__ = $bvo["class_list"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cvo): $mod = ($i % 2 );++$i;?><tr>
-							<td>|-----------<?php echo ($cvo["class_name"]); ?></td>
-							<td><?php echo ($cvo["remark"]); ?></td>
-							<td>
-								<ul class="operate-menu li-width">
+											</a></li>
+						    		<?php }else{ ?>
+						    				<li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href brand_pass" href="javascript:void(0)">
+											<i class="icon-edit"></i>审核</a></li>
+						    		<?php } ?>
 
-									<?php if(1==1 || $depot_id==0){ ?>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_edit" href="javascript:void(0)">
-										<i class="icon-edit"></i>修改
-									</a>
-									</li>
-									<?php if($cvo["is_close"]==0){ ?>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_offpass" href="javascript:void(0)">
-										<i class="icon-edit"></i>已审核
-									</a>
-									</li>
-									<?php }else{ ?>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_pass" href="javascript:void(0)">
-										<i class="icon-edit"></i>审核
-									</a>
-									</li>
-									<?php } ?>
+                                    <li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href brand_del" href="javascript:void(0)">
+                                        <i class="icon-remove-circle"></i>删除
+                                    </a></li>
+                                <?php }else{ ?>
+                                	<?php if($bvo["is_close"]){ ?>
+                                        <li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href" href="javascript:void(0)">
+										<i class="icon-edit"></i>未审核</a></li>
+                                    <?php }else{ ?>
+						       				<li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href" href="javascript:void(0)">
+											<i class="icon-edit"></i>已审核</a></li>
+                                        <li><a attr="<?php echo ($bvo["brand_id"]); ?>" class="collapsed collapse-menu icons-href brand_edit" href="javascript:void(0)">
+                                            <i class="icon-edit"></i>修改
+                                        </a></li>
+                                    <?php } ?>
+                                <?php } ?>
+                                </ul></td>
+                                </tr><?php endforeach; endif; else: echo "" ;endif; ?>
 
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href brand_del" href="javascript:void(0)">
-										<i class="icon-remove-circle"></i>删除
-									</a></li>
-									<?php }else{ ?>
-									<?php if($cvo["is_close"]==0){ ?>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href " href="javascript:void(0)">
-										<i class="icon-edit"></i>已审核
-									</a>
-									</li>
-									<?php }else{ ?>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href " href="javascript:void(0)">
-										<i class="icon-edit"></i>未审核
-									</a>
-									</li>
-									<li><a attr="<?php echo ($cvo["class_id"]); ?>" class="collapsed collapse-menu icons-href class_edit" href="javascript:void(0)">
-										<i class="icon-edit"></i>修改
-									</a>
-									</li>
-									<?php } ?>
-									<?php } ?>
-								</ul>
-							</td>
-						</tr><?php endforeach; endif; else: echo "" ;endif; endforeach; endif; else: echo "" ;endif; ?>
                 </tbody>
                 <tfoot></tfoot>
             </table>
+            <?php echo W('Page/page',array("/index.php/Admin/GoodsBrand/index",$pnum,$pagelist));?>
             <!--表格查询结束-->
-    	
-        <!--右侧查询开始-->
-           
-        <!--<?php echo W('Page/page',array("/index.php/Admin/GoodsCategory/index",$pnum,$pagelist));?>-->
-        
-            </div>
-            
-         </div>
+        </div>
     
     
     </div>
@@ -216,21 +162,20 @@
 <script type="text/javascript">
     $("#cre_brand").click(function(){
     	
-        ajaxData("/index.php/Admin/GoodsCategory/add");
+        ajaxData("/index.php/Admin/GoodsBrand/add");
     })
     $("#cre_class").click(function(){
-        ajaxData("/index.php/Admin/GoodsCategory/classAdd");
+        ajaxData("/index.php/Admin/GoodsBrand/classAdd");
     })
     
     $(".brand_del").click(function(){
-        if(confirm("确定删除品类"))
+        if(confirm("确定删除品牌"))
         {
-        	var cid=$(this).attr("attr");
+        	var bid=$(this).attr("attr");
+
+        	var data={bid:bid};
         	
-        	
-        	var data={cid:cid};
-        	
-            $.post("/index.php/Admin/GoodsCategory/del",data,function(msg){
+            $.post("/index.php/Admin/GoodsBrand/del",data,function(msg){
      	 	
      	 		if(msg.res==1){
      	 			alert(msg.info);
@@ -241,62 +186,72 @@
      	 	 
      	   },"json");
         }
+
     });
     
-    $(".class_pass").click(function(){
-    	if(confirm("确定要通过审核吗")){
-    		var class_id=$(this).attr("attr");
-    		var data={class_id:class_id};
-    		$.post("/index.php/Admin/GoodsCategory/setPass",data,function(res){
-    			if(res.res==1){
-    				alert(res.msg);
-    				location.reload();
-    			}else{
-    				alert(res.msg);
-    			}
-    		},"json");
-    	}
-    	
-    });
-    $(".class_offpass").click(function(){
-    	if(confirm("确定要设置成未审核状态吗")){
-    		var class_id=$(this).attr("attr");
-    		var data={class_id:class_id};
-    		$.post("/index.php/Admin/GoodsCategory/setOffPass",data,function(res){
-    			if(res.res==1){
-    				alert(res.msg);
-    				location.reload();
-    			}else{
-    				alert(res.msg);
-    			}
-    		},"json");
-    	}
-    	
-    });
+
     
-    $(".class_edit").click(function(){
+    $(".brand_edit").click(function(){
         var data={id:$(this).attr("attr")};
-        ajaxDataPara("/index.php/Admin/GoodsCategory/edit",data)
+        ajaxDataPara("/index.php/Admin/GoodsBrand/edit",data)
     })
     
     $(".brand_close").click(function(){
             var data={bid:$(this).attr("attrid"),type:$(this).attr("attr")};
-            ajaxDataAUD("/index.php/Admin/GoodsCategory/close",data,true);
+            ajaxDataAUD("/index.php/Admin/GoodsBrand/close",data,true);
     })
     $(".class_edit").click(function(){
         var data={bid:$(this).attr("attr")};
-        ajaxDataPara("/index.php/Admin/GoodsCategory/classEdit",data)
+        ajaxDataPara("/index.php/Admin/GoodsBrand/classEdit",data)
     })
+    
+    
+    $(".brand_pass").click(function(){
+    	if(confirm("确定要通过审核吗")){
+    		var brand_id=$(this).attr("attr");
+    		var data={brand_id:brand_id};
+    		console.log(data);
+    		$.post("/index.php/Admin/GoodsBrand/setPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+    
+    $(".brand_offpass").click(function(){
+    	if(confirm("确定要设置成未审核状态吗")){
+    		var brand_id=$(this).attr("attr");
+    		var data={brand_id:brand_id};
+    		
+    		$.post("/index.php/Admin/GoodsBrand/setOffPass",data,function(res){
+    			if(res.res==1){
+    				alert(res.msg);
+    				location.reload();
+    			}else{
+    				alert(res.msg);
+    			}
+    		},"json");
+    	}
+    	
+    });
+    
+    
+    
     $(".class_del").click(function(){
         if(confirm("确定删除该类别"))
         {
             var data={cid:$(this).attr("attr")};
-            ajaxDataAUD("/index.php/Admin/GoodsCategory/classDel",data,true)
+            ajaxDataAUD("/index.php/Admin/GoodsBrand/classDel",data,true)
         }
     })
     $(".class_close").click(function(){
         var data={cid:$(this).attr("attrid"),type:$(this).attr("attr")};
-        ajaxDataAUD("/index.php/Admin/GoodsCategory/classClose",data,true);
+        ajaxDataAUD("/index.php/Admin/GoodsBrand/classClose",data,true);
     })
 </script>
 <script src="/Public/assets/js/jquery.cookie.min.js"></script>

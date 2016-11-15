@@ -4,29 +4,29 @@
 <meta charset="utf-8">
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>农乐汇-抓单宝</title>
-<link href="/Public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="/Public/assets/css/style.css" rel="stylesheet">
-<link href="/Public/assets/css/font-awesome.min.css" rel="stylesheet">
+<title>北极光-抓单宝</title>
+<link href="/yiyao/Public/assets/css/bootstrap.css" rel="stylesheet">
+<link href="/yiyao/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/yiyao/Public/assets/css/style.css" rel="stylesheet">
+<link href="/yiyao/Public/assets/css/font-awesome.min.css" rel="stylesheet">
 <!--[if lt IE 9]>
-<script src="/Public/assets/js/html5shiv.min.js"></script>
-<script src="/Public/assets/js/respond.min.js"></script>
+<script src="/yiyao/Public/assets/js/html5shiv.min.js"></script>
+<script src="/yiyao/Public/assets/js/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="/Public/assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/Public/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/Public/assets/js/jquery.validate.min.js"></script>
-<script type="text/javascript" src="/Public/assets/js/PCASClass.js"></script>
-<!-- <script type="text/javascript" src="/Public/assets/js/jquery-messages_cn.js"></script> -->
-<script type="text/javascript" src="/Public/assets/js/zstb.js"></script>
-<script type="text/javascript" src="/Public/assets/js/goods.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/PCASClass.js"></script>
+<!-- <script type="text/javascript" src="/yiyao/Public/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="/yiyao/Public/assets/js/zstb.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/goods.js"></script>
 </head>
 <body>
 
 <div id="top">
 <div class="navbar">
 <div class="navbar-inner">
-<div class="logo"><img src="/Public/assets/images/logoG.png" /></div>
+<div class="logo"><img src="/yiyao/Public/assets/images/logoG.png" /></div>
 <ul class="pull-right navInfo">
     <?php if($_SESSION['depot_id'] > 0): ?><li><a href="<?php echo U('Admin/GoodsWarning/warning_view');?>" class="head_goods_warning" id="head_warning">预警提示
         <?php if(!empty($_COOKIE['warning_count'])): ?><span class="badge bg_red"><?php echo ($_COOKIE['warning_count']); ?></span><?php endif; ?>
@@ -117,7 +117,7 @@
         </table>
         
         <!--分页查询开始-->
-        <?php echo W('Page/page',array("/index.php/Admin/CollectShop/index", $page_size, $pagelist, array('queryDepot'=>$queryDepot)));?>
+        <?php echo W('Page/page',array("/yiyao/index.php/Admin/CollectShop/index", $page_size, $pagelist, array('queryDepot'=>$queryDepot)));?>
         <!--分页查询结束-->
 	</div>
     </div>
@@ -136,8 +136,8 @@ $(function () {
 </script>
 
 </body>
-<script src="/Public/assets/js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="/Public/assets/js/timer.js"></script>
+<script src="/yiyao/Public/assets/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="/yiyao/Public/assets/js/timer.js"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -159,7 +159,7 @@ $(function () {
     });
 
     function playAudio() {
-        $('<audio id="chatAudio"><source src="/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
+        $('<audio id="chatAudio"><source src="/yiyao/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
 
         $('#chatAudio')[0].play(); //播放声音
     }

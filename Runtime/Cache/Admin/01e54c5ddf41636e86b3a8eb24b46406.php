@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>农乐汇-抓单宝</title>
+    <title>北极光-抓单宝</title>
     <link href="/Public/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="/Public/assets/css/style.css" rel="stylesheet">

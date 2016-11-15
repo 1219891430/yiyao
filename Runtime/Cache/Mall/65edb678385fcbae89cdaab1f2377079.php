@@ -26,7 +26,7 @@
 <!--头部-->
 <div class="top-wrap clearfix">
     <div class="w">
-        <div class="tw-l">欢迎来到农乐汇批发商城!</div>
+        <div class="tw-l">欢迎来到北极光批发商城!</div>
         <div class="tw-r">
             <?php if(session('cust_id') == null): ?>请<a class="top-login" href="/index.php/Mall/Member/login">登录</a>
 
@@ -49,7 +49,7 @@
     <div class="w clearfix">
         <div class="logo">
             <a href="/index.php/Mall/index">
-                <img src="/Public/assets/images/mall/logo.png">
+                <img src="/Public/assets/images/mall/logo.png" width="215" height="66">
             </a>
         </div>
         <div class="header-tit fl">批发商城</div>

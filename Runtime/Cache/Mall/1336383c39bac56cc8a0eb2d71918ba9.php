@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>B2B批发商城</title>
 
-    <link rel="stylesheet" href="/yiyao/Public/assets/css/mall/style.css">
-    <link rel="stylesheet" href="/yiyao/Public/assets/css/mall/animate.min.css">
-    <script type="text/javascript" src="/yiyao/Public/assets/js/mall/jquery-1.8.3.min.js"></script>
-    <script type="text/javascript" src="/yiyao/Public/assets/js/mall/shop-nav.js"></script>
-    <script type="text/javascript" src="/yiyao/Public/assets/js/mall/slide.js"></script>
-    <script type="text/javascript" src="/yiyao/Public/assets/js/mall/app.js"></script>
-    <script type="text/javascript" src="/yiyao/Public/assets/js/goods.js"></script>
-    <script src="/yiyao/Public/assets/js/jquery.lazyload.js"></script>
+    <link rel="stylesheet" href="/Public/assets/css/mall/style.css">
+    <link rel="stylesheet" href="/Public/assets/css/mall/animate.min.css">
+    <script type="text/javascript" src="/Public/assets/js/mall/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="/Public/assets/js/mall/shop-nav.js"></script>
+    <script type="text/javascript" src="/Public/assets/js/mall/slide.js"></script>
+    <script type="text/javascript" src="/Public/assets/js/mall/app.js"></script>
+    <script type="text/javascript" src="/Public/assets/js/goods.js"></script>
+    <script src="/Public/assets/js/jquery.lazyload.js"></script>
 
 </head>
 
@@ -26,7 +26,7 @@
 <!--头部-->
 <div class="top-wrap clearfix">
     <div class="w">
-        <div class="tw-l">欢迎来到农乐汇批发商城!</div>
+        <div class="tw-l">欢迎来到北极光批发商城!</div>
         <div class="tw-r">
             <?php if(session('cust_id') == null): ?>请<a class="top-login" href="/index.php/Mall/Member/login">登录</a>
 
@@ -49,7 +49,7 @@
     <div class="w clearfix">
         <div class="logo">
             <a href="/index.php/Mall/index">
-                <img src="/yiyao/Public/assets/images/mall/logo.png">
+                <img src="/Public/assets/images/mall/logo.png" width="215" height="66">
             </a>
         </div>
         <div class="header-tit fl">批发商城</div>
@@ -78,7 +78,7 @@
 <div class="headNav">
     <div class="navCon w">
         <div class="navCon-cate fl navCon_on">
-            <div class="navCon-cate-title"><a href="#"><img src="/yiyao/Public/assets/images/mall/nav-tit.png"></a></div>
+            <div class="navCon-cate-title"><a href="#"><img src="/Public/assets/images/mall/nav-tit.png"></a></div>
             <div id="cateMenu" class="cateMenu hidden">
                 <ul>
                     <?php if(is_array($class)): foreach($class as $key=>$vo): ?><li style="border-top:none;" class="">
@@ -146,8 +146,8 @@
         </div>
         <div class="navCon-menu fl">
             <ul>
-                <li><a href="/yiyao/index.php/Mall">首页</a></li> <!--当前栏目，加class="curMenu"-->
-                <li><a href="/yiyao/index.php/Mall/Member/index">个人中心</a></li>
+                <li><a href="/index.php/Mall">首页</a></li> <!--当前栏目，加class="curMenu"-->
+                <li><a href="/index.php/Mall/Member/index">个人中心</a></li>
             </ul>
         </div>
     </div>
@@ -162,17 +162,17 @@
 <div class="banner">
     <div class="swap">
         <ul id="slider">
-            <li style="background:url(/yiyao/Public/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
+            <li style="background:url(/Public/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
                 <div class="s-banner-con">
-                    <img class="nav1-wz animated fadeInLeft" src="/yiyao/Public/assets/images/mall/nav1-1.png">
-                    <img class="nav1-pic animated fadeInRight" src="/yiyao/Public/assets/images/mall/nav1-2.png">
+                    <img class="nav1-wz animated fadeInLeft" src="/Public/assets/images/mall/nav1-1.png">
+                    <img class="nav1-pic animated fadeInRight" src="/Public/assets/images/mall/nav1-2.png">
                     <a href="#" target="_blank"></a>
                 </div>
             </li>
-            <li style="background:url(/yiyao/Public/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
+            <li style="background:url(/Public/assets/images/mall/nav1-bg.jpg) center center no-repeat #00e0bc;">
                 <div class="s-banner-con">
-                    <img class="nav1-wz animated fadeInLeft" src="/yiyao/Public/assets/images/mall/nav1-1.png">
-                    <img class="nav1-pic animated fadeInRight" src="/yiyao/Public/assets/images/mall/nav1-2.png">
+                    <img class="nav1-wz animated fadeInLeft" src="/Public/assets/images/mall/nav1-1.png">
+                    <img class="nav1-pic animated fadeInRight" src="/Public/assets/images/mall/nav1-2.png">
                     <a href="#" target="_blank"></a>
                 </div>
             </li>
@@ -215,7 +215,7 @@
 <div class="ind-tit w">人气品牌</div>
 <div class="floor1 w clearfix">
     <div class="flr1-l">
-        <img src="/yiyao/Public/assets/images/mall/pic2.jpg" width="223" height="358">
+        <img src="/Public/assets/images/mall/pic2.jpg" width="223" height="358">
         <p>人气品牌街<br><small>Famous Brand</small></p>
     </div>
     <div class="flr1-r">
@@ -231,7 +231,7 @@
 <div class="floor w clearfix">
     <div class="flr-l">
         <div class="flr-t">
-            <img src="/yiyao/Public/assets/images/mall/pic3.jpg" width="232" height="377">
+            <img src="/Public/assets/images/mall/pic3.jpg" width="232" height="377">
         </div>
         <div class="flr-f">
             <div class="ind-l-nav">
@@ -268,7 +268,7 @@
             <div class="clearfix item-box">
                 <div class="item">
                     <a href="#">
-                        <img src="/yiyao/Public/assets/images/mall/pic.jpg">
+                        <img src="/Public/assets/images/mall/pic.jpg">
                         <i class="i-store"></i>
                         <p class="tit">河北泽农信息科技有限公司</p>
                     </a>
@@ -295,7 +295,7 @@
             </ul>
         </div>
         <div class="chge-ft">
-            <img src="/yiyao/Public/assets/images/mall/chg-ft.jpg">
+            <img src="/Public/assets/images/mall/chg-ft.jpg">
         </div>
     </div>
 </div>
@@ -323,7 +323,7 @@
 </div>
 <div class="copyright">
     <div class="w">
-        <p><a href="/yiyao/index.php/Mall/index.html">首页</a> |
+        <p><a href="/index.php/Mall/index.html">首页</a> |
             <a href="http://www.nlh360.com/article/61" target="_blank">关于我们</a> |
             <a href="http://company.zhaopin.com/CC324868137.htm" target="_blank">诚聘英才</a> |
             <a href="http://www.nlh360.com/" target="_blank">农乐汇商城</a> |

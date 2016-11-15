@@ -1,0 +1,61 @@
+[ 2016-11-15T08:56:10+08:00 ] ::1 /yiyao/index.php/Admin/GoodsInfo/add?r=1479171370373
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 158 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 157 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 156 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 155 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 154 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 153 )  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-15T09:00:38+08:00 ] 127.0.0.1 /index.php/Admin/Depot/addDealer?r=1479171638796
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_info` ORDER BY org_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
