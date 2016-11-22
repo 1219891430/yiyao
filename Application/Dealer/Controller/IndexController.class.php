@@ -150,7 +150,7 @@ class IndexController extends Controller {
 		session('role_id', NULL);
 		session("is_admin", NULL);
 		session("menu_dealer", NULL);
-		$this->redirect("index");
+		echo "<script>window.location='../Index/index';</script>";
 	}
 
 	/** 其他Action **/

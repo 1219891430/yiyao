@@ -20,6 +20,7 @@ class OrderReportController extends Controller {
 		$this->display();
     }
 	
+
 	public function goodsAction(){
 		//获得业务员
 		
@@ -42,12 +43,13 @@ class OrderReportController extends Controller {
 		$ends=$ends+24*3600;
 		
 		
-		$staff_id=I("get.staff_id",0);
+		$staff_id=I("get.staff",0);
+		
 		$shop=I("get.shop");
 		
 		$brand_id=I("get.brand_id",0);
 		
-		$maps['ord.create_time']=array(
+		$maps['ord.add_time']=array(
 				array(
 						'gt',$starts
 				),
@@ -61,7 +63,9 @@ class OrderReportController extends Controller {
 		
 		if($staff_id != 0){
 			$maps['ord.staff_id'] = $staff_id;
+			
 		}
+		$maps['ord.order_from'] = 2;
 		if($cust){
 			$maps['ord.cust_name'] = array("like","%$shop%");
 		}
@@ -71,9 +75,9 @@ class OrderReportController extends Controller {
 		if($goods_id){
 			$maps['gi.goods_id']=$goods_id;
 		}
-		$data=M("carsale_orders_goods")
+		$data=M("presale_orders_goods")
 		->alias("og")
-		->join("__CARSALE_ORDERS__ as ord on ord.order_id=og.order_id")
+		->join("__PRESALE_ORDERS__ as ord on ord.order_id=og.order_id")
 		->join("__ORG_GOODS_CONVERT__ as gc on gc.cv_id=og.cv_id")
 		->join("__GOODS_INFO__ as gi on gi.goods_id=og.goods_id")
 		->join("__GOODS_BRAND__ as gb on gb.brand_id=gi.brand_id")
@@ -112,6 +116,7 @@ class OrderReportController extends Controller {
 		if($staff_id != 0){
 			$twhere['a.staff_id'] = $staff_id;
 		}
+		$twhere['a.order_from'] = 2;
 		$twhere['a.org_parent_id'] = $org_parent_id;
 		if($cust){
 			$twhere['a.cust_name'] = array("like","%$shop%");
@@ -120,15 +125,15 @@ class OrderReportController extends Controller {
 			$twhere['c.brand_id']=$brand_id;
 		}
 		
-		$twhere["a.create_time"]=array(array("gt",$starts),array('lt',$ends));
+		$twhere["a.add_time"]=array(array("gt",$starts),array('lt',$ends));
 
 		if($goods_id){
 			$twhere['b.goods_id']=$goods_id;
 		}
-		$tfield = "a.cust_name,a.return_id,b.goods_id,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,b.goods_name,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num";
+		$tfield = "a.cust_name,a.return_id,b.goods_id,sum(b.goods_money * b.goods_num) as return_real_money,a.add_time as create_time,b.goods_name,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num";
 
-		$tdata=M("carsales_return a")
-				->join("zdb_carsales_return_goods b on a.return_id = b.return_id")
+		$tdata=M("presale_return a")
+				->join("zdb_presale_return_goods b on a.return_id = b.return_id")
 				->join("zdb_goods_info c on c.goods_id = b.goods_id")
 				->field($tfield)
 				->where($twhere)
@@ -157,7 +162,7 @@ class OrderReportController extends Controller {
 		 * 促销品汇总(获得所有的促销品)
 		 */
 		
-		$cuxiaomaps['ord.create_time']=array(
+		$cuxiaomaps['ord.add_time']=array(
 				array(
 						'gt',$starts
 				),
@@ -167,6 +172,7 @@ class OrderReportController extends Controller {
 		);
 		$cuxiaomaps['og.org_parent_id']=session("org_parent_id");
 		$cuxiaomaps['og.cuxiao']=1;
+		$cuxiaomaps['ord.order_from']=2;
 		
 		if($staff_id != 0){
 			$cuxiaomaps['ord.staff_id'] = $staff_id;
@@ -180,9 +186,9 @@ class OrderReportController extends Controller {
 		if($goods_id){
 			$cuxiaomaps['gi.goods_id']=$goods_id;
 		}
-		$cxdata=M("carsale_orders_goods")
+		$cxdata=M("presale_orders_goods")
 		->alias("og")
-		->join("__CARSALE_ORDERS__ as ord on ord.order_id=og.order_id")
+		->join("__PRESALE_ORDERS__ as ord on ord.order_id=og.order_id")
 		->join("__ORG_GOODS_CONVERT__ as gc on gc.cv_id=og.cv_id")
 		->join("__GOODS_INFO__ as gi on gi.goods_id=og.goods_id")
 		->join("__GOODS_BRAND__ as gb on gb.brand_id=gi.brand_id")
@@ -227,12 +233,13 @@ class OrderReportController extends Controller {
 		
 
 		if($staff_id != 0){
-			$whereShe["o.staff_id"] = $staff_id;
+			$whereShe["po.staff_id"] = $staff_id;
 		}
+		$whereShe["po.order_from"]=2;
 		if($cust){
 			$whereShe['o.cust_name'] = array("like","%$shop%");
 		}
-		$sData = M('carsale_orders o')
+		$sData = M('car_orders o')
 				->where($whereShe)
 				->where("
 					o.order_total_money > o.order_real_money
@@ -246,6 +253,7 @@ class OrderReportController extends Controller {
 						 sum(o.order_total_money) as totalm,
 						 sum(o.order_real_money) as realm
 					')
+				->join("__PRESALE_ORDERS__ as po on po.order_id=o.presale_order")
 				->group('o.cust_id')
 				->select();
 		
@@ -272,13 +280,13 @@ class OrderReportController extends Controller {
 		 * $starts
 		 * $ends
 		 */
-		$THdata=$this->getChangeGoodsSummary($org_parent_id,$starts,$ends,$_REQUEST['shop'],$staff_id);
-
-		
-		$this->assign('thIndata',$THdata['in']);
-		$this->assign('thOutdata',$THdata['out']);
-		$this->assign('in_money',$THdata['in_money']);
-		$this->assign('out_money',$THdata['out_money']);
+//		$THdata=$this->getChangeGoodsSummary($org_parent_id,$starts,$ends,$_REQUEST['shop'],$staff_id);
+//
+//		
+//		$this->assign('thIndata',$THdata['in']);
+//		$this->assign('thOutdata',$THdata['out']);
+//		$this->assign('in_money',$THdata['in_money']);
+//		$this->assign('out_money',$THdata['out_money']);
 		
 		
 		
@@ -291,6 +299,7 @@ class OrderReportController extends Controller {
 	
 
 		$this->display();
+		
 	}
 	
 	public function shopsAction(){
@@ -314,14 +323,14 @@ class OrderReportController extends Controller {
 		
 		
 		
-		$staff_id=I("get.staff_id",0);
+		$staff_id=I("get.staff",0);
 		$shop=I("get.shop");
 		
 		$brand_id=I("get.brand_id",0);
 		
 		
 		
-		$dmap['d.create_time']=array(
+		$dmap['d.add_time']=array(
 				array(
 						'gt',$starts
 				),
@@ -331,7 +340,7 @@ class OrderReportController extends Controller {
 		);
 		
 		$dmap['d.org_parent_id']=session("org_parent_id");
-		
+		$dmap['d.order_from'] = 2;
 		if($staff_id != 0){
 			$dmap['d.staff_id'] = $staff_id;
 		}
@@ -347,12 +356,12 @@ class OrderReportController extends Controller {
 	
 		// 商铺 名称
 		 
-		$data=M("carsale_orders_goods a")
+		$data=M("presale_orders_goods a")
 		->join("__GOODS_INFO__ as b on b.goods_id=a.goods_id")
-		->join("__CARSALE_ORDERS__ d on d.order_id = a.order_id")
+		->join("__PRESALE_ORDERS__ d on d.order_id = a.order_id")
 		->join("__GOODS_BRAND__ as c on c.brand_id = b.brand_id")
 		->where($dmap)
-		->field("a.cuxiao,sum(a.number) as num,sum(a.singleprice*a.number) as allprice,b.goods_spec,a.unit_name,a.good_name,a.singleprice,c.brand_name,d.cust_name,d.cust_id,a.goods_id,a.cv_id")
+		->field("a.cuxiao,sum(a.number) as num,sum(a.singleprice*a.number) as allprice,b.goods_spec,a.unit_name,a.goods_name as good_name,a.singleprice,c.brand_name,d.cust_name,d.cust_id,a.goods_id,a.cv_id")
 		->group("d.cust_id,a.cv_id,a.singleprice,a.cuxiao")
 		->order('a.singleprice desc')
 		->select();
@@ -377,7 +386,7 @@ class OrderReportController extends Controller {
 		/**
 		 * 退货数据开始（按商铺）
 		 */
-		$twhere['a.create_time']=array(
+		$twhere['a.add_time']=array(
 				array(
 						'gt',$starts
 				),
@@ -387,7 +396,7 @@ class OrderReportController extends Controller {
 		);
 		
 		$twhere['a.org_parent_id']=session("org_parent_id");
-		
+		$twhere['a.order_from'] = 2;
 		if($staff_id != 0){
 			$twhere['a.staff_id'] = $staff_id;
 		}
@@ -401,9 +410,9 @@ class OrderReportController extends Controller {
 			$twhere['b.goods_id']=$goods_id;
 		}
 		
-		$tfield = "a.cust_id,a.cust_name,a.return_id,a.real_money as return_real_moneys,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num";
-		$tdata=M("carsales_return a")
-				->join("zdb_carsales_return_goods b on a.return_id = b.return_id")
+		$tfield = "a.cust_id,a.cust_name,a.return_id,a.return_real_money as return_real_moneys,sum(b.goods_money * b.goods_num) as return_real_money,a.add_time as create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num";
+		$tdata=M("presale_return a")
+				->join("zdb_presale_return_goods b on a.return_id = b.return_id")
 				->join("zdb_goods_info g on g.goods_id=b.goods_id")
 				->field($tfield)
 				->where($twhere)
@@ -432,9 +441,10 @@ class OrderReportController extends Controller {
 		//赊账统计,sum(o.order_total_money) as total,sum(o.order_real_money) as real				 
 		$sData['o.org_parent_id'] = session("org_parent_id");
 		if($staff_id != 0){
-			$she['o.staff_id'] = $staff_id;
+			$she['po.staff_id'] = $staff_id;
 		}
-		$sData = M('carsale_orders o')->where($she)->where("
+		$she['po.order_from']=2;
+		$sData = M('car_orders o')->where($she)->where("
 					o.order_total_money > o.order_real_money
 					and o.org_parent_id = '$org_parent_id' 
 					and o.create_time > '$starts'
@@ -444,7 +454,9 @@ class OrderReportController extends Controller {
 						 o.cust_contact as contact,
 						 sum(o.order_total_money) as totalm,
 						 sum(o.order_real_money) as realm
-					')->group('o.cust_id')->select();
+					')
+					->join("__PRESALE_ORDERS__ as po on po.order_id=o.presale_order")
+					->group('o.cust_id')->select();
 		$snum = array();
 		foreach ($sData as $k => $v) {
 			$sData[$k]['nopay'] = $v['totalm'] - $v['realm'];
@@ -463,11 +475,11 @@ class OrderReportController extends Controller {
 		 * $starts
 		 * $ends
 		 */
-		$resTHdata=$this->getChangeGoodsReport($org_parent_id,$starts,$ends,$_REQUEST['shop'],$staff_id);
+		//$resTHdata=$this->getChangeGoodsReport($org_parent_id,$starts,$ends,$_REQUEST['shop'],$staff_id);
 		
 		if(!empty($_REQUEST['start']) && !empty($_REQUEST['end'])){
-		$this->assign('THdata',$resTHdata['data']);
-		$this->assign('thnum',$resTHdata['thnum']);
+//		$this->assign('THdata',$resTHdata['data']);
+//		$this->assign('thnum',$resTHdata['thnum']);
 		
 		
 		

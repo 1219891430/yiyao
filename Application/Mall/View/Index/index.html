@@ -46,9 +46,9 @@
         <div class="slide-r-cont2">
             <h3>今日推荐</h3>
             <div class="slide-r-pic">
-                <a href="#">
-                    <img src="images/pic.jpg" width="100" height="100">
-                    <p>厂商批发 冻干太空零食 无添加</p>
+                <a href="/index.php/Mall/Search?word=<php>echo $goods[5]['goods_name'];</php>">
+                    <img src="{:C('GOODS_IMG')}<php>echo $goods[5]['main_img'];</php>" width="100" height="100">
+                    <p><php>echo $goods[5]["goods_name"];</php></p>
                 </a>
             </div>
         </div>
@@ -56,7 +56,7 @@
 </div>
 
 <!--品牌-->
-<div class="ind-tit w">人气品牌</div>
+<div class="ind-tit w">品牌专区</div>
 <div class="floor1 w clearfix">
     <div class="flr1-l">
         <img src="__PUBLIC__/assets/images/mall/pic2.jpg" width="223" height="358">
@@ -73,7 +73,7 @@
 </div>
 
 <!--楼层-->
-<div class="ind-tit w">热销百货市场</div>
+<div class="ind-tit w">热销推荐</div>
 <div class="floor w clearfix">
     <div class="flr-l">
         <div class="flr-t">
@@ -86,9 +86,9 @@
                 </volist>
             </div>
             <div class="brand2">
-                <volist name="brands" id="vo">
+                <volist name="brands2" id="vo">
                     <a href="/index.php/Mall/Search?brand={$vo.brand_id}">
-                        <img class="lazy" width="180px" height="70px" data-original="{:C('BRAND_IMG')}{$vo.brand_logo}">
+                        <img class="lazy" width="180px" height="120px" data-original="{:C('BRAND_IMG')}{$vo.brand_logo}">
                     </a>
                 </volist>
             </div>
@@ -124,7 +124,7 @@
                     <a href="#">
                         <img src="__PUBLIC__/assets/images/mall/pic.jpg">
                         <i class="i-store"></i>
-                        <p class="tit">河北泽农信息科技有限公司</p>
+                        <p class="tit">河北北极光科技有限公司</p>
                     </a>
                 </div>
 

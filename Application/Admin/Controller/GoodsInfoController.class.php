@@ -223,6 +223,11 @@ class GoodsInfoController extends BaseController {
 		$goods_code=I("post.goods_code");
 		$goods_brand=I("post.goods_brand");
 		$goods_class=I("post.goods_class");
+		$ok_time=I("post.ok_time");
+		$ok_time=strtotime($ok_time);
+		$license_number=I("post.license_number");
+		$manufacture_factory=I("post.manufacture_factory");
+		
         $goods_desc = I("post.editorValue");
 		
 		$goods_convert_s=I("post.goods_convert_s");
@@ -265,6 +270,11 @@ class GoodsInfoController extends BaseController {
 		$data["good"]["goods_code"]=$goods_code;
 		$data["good"]["goods_name"]=$goods_name;
 		$data["good"]["goods_spec"]=$goods_spec;
+		
+		$data["good"]["ok_time"]=$ok_time;
+		$data["good"]["license_number"]=$license_number;
+		$data["good"]["manufacture_factory"]=$manufacture_factory;
+		
 		$data["good"]["brand_id"]=$goods_brand;
 		$data["good"]["class_id"]=$goods_class;
 		$data["good"]["goods_desc"]=$goods_desc;
@@ -455,6 +465,13 @@ class GoodsInfoController extends BaseController {
 		$goods_name=I("post.goods_name");
 		$goods_spec=I("post.goods_spec");
 		$goods_code=I("post.goods_code");
+		
+		$ok_time=I("post.ok_time");
+		$ok_time=strtotime($ok_time);
+		$license_number=I("post.license_number");
+		$manufacture_factory=I("post.manufacture_factory");
+		
+		
 		$goods_brand=I("post.goods_brand");
 		$goods_class=I("post.goods_class");
         $goods_desc = I("post.editorValue");
@@ -490,6 +507,12 @@ class GoodsInfoController extends BaseController {
 		$data["good"]["goods_code"]=$goods_code;
 		$data["good"]["goods_name"]=$goods_name;
 		$data["good"]["goods_spec"]=$goods_spec;
+		
+		$data["good"]["ok_time"]=$ok_time;
+		$data["good"]["license_number"]=$license_number;
+		$data["good"]["manufacture_factory"]=$manufacture_factory;
+		
+		
 		$data["good"]["brand_id"]=$goods_brand;
 		$data["good"]["class_id"]=$goods_class;
         $data["good"]["goods_desc"]=$goods_desc;

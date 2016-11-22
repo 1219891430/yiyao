@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>B2B批发商城</title>
+    <title>B2B医药商城</title>
 
     <link rel="stylesheet" href="/Public/assets/css/mall/style.css">
     <link rel="stylesheet" href="/Public/assets/css/mall/animate.min.css">
@@ -26,7 +26,7 @@
 <!--头部-->
 <div class="top-wrap clearfix">
     <div class="w">
-        <div class="tw-l">欢迎来到北极光批发商城!</div>
+        <div class="tw-l">欢迎来到北极光医药商城!</div>
         <div class="tw-r">
             <?php if(session('cust_id') == null): ?>请<a class="top-login" href="/index.php/Mall/Member/login">登录</a>
 
@@ -39,8 +39,8 @@
             <?php if(session('cust_id') == null): else: ?>
                 <span class="gy-l">|</span>
                 <a class="top-login" href="/index.php/Mall/Member/logout">退出</a><?php endif; ?>
-            <span class="gy-l">|</span>
-            <a href="javascript:void(0)" id="choiceDepot" class="top-login">选择仓库</a>
+            <!--<span class="gy-l">|</span>
+            <a href="javascript:void(0)" id="choiceDepot" class="top-login">选择仓库</a>-->
 
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <img src="/Public/assets/images/mall/logo.png" width="215" height="66">
             </a>
         </div>
-        <div class="header-tit fl">批发商城</div>
+        <div class="header-tit fl">医药商城</div>
         <div class="top-r">
             <div class="search-w">
                 <form method="GET" action="/index.php/Mall/Search">
@@ -313,16 +313,16 @@
 <div class="copyright">
     <div class="w">
         <p><a href="/index.php/Mall/index.html">首页</a> |
-            <a href="http://www.nlh360.com/article/61" target="_blank">关于我们</a> |
-            <a href="http://company.zhaopin.com/CC324868137.htm" target="_blank">诚聘英才</a> |
-            <a href="http://www.nlh360.com/" target="_blank">农乐汇商城</a> |
-            <a href="http://www.nlh360.com/article/63" target="_blank">合作洽谈</a> |
-            <a href="http://www.nlh360.com/article/64" target="_blank">农乐汇优势</a>
+            <a href="#" target="_blank">关于我们</a> |
+            <a href="#" target="_blank">诚聘英才</a> |
+            <a href="#" target="_blank">商城</a> |
+            <a href="#" target="_blank">合作洽谈</a> |
+            <a href="#" target="_blank">优势</a>
         </p>
-        <p>
+        <!--<p>
             CopyRight @ 2016 河北泽农信息科技有限公司 增值电信业务经营许可证：冀B2-20160058 网站备案：冀ICP备15028980号
             <span style="display: none;"><script src="http://s4.cnzz.com/z_stat.php?id=1257011767&web_id=1257011767" language="JavaScript"></script></span>
-        </p>
+        </p>-->
     </div>
 </div>
 
@@ -330,13 +330,18 @@
 
     $(function () {
         // 未登录弹出选择仓库
-        <?php if(empty($_SESSION['mall_depot_id'])): ?>$(".bomb-bg").fadeToggle();
-
-
-        $('.depot_choice').click(function () {
-            $(this).addClass('hover')
-            $(this).sibling().removeClass('hover')
-        })<?php endif; ?>
+//      <?php if(empty($_SESSION['mall_depot_id'])): ?>//
+//              $(".bomb-bg").fadeToggle();
+//
+//
+//      $('.depot_choice').click(function () {
+//          $(this).addClass('hover')
+//          $(this).sibling().removeClass('hover')
+//      })
+//
+//
+//
+//<?php endif; ?>
     })
 
     $("#choiceDepot").click(function () {

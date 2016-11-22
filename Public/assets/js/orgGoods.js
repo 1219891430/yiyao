@@ -163,6 +163,54 @@ function queryGoodsList(url, brand, goods, depot_id, cust_id, staff_id)
 	});
 }
 
+
+// 检索商品, 根据品牌，商品名称检查
+// 仓库ID为了查询库存(后台)
+// 业务员ID，客户ID是为了查询上次交易价格
+// convert_data 代表商品单位信息, 里面有 num 库存 和 last_base_price 上次交易价格
+function queryGoodsListOrg(url, brand, goods, depot_id, cust_id, staff_id,org_id)
+{
+	console.log(org_id);
+	$.ajax({
+		url:url,
+		type:"post",
+		dataType:"json",
+		data:{brand:brand, goods:goods, depot_id:depot_id, cust_id:cust_id, staff_id:staff_id,org_id:org_id},
+		success:function(data){
+			
+			// 清空商品筛选列表
+			$("#goods_search tbody").empty()
+			if(data["res"]==0) { alert("暂无数据"); return; }
+			
+			// 循环商品列表
+			var conHTML = "";
+			$.each(data["data"],function(i){	
+				
+				// 商品信息
+				var goods_id = data["data"][i]["goods_id"];
+				var goods_code = data['data'][i]['goods_code'];
+				var goods_name = data["data"][i]['goods_name'];
+				var goods_spec = data['data'][i]['goods_spec'];
+				
+				// 商品单位信息, 单位ID, 单位名称, 价格goods_base_price, 库存num, 上次交易价格last_base_price
+				var convert_data = JSON.stringify(data['data'][i]['convert_data']);
+
+				// 拼接商品HTML
+				conHTML += "<tr>";
+				conHTML += "<td class='tc'><input class='check_mt0' value='"+goods_id+"' type='checkbox'></td>";
+				conHTML += "<td>"+goods_name+goods_spec+"</td>";
+				conHTML += "<input class='goods_code' type='hidden' value='"+goods_code+"'>";
+				conHTML += "<input class='goods_name' type='hidden' value='"+goods_name+"'>";
+				conHTML += "<input class='goods_spec' type='hidden' value='"+goods_spec+"'>";
+				conHTML += "<input class='cv_data' type='hidden' value='"+convert_data+"'>";
+				conHTML += "</tr>";
+			});
+			$("#goods_search tbody").append(conHTML);
+		}
+	});
+}
+
+
 // 拼接无库存HTNL
 // is_show_stock是否显示库存, 1显示, 0不显示
 // is_show_last_price是否显示上次交易价格, 1显示, 0不显示

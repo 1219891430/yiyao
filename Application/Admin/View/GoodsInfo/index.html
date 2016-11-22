@@ -9,6 +9,7 @@
 <link href="__PUBLIC__/assets/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="__PUBLIC__/assets/css/style.css" rel="stylesheet">
 <link href="__PUBLIC__/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="__PUBLIC__/assets/css/manhuaDate.1.0.css" rel="stylesheet">
 <!--[if lt IE 9]>
 <script src="__PUBLIC__/assets/js/html5shiv.min.js"></script>
 <script src="__PUBLIC__/assets/js/respond.min.js"></script>
@@ -16,6 +17,7 @@
 <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="__PUBLIC__/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/assets/js/manhuaDate.1.0.js"></script>
 <!--<script type="text/javascript" src="__PUBLIC__/assets/js/jquery-form.js"></script>-->
 <!-- <script type="text/javascript" src="__PUBLIC__/assets/js/jquery-messages_cn.js"></script> -->
 <script type="text/javascript" src="__PUBLIC__/assets/js/zstb.js"></script>
@@ -74,6 +76,7 @@
                 <tr>
                    
                     <td width="20%">产品名称</td>
+                    <td width="9%">规格</td>
                     <td width="9%">品类</td>
                     <td width="9%">品牌</td>
                     <td width="7%">小包装</td>
@@ -89,7 +92,8 @@
                 <volist name="goods" id="vo">
                   <tr>
                     
-                    <td>{$vo.goods_name}/{$vo.goods_spec}</td>
+                    <td>{$vo.goods_name}</td>
+                    <td>{$vo.goods_spec}</td>
                     <td>{$vo.class_name}</td>
                     <td>{$vo.brand_name}</td>
                     <td>{$vo.goods_unit_s}<eq name="vo.goods_small_unit_default" value="1">&nbsp;<span style="color:#FF0000">(默认)</span></eq></td>
@@ -174,6 +178,19 @@
 </div>
 
 <script type="text/javascript">
+
+$(function(){
+        $("#ok_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+   })
+
 var i=0;
     $("#checkedgoods").click(function(){
     	

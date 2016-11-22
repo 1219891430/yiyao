@@ -17,7 +17,7 @@ class BaseController extends Controller{
 
     public function __construct(){
         parent::__construct();
-
+        session('mall_depot_id',1);
         $depot = queryDepot();
 
         $this->assign('depot', $depot);

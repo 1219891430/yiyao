@@ -9,11 +9,11 @@
 
 return array(
 
-	'1' => array('name' => '商品总库', 'icon' => 'left-bg-base', 'subclass' => array(
-		'11' => array('subname' => '商品品类', 'controller' => 'GoodsCategory',	'action' => 'index'),
-		'12' => array("subname" => '商品品牌', 'controller' => 'GoodsBrand',		'action' => 'index'),
-		'13' => array("subname" => '商品总库', 'controller' => 'GoodsInfo',		'action' => 'index'),
-        '14' => array("subname" => '商品预警', 'controller' => 'GoodsWarning',	'action' => 'warning_view'),
+	'1' => array('name' => '药品总库', 'icon' => 'left-bg-base', 'subclass' => array(
+		'11' => array('subname' => '药品品类', 'controller' => 'GoodsCategory',	'action' => 'index'),
+		'12' => array("subname" => '药品品牌', 'controller' => 'GoodsBrand',		'action' => 'index'),
+		'13' => array("subname" => '药品总库', 'controller' => 'GoodsInfo',		'action' => 'index'),
+        '14' => array("subname" => '药品预警', 'controller' => 'GoodsWarning',	'action' => 'warning_view'),
         //'15' => array("subname" => '菜单管理', 'controller' => 'Menu',	'action' => 'index')
 	)),
 
@@ -37,10 +37,10 @@ return array(
 		'45' => array("subname" => '仓库经销商',	'controller' => 'Depot',	'action' => 'dealer')
 	)),
 
-    '5' => array('name' => '商品库存', 'icon' => 'left-bg-goods', 'subclass' => array(
-        '51' => array("subname" => '商品入库',	'controller' => 'DepotIn',		'action' => 'index'),
-        '52' => array("subname" => '商品出库',	'controller' => 'DepotOut',		'action' => 'index'),
-        '53' => array("subname" => '商品库存',	'controller' => 'DepotStock',	'action' => 'index'),
+    '5' => array('name' => '药品库存', 'icon' => 'left-bg-goods', 'subclass' => array(
+        '51' => array("subname" => '药品入库',	'controller' => 'DepotIn',		'action' => 'index'),
+        '52' => array("subname" => '药品出库',	'controller' => 'DepotOut',		'action' => 'index'),
+        '53' => array("subname" => '药品库存',	'controller' => 'DepotStock',	'action' => 'index'),
         '54' => array("subname" => '仓库日志',	'controller' => 'DepotLog',		'action' => 'index')
     )),
 	
@@ -70,8 +70,8 @@ return array(
 		'81' => array('subname' => '赊款管理',	'controller' => 'SheQian',			'action' => 'index')
 	)),
 
-    '9' => array('name' => '站点管理', 'icon' => 'left-bg-goods', 'subclass' => array(
-        '91' => array('subname' => '信息管理',	'controller' => 'Msg',			'action' => 'index')
-    )),
+//  '9' => array('name' => '站点管理', 'icon' => 'left-bg-goods', 'subclass' => array(
+//      '91' => array('subname' => '信息管理',	'controller' => 'Msg',			'action' => 'index')
+//  )),
 );
 /*************************** end **********************************/

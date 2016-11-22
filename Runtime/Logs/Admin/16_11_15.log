@@ -59,3 +59,240 @@ INFO: [ app_end ] --START--
 INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
 INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
 
+[ 2016-11-15T15:45:24+08:00 ] 127.0.0.1 /index.php/Admin/GoodsBrand/edit?r=1479195923944&id=5
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+NOTIC: [8] Undefined index: depot_list D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 69 行.
+NOTIC: [8] Undefined index: depot_parent D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 70 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE `brand_id` = 5 LIMIT 1   [ RunTime:0.2070s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\3c88c3cad62a4dc0863895330f67877a.php 第 40 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\3c88c3cad62a4dc0863895330f67877a.php 第 48 行.
+NOTIC: [8] Undefined variable: brand_info D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\3c88c3cad62a4dc0863895330f67877a.php 第 52 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.061000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.061000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-15T16:17:29+08:00 ] 127.0.0.1 /index.php/Admin/Area/add/r/1479197849203
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_area` [ RunTime:0.0100s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined variable: data D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2eb415b7b6961923fb13b7ffd0654d4a.php 第 20 行.
+NOTIC: [8] Undefined variable: data D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2eb415b7b6961923fb13b7ffd0654d4a.php 第 24 行.
+NOTIC: [8] Undefined variable: data D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2eb415b7b6961923fb13b7ffd0654d4a.php 第 28 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-15T16:18:05+08:00 ] 127.0.0.1 /index.php/Admin/Depot/editDepot/r/1479197885384?repertory_id=2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-15T16:18:09+08:00 ] 127.0.0.1 /index.php/Admin/Depot/editDepot/r/1479197889319?repertory_id=1
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-15T16:18:20+08:00 ] 127.0.0.1 /index.php/Admin/Depot/editDepot/r/1479197900064?repertory_id=2
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_id` = 2 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+NOTIC: [8] Use of undefined constant repertory_id - assumed 'repertory_id' D:\xampp\htdocs\yiyao\Runtime\Cache\Admin\2bad77cb64e220d33be63169629c0bd7.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-15T16:18:28+08:00 ] 127.0.0.1 /index.php/Admin/Depot/delDepot.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` WHERE ( depot_id=2 AND small_stock>0 ) LIMIT 1   [ RunTime:0.0000s ]
+SQL: DELETE FROM `zdb_depot_info` WHERE `repertory_id` = 2 [ RunTime:0.0660s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-15T16:51:37+08:00 ] 127.0.0.1 /index.php/Admin/DepotIn/add?r=1479199897649
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_org` [ RunTime:0.0080s ]
+SQL: SELECT o.* FROM zdb_depot_org do INNER JOIN zdb_org_info as o on do.org_parent_id = o.org_id  WHERE ( do.repertory_id = 1 ) ORDER BY o.org_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_brand` WHERE ( is_close = 0 ) ORDER BY brand_id asc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE `repertory_parent` = 0 AND `repertory_id` = 1 ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_parent = 1 ) ORDER BY repertory_id asc  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-15T16:51:37+08:00 ] 127.0.0.1 /index.php/Admin/DepotIn/getBrandByOrg.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT distinct zdb_goods_brand.brand_id,zdb_goods_brand.brand_name FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.org_parent_id = '1'  [ RunTime:0.0060s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-15T17:22:40+08:00 ] 127.0.0.1 /index.php/Admin/Index/refreshCache.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.010000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.010000s ]
+
+[ 2016-11-15T17:55:49+08:00 ] 127.0.0.1 /index.php/Admin/GoodsInfo/add?r=1479203749177
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\xampp\htdocs\yiyao\Application\Admin\Controller\BaseController.class.php 第 40 行.
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_brand`  [ RunTime:0.0030s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_class` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE `parent_class` = 0  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 158 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 157 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 156 )  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 155 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 154 )  [ RunTime:0.0010s ]
+SQL: SELECT * FROM `zdb_goods_class` WHERE ( parent_class = 153 )  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+

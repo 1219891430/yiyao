@@ -5,20 +5,22 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>北极光-抓单宝</title>
-<link href="/yiyao/Public/assets/css/bootstrap.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/style.css" rel="stylesheet">
-<link href="/yiyao/Public/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Public/assets/css/bootstrap.css" rel="stylesheet">
+<link href="/Public/assets/css/bootstrap-responsive.css" rel="stylesheet">
+<link href="/Public/assets/css/style.css" rel="stylesheet">
+<link href="/Public/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/Public/assets/css/manhuaDate.1.0.css" rel="stylesheet">
 <!--[if lt IE 9]>
-<script src="/yiyao/Public/assets/js/html5shiv.min.js"></script>
-<script src="/yiyao/Public/assets/js/respond.min.js"></script>
+<script src="/Public/assets/js/html5shiv.min.js"></script>
+<script src="/Public/assets/js/respond.min.js"></script>
 <![endif]-->
-<script type="text/javascript" src="/yiyao/Public/assets/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/jquery.validate.min.js"></script>
-<!--<script type="text/javascript" src="/yiyao/Public/assets/js/jquery-form.js"></script>-->
-<!-- <script type="text/javascript" src="/yiyao/Public/assets/js/jquery-messages_cn.js"></script> -->
-<script type="text/javascript" src="/yiyao/Public/assets/js/zstb.js"></script>
+<script type="text/javascript" src="/Public/assets/js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/manhuaDate.1.0.js"></script>
+<!--<script type="text/javascript" src="/Public/assets/js/jquery-form.js"></script>-->
+<!-- <script type="text/javascript" src="/Public/assets/js/jquery-messages_cn.js"></script> -->
+<script type="text/javascript" src="/Public/assets/js/zstb.js"></script>
 <style>
 	.li-width li{
 		width:90px;
@@ -33,7 +35,7 @@
 <div id="top">
 <div class="navbar">
 <div class="navbar-inner">
-<div class="logo"><img src="/yiyao/Public/assets/images/logoG.png" /></div>
+<div class="logo"><img src="/Public/assets/images/logoG.png" /></div>
 <ul class="pull-right navInfo">
     <?php if($_SESSION['depot_id'] > 0): ?><li><a href="<?php echo U('Admin/GoodsWarning/warning_view');?>" class="head_goods_warning" id="head_warning">预警提示
         <?php if(!empty($_COOKIE['warning_count'])): ?><span class="badge bg_red"><?php echo ($_COOKIE['warning_count']); ?></span><?php endif; ?>
@@ -104,7 +106,7 @@
                 <div class="fr">
                     <a class="btn btn-primary bg_3071a9" href="javascript:void(0)" id="cre_goods" role="button">创建</a>
                     
-                    <a class="btn btn-primary bg_3071a9" href="/yiyao/index.php/Admin/GoodsInfo/index/explode/explode" id="explode" role="button">导出</a>
+                    <a class="btn btn-primary bg_3071a9" href="/index.php/Admin/GoodsInfo/index/explode/explode" id="explode" role="button">导出</a>
                    
                 </div>
             </div>
@@ -196,7 +198,7 @@
             </table>
             <!--表格查询结束-->
             <!--分页查询开始-->
-          <?php echo W('Page/page',array("/yiyao/index.php/Admin/GoodsInfo/index",$pnum,$pagelist,$urlPara));?>
+          <?php echo W('Page/page',array("/index.php/Admin/GoodsInfo/index",$pnum,$pagelist,$urlPara));?>
 
             <!--分页查询结束-->
         </div>
@@ -204,7 +206,7 @@
     
     </div>
 </div>
-<div id="await" class="await"><span> <img src="/yiyao/Public/assets/images/loding.gif" title="加载图片"/></span></div>
+<div id="await" class="await"><span> <img src="/Public/assets/images/loding.gif" title="加载图片"/></span></div>
 <!--弹出层开始-->
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div id="modal-con" class="modal-dialog modal_850 ">
@@ -213,6 +215,19 @@
 </div>
 
 <script type="text/javascript">
+
+$(function(){
+        $("#ok_time").manhuaDate({
+            Event : "click",//可选
+            Left : 0,//弹出时间停靠的左边位置
+            Top : -16,//弹出时间停靠的顶部边位置
+            fuhao : "-",//日期连接符默认为-
+            isTime : false,//是否开启时间值默认为false
+            beginY : 2014,//年份的开始默认为1949
+            endY :2049//年份的结束默认为2049
+        });
+   })
+
 var i=0;
     $("#checkedgoods").click(function(){
     	
@@ -229,33 +244,33 @@ var i=0;
 $(".goods_warning").click(function () {
     var data={gid:$(this).attr("attr"), gname:$(this).attr('name')};
 
-    ajaxDataPara("/yiyao/index.php/Admin/GoodsWarning/warning",data);
+    ajaxDataPara("/index.php/Admin/GoodsWarning/warning",data);
 })
     
     		
     $(".goods_edit").click(function(){
         var data={gid:$(this).attr("attr")};
 
-        ajaxDataPara("/yiyao/index.php/Admin/GoodsInfo/edit",data);
+        ajaxDataPara("/index.php/Admin/GoodsInfo/edit",data);
     })
 
     $(".goods_set_org").click(function(){
         var data={gid:$(this).attr("attr")};
 
-        ajaxDataPara("/yiyao/index.php/Admin/GoodsInfo/setorg",data);
+        ajaxDataPara("/index.php/Admin/GoodsInfo/setorg",data);
     })
     	
     $(".area").click(function(){
         var data={goods_id:$(this).attr("attr")};
 
-        ajaxDataPara("/yiyao/index.php/Admin/GoodsInfo/area",data);
+        ajaxDataPara("/index.php/Admin/GoodsInfo/area",data);
     })	
     
     $("#cre_goods").click(function(){
-        ajaxData("/yiyao/index.php/Admin/GoodsInfo/add");
+        ajaxData("/index.php/Admin/GoodsInfo/add");
     })
     $("#selPro").click(function(){
-        location.href="/yiyao/index.php/Admin/GoodsInfo/index/bid/"+$("#op_brand").val()+"/cid/"+$("#op_class").val()+"/gid/"+$("#op_name").val();
+        location.href="/index.php/Admin/GoodsInfo/index/bid/"+$("#op_brand").val()+"/cid/"+$("#op_class").val()+"/gid/"+$("#op_name").val();
     })
     
 
@@ -264,20 +279,20 @@ $(".goods_warning").click(function () {
         if(confirm("是否删除该产品,商品删除后相关单据数据为空"))
         {
             var data={gid:$(this).attr("attr")};
-            ajaxDataAUD("/yiyao/index.php/Admin/GoodsInfo/del",data,true);
+            ajaxDataAUD("/index.php/Admin/GoodsInfo/del",data,true);
         }
     })
     $(".goods_close").click(function(){
             var data={gid:$(this).attr("attrid"),type:$(this).attr("attr")};
-            ajaxDataAUD("/yiyao/index.php/Admin/GoodsInfo/close",data,true);
+            ajaxDataAUD("/index.php/Admin/GoodsInfo/close",data,true);
     })
     $("#import").click(function(){
-        ajaxData("/yiyao/index.php/Admin/GoodsInfo/import");
+        ajaxData("/index.php/Admin/GoodsInfo/import");
     })
     $('#explode').click(function(){
 
 		
-		//ajaxDataPara("/yiyao/index.php/Admin/GoodsInfo/edit_pwd",data);
+		//ajaxDataPara("/index.php/Admin/GoodsInfo/edit_pwd",data);
 	})
     
     $(".goods_pass").click(function(){
@@ -285,7 +300,7 @@ $(".goods_warning").click(function () {
     		var goods_id=$(this).attr("attr");
     		var data={goods_id:goods_id};
     		console.log(data);
-    		$.post("/yiyao/index.php/Admin/GoodsInfo/setPass",data,function(res){
+    		$.post("/index.php/Admin/GoodsInfo/setPass",data,function(res){
     			if(res.res==1){
     				alert(res.msg);
     				location.reload();
@@ -302,7 +317,7 @@ $(".goods_warning").click(function () {
     		var goods_id=$(this).attr("attr");
     		var data={goods_id:goods_id};
     		console.log(data);
-    		$.post("/yiyao/index.php/Admin/GoodsInfo/setOffPass",data,function(res){
+    		$.post("/index.php/Admin/GoodsInfo/setOffPass",data,function(res){
     			if(res.res==1){
     				alert(res.msg);
     				location.reload();
@@ -315,8 +330,8 @@ $(".goods_warning").click(function () {
     });
 
 </script>
-<script src="/yiyao/Public/assets/js/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="/yiyao/Public/assets/js/timer.js"></script>
+<script src="/Public/assets/js/jquery.cookie.min.js"></script>
+<script type="text/javascript" src="/Public/assets/js/timer.js"></script>
 <script type="text/javascript">
 
     $(function(){
@@ -338,7 +353,7 @@ $(".goods_warning").click(function () {
     });
 
     function playAudio() {
-        $('<audio id="chatAudio"><source src="/yiyao/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
+        $('<audio id="chatAudio"><source src="/Public/assets/sound/zhuoling.wav" type="audio/mpeg"></audio> ').appendTo('body');//载入声音文件
 
         $('#chatAudio')[0].play(); //播放声音
     }

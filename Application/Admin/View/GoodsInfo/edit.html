@@ -97,6 +97,25 @@
                 </td>
                     
                 </tr>
+                
+                <tr>
+                    <td>有效期至</td><td>
+                    <input type="text" readonly="readonly" value="{$res.ok_time|date='Y-m-d',###}"  class="form-control w200 cursor-pointer" id="ok_time" name="ok_time"
+                           placeholder="请选择时间">
+                </td>
+                    <td>批准文号</td><td>
+                    <input type="text"  value="{$res.license_number}"  class="form-control w200 cursor-pointer" name="license_number" id="license_number" />
+                    
+                </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>生产厂家</td>
+                    <td colspan="5"><input type="text" id="manufacture_factory" value="{$res.manufacture_factory}" name="manufacture_factory" class="w300 form-control"/></td>
+                </tr>
+                
+                
                 <!--<tr>
                     <td>备注</td>
                     <td colspan="5"><input type="text" maxlength="15" name="gremark" class="w300 form-control"/></td>

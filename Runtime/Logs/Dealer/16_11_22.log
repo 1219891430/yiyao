@@ -1,0 +1,678 @@
+[ 2016-11-22T08:50:59+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T08:50:59+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:15:18+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:15:19+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:16:52+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:16:52+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:16+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:16+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:18+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:18+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:31+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:17:31+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:36:22+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:36:22+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:36:24+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:36:24+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:55:03+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:55:03+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T09:55:06+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:24:48+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781488656&cv_id=47
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 47 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.093000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.093000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:24:57+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setDefaultUnit.html?gid=19&uid=1&r=1479781497234
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `unit_default`='0' WHERE `org_parent_id` = 1 AND `goods_id` = 19 [ RunTime:0.0330s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `unit_default`='1' WHERE `org_parent_id` = 1 AND `goods_id` = 19 AND `goods_unit_type` = 1 [ RunTime:0.0090s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:00+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setDefaultUnit.html?gid=18&uid=3&r=1479781500824
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0180s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `unit_default`='0' WHERE `org_parent_id` = 1 AND `goods_id` = 18 [ RunTime:0.0010s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `unit_default`='1' WHERE `org_parent_id` = 1 AND `goods_id` = 18 AND `goods_unit_type` = 3 [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:04+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781504439&cv_id=47
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 47 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-22T10:25:15+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0180s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 47 [ RunTime:0.0290s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:20+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781520224&cv_id=46
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 46 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-22T10:25:26+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 46 [ RunTime:0.0000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-22T10:25:30+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781530575&cv_id=45
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.010000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 45 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.012000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.012000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:36+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 45 [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-22T10:25:40+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781540887&cv_id=44
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0120s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 44 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:46+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 44 [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:25:49+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781549208&cv_id=43
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 43 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002000s ]
+
+[ 2016-11-22T10:25:56+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0190s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 43 [ RunTime:0.0020s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:26:00+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPrice?r=1479781559887&cv_id=42
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_goods_convert` WHERE `cv_id` = 42 AND `org_parent_id` = 1 LIMIT 1   [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-22T10:26:05+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsPrices/setPriceEx
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+NOTIC: [2] Illegal offset type in isset or empty D:\xampp\htdocs\yiyao\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `zdb_org_goods_convert` SET `goods_base_price`='100',`goods_jin_price`='10' WHERE `org_parent_id` = 1 AND `cv_id` = 42 [ RunTime:0.0010s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-22T10:34:19+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:34:20+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:35:56+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:45:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:45:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:48:48+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:48:48+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:54:42+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:54:42+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:55:10+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'ord.create_time' in 'where clause'
+ [ SQL语句 ] : SELECT gb.brand_id,gb.brand_name,gi.goods_name as good_name,gc.goods_unit as unit_name,og.singleprice,gi.goods_spec,sum(og.number) as number,sum(og.number*og.singleprice) as allprice FROM zdb_presale_orders_goods og INNER JOIN zdb_presale_orders as ord on ord.order_id=og.order_id INNER JOIN zdb_org_goods_convert as gc on gc.cv_id=og.cv_id INNER JOIN zdb_goods_info as gi on gi.goods_id=og.goods_id INNER JOIN zdb_goods_brand as gb on gb.brand_id=gi.brand_id  WHERE ( ord.create_time > 1477929600 AND ord.create_time < 1480521600  ) AND og.org_parent_id = '1' AND og.cuxiao = 0 AND ord.order_from = 2 GROUP BY 
+				og.cv_id,og.singleprice
+				 ORDER BY gb.brand_id,good_name,unit_name,singleprice 
+
+[ 2016-11-22T10:57:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'ord.create_time' in 'where clause'
+ [ SQL语句 ] : SELECT gb.brand_id,gb.brand_name,gi.goods_name as good_name,gc.goods_unit as unit_name,og.singleprice,gi.goods_spec,sum(og.number) as number,sum(og.number*og.singleprice) as allprice FROM zdb_presale_orders_goods og INNER JOIN zdb_presale_orders as ord on ord.order_id=og.order_id INNER JOIN zdb_org_goods_convert as gc on gc.cv_id=og.cv_id INNER JOIN zdb_goods_info as gi on gi.goods_id=og.goods_id INNER JOIN zdb_goods_brand as gb on gb.brand_id=gi.brand_id  WHERE ( ord.create_time > 1477929600 AND ord.create_time < 1480521600  ) AND og.org_parent_id = '1' AND og.cuxiao = 0 AND ord.order_from = 2 GROUP BY 
+				og.cv_id,og.singleprice
+				 ORDER BY gb.brand_id,good_name,unit_name,singleprice 
+
+[ 2016-11-22T10:57:24+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'ord.create_time' in 'where clause'
+ [ SQL语句 ] : SELECT gb.brand_id,gb.brand_name,gi.goods_name as good_name,gc.goods_unit as unit_name,og.singleprice,gi.goods_spec,sum(og.number) as number,sum(og.number*og.singleprice) as allprice FROM zdb_presale_orders_goods og INNER JOIN zdb_presale_orders as ord on ord.order_id=og.order_id INNER JOIN zdb_org_goods_convert as gc on gc.cv_id=og.cv_id INNER JOIN zdb_goods_info as gi on gi.goods_id=og.goods_id INNER JOIN zdb_goods_brand as gb on gb.brand_id=gi.brand_id  WHERE ( ord.create_time > 1477929600 AND ord.create_time < 1480521600  ) AND og.org_parent_id = '1' AND og.cuxiao = 0 AND ord.order_from = 2 GROUP BY 
+				og.cv_id,og.singleprice
+				 ORDER BY gb.brand_id,good_name,unit_name,singleprice 
+
+[ 2016-11-22T10:58:01+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.create_time' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_name,a.return_id,b.goods_id,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,b.goods_name,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info c on c.goods_id = b.goods_id  WHERE a.order_from = 2 AND a.org_parent_id = '1' AND ( a.create_time > 1477929600 AND a.create_time < 1480521600  ) GROUP BY a.cust_name,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T10:58:40+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.create_time' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_name,a.return_id,b.goods_id,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,b.goods_name,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info c on c.goods_id = b.goods_id  WHERE a.order_from = 2 AND a.org_parent_id = '1' AND ( a.add_time > 1477929600 AND a.add_time < 1480521600  ) GROUP BY a.cust_name,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T10:59:26+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'og.order_from' in 'where clause'
+ [ SQL语句 ] : SELECT gb.brand_id,gb.brand_name,gi.goods_name as good_name,gc.goods_unit as unit_name,gc.goods_base_price,gi.goods_spec,sum(og.number) as number,sum(og.number*gc.goods_base_price) as allprice FROM zdb_presale_orders_goods og INNER JOIN zdb_presale_orders as ord on ord.order_id=og.order_id INNER JOIN zdb_org_goods_convert as gc on gc.cv_id=og.cv_id INNER JOIN zdb_goods_info as gi on gi.goods_id=og.goods_id INNER JOIN zdb_goods_brand as gb on gb.brand_id=gi.brand_id  WHERE ( ord.add_time > 1477929600 AND ord.add_time < 1480521600  ) AND og.org_parent_id = '1' AND og.cuxiao = 1 AND og.order_from = 2 GROUP BY 
+				og.cv_id,gc.goods_base_price
+				 ORDER BY gb.brand_id,good_name,unit_name,singleprice 
+
+[ 2016-11-22T10:59:56+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T10:59:56+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:32:36+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:35:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/goodss.html?start=2016-11-01&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column '__PRESALE_ORDERS__.order_id' in 'where clause'
+ [ SQL语句 ] : SELECT o.cust_name,o.cust_contact as contact,sum(o.order_total_money) as totalm,sum(o.order_real_money) as realm FROM zdb_car_orders o WHERE ( 
+					o.order_total_money > o.order_real_money
+					and o.org_parent_id = '1'
+					and o.is_full_pay = 0 
+					and o.create_time > '1477929600'
+					and o.create_time < '1480521600' 
+					and o.presale_order=__PRESALE_ORDERS__.order_id
+					 ) GROUP BY o.cust_id 
+
+[ 2016-11-22T13:37:04+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:37:53+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:37:53+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:37:56+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:37:56+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:00+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:00+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:05+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:05+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:16+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:19+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:19+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:38:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:15+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:15+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:20+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:20+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:23+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:39:23+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:02+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:02+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:32+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:32+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:35+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:37+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:37+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:39+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:39+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:40:43+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:42:30+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:42:31+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:00+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:01+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:02+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:05+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:05+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:06+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:08+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:09+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:09+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:11+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:12+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:13+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:14+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:17+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:20+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:21+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:22+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:25+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:26+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:42+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:43:42+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:46:22+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:46:23+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:46:35+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:46:45+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:46:45+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T13:51:51+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.good_name' in 'field list'
+ [ SQL语句 ] : SELECT a.cuxiao,sum(a.number) as num,sum(a.singleprice*a.number) as allprice,b.goods_spec,a.unit_name,a.good_name,a.singleprice,c.brand_name,d.cust_name,d.cust_id,a.goods_id,a.cv_id FROM zdb_presale_orders_goods a INNER JOIN zdb_goods_info as b on b.goods_id=a.goods_id INNER JOIN zdb_presale_orders d on d.order_id = a.order_id INNER JOIN zdb_goods_brand as c on c.brand_id = b.brand_id  WHERE ( d.create_time > 1478707200 AND d.create_time < 1480521600  ) AND d.org_parent_id = '1' GROUP BY d.cust_id,a.cv_id,a.singleprice,a.cuxiao ORDER BY a.singleprice desc 
+
+[ 2016-11-22T13:56:46+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'd.create_time' in 'where clause'
+ [ SQL语句 ] : SELECT a.cuxiao,sum(a.number) as num,sum(a.singleprice*a.number) as allprice,b.goods_spec,a.unit_name,a.goods_name as good_name,a.singleprice,c.brand_name,d.cust_name,d.cust_id,a.goods_id,a.cv_id FROM zdb_presale_orders_goods a INNER JOIN zdb_goods_info as b on b.goods_id=a.goods_id INNER JOIN zdb_presale_orders d on d.order_id = a.order_id INNER JOIN zdb_goods_brand as c on c.brand_id = b.brand_id  WHERE ( d.create_time > 1478707200 AND d.create_time < 1480521600  ) AND d.org_parent_id = '1' GROUP BY d.cust_id,a.cv_id,a.singleprice,a.cuxiao ORDER BY a.singleprice desc 
+
+[ 2016-11-22T13:57:06+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1146:Table 'yiyao.zdb_presales_return' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `zdb_presales_return`
+
+[ 2016-11-22T13:57:58+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.real_money' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_id,a.cust_name,a.return_id,a.real_money as return_real_moneys,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info g on g.goods_id=b.goods_id  WHERE ( a.create_time > 1478707200 AND a.create_time < 1480521600  ) AND a.org_parent_id = '1' GROUP BY a.cust_id,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T14:00:26+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.create_time' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_id,a.cust_name,a.return_id,a.return_real_money,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info g on g.goods_id=b.goods_id  WHERE ( a.create_time > 1478707200 AND a.create_time < 1480521600  ) AND a.org_parent_id = '1' GROUP BY a.cust_id,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T14:00:49+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.create_time' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_id,a.cust_name,a.return_id,a.return_real_money,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info g on g.goods_id=b.goods_id  WHERE ( a.add_time > 1478707200 AND a.add_time < 1480521600  ) AND a.org_parent_id = '1' GROUP BY a.cust_id,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T14:03:09+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/shops.html?start=2016-11-10&end=2016-11-30&shop=&brand_id=0&goods_id=0&staff=0&g_id=
+ERR: 1054:Unknown column 'a.create_time' in 'field list'
+ [ SQL语句 ] : SELECT a.cust_id,a.cust_name,a.return_id,a.return_real_money as return_real_moneys,sum(b.goods_money * b.goods_num) as return_real_money,a.create_time,g.goods_name,g.goods_spec,b.goods_unit,b.goods_money,sum(b.goods_num) as goods_num FROM zdb_presale_return a INNER JOIN zdb_presale_return_goods b on a.return_id = b.return_id INNER JOIN zdb_goods_info g on g.goods_id=b.goods_id  WHERE ( a.add_time > 1478707200 AND a.add_time < 1480521600  ) AND a.org_parent_id = '1' GROUP BY a.cust_id,b.cv_id,b.goods_money ORDER BY b.goods_money desc 
+
+[ 2016-11-22T14:04:50+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:04:50+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:17:27+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:17:43+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:28+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:36+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:36+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:39+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:39+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:18:58+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:19:01+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:19:06+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:19:47+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:19:52+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:22:34+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:22:38+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:22:47+08:00 ] 127.0.0.1 /index.php/Dealer/OrderReport/table.css
+ERR: 非法操作:table.css
+
+[ 2016-11-22T14:41:07+08:00 ] 127.0.0.1 /index.php/Dealer/SheQian/index.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+ [ SQL语句 ] : SELECT * FROM `zdb_org_staff` WHERE ( role_id=3 and org_parent_id= ) 
+

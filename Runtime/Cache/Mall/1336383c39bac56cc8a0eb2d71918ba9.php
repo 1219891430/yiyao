@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>B2B批发商城</title>
+    <title>B2B医药商城</title>
 
     <link rel="stylesheet" href="/Public/assets/css/mall/style.css">
     <link rel="stylesheet" href="/Public/assets/css/mall/animate.min.css">
@@ -26,7 +26,7 @@
 <!--头部-->
 <div class="top-wrap clearfix">
     <div class="w">
-        <div class="tw-l">欢迎来到北极光批发商城!</div>
+        <div class="tw-l">欢迎来到北极光医药商城!</div>
         <div class="tw-r">
             <?php if(session('cust_id') == null): ?>请<a class="top-login" href="/index.php/Mall/Member/login">登录</a>
 
@@ -39,8 +39,8 @@
             <?php if(session('cust_id') == null): else: ?>
                 <span class="gy-l">|</span>
                 <a class="top-login" href="/index.php/Mall/Member/logout">退出</a><?php endif; ?>
-            <span class="gy-l">|</span>
-            <a href="javascript:void(0)" id="choiceDepot" class="top-login">选择仓库</a>
+            <!--<span class="gy-l">|</span>
+            <a href="javascript:void(0)" id="choiceDepot" class="top-login">选择仓库</a>-->
 
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <img src="/Public/assets/images/mall/logo.png" width="215" height="66">
             </a>
         </div>
-        <div class="header-tit fl">批发商城</div>
+        <div class="header-tit fl">医药商城</div>
         <div class="top-r">
             <div class="search-w">
                 <form method="GET" action="/index.php/Mall/Search">
@@ -202,9 +202,9 @@
         <div class="slide-r-cont2">
             <h3>今日推荐</h3>
             <div class="slide-r-pic">
-                <a href="#">
-                    <img src="images/pic.jpg" width="100" height="100">
-                    <p>厂商批发 冻干太空零食 无添加</p>
+                <a href="/index.php/Mall/Search?word=<?php echo $goods[5]['goods_name']; ?>">
+                    <img src="<?php echo C('GOODS_IMG'); echo $goods[5]['main_img']; ?>" width="100" height="100">
+                    <p><?php echo $goods[5]["goods_name"]; ?></p>
                 </a>
             </div>
         </div>
@@ -212,7 +212,7 @@
 </div>
 
 <!--品牌-->
-<div class="ind-tit w">人气品牌</div>
+<div class="ind-tit w">品牌专区</div>
 <div class="floor1 w clearfix">
     <div class="flr1-l">
         <img src="/Public/assets/images/mall/pic2.jpg" width="223" height="358">
@@ -227,7 +227,7 @@
 </div>
 
 <!--楼层-->
-<div class="ind-tit w">热销百货市场</div>
+<div class="ind-tit w">热销推荐</div>
 <div class="floor w clearfix">
     <div class="flr-l">
         <div class="flr-t">
@@ -238,8 +238,8 @@
                 <?php if(is_array($classes)): $i = 0; $__LIST__ = array_slice($classes,0,4,true);if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$class): $mod = ($i % 2 );++$i;?><a href="/index.php/Mall/Search?cat=<?php echo ($class["class_id"]); ?>"><?php echo ($class["class_name"]); ?></a><?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
             <div class="brand2">
-                <?php if(is_array($brands)): $i = 0; $__LIST__ = $brands;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/index.php/Mall/Search?brand=<?php echo ($vo["brand_id"]); ?>">
-                        <img class="lazy" width="180px" height="70px" data-original="<?php echo C('BRAND_IMG'); echo ($vo["brand_logo"]); ?>">
+                <?php if(is_array($brands2)): $i = 0; $__LIST__ = $brands2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><a href="/index.php/Mall/Search?brand=<?php echo ($vo["brand_id"]); ?>">
+                        <img class="lazy" width="180px" height="120px" data-original="<?php echo C('BRAND_IMG'); echo ($vo["brand_logo"]); ?>">
                     </a><?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
         </div>
@@ -270,7 +270,7 @@
                     <a href="#">
                         <img src="/Public/assets/images/mall/pic.jpg">
                         <i class="i-store"></i>
-                        <p class="tit">河北泽农信息科技有限公司</p>
+                        <p class="tit">河北北极光科技有限公司</p>
                     </a>
                 </div>
 
@@ -324,16 +324,16 @@
 <div class="copyright">
     <div class="w">
         <p><a href="/index.php/Mall/index.html">首页</a> |
-            <a href="http://www.nlh360.com/article/61" target="_blank">关于我们</a> |
-            <a href="http://company.zhaopin.com/CC324868137.htm" target="_blank">诚聘英才</a> |
-            <a href="http://www.nlh360.com/" target="_blank">农乐汇商城</a> |
-            <a href="http://www.nlh360.com/article/63" target="_blank">合作洽谈</a> |
-            <a href="http://www.nlh360.com/article/64" target="_blank">农乐汇优势</a>
+            <a href="#" target="_blank">关于我们</a> |
+            <a href="#" target="_blank">诚聘英才</a> |
+            <a href="#" target="_blank">商城</a> |
+            <a href="#" target="_blank">合作洽谈</a> |
+            <a href="#" target="_blank">优势</a>
         </p>
-        <p>
+        <!--<p>
             CopyRight @ 2016 河北泽农信息科技有限公司 增值电信业务经营许可证：冀B2-20160058 网站备案：冀ICP备15028980号
             <span style="display: none;"><script src="http://s4.cnzz.com/z_stat.php?id=1257011767&web_id=1257011767" language="JavaScript"></script></span>
-        </p>
+        </p>-->
     </div>
 </div>
 
@@ -341,13 +341,18 @@
 
     $(function () {
         // 未登录弹出选择仓库
-        <?php if(empty($_SESSION['mall_depot_id'])): ?>$(".bomb-bg").fadeToggle();
-
-
-        $('.depot_choice').click(function () {
-            $(this).addClass('hover')
-            $(this).sibling().removeClass('hover')
-        })<?php endif; ?>
+//      <?php if(empty($_SESSION['mall_depot_id'])): ?>//
+//              $(".bomb-bg").fadeToggle();
+//
+//
+//      $('.depot_choice').click(function () {
+//          $(this).addClass('hover')
+//          $(this).sibling().removeClass('hover')
+//      })
+//
+//
+//
+//<?php endif; ?>
     })
 
     $("#choiceDepot").click(function () {

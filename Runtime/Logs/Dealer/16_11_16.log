@@ -1,0 +1,651 @@
+[ 2016-11-16T11:08:27+08:00 ] 127.0.0.1 /index.php/Dealer/Route/sd_selRoute
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_action_position` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_customer_weihu` [ RunTime:0.0050s ]
+SQL: SELECT shop_id as shopid,cust_name as shopname,`address`,`longitude`,`dimension`,add_time as entertime,`type` FROM `zdb_customer_weihu` INNER JOIN zdb_customer_info on zdb_customer_info.cust_id=zdb_customer_weihu.shop_id  WHERE ( `add_time` > 1479225600 AND `add_time` < 1479312000  ) AND `saleman_id` = '0' ORDER BY entertime desc  [ RunTime:0.0140s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-16T16:04:12+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479283452274
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0100s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-16T16:04:18+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleBack/add?r=1479283458421
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE ( role_id=3 and org_parent_id=1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT `repertory_id`,`repertory_name` FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2016-11-16T16:26:38+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0156s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6' AND ds.org_parent_id = '1'  [ RunTime:0.0312s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0156s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 8 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 8 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 8 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 9 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 9 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 9 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 12 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 12 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 12 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 13 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 13 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 13 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:26:40+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '10' AND ds.org_parent_id = '1'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 16 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 16 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 16 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:26:41+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '16' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 14 AND `org_parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 14 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 14 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:26:43+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '12' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:26:49+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '10' AND ds.org_parent_id = '1'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0040s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 16 AND `org_parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 16 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 16 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:26:51+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0090s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '12' AND ds.org_parent_id = '1'  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:27:40+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '12' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 19 AND `org_parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 19 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 19 AND `depot_id` = 0 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:29:07+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479284947824
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0070s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0030s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.011000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.011000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003000s ]
+
+[ 2016-11-16T16:29:10+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '7' AND ds.org_parent_id = '1'  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 4 AND `org_parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0070s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 4 LIMIT 1   [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 4 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 10 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 10 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:29:46+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479284986129
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0100s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0010s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-16T16:29:49+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '7' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0040s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 4 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 4 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 4 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 10 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 10 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0156s ]
+
+[ 2016-11-16T16:32:57+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479285177571
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0090s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0080s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-16T16:33:00+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 1 AND `org_parent_id` = 1  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 1 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 2 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 2 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 2 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 3 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 3 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 3 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 11 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 11 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 11 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:35:53+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479285353662
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.004000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0080s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0150s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-16T16:36:45+08:00 ] 127.0.0.1 /index.php/Dealer/CarsaleApply/add?r=1479285405034
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_depot_info` WHERE ( repertory_id= 1 )  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_staff` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_org_staff` WHERE `org_parent_id` = 1 AND `role_id` = 3 ORDER BY staff_id desc  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_brand` [ RunTime:0.0060s ]
+SQL: SELECT DISTINCT gb.brand_id,gb.brand_name,gb.remark,`brand_logo` FROM zdb_goods_brand gb INNER JOIN zdb_goods_info as gi on gb.brand_id=gi.brand_id INNER JOIN zdb_depot_stock as ds on gi.goods_id=ds.goods_id  WHERE `org_parent_id` = '1'  [ RunTime:0.0020s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2016-11-16T16:36:47+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '7' AND ds.org_parent_id = '1'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 4 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 4 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_depot_stock` [ RunTime:0.0050s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 4 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 10 AND `org_parent_id` = 1  [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_goods_info` WHERE `goods_id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT * FROM `zdb_depot_stock` WHERE `goods_id` = 10 AND `depot_id` = 1 LIMIT 1   [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:37:25+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '9'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 15 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:37:27+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 8 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 9 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:37:30+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '14'  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:38:06+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 1 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 2 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 3 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:41:15+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0220s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 1 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 2 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 3 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:41:17+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0040s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0030s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 8 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 9 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:41:19+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0000s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '15'  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:41:39+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0080s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '12'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 19 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:44:25+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '5'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 1 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 2 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 3 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:44:44+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0000s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0156s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 8 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 9 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:44:52+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '8'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0040s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 5 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 6 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:45:00+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '14'  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:45:07+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.003000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '8'  [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 5 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 6 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+
+[ 2016-11-16T16:45:36+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '13'  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:48:46+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '6'  [ RunTime:0.0020s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0060s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 8 AND `org_parent_id` = null  [ RunTime:0.0000s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 9 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:48:52+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.002000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0060s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '10'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 16 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:48:55+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.001000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '14'  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:48:57+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.000000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0050s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0050s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '16'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 14 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+
+[ 2016-11-16T16:50:25+08:00 ] 127.0.0.1 /index.php/Dealer/GoodsInfo/selGoodsAndStock.html
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: Run Common\Behavior\MainBehavior [ RunTime:0.001000s ]
+INFO: [ action_begin ] --END-- [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_info` [ RunTime:0.0060s ]
+SQL: SHOW COLUMNS FROM `zdb_goods_product` [ RunTime:0.0040s ]
+SQL: SELECT zdb_goods_info.*,zdb_depot_area.area_name as goods_area FROM `zdb_goods_info` left join zdb_depot_area_goods on zdb_goods_info.goods_id=zdb_depot_area_goods.goods_id left join zdb_depot_area on zdb_depot_area.area_id=zdb_depot_area_goods.area_id left join zdb_depot_stock as ds on zdb_goods_info.goods_id=ds.goods_id  WHERE `is_close` = 0 AND `brand_id` = '16'  [ RunTime:0.0010s ]
+SQL: SHOW COLUMNS FROM `zdb_org_goods_convert` [ RunTime:0.0050s ]
+SQL: SELECT `cv_id`,`goods_id`,`goods_unit`,`unit_default`,`goods_unit_type`,`goods_jin_price`,`goods_base_price` FROM `zdb_org_goods_convert` WHERE `goods_id` = 14 AND `org_parent_id` = null  [ RunTime:0.0010s ]
+

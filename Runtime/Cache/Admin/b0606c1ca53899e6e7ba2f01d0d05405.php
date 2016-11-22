@@ -10,7 +10,7 @@
         </h4>
     </div>
     
-    <form action="/yiyao/index.php/Admin/GoodsInfo/addex" id="goods_form" method="post" enctype="multipart/form-data">
+    <form action="/index.php/Admin/GoodsInfo/addex" id="goods_form" method="post" enctype="multipart/form-data">
         <div class="modal-body modal_850">
             <table class="table no_border">
                 <thead>
@@ -76,10 +76,24 @@
                 </td>
                     
                 </tr>
-                <!--<tr>
-                    <td>备注</td>
-                    <td colspan="5"><input type="text" maxlength="15" name="gremark" class="w300 form-control"/></td>
-                </tr>-->
+                
+                
+                <tr>
+                    <td>有效期至</td><td>
+                    <input type="text" readonly="readonly" value=""  class="form-control w200 cursor-pointer" id="ok_time" name="ok_time"
+                           placeholder="请选择时间">
+                </td>
+                    <td>批准文号</td><td>
+                    <input type="text"  value=""  class="form-control w200 cursor-pointer" name="license_number" id="license_number" />
+                    
+                </td>
+                    
+                </tr>
+                
+                <tr>
+                    <td>生产厂家</td>
+                    <td colspan="5"><input type="text" id="manufacture_factory" name="manufacture_factory" class="w300 form-control"/></td>
+                </tr>
                 <tr>
                     <td colspan="3">&nbsp;</td>
                 </tr>
@@ -150,11 +164,11 @@
     </div>
 
     <!---ueditor--->
-    <script type="text/javascript" charset="utf-8" src="/yiyao/Public/assets/plugs/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/yiyao/Public/assets/plugs/ueditor/ueditor.all.min.js"> </script>
-    <script type="text/javascript" charset="utf-8" src="/yiyao/Public/assets/plugs/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/assets/plugs/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/Public/assets/plugs/ueditor/ueditor.all.min.js"> </script>
+    <script type="text/javascript" charset="utf-8" src="/Public/assets/plugs/ueditor/lang/zh-cn/zh-cn.js"></script>
 
-    <script type="text/javascript" src="/yiyao/Public/assets/js/validate_form.js"></script>
+    <script type="text/javascript" src="/Public/assets/js/validate_form.js"></script>
     <script type="text/javascript">
 
         var ue = UE.getEditor('editor');
@@ -167,12 +181,12 @@
                 return;
             }
             var data={code:code};
-            $.get("/yiyao/index.php/Admin/GoodsInfo/barcode",data, function (data) {
+            $.get("/index.php/Admin/GoodsInfo/barcode",data, function (data) {
             	
                 if (data.status) {
                     //$("#barcode_input").attr("disabled", true)
 
-                    $("#barcode_img").html('<img src="/yiyao/Public/'+ data.path +'">')
+                    $("#barcode_img").html('<img src="/Public/'+ data.path +'">')
 
                     $("#code128").modal('show')
 
@@ -307,7 +321,7 @@
         /*function submit_goods_add(){
             var data= $("#goods_form").serialize();
             
-            ajaxDataAUD("/yiyao/index.php/Admin/GoodsInfo/addex",data,true);
+            ajaxDataAUD("/index.php/Admin/GoodsInfo/addex",data,true);
         }*/
        
     </script>

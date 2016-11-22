@@ -363,48 +363,6 @@
                 </tfoot>
             </table>
             <!-- 退货 -->
-            
-            <!-- 调换货 -->
-            <table border="1px" cellpadding="0" cellspacing="0" width="100%">
-            <thead>
-                    <tr>
-                        <td width="20%">调换货统计(商铺)</td>
-                        <td width="20%"><b>产品</b></td>
-                        <td width="10%"><b>单位</b></td>
-                        <td width="10%"><b>单价</b></td>
-                        <td width="15%"><b>总数量</b></td>
-                        <td width="10%"><b>总金额</b></td>
-                        <td width="10%"><b>类型</b></td>
-                    </tr>
-                </thead>
-                <tbody class="f12">
-                    <volist name="THdata" id="d">
-                        <tr >
-                            <td rowspan="<php>echo count($d['data'])</php>">{$d.cust_name}</td>
-                            <volist name="d.data" id="ds">
-                                    <td>{$ds.goods_name}({$ds.goods_spec})</td>
-                                    <td>{$ds.goods_unit}</td>
-                                    <td>{$ds.singleprice}</td>
-                                    <td>{$ds.sumnumber}</td>
-                                    <td><php>echo number_format($ds['singleprice']*$ds["sumnumber"]);</php>元</td>
-                                    <td><php>if($ds["is_change_in"]){echo '换回';}else{echo '调出';}</php></td>
-                                </tr>
-                            </volist>
-                        <tr>
-                            <td style="text-align:right;font-weight:bold" colspan="7">小结<php>if($d["totalmoney"]<0){echo '（收入）';}else{ echo '（支出）';}</php>：<span style="color:blue;font-weight:bold">{$d.totalmoney|abs} </span>元&nbsp;</td> 
-                        </tr>
-                        </tr>
-                    </volist>
-                    <tr>                 
-                       <td style="text-align:right;font-weight:bold" colspan="7">总收入：<span style="color:red;font-weight:bold">{$thnum.in_num}</span>&nbsp;&nbsp;&nbsp;&nbsp;总支出：<span style="color:red;font-weight:bold">{$thnum.out_num}</span> &nbsp;&nbsp;&nbsp;&nbsp;调换货差价<php>if($thnum['thnum']<0){echo '（收入）';}else{ echo '（支出）';}</php>：<span style="color:red;font-weight:bold">{$thnum.thnum|abs}</span>元&nbsp;</td> 
-                    </tr>
-                </tbody>
-                 <tfoot>
-                </tfoot>
-            </table>
-            <!-- 调换货 -->
-
-            
 
 </div>    
 

@@ -249,7 +249,6 @@ class DepotController extends BaseController {
         $query['repertory_id'] = I('get.repertory_id');
 
         $this->assign('query',$query);
-
         if($this->_depot_id > 0) {
             $where['db.repertory_id'] = $this->_depot_id;
         }

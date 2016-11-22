@@ -63,9 +63,9 @@ class IndexController extends BaseController {
 
         //热销品牌
         $brands = getHotBrand($depot_id, 15);
+        $brands2=getHotBrand($depot_id, 9);
         
-        
-        
+        $this->assign('brands2', $brands2);
         $this->assign('brands', $brands);
 
         //print_r($brands);die();

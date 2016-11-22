@@ -1,0 +1,4 @@
+[ 2016-11-22T09:36:36+08:00 ] 127.0.0.1 /index.php/Admin/DepotStock/index.html
+ERR: 1064:You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `zdb_depot_stock` INNER JOIN zdb_goods_info on zdb_goods_info.goods_id=zdb_depot_stock.goods_id INNER JOIN zdb_goods_brand on zdb_goods_brand.brand_id=zdb_goods_info.brand_id  WHERE zdb_depot_stock.depot_id IN () LIMIT 1  
+

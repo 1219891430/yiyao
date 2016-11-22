@@ -109,6 +109,34 @@ class PresaleOrderController extends BaseController {
 		$this->display();
     }
 
+	public function addAction(){
+        $time=date("Y-m-d H:i");
+        $code=create_uniqid_code("PO");
+        
+        if(IS_GET)
+        {
+        	$aDepot=M("depot_info")->where("repertory_id= ".$_SESSION['depot_id'] )->select();
+
+            $this->assign("depotList",$aDepot);
+//			$org_parent_id=session("org_parent_id");
+//          $aStaff = queryOrgStaff($org_parent_id,'3');
+
+            $mBrand = new \Common\Model\GoodsBrandModel();
+            $aBrand=$mBrand->getGoodsBrandList();
+            $this->assign("brand",$aBrand);
+            $this->assign("code",$code);
+            $this->assign("time",$time);
+            
+            $orglist=M("org_info")->where("is_close=0")->select();
+            
+            $this->assign("orglist",$orglist);
+            //$this->assign("staff_name",session("staff_name"));
+            $this->display();
+        }
+
+       
+        
+    }
     // 查看
     public function lookAction() {
     	
@@ -154,7 +182,59 @@ class PresaleOrderController extends BaseController {
     }
 	
 	/** 其他Action **/
+    public function selGoodsAndStockAction()
+    {
+    	$iBrandId=I("post.brand",1);
+    	$iClassId=I("post.class_id",0);
+    	$depot_id=I("post.depot_id",1);
+    	$sGoods=I("post.goods","");
+		$org_parent_id=I("post.org_id");
+		
 
+    	$mGoods=new \Common\Model\GoodsInfoModel();
+    	$mConvert=M("goods_product");
+    	$aGoods=$mGoods->selGoods($iBrandId,$iClassId,$sGoods,0,0,$org_parent_id);
+//  	$aFiled=array("cv_id,goods_id,goods_cv,goods_code,goods_unit,goods_unit_type,goods_jin_price,goods_base_price,goods_min_price,goods_max_price,goods_last_price");
+    	for($i=0;$i<count($aGoods);$i++) {
+			
+			
+			$where["goods_id"]=$aGoods[$i]["goods_id"];
+			$where["org_parent_id"]=$org_parent_id;
+			$orgConvertlist=M("org_goods_convert")->field("cv_id,goods_id,goods_unit,unit_default,goods_unit_type,goods_jin_price,goods_base_price")->where($where)->select();
+			if($orgConvertlist){
+				$where1["goods_id"]=$aGoods[$i]["goods_id"];
+				$goodsRes=M("goods_info")->where($where1)->find();
+			
+				$where2["goods_id"]=$aGoods[$i]["goods_id"];
+				$where2["depot_id"]=$depot_id;
+				$depotStockRes=M("depot_stock")->where($where2)->find();
+			
+				foreach($orgConvertlist as $k=>$v){
+					if($v["goods_unit_type"]==1){
+						$orgConvertlist[$k]["num"]=$depotStockRes["small_stock"];
+					}elseif($v["goods_unit_type"]==2){
+						$orgConvertlist[$k]["num"]=floor($depotStockRes["small_stock"]/$goodsRes['goods_convert_m']);
+					}elseif($v["goods_unit_type"]==3){
+						$orgConvertlist[$k]["num"]=floor($depotStockRes["small_stock"]/($goodsRes['goods_convert_m']*$goodsRes['goods_convert_b']));
+					}
+				
+				}
+				if($orgConvertlist[$k]["num"]==null){
+					$orgConvertlist[$k]["num"]=0;
+				}
+    	    	$aGoods[$i]["convert_data"]=$orgConvertlist;
+			}else{
+				unset($aGoods[$i]);
+			}
+			
+    	}
+        
+        if($aGoods)
+    	   $this->aReturn=array("res"=>1,"data"=>$aGoods,"count"=>count($aGoods));
+    	else
+    	   $this->aReturn=array("res"=>0);
+    	echo $this->ajaxReturn($this->aReturn,"json");
+    }
 
 }
 
